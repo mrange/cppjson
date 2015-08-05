@@ -16,6 +16,7 @@ namespace cpp_json { namespace parser
   template<typename string_type>
   struct json_tokens
   {
+    // TODO: Convert to string_type
     json_tokens ()
       : token__eos                  (L"EOS"        )
       , token__null                 (L"null"       )

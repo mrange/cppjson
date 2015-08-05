@@ -135,6 +135,89 @@ namespace cpp_json { namespace standard
   {
     constexpr auto default_size = 16U         ;
 
+    struct json_element_visitor__to_string : json_element_visitor
+    {
+      stringstream_type value;
+
+      void visit (json_element__null    & /*v*/) override
+      {
+        value << L"null";
+      }
+
+      void visit (json_element__bool    & v) override
+      {
+        value << (v.value ? L"true" : L"false");
+      }
+
+      void visit (json_element__number  & v) override
+      {
+        // TODO: invariant culture
+        value << v.value;
+      }
+
+      void visit (json_element__string  & v) override
+      {
+        // TODO: escaping
+        value << '"' << v.value << '"';
+      }
+
+      void visit (json_element__array   & v) override
+      {
+        value << '[';
+        auto sz = v.value.size ();
+        for (auto iter = 0U; iter < sz; ++iter)
+        {
+          if (iter > 0U)
+          {
+            value << L", ";
+          }
+
+          auto && c = v.value[iter];
+          if (c)
+          {
+            c->apply (*this);
+          }
+          else
+          {
+            value << L"null";
+          }
+        }
+        value << ']';
+      }
+
+      void visit (json_element__object  & v) override
+      {
+        value << '{';
+        auto sz = v.value.size ();
+        for (auto iter = 0U; iter < sz; ++iter)
+        {
+          if (iter > 0U)
+          {
+            value << L", ";
+          }
+
+          auto && kv  = v.value[iter];
+
+          auto && k   = std::get<0> (kv);
+          auto && c   = std::get<1> (kv);
+
+          // TODO: escaping
+          value << '"' << k << '"';
+
+          value << ':';
+
+          if (c)
+          {
+            c->apply (*this);
+          }
+          else
+          {
+            value << L"null";
+          }
+        }
+        value << '}';
+      }
+    };
 
     struct json_element_context
     {
@@ -162,7 +245,6 @@ namespace cpp_json { namespace standard
       virtual bool add_value (json_element::ptr const & json) override
       {
         CPP_JSON__ASSERT (json);
-        CPP_JSON__ASSERT (!json);
         value = json;
 
         return true;
@@ -178,6 +260,7 @@ namespace cpp_json { namespace standard
       virtual json_element::ptr get_element () override
       {
         CPP_JSON__ASSERT (value);
+
         return value;
       }
 
@@ -302,55 +385,85 @@ namespace cpp_json { namespace standard
         return current_string;
       }
 
+      template<typename T>
+      inline bool push ()
+      {
+        element_context.push_back (std::make_shared<T> ());
+        return true;
+      }
+
+      inline bool pop ()
+      {
+        CPP_JSON__ASSERT (!element_context.empty ());
+        auto back = element_context.back ();
+        CPP_JSON__ASSERT (back);
+
+        element_context.pop_back ();
+
+        CPP_JSON__ASSERT (!element_context.empty ());
+        auto && next = element_context.back ();
+        CPP_JSON__ASSERT (next);
+
+        auto && element = back->get_element ();
+        CPP_JSON__ASSERT (element);
+
+        next->add_value (element);
+
+        return true;
+      }
+
       bool array_begin ()
       {
-        element_context.push_back (std::make_shared<json_element_context__array> ());
-        return true;
+        return push<json_element_context__array> ();
       }
 
       bool array_end ()
       {
-        auto back = element_context.back ();
-        element_context.pop_back ();
-        back->add_value (back->get_element ());
-        return true;
+        return pop ();
       }
 
       bool object_begin ()
       {
-        element_context.push_back (std::make_shared<json_element_context__object> ());
-        return true;
+        return push<json_element_context__object> ();
       }
 
       bool member_key (string_type const & s)
       {
-        auto back = element_context.back ();
+        CPP_JSON__ASSERT (!element_context.empty ());
+        auto && back = element_context.back ();
+        CPP_JSON__ASSERT (back);
         back->set_key (s);
+
         return true;
       }
 
       bool object_end ()
       {
-        auto back = element_context.back ();
-        element_context.pop_back ();
-        back->add_value (back->get_element ());
-        return true;
+        return pop ();
       }
 
       bool bool_value (bool b)
       {
         auto v = std::make_shared<json_element__bool> ();
         v->value = b;
-        auto back = element_context.back ();
+
+        CPP_JSON__ASSERT (!element_context.empty ());
+        auto && back = element_context.back ();
+        CPP_JSON__ASSERT (back);
         back->add_value (v);
+
         return true;
       }
 
       bool null_value ()
       {
         auto v = std::make_shared<json_element__null> ();
-        auto back = element_context.back ();
+
+        CPP_JSON__ASSERT (!element_context.empty ());
+        auto && back = element_context.back ();
+        CPP_JSON__ASSERT (back);
         back->add_value (v);
+
         return true;
       }
 
@@ -358,8 +471,12 @@ namespace cpp_json { namespace standard
       {
         auto v = std::make_shared<json_element__string> ();
         v->value = s;
-        auto back = element_context.back ();
+
+        CPP_JSON__ASSERT (!element_context.empty ());
+        auto && back = element_context.back ();
+        CPP_JSON__ASSERT (back);
         back->add_value (v);
+
         return true;
       }
 
@@ -367,8 +484,12 @@ namespace cpp_json { namespace standard
       {
         auto v = std::make_shared<json_element__number> ();
         v->value = d;
-        auto back = element_context.back ();
+
+        CPP_JSON__ASSERT (!element_context.empty ());
+        auto && back = element_context.back ();
+        CPP_JSON__ASSERT (back);
         back->add_value (v);
+
         return true;
       }
 
@@ -546,7 +667,7 @@ namespace cpp_json { namespace standard
       stringstream_type ss;
 
       ss 
-        << "Failed to parse input as JSON" << std::endl 
+        << L"Failed to parse input as JSON" << std::endl 
         << json << std::endl  // TODO: Add window and remove whitespace
         ;
 
@@ -554,7 +675,7 @@ namespace cpp_json { namespace standard
       {
         ss << '-';
       }
-      ss << "^ Pos: " << pos;
+      ss << L"^ Pos: " << pos;
 
       auto append = [&ss] (auto && prepend, auto && vs)
       {
@@ -569,19 +690,19 @@ namespace cpp_json { namespace standard
             }
             else if (iter + 1U == sz)
             {
-              ss << " or ";
+              ss << L" or ";
             }
             else
             {
-              ss << ", ";
+              ss << L", ";
             }
             ss << vs[iter];
           }
         }
       };
 
-      append ("EXPECTED: ", expected);
-      append ("UNEXPECTED: ", unexpected);
+      append (L"EXPECTED: "   , expected);
+      append (L"UNEXPECTED: " , unexpected);
 
       error = ss.str ();
 
@@ -591,7 +712,19 @@ namespace cpp_json { namespace standard
 
   string_type to_string (json_element::ptr const & json)
   {
-    return string_type ();
+    // TODO: Make sure return valid JSON document at all times
+    if (json)
+    {
+      details::json_element_visitor__to_string visitor;
+
+      json->apply (visitor);
+
+      return visitor.value.str ();
+    }
+    else
+    {
+      return L"null";
+    }
   }
 
 } }
