@@ -16,8 +16,12 @@ let main argv =
   try
     Environment.CurrentDirectory <- AppDomain.CurrentDomain.BaseDirectory
 
+    let rootPath    = Path.GetFullPath @"../../../../test_cases/"
+    let jsonPath    = Path.Combine (rootPath, "json")
+    let resultPath  = Path.Combine (rootPath, "result")
+
     let testCases =
-      Directory.GetFiles (@"../../../../test_cases/", @"*.json")
+      Directory.GetFiles (jsonPath, @"*.json")
       |> Array.map (fun path -> Path.GetFileName path, Path.GetFullPath path)
 
 
@@ -48,9 +52,12 @@ let main argv =
       let result      = tryParse v json &pos
       ignore <| appf "ParsePosition    : %d" pos
       ignore <| appf "ParseResult      : %s" (if result then "true" else "false")
-      File.WriteAllText (testCasePath + ".result", sb.ToString ())
+      let testCaseResultPath = Path.Combine (resultPath, testCase + ".result")
+      File.WriteAllText (testCaseResultPath, sb.ToString ())
 
     printfn "Done"
     0
   with
-  | e -> 999
+  | e -> 
+    printfn "Exception: %A" e.Message
+    999
