@@ -23,33 +23,46 @@
 #include <fstream>
 #include <sstream>
 
-#ifdef DDD
 namespace
 {
   struct result_json_context
   {
-    using string_type = string_type ;
-    using char_type   = char_type   ;
-    using iter_type   = iter_type   ;
+    using string_type       = std::wstring            ;
+    using char_type         = string_type::value_type ;
+    using iter_type         = char_type const *       ;
+    using stringstream_type = std::wstringstream      ;
 
     string_type       current_string  ;
+    stringstream_type result          ;
+
+    result_json_context () = default;
 
     CPP_JSON__NO_COPY_MOVE (result_json_context);
 
-    inline void expected_char (iter_type /*current*/, char_type /*ch*/) throw ()
+    inline void expected_char (std::size_t pos, char_type ch) throw ()
     {
+      // TODO: Escape
+      result << L"ExpectedChar     : " << pos << L", " << ch << std::endl;
     }
 
-    inline void expected_chars (iter_type /*current*/, string_type const & /*chs*/) throw ()
+    inline void expected_chars (std::size_t pos, string_type const & chs) throw ()
     {
+      for (auto && ch : chs)
+      {
+        expected_char (pos, ch);
+      }
     }
 
-    inline void expected_token (iter_type /*current*/, string_type const & /*token*/) throw ()
+    inline void expected_token (std::size_t pos, string_type const & token) throw ()
     {
+      // TODO: Escape
+      result << L"ExpectedToken    : " << pos << L", " << token << std::endl;
     }
 
-    inline void unexpected_token (iter_type /*current*/, string_type const & /*token*/) throw ()
+    inline void unexpected_token (std::size_t pos, string_type const & token) throw ()
     {
+      // TODO: Escape
+      result << L"UnexpectedToken  : " << pos << L", " << token << std::endl;
     }
 
     inline void clear_string ()
@@ -73,124 +86,65 @@ namespace
       return current_string;
     }
 
-    template<typename T>
-    inline bool push ()
-    {
-      element_context.push_back (std::make_shared<T> ());
-      return true;
-    }
-
-    inline bool pop ()
-    {
-      CPP_JSON__ASSERT (!element_context.empty ());
-      auto back = element_context.back ();
-      CPP_JSON__ASSERT (back);
-
-      element_context.pop_back ();
-
-      CPP_JSON__ASSERT (!element_context.empty ());
-      auto && next = element_context.back ();
-      CPP_JSON__ASSERT (next);
-
-      auto && element = back->get_element ();
-      CPP_JSON__ASSERT (element);
-
-      next->add_value (element);
-
-      return true;
-    }
-
     bool array_begin ()
     {
-      return push<json_element_context__array> ();
+      result << L"Array            : begin" << std::endl;
+      return true;
     }
 
     bool array_end ()
     {
-      return pop ();
+      result << L"Array            : end" << std::endl;
+      return true;
     }
 
     bool object_begin ()
     {
-      return push<json_element_context__object> ();
+      result << L"Object           : begin" << std::endl;
+      return true;
     }
 
     bool member_key (string_type const & s)
     {
-      CPP_JSON__ASSERT (!element_context.empty ());
-      auto && back = element_context.back ();
-      CPP_JSON__ASSERT (back);
-      back->set_key (s);
-
+      // TODO: Escape
+      result << L"MemberKey        : " << s << std::endl;
       return true;
     }
 
     bool object_end ()
     {
-      return pop ();
+      result << L"Object           : end" << std::endl;
+      return true;
     }
 
     bool bool_value (bool b)
     {
-      auto v = std::make_shared<json_element__bool> ();
-      v->value = b;
-
-      CPP_JSON__ASSERT (!element_context.empty ());
-      auto && back = element_context.back ();
-      CPP_JSON__ASSERT (back);
-      back->add_value (v);
-
+      result << L"BoolValue        : " << (b ? L"true" : L"false") << std::endl;
       return true;
     }
 
     bool null_value ()
     {
-      auto v = std::make_shared<json_element__null> ();
-
-      CPP_JSON__ASSERT (!element_context.empty ());
-      auto && back = element_context.back ();
-      CPP_JSON__ASSERT (back);
-      back->add_value (v);
-
+      result << L"NullValue        : null" << std::endl;
       return true;
     }
 
     bool string_value (string_type const & s)
     {
-      auto v = std::make_shared<json_element__string> ();
-      v->value = s;
-
-      CPP_JSON__ASSERT (!element_context.empty ());
-      auto && back = element_context.back ();
-      CPP_JSON__ASSERT (back);
-      back->add_value (v);
-
+      // TODO: Escape
+      result << L"StringValue      : " << s << std::endl;
       return true;
     }
 
     bool number_value (double d)
     {
-      auto v = std::make_shared<json_element__number> ();
-      v->value = d;
-
-      CPP_JSON__ASSERT (!element_context.empty ());
-      auto && back = element_context.back ();
-      CPP_JSON__ASSERT (back);
-      back->add_value (v);
-
+      // TODO: CultureInfo
+      result << L"DoubleValue      : " << d << std::endl;
       return true;
-    }
-
-    json_element::ptr root () const
-    {
-      CPP_JSON__ASSERT (!element_context.empty ());
-      CPP_JSON__ASSERT (element_context.front ());
-      return element_context.front ()->get_element ();
     }
 
   };
 }
-#endif
 
 int main (int argc, char const * * argvs)
 {
@@ -226,12 +180,20 @@ int main (int argc, char const * * argvs)
       }
 
       auto json_file_path = entry.path ();
+
+      if (!json_file_path.has_filename ())
+      {
+        continue;
+      }
+      auto json_file_name = json_file_path.filename ();
+
+
       if (!json_file_path.has_extension ())
       {
         continue;
       }
-
       auto json_file_ext = json_file_path.extension ().string ();
+
       if (json_file_ext != ".json")
       {
         continue;
@@ -248,8 +210,22 @@ int main (int argc, char const * * argvs)
         json << json_line << std::endl;
       }
 
-      auto json_document = json.str ();
+      auto json_document  = json.str ();
+      auto json_begin     = json_document.c_str ();
+      auto json_end       = json_begin + json_document.size ();
 
+      cpp_json::parser::json_parser<result_json_context> jp (json_begin, json_end);
+      
+      auto presult  = jp.try_parse__json ();
+      auto ppos     = jp.pos ();
+
+      jp.result 
+        << L"ParsePosition    : " << ppos << std::endl
+        << L"ParseResult      : " << (presult ? L"true" : L"false") << std::endl;
+
+      auto j = jp.result.str ();
+
+      std::wcout << j << std::endl;
     }
 
     std::cout << "DONE!" << std::endl;
