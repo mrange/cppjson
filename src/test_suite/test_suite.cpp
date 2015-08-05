@@ -23,6 +23,175 @@
 #include <fstream>
 #include <sstream>
 
+#ifdef DDD
+namespace
+{
+  struct result_json_context
+  {
+    using string_type = string_type ;
+    using char_type   = char_type   ;
+    using iter_type   = iter_type   ;
+
+    string_type       current_string  ;
+
+    CPP_JSON__NO_COPY_MOVE (result_json_context);
+
+    inline void expected_char (iter_type /*current*/, char_type /*ch*/) throw ()
+    {
+    }
+
+    inline void expected_chars (iter_type /*current*/, string_type const & /*chs*/) throw ()
+    {
+    }
+
+    inline void expected_token (iter_type /*current*/, string_type const & /*token*/) throw ()
+    {
+    }
+
+    inline void unexpected_token (iter_type /*current*/, string_type const & /*token*/) throw ()
+    {
+    }
+
+    inline void clear_string ()
+    {
+      current_string.clear ();
+    }
+
+    inline void push_char (char_type ch)
+    {
+      current_string.push_back (ch);
+    }
+
+    inline void push_wchar_t (wchar_t ch)
+    {
+      // TODO:
+      current_string.push_back (ch);
+    }
+
+    inline string_type const & get_string () throw ()
+    {
+      return current_string;
+    }
+
+    template<typename T>
+    inline bool push ()
+    {
+      element_context.push_back (std::make_shared<T> ());
+      return true;
+    }
+
+    inline bool pop ()
+    {
+      CPP_JSON__ASSERT (!element_context.empty ());
+      auto back = element_context.back ();
+      CPP_JSON__ASSERT (back);
+
+      element_context.pop_back ();
+
+      CPP_JSON__ASSERT (!element_context.empty ());
+      auto && next = element_context.back ();
+      CPP_JSON__ASSERT (next);
+
+      auto && element = back->get_element ();
+      CPP_JSON__ASSERT (element);
+
+      next->add_value (element);
+
+      return true;
+    }
+
+    bool array_begin ()
+    {
+      return push<json_element_context__array> ();
+    }
+
+    bool array_end ()
+    {
+      return pop ();
+    }
+
+    bool object_begin ()
+    {
+      return push<json_element_context__object> ();
+    }
+
+    bool member_key (string_type const & s)
+    {
+      CPP_JSON__ASSERT (!element_context.empty ());
+      auto && back = element_context.back ();
+      CPP_JSON__ASSERT (back);
+      back->set_key (s);
+
+      return true;
+    }
+
+    bool object_end ()
+    {
+      return pop ();
+    }
+
+    bool bool_value (bool b)
+    {
+      auto v = std::make_shared<json_element__bool> ();
+      v->value = b;
+
+      CPP_JSON__ASSERT (!element_context.empty ());
+      auto && back = element_context.back ();
+      CPP_JSON__ASSERT (back);
+      back->add_value (v);
+
+      return true;
+    }
+
+    bool null_value ()
+    {
+      auto v = std::make_shared<json_element__null> ();
+
+      CPP_JSON__ASSERT (!element_context.empty ());
+      auto && back = element_context.back ();
+      CPP_JSON__ASSERT (back);
+      back->add_value (v);
+
+      return true;
+    }
+
+    bool string_value (string_type const & s)
+    {
+      auto v = std::make_shared<json_element__string> ();
+      v->value = s;
+
+      CPP_JSON__ASSERT (!element_context.empty ());
+      auto && back = element_context.back ();
+      CPP_JSON__ASSERT (back);
+      back->add_value (v);
+
+      return true;
+    }
+
+    bool number_value (double d)
+    {
+      auto v = std::make_shared<json_element__number> ();
+      v->value = d;
+
+      CPP_JSON__ASSERT (!element_context.empty ());
+      auto && back = element_context.back ();
+      CPP_JSON__ASSERT (back);
+      back->add_value (v);
+
+      return true;
+    }
+
+    json_element::ptr root () const
+    {
+      CPP_JSON__ASSERT (!element_context.empty ());
+      CPP_JSON__ASSERT (element_context.front ());
+      return element_context.front ()->get_element ();
+    }
+
+  };
+}
+#endif
+
 int main (int argc, char const * * argvs)
 {
   using namespace cpp_json::standard;
