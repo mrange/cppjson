@@ -1,0 +1,423 @@
+Object           : begin
+MemberKey        : recordProperty
+Object           : begin
+MemberKey        : stringProperty
+StringValue      : foo
+MemberKey        : intProperty
+ExpectedChar     : 84, -
+ExpectedChar     : 84, 0
+ExpectedToken    : 85, digit
+ExpectedChar     : 85, .
+ExpectedChar     : 85, e
+ExpectedChar     : 85, E
+NumberValue      : 2.000000
+MemberKey        : int64Property
+ExpectedChar     : 125, -
+ExpectedChar     : 125, 0
+ExpectedToken    : 135, digit
+ExpectedChar     : 135, .
+ExpectedChar     : 135, e
+ExpectedChar     : 135, E
+NumberValue      : 2222222222.000000
+MemberKey        : decimalProperty
+ExpectedChar     : 178, -
+ExpectedChar     : 178, 0
+ExpectedToken    : 179, digit
+ExpectedToken    : 181, digit
+ExpectedChar     : 181, e
+ExpectedChar     : 181, E
+NumberValue      : 2.500000
+MemberKey        : floatProperty
+ExpectedChar     : 221, -
+ExpectedChar     : 221, 0
+ExpectedToken    : 263, digit
+ExpectedChar     : 263, .
+ExpectedChar     : 263, e
+ExpectedChar     : 263, E
+NumberValue      : 222222222222222000000000000000000000000000.000000
+MemberKey        : boolProperty
+BoolValue        : false
+MemberKey        : dateProperty
+StringValue      : 2005/5/5
+MemberKey        : guidProperty
+StringValue      : {312B0D64-B27C-4ED2-B2A6-89EA6DD299F5}
+Object           : end
+MemberKey        : nullProperty
+NullValue        : null
+MemberKey        : emptyStringProperty
+StringValue      : 
+MemberKey        : emptyArrayProperty
+Array            : begin
+Array            : end
+MemberKey        : oneElementArrayProperty
+Array            : begin
+ExpectedChar     : 560, -
+ExpectedChar     : 560, 0
+ExpectedToken    : 561, digit
+ExpectedChar     : 561, .
+ExpectedChar     : 561, e
+ExpectedChar     : 561, E
+NumberValue      : 2.000000
+Array            : end
+MemberKey        : multipleElementsArrayProperty
+Array            : begin
+ExpectedChar     : 602, -
+ExpectedChar     : 602, 0
+ExpectedToken    : 603, digit
+ExpectedChar     : 603, .
+ExpectedChar     : 603, e
+ExpectedChar     : 603, E
+NumberValue      : 2.000000
+ExpectedChar     : 604, -
+ExpectedChar     : 604, 0
+ExpectedToken    : 605, digit
+ExpectedChar     : 605, .
+ExpectedChar     : 605, e
+ExpectedChar     : 605, E
+NumberValue      : 4.000000
+ExpectedChar     : 606, -
+ExpectedChar     : 606, 0
+ExpectedToken    : 607, digit
+ExpectedChar     : 607, .
+ExpectedChar     : 607, e
+ExpectedChar     : 607, E
+NumberValue      : 5.000000
+ExpectedChar     : 608, -
+ExpectedChar     : 608, 0
+ExpectedToken    : 609, digit
+ExpectedChar     : 609, .
+ExpectedChar     : 609, e
+ExpectedChar     : 609, E
+NumberValue      : 6.000000
+Array            : end
+MemberKey        : arrayOfObjects
+Array            : begin
+Object           : begin
+MemberKey        : heterogeneousArrayProperty
+Array            : begin
+ExpectedChar     : 669, -
+ExpectedChar     : 669, 0
+ExpectedToken    : 670, digit
+ExpectedChar     : 670, .
+ExpectedChar     : 670, e
+ExpectedChar     : 670, E
+NumberValue      : 1.000000
+ExpectedChar     : 671, -
+ExpectedChar     : 671, 0
+ExpectedToken    : 672, digit
+ExpectedChar     : 672, .
+ExpectedChar     : 672, e
+ExpectedChar     : 672, E
+NumberValue      : 2.000000
+BoolValue        : false
+StringValue      : foo
+Array            : end
+MemberKey        : heterogeneousProperty
+ExpectedChar     : 712, -
+ExpectedChar     : 712, 0
+ExpectedToken    : 713, digit
+ExpectedChar     : 713, .
+ExpectedChar     : 713, e
+ExpectedChar     : 713, E
+NumberValue      : 2.000000
+MemberKey        : heterogeneousOptionalProperty
+ExpectedChar     : 748, -
+ExpectedChar     : 748, 0
+ExpectedToken    : 749, digit
+ExpectedChar     : 749, .
+ExpectedChar     : 749, e
+ExpectedChar     : 749, E
+NumberValue      : 2.000000
+Object           : end
+Object           : begin
+MemberKey        : heterogeneousArrayProperty
+Array            : begin
+ExpectedChar     : 810, -
+ExpectedChar     : 810, 0
+ExpectedToken    : 811, digit
+ExpectedChar     : 811, .
+ExpectedChar     : 811, e
+ExpectedChar     : 811, E
+NumberValue      : 1.000000
+ExpectedChar     : 812, -
+ExpectedChar     : 812, 0
+ExpectedToken    : 813, digit
+ExpectedChar     : 813, .
+ExpectedChar     : 813, e
+ExpectedChar     : 813, E
+NumberValue      : 2.000000
+BoolValue        : false
+Array            : end
+MemberKey        : heterogeneousProperty
+BoolValue        : true
+MemberKey        : heterogeneousOptionalProperty
+BoolValue        : false
+Object           : end
+Object           : begin
+MemberKey        : heterogeneousArrayProperty
+Array            : begin
+BoolValue        : false
+Array            : end
+MemberKey        : heterogeneousProperty
+StringValue      : 2005/5/5
+Object           : end
+Array            : end
+MemberKey        : optionalPrimitives
+Array            : begin
+Object           : begin
+MemberKey        : optionalBecauseMissing
+ExpectedChar     : 1058, -
+ExpectedChar     : 1058, 0
+ExpectedToken    : 1059, digit
+ExpectedChar     : 1059, .
+ExpectedChar     : 1059, e
+ExpectedChar     : 1059, E
+NumberValue      : 1.000000
+MemberKey        : optionalBecauseNull
+ExpectedChar     : 1085, -
+ExpectedChar     : 1085, 0
+ExpectedToken    : 1086, digit
+ExpectedChar     : 1086, .
+ExpectedChar     : 1086, e
+ExpectedChar     : 1086, E
+NumberValue      : 2.000000
+MemberKey        : optionalBecauseEmptyString
+ExpectedChar     : 1119, -
+ExpectedChar     : 1119, 0
+ExpectedToken    : 1120, digit
+ExpectedChar     : 1120, .
+ExpectedChar     : 1120, e
+ExpectedChar     : 1120, E
+NumberValue      : 3.000000
+MemberKey        : notOptional
+ExpectedChar     : 1138, -
+ExpectedChar     : 1138, 0
+ExpectedToken    : 1139, digit
+ExpectedChar     : 1139, .
+ExpectedChar     : 1139, e
+ExpectedChar     : 1139, E
+NumberValue      : 4.000000
+MemberKey        : nullNotOptional
+NullValue        : null
+Object           : end
+Object           : begin
+MemberKey        : optionalBecauseNull
+NullValue        : null
+MemberKey        : optionalBecauseEmptyString
+StringValue      : 
+MemberKey        : notOptional
+StringValue      : 5
+Object           : end
+Array            : end
+MemberKey        : optionalRecords
+Array            : begin
+Object           : begin
+MemberKey        : optionalBecauseMissing
+Object           : begin
+MemberKey        : a
+ExpectedChar     : 1378, -
+ExpectedChar     : 1378, 0
+ExpectedToken    : 1379, digit
+ExpectedChar     : 1379, .
+ExpectedChar     : 1379, e
+ExpectedChar     : 1379, E
+NumberValue      : 1.000000
+Object           : end
+MemberKey        : optionalBecauseNull
+Object           : begin
+MemberKey        : a
+ExpectedChar     : 1411, -
+ExpectedChar     : 1411, 0
+ExpectedToken    : 1412, digit
+ExpectedChar     : 1412, .
+ExpectedChar     : 1412, e
+ExpectedChar     : 1412, E
+NumberValue      : 1.000000
+Object           : end
+MemberKey        : optionalBecauseEmptyString
+Object           : begin
+MemberKey        : a
+ExpectedChar     : 1451, -
+ExpectedChar     : 1451, 0
+ExpectedToken    : 1452, digit
+ExpectedChar     : 1452, .
+ExpectedChar     : 1452, e
+ExpectedChar     : 1452, E
+NumberValue      : 2.000000
+Object           : end
+MemberKey        : notOptional
+Object           : begin
+MemberKey        : a
+ExpectedChar     : 1476, -
+ExpectedChar     : 1476, 0
+ExpectedToken    : 1477, digit
+ExpectedChar     : 1477, .
+ExpectedChar     : 1477, e
+ExpectedChar     : 1477, E
+NumberValue      : 3.000000
+Object           : end
+Object           : end
+Object           : begin
+MemberKey        : optionalBecauseNull
+NullValue        : null
+MemberKey        : optionalBecauseEmptyString
+StringValue      : 
+MemberKey        : notOptional
+Object           : begin
+MemberKey        : a
+ExpectedChar     : 1631, -
+ExpectedChar     : 1631, 0
+ExpectedToken    : 1632, digit
+ExpectedChar     : 1632, .
+ExpectedChar     : 1632, e
+ExpectedChar     : 1632, E
+NumberValue      : 4.000000
+Object           : end
+Object           : end
+Array            : end
+MemberKey        : heterogeneousArray
+Array            : begin
+Object           : begin
+MemberKey        : a
+ExpectedChar     : 1675, -
+ExpectedChar     : 1675, 0
+ExpectedToken    : 1676, digit
+ExpectedChar     : 1676, .
+ExpectedChar     : 1676, e
+ExpectedChar     : 1676, E
+NumberValue      : 1.000000
+Object           : end
+ExpectedChar     : 1680, -
+ExpectedChar     : 1680, 0
+ExpectedToken    : 1681, digit
+ExpectedChar     : 1681, .
+ExpectedChar     : 1681, e
+ExpectedChar     : 1681, E
+NumberValue      : 2.000000
+BoolValue        : false
+Array            : begin
+ExpectedChar     : 1691, -
+ExpectedChar     : 1691, 0
+ExpectedToken    : 1692, digit
+ExpectedChar     : 1692, .
+ExpectedChar     : 1692, e
+ExpectedChar     : 1692, E
+NumberValue      : 5.000000
+ExpectedChar     : 1694, -
+ExpectedChar     : 1694, 0
+ExpectedToken    : 1695, digit
+ExpectedChar     : 1695, .
+ExpectedChar     : 1695, e
+ExpectedChar     : 1695, E
+NumberValue      : 6.000000
+ExpectedChar     : 1697, -
+ExpectedChar     : 1697, 0
+ExpectedToken    : 1698, digit
+ExpectedChar     : 1698, .
+ExpectedChar     : 1698, e
+ExpectedChar     : 1698, E
+NumberValue      : 7.000000
+Array            : end
+Array            : begin
+ExpectedChar     : 1702, -
+ExpectedChar     : 1702, 0
+ExpectedToken    : 1703, digit
+ExpectedChar     : 1703, .
+ExpectedChar     : 1703, e
+ExpectedChar     : 1703, E
+NumberValue      : 8.000000
+BoolValue        : false
+Object           : begin
+MemberKey        : a
+ExpectedChar     : 1719, -
+ExpectedChar     : 1719, 0
+ExpectedToken    : 1720, digit
+ExpectedChar     : 1720, .
+ExpectedChar     : 1720, e
+ExpectedChar     : 1720, E
+NumberValue      : 3.000000
+Object           : end
+Array            : end
+Array            : end
+MemberKey        : heterogeneousRecords
+Array            : begin
+Object           : begin
+MemberKey        : b
+Object           : begin
+MemberKey        : a
+ExpectedChar     : 1773, -
+ExpectedChar     : 1773, 0
+ExpectedToken    : 1774, digit
+ExpectedChar     : 1774, .
+ExpectedChar     : 1774, e
+ExpectedChar     : 1774, E
+NumberValue      : 1.000000
+Object           : end
+Object           : end
+Object           : begin
+MemberKey        : b
+ExpectedChar     : 1787, -
+ExpectedChar     : 1787, 0
+ExpectedToken    : 1788, digit
+ExpectedChar     : 1788, .
+ExpectedChar     : 1788, e
+ExpectedChar     : 1788, E
+NumberValue      : 2.000000
+Object           : end
+Object           : begin
+MemberKey        : b
+BoolValue        : false
+Object           : end
+Object           : begin
+MemberKey        : b
+Array            : begin
+ExpectedChar     : 1816, -
+ExpectedChar     : 1816, 0
+ExpectedToken    : 1817, digit
+ExpectedChar     : 1817, .
+ExpectedChar     : 1817, e
+ExpectedChar     : 1817, E
+NumberValue      : 5.000000
+ExpectedChar     : 1819, -
+ExpectedChar     : 1819, 0
+ExpectedToken    : 1820, digit
+ExpectedChar     : 1820, .
+ExpectedChar     : 1820, e
+ExpectedChar     : 1820, E
+NumberValue      : 6.000000
+ExpectedChar     : 1822, -
+ExpectedChar     : 1822, 0
+ExpectedToken    : 1823, digit
+ExpectedChar     : 1823, .
+ExpectedChar     : 1823, e
+ExpectedChar     : 1823, E
+NumberValue      : 7.000000
+Array            : end
+Object           : end
+Object           : begin
+MemberKey        : b
+Array            : begin
+ExpectedChar     : 1836, -
+ExpectedChar     : 1836, 0
+ExpectedToken    : 1837, digit
+ExpectedChar     : 1837, .
+ExpectedChar     : 1837, e
+ExpectedChar     : 1837, E
+NumberValue      : 8.000000
+BoolValue        : false
+Object           : begin
+MemberKey        : a
+ExpectedChar     : 1853, -
+ExpectedChar     : 1853, 0
+ExpectedToken    : 1854, digit
+ExpectedChar     : 1854, .
+ExpectedChar     : 1854, e
+ExpectedChar     : 1854, E
+NumberValue      : 3.000000
+Object           : end
+Array            : end
+Object           : end
+Array            : end
+Object           : end
+ParsePosition    : 1864
+ParseResult      : true

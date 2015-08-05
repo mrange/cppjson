@@ -1,0 +1,14 @@
+Object           : begin
+MemberKey        : main
+Object           : begin
+MemberKey        : title
+StringValue      : example
+MemberKey        : nested
+Object           : begin
+MemberKey        : nestedTitle
+StringValue      : sub
+Object           : end
+Object           : end
+Object           : end
+ParsePosition    : 82
+ParseResult      : true

@@ -1,0 +1,27 @@
+Object           : begin
+MemberKey        : firstName
+StringValue      : John
+MemberKey        : lastName
+StringValue      : Doe
+MemberKey        : age
+ExpectedChar     : 71, -
+ExpectedChar     : 71, 0
+ExpectedToken    : 73, digit
+ExpectedChar     : 73, .
+ExpectedChar     : 73, e
+ExpectedChar     : 73, E
+NumberValue      : 42.000000
+MemberKey        : address
+Object           : begin
+MemberKey        : streetAddress
+StringValue      : 21 2nd Street
+MemberKey        : city
+StringValue      : New York
+MemberKey        : state
+StringValue      : NY
+MemberKey        : postalCode
+StringValue      : 10021
+Object           : end
+Object           : end
+ParsePosition    : 256
+ParseResult      : true

@@ -1,0 +1,15 @@
+Object           : begin
+MemberKey        : items
+Array            : begin
+Object           : begin
+MemberKey        : id
+StringValue      : Open
+Object           : end
+Object           : begin
+MemberKey        : id
+StringValue      : Pause
+Object           : end
+Array            : end
+Object           : end
+ParsePosition    : 46
+ParseResult      : true

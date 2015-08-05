@@ -1,0 +1,18 @@
+Object           : begin
+MemberKey        : firstName
+StringValue      : John
+MemberKey        : lastName
+StringValue      : Doe
+MemberKey        : age
+ExpectedChar     : 58, -
+ExpectedChar     : 58, 0
+ExpectedToken    : 60, digit
+ExpectedChar     : 60, .
+ExpectedChar     : 60, e
+ExpectedChar     : 60, E
+NumberValue      : 25.000000
+MemberKey        : isCool
+BoolValue        : true
+Object           : end
+ParsePosition    : 82
+ParseResult      : true

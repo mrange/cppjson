@@ -1,0 +1,23 @@
+Object           : begin
+MemberKey        : authors
+Array            : begin
+Object           : begin
+MemberKey        : name
+StringValue      : Steffen
+MemberKey        : age
+ExpectedChar     : 42, -
+ExpectedChar     : 42, 0
+ExpectedToken    : 44, digit
+ExpectedChar     : 44, .
+ExpectedChar     : 44, e
+ExpectedChar     : 44, E
+NumberValue      : 29.000000
+Object           : end
+Object           : begin
+MemberKey        : name
+StringValue      : Tomas
+Object           : end
+Array            : end
+Object           : end
+ParsePosition    : 69
+ParseResult      : true
