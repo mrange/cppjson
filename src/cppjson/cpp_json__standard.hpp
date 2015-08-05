@@ -249,9 +249,9 @@ namespace cpp_json { namespace standard
 
     struct default_json_context
     {
-      using string_type = string_type     ;
-      using char_type   = wchar_t         ;
-      using iter_type   = wchar_t const * ;
+      using string_type = string_type             ;
+      using char_type   = string_type::value_type ;
+      using iter_type   = char_type const *       ;
 
       string_type                             current_string  ;
 
@@ -383,9 +383,9 @@ namespace cpp_json { namespace standard
 
     struct error_json_context
     {
-      using string_type = string_type     ;
-      using char_type   = wchar_t         ;
-      using iter_type   = wchar_t const * ;
+      using string_type = string_type             ;
+      using char_type   = string_type::value_type ;
+      using iter_type   = char_type const *       ;
 
       iter_type                 error_pos     ;
       string_type               current_string;
