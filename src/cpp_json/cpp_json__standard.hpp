@@ -364,19 +364,19 @@ namespace cpp_json { namespace standard
 
       CPP_JSON__NO_COPY_MOVE (default_json_context);
 
-      inline void expected_char (iter_type /*current*/, char_type /*ch*/) throw ()
+      inline void expected_char (std::size_t /*pos*/, char_type /*ch*/) throw ()
       {
       }
 
-      inline void expected_chars (iter_type /*current*/, string_type const & /*chs*/) throw ()
+      inline void expected_chars (std::size_t /*pos*/, string_type const & /*chs*/) throw ()
       {
       }
 
-      inline void expected_token (iter_type /*current*/, string_type const & /*token*/) throw ()
+      inline void expected_token (std::size_t /*pos*/, string_type const & /*token*/) throw ()
       {
       }
 
-      inline void unexpected_token (iter_type /*current*/, string_type const & /*token*/) throw ()
+      inline void unexpected_token (std::size_t /*pos*/, string_type const & /*token*/) throw ()
       {
       }
 
@@ -524,7 +524,7 @@ namespace cpp_json { namespace standard
       using char_type   = char_type   ;
       using iter_type   = iter_type   ;
 
-      iter_type                 error_pos     ;
+      std::size_t               error_pos     ;
       string_type               current_string;
 
       std::vector<char_type>    exp_chars     ;
@@ -541,36 +541,36 @@ namespace cpp_json { namespace standard
 
       CPP_JSON__NO_COPY_MOVE (error_json_context);
 
-      void expected_char (iter_type current, char_type ch)
+      void expected_char (std::size_t pos, char_type ch)
       {
-        if (error_pos == current)
+        if (error_pos == pos)
         {
           exp_chars.push_back (ch);
         }
       }
 
-      void expected_chars (iter_type current, string_type const & chs)
+      void expected_chars (std::size_t pos, string_type const & chs)
       {
-        if (error_pos == current)
+        if (error_pos == pos)
         {
           for (auto && ch : chs)
           {
-            expected_char (current, ch);
+            expected_char (pos, ch);
           }
         }
       }
 
-      void expected_token (iter_type current, string_type const & token)
+      void expected_token (std::size_t pos, string_type const & token)
       {
-        if (error_pos == current)
+        if (error_pos == pos)
         {
           exp_tokens.push_back (token);
         }
       }
 
-      void unexpected_token (iter_type current, string_type const & token)
+      void unexpected_token (std::size_t pos, string_type const & token)
       {
-        if (error_pos == current)
+        if (error_pos == pos)
         {
           unexp_tokens.push_back (token);
         }
@@ -657,7 +657,7 @@ namespace cpp_json { namespace standard
       pos = static_cast<std::size_t> (jp.current - begin);
 
       cpp_json::parser::json_parser<details::error_json_context> ejp (begin, end);
-      ejp.error_pos = jp.current;
+      ejp.error_pos = jp.pos ();
       auto eresult  = ejp.try_parse__json ();
       CPP_JSON__ASSERT (!eresult);
 

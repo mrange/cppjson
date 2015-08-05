@@ -95,6 +95,12 @@ namespace cpp_json { namespace parser
       return *current;
     }
 
+    constexpr std::size_t pos () const throw ()
+    {
+      CPP_JSON__ASSERT (current >= begin);
+      return static_cast<std::size_t> (current - begin);
+    }
+
     inline void adv () throw ()
     {
       ++current;
@@ -102,53 +108,54 @@ namespace cpp_json { namespace parser
 
     bool raise__eos ()
     {
-      context_type::unexpected_token (current, tokens.token__eos);
+      context_type::unexpected_token (pos (), tokens.token__eos);
       return false;
     }
 
     bool raise__eeos ()
     {
-      context_type::expected_token (current, tokens.token__eos);
+      context_type::expected_token (pos (), tokens.token__eos);
       return false;
     }
 
     bool raise__value ()
     {
-      context_type::expected_token  (current, tokens.token__null);
-      context_type::expected_token  (current, tokens.token__true);
-      context_type::expected_token  (current, tokens.token__false);
-      context_type::expected_token  (current, tokens.token__digit);
-      context_type::expected_chars  (current, tokens.token__value_preludes);
+      auto p = pos ();
+      context_type::expected_token  (p, tokens.token__null);
+      context_type::expected_token  (p, tokens.token__true);
+      context_type::expected_token  (p, tokens.token__false);
+      context_type::expected_token  (p, tokens.token__digit);
+      context_type::expected_chars  (p, tokens.token__value_preludes);
       return false;
     }
 
     bool raise__root_value ()
     {
-      context_type::expected_chars  (current, tokens.token__root_value_preludes);
+      context_type::expected_chars  (pos (), tokens.token__root_value_preludes);
       return false;
     }
 
     bool raise__char ()
     {
-      context_type::expected_token  (current, tokens.token__char);
+      context_type::expected_token  (pos (), tokens.token__char);
       return false;
     }
 
     bool raise__digit ()
     {
-      context_type::expected_token  (current, tokens.token__digit);
+      context_type::expected_token  (pos (), tokens.token__digit);
       return false;
     }
 
     bool raise__hex_digit ()
     {
-      context_type::expected_token  (current, tokens.token__hex_digit);
+      context_type::expected_token  (pos (), tokens.token__hex_digit);
       return false;
     }
 
     bool raise__escapes ()
     {
-      context_type::expected_chars  (current, tokens.token__escapes);
+      context_type::expected_chars  (pos (), tokens.token__escapes);
       return false;
     }
 
@@ -180,7 +187,7 @@ namespace cpp_json { namespace parser
     {
       if (eos ())
       {
-        context_type::expected_char (current, c);
+        context_type::expected_char (pos (), c);
         return raise__eos ();
       }
       else if (ch () == c)
@@ -190,7 +197,7 @@ namespace cpp_json { namespace parser
       }
       else
       {
-        context_type::expected_char (current, c);
+        context_type::expected_char (pos (), c);
         return false;
       }
     }
@@ -199,8 +206,8 @@ namespace cpp_json { namespace parser
     {
       if (eos ())
       {
-        context_type::expected_char (current, c0);
-        context_type::expected_char (current, c1);
+        context_type::expected_char (pos (), c0);
+        context_type::expected_char (pos (), c1);
         return raise__eos ();
       }
       else if (ch () == c0 || ch () == c1)
@@ -211,8 +218,8 @@ namespace cpp_json { namespace parser
       }
       else
       {
-        context_type::expected_char (current, c0);
-        context_type::expected_char (current, c1);
+        context_type::expected_char (pos (), c0);
+        context_type::expected_char (pos (), c1);
         return false;
       }
     }
@@ -422,7 +429,7 @@ namespace cpp_json { namespace parser
           return true;
         case '\n':
         case '\r':
-          unexpected_token (current, tokens.token__new_line);
+          unexpected_token (pos (), tokens.token__new_line);
           return false;
         case '\\':
           {
