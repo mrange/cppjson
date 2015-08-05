@@ -1,0 +1,13 @@
+TestCase         : PositiveTestCase_29.json
+Object           : begin
+MemberKey        : abc
+ExpectedChar     : 9, -
+ExpectedChar     : 9, 0
+ExpectedToken    : 12, digit
+ExpectedChar     : 12, .
+ExpectedChar     : 12, e
+ExpectedChar     : 12, E
+NumberValue      : 123.000000
+Object           : end
+ParsePosition    : 13
+ParseResult      : true

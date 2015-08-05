@@ -1,0 +1,7 @@
+TestCase         : PositiveTestCase_20.json
+Array            : begin
+StringValue      : "\/
+	♥
+Array            : end
+ParsePosition    : 26
+ParseResult      : true

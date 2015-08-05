@@ -1,3 +1,4 @@
+TestCase         : reddit.json
 Object           : begin
 MemberKey        : kind
 StringValue      : Listing

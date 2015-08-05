@@ -1,0 +1,9 @@
+TestCase         : PositiveTestCase_1.json
+Array            : begin
+ExpectedChar     : 3, .
+ExpectedChar     : 3, e
+ExpectedChar     : 3, E
+NumberValue      : 0.000000
+Array            : end
+ParsePosition    : 4
+ParseResult      : true

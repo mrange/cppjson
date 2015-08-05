@@ -1,0 +1,13 @@
+TestCase         : NegativeTestCase_28.json
+Array            : begin
+ExpectedChar     : 139, "
+ExpectedChar     : 139, \
+ExpectedChar     : 139, /
+ExpectedChar     : 139, b
+ExpectedChar     : 139, f
+ExpectedChar     : 139, n
+ExpectedChar     : 139, r
+ExpectedChar     : 139, t
+ExpectedChar     : 139, u
+ParsePosition    : 139
+ParseResult      : false

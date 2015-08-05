@@ -1,0 +1,5 @@
+TestCase         : NegativeTestCase_1.json
+ExpectedChar     : 0, {
+ExpectedChar     : 0, [
+ParsePosition    : 0
+ParseResult      : false

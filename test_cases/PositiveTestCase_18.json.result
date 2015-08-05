@@ -1,0 +1,7 @@
+TestCase         : PositiveTestCase_18.json
+Array            : begin
+StringValue      : Hello
+There
+Array            : end
+ParsePosition    : 18
+ParseResult      : true

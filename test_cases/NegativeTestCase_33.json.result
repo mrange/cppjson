@@ -1,0 +1,6 @@
+TestCase         : NegativeTestCase_33.json
+Array            : begin
+ExpectedToken    : 9, hexdigit
+UnexpectedToken  : 9, EOS
+ParsePosition    : 9
+ParseResult      : false

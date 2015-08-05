@@ -26,6 +26,7 @@ let main argv =
       let sb                = StringBuilder ()
       let app (s : string)  = ignore <| sb.AppendLine s; true
       let appf f            = kprintf app f
+      ignore <| appf "TestCase         : %s" testCase
       let v =
         { new IParseVisitor with
             member x.NullValue    ()        =           app   "NullValue        : null"

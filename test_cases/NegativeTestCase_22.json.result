@@ -1,0 +1,5 @@
+TestCase         : NegativeTestCase_22.json
+Array            : begin
+ExpectedToken    : 11, hexdigit
+ParsePosition    : 11
+ParseResult      : false

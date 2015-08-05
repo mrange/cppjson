@@ -1,0 +1,6 @@
+TestCase         : PositiveTestCase_19.json
+Array            : begin
+StringValue      : HelloJ
+Array            : end
+ParsePosition    : 15
+ParseResult      : true

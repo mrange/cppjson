@@ -1,3 +1,4 @@
+TestCase         : charrefs-full.json
 Object           : begin
 MemberKey        : items
 Array            : begin

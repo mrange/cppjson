@@ -1,0 +1,8 @@
+TestCase         : NegativeTestCase_37.json
+Array            : begin
+ExpectedChar     : 2, 0
+UnexpectedToken  : 2, EOS
+ExpectedToken    : 2, digit
+UnexpectedToken  : 2, EOS
+ParsePosition    : 2
+ParseResult      : false
