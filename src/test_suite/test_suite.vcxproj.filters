@@ -5,22 +5,13 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="cppjson">
-      <UniqueIdentifier>{a704d09d-1485-4e34-b0b3-6112887d4b54}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="..\cppjson\cpp_json__standard.hpp">
-      <Filter>cppjson</Filter>
-    </ClInclude>
-    <ClInclude Include="..\cppjson\cpp_json__parser.hpp">
-      <Filter>cppjson</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="cpp_json.cpp" />
+    <ClCompile Include="test_suite.cpp" />
   </ItemGroup>
 </Project>

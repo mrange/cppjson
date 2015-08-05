@@ -16,7 +16,7 @@
 
 #include "stdafx.h"
 
-#include "../cppjson/cpp_json__standard.hpp"
+#include "../cpp_json/cpp_json__standard.hpp"
 
 #include <iostream>
 

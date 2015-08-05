@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cpp_json", "cpp_json\cpp_json.vcxproj", "{05481368-FC85-48EA-9CB5-1B6BA44C0D34}"
-EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "cpp_json_reference_parser", "cpp_json_reference_parser\cpp_json_reference_parser.fsproj", "{326503B3-93A5-407C-88A1-84B6ECD91647}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{23CE728C-6FD7-40B0-AFA7-782449F2786B}"
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
 		..\README.md = ..\README.md
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_suite", "test_suite\test_suite.vcxproj", "{05481368-FC85-48EA-9CB5-1B6BA44C0D34}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "reference_parser", "reference_parser\reference_parser.fsproj", "{326503B3-93A5-407C-88A1-84B6ECD91647}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

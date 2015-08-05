@@ -32,7 +32,7 @@ let main argv =
   try
     Environment.CurrentDirectory <- AppDomain.CurrentDomain.BaseDirectory
 
-    let rootPath    = Path.GetFullPath @"../../../../test_cases/"
+    let rootPath    = Path.GetFullPath @"../../../test_cases/"
     let jsonPath    = Path.Combine (rootPath, "json")
     let resultPath  = Path.Combine (rootPath, "result")
 
