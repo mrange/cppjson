@@ -12,10 +12,10 @@
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="..\cppjson\core_parser.hpp">
+    <ClInclude Include="..\cppjson\cpp_json__standard.hpp">
       <Filter>cppjson</Filter>
     </ClInclude>
-    <ClInclude Include="..\cppjson\default_parser.hpp">
+    <ClInclude Include="..\cppjson\cpp_json__parser.hpp">
       <Filter>cppjson</Filter>
     </ClInclude>
   </ItemGroup>

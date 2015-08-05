@@ -11,7 +11,7 @@
   name & operator=  (name const &)  = delete; \
   name & operator=  (name &&     )  = delete;
 
-namespace cpp_json
+namespace cpp_json { namespace parser
 {
   template<typename string_type>
   struct json_tokens
@@ -22,6 +22,7 @@ namespace cpp_json
       , token__false                ("false"      )
       , token__true                 ("true"       )
       , token__digit                ("digit"      )
+      , token__hex_digit            ("hexdigit"   )
       , token__char                 ("char"       )
       , token__escapes              ("\"\\/bfnrtu")
       , token__new_line             ("NEWLINE"    )
@@ -35,6 +36,7 @@ namespace cpp_json
     string_type const token__false              ;
     string_type const token__true               ;
     string_type const token__digit              ;
+    string_type const token__hex_digit          ;
     string_type const token__char               ;
     string_type const token__escapes            ;
     string_type const token__new_line           ;
@@ -434,8 +436,57 @@ namespace cpp_json
               context_type::push_char ('\t');
               break;
             case 'u':
-              // TODO:
-              return raise__escapes ();
+              {
+                wchar_t result = 0;
+
+                for (auto iter = 0U; iter < 4U; ++iter)
+                {
+                  if (eos ())
+                  {
+                    return raise__hex_digit () || raise__eos ();
+                  }
+
+                  result = result << 4;
+                  adv ();
+                  auto c = ch ();
+                  switch (c)
+                  {
+                  case '0':
+                  case '1':
+                  case '2':
+                  case '3':
+                  case '4':
+                  case '5':
+                  case '6':
+                  case '7':
+                  case '8':
+                  case '9':
+                    result += c - '0';
+                    break;
+                  case 'A':
+                  case 'B':
+                  case 'C':
+                  case 'D':
+                  case 'E':
+                  case 'F':
+                    result += c - 'A' + 10;
+                    break;
+                  case 'a':
+                  case 'b':
+                  case 'c':
+                  case 'd':
+                  case 'e':
+                  case 'f':
+                    result += c - 'a' + 10;
+                    break;
+                  default:
+                    return raise__hex_digit ();
+                  }
+                }
+
+                context_type::push_wchar_t (result);
+              }
+              break;
             default:
               return raise__escapes ();
             }
@@ -647,4 +698,4 @@ namespace cpp_json
   template<typename TContext>
   json_tokens<typename TContext::string_type> json_parser<TContext>::tokens;
 
-}
+} }
