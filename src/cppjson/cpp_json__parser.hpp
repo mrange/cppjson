@@ -17,17 +17,17 @@ namespace cpp_json { namespace parser
   struct json_tokens
   {
     json_tokens ()
-      : token__eos                  ("EOS"        )
-      , token__null                 ("null"       )
-      , token__false                ("false"      )
-      , token__true                 ("true"       )
-      , token__digit                ("digit"      )
-      , token__hex_digit            ("hexdigit"   )
-      , token__char                 ("char"       )
-      , token__escapes              ("\"\\/bfnrtu")
-      , token__new_line             ("NEWLINE"    )
-      , token__root_value_preludes  ("{["         )
-      , token__value_preludes       ("\"{[-"      )
+      : token__eos                  (L"EOS"        )
+      , token__null                 (L"null"       )
+      , token__false                (L"false"      )
+      , token__true                 (L"true"       )
+      , token__digit                (L"digit"      )
+      , token__hex_digit            (L"hexdigit"   )
+      , token__char                 (L"char"       )
+      , token__escapes              (L"\"\\/bfnrtu")
+      , token__new_line             (L"NEWLINE"    )
+      , token__root_value_preludes  (L"{["         )
+      , token__value_preludes       (L"\"{[-"      )
     {
     }
 
@@ -137,12 +137,12 @@ namespace cpp_json { namespace parser
       return false;
     }
 
-    static constexpr bool is_white_space (char ch) throw ()
+    static constexpr bool is_white_space (char_type ch) throw ()
     {
       return ch == '\t' || ch == '\n' || ch == '\r' || ch == ' ';
     }
 
-    static constexpr bool is_digit (char ch) throw ()
+    static constexpr bool is_digit (char_type ch) throw ()
     {
       return ch >= '0' && ch <= '9';
     }
@@ -180,7 +180,7 @@ namespace cpp_json { namespace parser
       }
     }
 
-    inline bool try_parse__any_of_2 (char c0, char c1, char & r)
+    inline bool try_parse__any_of_2 (char_type c0, char_type c1, char_type & r)
     {
       if (eos ())
       {
@@ -338,10 +338,10 @@ namespace cpp_json { namespace parser
 
     bool try_parse__exponent (int & r)
     {
-      auto exp = ' ';
+      char_type exp = ' ';
       if (try_parse__any_of_2 ('e', 'E', exp))
       {
-        auto sign = '+';
+        char_type sign = '+';
         try_parse__any_of_2 ('+', '-', sign); // Don't check result as sign is optional
 
         // TODO: Seems overkill parsing exponent as double
@@ -448,8 +448,8 @@ namespace cpp_json { namespace parser
 
                   result = result << 4;
                   adv ();
-                  auto c = ch ();
-                  switch (c)
+                  auto hd = ch ();
+                  switch (hd)
                   {
                   case '0':
                   case '1':
@@ -461,7 +461,7 @@ namespace cpp_json { namespace parser
                   case '7':
                   case '8':
                   case '9':
-                    result += c - '0';
+                    result += hd - '0';
                     break;
                   case 'A':
                   case 'B':
@@ -469,7 +469,7 @@ namespace cpp_json { namespace parser
                   case 'D':
                   case 'E':
                   case 'F':
-                    result += c - 'A' + 10;
+                    result += hd - 'A' + 10;
                     break;
                   case 'a':
                   case 'b':
@@ -477,7 +477,7 @@ namespace cpp_json { namespace parser
                   case 'd':
                   case 'e':
                   case 'f':
-                    result += c - 'a' + 10;
+                    result += hd - 'a' + 10;
                     break;
                   default:
                     return raise__hex_digit ();

@@ -12,8 +12,8 @@
 
 namespace cpp_json { namespace standard
 {
-  using string_type           = std::string       ;
-  using stringstream_type     = std::stringstream ;
+  using string_type           = std::wstring       ;
+  using stringstream_type     = std::wstringstream ;
 
   struct json_element__null   ;
   struct json_element__bool   ;
@@ -168,7 +168,7 @@ namespace cpp_json { namespace standard
         return true;
       }
 
-      virtual bool set_key (string_type const & key) override
+      virtual bool set_key (string_type const & /*key*/) override
       {
         CPP_JSON__ASSERT (false);
 
@@ -200,7 +200,7 @@ namespace cpp_json { namespace standard
         return true;
       }
 
-      virtual bool set_key (string_type const & key) override
+      virtual bool set_key (string_type const & /*key*/) override
       {
         CPP_JSON__ASSERT (false);
 
@@ -249,9 +249,9 @@ namespace cpp_json { namespace standard
 
     struct default_json_context
     {
-      using string_type = string_type ;
-      using char_type   = char        ;
-      using iter_type   = char const* ;
+      using string_type = string_type     ;
+      using char_type   = wchar_t         ;
+      using iter_type   = wchar_t const * ;
 
       string_type                             current_string  ;
 
@@ -383,9 +383,9 @@ namespace cpp_json { namespace standard
 
     struct error_json_context
     {
-      using char_type   = char                ;
-      using string_type = string_type         ;
-      using iter_type   = char const*         ;
+      using string_type = string_type     ;
+      using char_type   = wchar_t         ;
+      using iter_type   = wchar_t const * ;
 
       iter_type                 error_pos     ;
       string_type               current_string;
@@ -533,7 +533,7 @@ namespace cpp_json { namespace standard
 
       for (auto ch : ejp.exp_chars)
       {
-        char token[] = {'\'', ch, '\'', 0};
+        details::error_json_context::char_type token[] = {'\'', ch, '\'', 0};
         expected.push_back (string_type (token));
       }
 
@@ -591,7 +591,7 @@ namespace cpp_json { namespace standard
 
   string_type to_string (json_element::ptr const & json)
   {
-    return "";
+    return string_type ();
   }
 
 } }

@@ -8,10 +8,10 @@ int main()
 {
   using namespace cpp_json::standard;
 
-//  string_type json = R"([null, 123,-1.23E2,"Test\tHello", true,false, [true,null],[],{}, {"x":true}])";
-//  string_type json = R"({:null})";
-//  string_type json = R"([)";
-  string_type json = R"(["\u0041bc"])";
+//  string_type json = LR"([null, 123,-1.23E2,"Test\tHello", true,false, [true,null],[],{}, {"x":true}])";
+//  string_type json = LR"({:null})";
+string_type json = LR"([)";
+//  string_type json = LR"(["\u004Abc"])";
 
   std::size_t       pos   ;
   json_element::ptr result;
@@ -19,13 +19,13 @@ int main()
 
   if (parse (json, pos, result, error))
   {
-    std::cout 
-      << "SUCCESS: Pos: " << pos << std::endl;
+    std::wcout 
+      << L"SUCCESS: Pos: " << pos << std::endl;
   }
   else
   {
-    std::cout 
-      << "FAILURE: Pos: " << pos << " Error: " << error << std::endl;
+    std::wcout 
+      << L"FAILURE: Pos: " << pos << L" Error: " << error << std::endl;
   }
 
   return 0;
