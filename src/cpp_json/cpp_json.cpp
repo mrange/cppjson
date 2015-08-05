@@ -8,14 +8,14 @@ int main()
 {
   using namespace cpp_json::standard;
 
-//  std::string json = R"([null, 123,-1.23E2,"Test\tHello", true,false, [true,null],[],{}, {"x":true}])";
-//  std::string json = R"({:null})";
-//  std::string json = R"([)";
-  std::string json = R"(["\u0041bc"])";
+//  string_type json = R"([null, 123,-1.23E2,"Test\tHello", true,false, [true,null],[],{}, {"x":true}])";
+//  string_type json = R"({:null})";
+//  string_type json = R"([)";
+  string_type json = R"(["\u0041bc"])";
 
   std::size_t       pos   ;
   json_element::ptr result;
-  std::string       error ;
+  string_type       error ;
 
   if (parse (json, pos, result, error))
   {

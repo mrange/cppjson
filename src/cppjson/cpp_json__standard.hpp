@@ -12,7 +12,8 @@
 
 namespace cpp_json { namespace standard
 {
-  using string_type           = std::string ;
+  using string_type           = std::string       ;
+  using stringstream_type     = std::stringstream ;
 
   struct json_element__null   ;
   struct json_element__bool   ;
@@ -542,7 +543,7 @@ namespace cpp_json { namespace standard
       expected.erase (std::unique (expected.begin (), expected.end ()), expected.end ());
       unexpected.erase (std::unique (unexpected.begin (), unexpected.end ()), unexpected.end ());
 
-      std::stringstream ss;
+      stringstream_type ss;
 
       ss 
         << "Failed to parse input as JSON" << std::endl 
