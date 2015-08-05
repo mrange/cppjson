@@ -26,8 +26,10 @@
 
 namespace cpp_json { namespace standard
 {
-  using string_type           = std::wstring       ;
-  using stringstream_type     = std::wstringstream ;
+  using string_type           = std::wstring            ;
+  using char_type             = string_type::value_type ;
+  using iter_type             = char_type const *       ;
+  using stringstream_type     = std::wstringstream      ;
 
   struct json_element__null   ;
   struct json_element__bool   ;
@@ -346,9 +348,9 @@ namespace cpp_json { namespace standard
 
     struct default_json_context
     {
-      using string_type = string_type             ;
-      using char_type   = string_type::value_type ;
-      using iter_type   = char_type const *       ;
+      using string_type = string_type ;
+      using char_type   = char_type   ;
+      using iter_type   = iter_type   ;
 
       string_type                             current_string  ;
 
@@ -518,9 +520,9 @@ namespace cpp_json { namespace standard
 
     struct error_json_context
     {
-      using string_type = string_type             ;
-      using char_type   = string_type::value_type ;
-      using iter_type   = char_type const *       ;
+      using string_type = string_type ;
+      using char_type   = char_type   ;
+      using iter_type   = iter_type   ;
 
       iter_type                 error_pos     ;
       string_type               current_string;

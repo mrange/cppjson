@@ -18,11 +18,83 @@
 
 #include "../cpp_json/cpp_json__standard.hpp"
 
+#include <filesystem>
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
-int main()
+int main (int argc, char const * * argvs)
 {
   using namespace cpp_json::standard;
+  using namespace std::tr2::sys     ;
+
+  try
+  {
+    auto current          = path (argvs[0]);
+
+    auto test_cases_path = current
+      .parent_path ()
+      .parent_path ()
+      .parent_path ()
+      .parent_path ()
+      .append ("test_cases")
+      ;
+
+    auto json_path    = test_cases_path;
+    json_path.append ("json");
+
+    auto result_path  = test_cases_path;
+    result_path.append ("result");
+
+    directory_iterator end;  
+
+    for (directory_iterator iter (json_path); iter != end; ++iter)
+    {
+      auto && entry = *iter;
+      if (entry.status ().type () != file_type::regular)
+      {
+        continue;
+      }
+
+      auto json_file_path = entry.path ();
+      if (!json_file_path.has_extension ())
+      {
+        continue;
+      }
+
+      auto json_file_ext = json_file_path.extension ().string ();
+      if (json_file_ext != ".json")
+      {
+        continue;
+      }
+
+      std::cout << "Processing: " << json_file_path << std::endl;
+
+      stringstream_type               json;
+      std::basic_ifstream<char_type>  json_stream (json_file_path);
+      string_type                     json_line;
+
+      while (std::getline (json_stream, json_line))
+      {
+        json << json_line << std::endl;
+      }
+
+      auto json_document = json.str ();
+
+    }
+
+    std::cout << "DONE!" << std::endl;
+
+    return 0;
+  }
+  catch (...)
+  {
+    std::cout << "EXCEPTION!" << std::endl;
+  }
+}
+
+
+#ifdef DDD
 
   string_type json = LR"([null, 123,-1.23E2,"Test\tHello", true,false, [true,null],[],{}, {"x":true}])";
 //  string_type json = LR"({:null})";
@@ -45,6 +117,5 @@ int main()
       << L"FAILURE: Pos: " << pos << L" Error: " << error << std::endl;
   }
 
-  return 0;
-}
 
+#endif
