@@ -247,7 +247,7 @@ namespace cpp_json { namespace parser
       }
     }
 
-    bool try_parse__null () 
+    bool try_parse__null ()
     {
       if (try_consume__token (tokens.token__null))
       {
@@ -259,7 +259,7 @@ namespace cpp_json { namespace parser
       }
     }
 
-    bool try_parse__true () 
+    bool try_parse__true ()
     {
       if (try_consume__token (tokens.token__true))
       {
@@ -271,7 +271,7 @@ namespace cpp_json { namespace parser
       }
     }
 
-    bool try_parse__false () 
+    bool try_parse__false ()
     {
       if (try_consume__token (tokens.token__false))
       {
@@ -526,7 +526,7 @@ namespace cpp_json { namespace parser
 
     bool try_parse__string ()
     {
-      return 
+      return
             try_parse__string_impl ()
         &&  context_type::string_value (context_type::get_string ())
         ;
@@ -547,7 +547,7 @@ namespace cpp_json { namespace parser
           return true;
         }
         else if (
-              try_consume__delimiter  (first) 
+              try_consume__delimiter  (first)
           &&  try_parse__value        ()
           )
         {
@@ -574,7 +574,7 @@ namespace cpp_json { namespace parser
 
     bool try_parse__member_key ()
     {
-      return 
+      return
             try_parse__string_impl ()
         &&  context_type::member_key (current_string)
         ;
@@ -590,7 +590,7 @@ namespace cpp_json { namespace parser
           return true;
         }
         else if (
-              try_consume__delimiter  (first) 
+              try_consume__delimiter  (first)
           &&  try_parse__member_key   ()
           &&  consume__white_space    ()
           &&  try_consume__char       (':')

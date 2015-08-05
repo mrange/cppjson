@@ -36,12 +36,12 @@ int main()
   if (parse (json, pos, result, error))
   {
     auto json2 = to_string (result);
-    std::wcout 
+    std::wcout
       << L"SUCCESS: Pos: " << pos << L" Json: " << json2 << std::endl;
   }
   else
   {
-    std::wcout 
+    std::wcout
       << L"FAILURE: Pos: " << pos << L" Error: " << error << std::endl;
   }
 

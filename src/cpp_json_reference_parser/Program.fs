@@ -1,4 +1,20 @@
-﻿open System
+﻿// ----------------------------------------------------------------------------------------------
+// Copyright 2015 Mårten Rånge
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+// ----------------------------------------------------------------------------------------------
+
+open System
 open System.Globalization
 open System.IO
 open System.Text
@@ -9,7 +25,7 @@ open Microsoft.FSharp.Core.Printf
 open MiniJson.JsonModule
 
 [<EntryPoint>]
-let main argv = 
+let main argv =
   Thread.CurrentThread.CurrentCulture   <- CultureInfo.InvariantCulture
   Thread.CurrentThread.CurrentUICulture <- CultureInfo.InvariantCulture
 
@@ -22,10 +38,15 @@ let main argv =
 
     let testCases =
       Directory.GetFiles (jsonPath, @"*.json")
-      |> Array.map (fun path -> Path.GetFileName path, Path.GetFullPath path)
+      |> Array.map (fun path ->
+        let testCase    = Path.GetFileName path
+        let jsonPath    = Path.GetFullPath path
+        let resultPath  = Path.Combine (resultPath, testCase + ".result")
+        testCase, jsonPath, resultPath
+        )
 
 
-    for testCase, testCasePath in testCases do
+    for testCase, jsonPath, resultPath in testCases do
       printfn "Processing: %s" testCase
       let sb                = StringBuilder ()
       let app (s : string)  = ignore <| sb.AppendLine s; true
@@ -47,17 +68,20 @@ let main argv =
             member x.Unexpected   (pos, tk) = ignore <| appf  "UnexpectedToken  : %d, %s" pos tk  // TODO: Escape
         }
 
-      let json        = File.ReadAllText testCasePath
+      let json        = File.ReadAllText jsonPath
       let mutable pos = 0
       let result      = tryParse v json &pos
+
       ignore <| appf "ParsePosition    : %d" pos
       ignore <| appf "ParseResult      : %s" (if result then "true" else "false")
-      let testCaseResultPath = Path.Combine (resultPath, testCase + ".result")
-      File.WriteAllText (testCaseResultPath, sb.ToString ())
+
+      File.WriteAllText (resultPath, sb.ToString ())
 
     printfn "Done"
     0
   with
-  | e -> 
+  | e ->
     printfn "Exception: %A" e.Message
     999
+
+// ----------------------------------------------------------------------------------------------

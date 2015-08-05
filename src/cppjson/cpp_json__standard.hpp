@@ -680,8 +680,8 @@ namespace cpp_json { namespace standard
 
       stringstream_type ss;
 
-      ss 
-        << L"Failed to parse input as JSON" << std::endl 
+      ss
+        << L"Failed to parse input as JSON" << std::endl
         << json << std::endl  // TODO: Add window and remove whitespace
         ;
 
