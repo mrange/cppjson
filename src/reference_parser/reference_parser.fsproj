@@ -8,7 +8,7 @@
     <ProjectGuid>326503b3-93a5-407c-88a1-84b6ecd91647</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>cpp_json_reference_parser</RootNamespace>
-    <AssemblyName>cpp_json_reference_parser</AssemblyName>
+    <AssemblyName>reference_parser</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
