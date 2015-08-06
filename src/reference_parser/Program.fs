@@ -83,7 +83,7 @@ let main argv =
         elif Double.IsNaN f                 then "NaN"
         elif Double.IsPositiveInfinity f    then "inf"
         elif Double.IsNegativeInfinity f    then "-inf"
-        else f.ToString ("G", CultureInfo.InvariantCulture)
+        else f.ToString ("g", CultureInfo.InvariantCulture)
 
       ignore <| appf "TestCase         : %s" testCase
       let v =

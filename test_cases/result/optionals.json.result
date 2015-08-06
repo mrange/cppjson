@@ -35,7 +35,7 @@ ExpectedToken    : 259, digit
 ExpectedChar     : 259, .
 ExpectedChar     : 259, e
 ExpectedChar     : 259, E
-NumberValue      : 2.22222222222222E+41
+NumberValue      : 2.22222222222222e+41
 MemberKey        : boolProperty
 BoolValue        : false
 MemberKey        : dateProperty
