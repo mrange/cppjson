@@ -32,6 +32,8 @@ let main argv =
   try
     Environment.CurrentDirectory <- AppDomain.CurrentDomain.BaseDirectory
 
+    let ech (ch : char)   = sprintf "\u%04x" (int ch)
+
     let nonPrintableChars =
       [|
         for i in 0..31 ->
@@ -41,7 +43,7 @@ let main argv =
           | '\n'            -> @"\n"
           | '\r'            -> @"\r"
           | '\t'            -> @"\t"
-          | ch              -> sprintf "\u%04X" i
+          | ch              -> ech ch
       |]
 
     let rootPath    = Path.GetFullPath @"../../../test_cases/"
@@ -67,11 +69,12 @@ let main argv =
         let e = s.Length - 1
         for i = 0 to e do
           match s.[i] with
-          | '\"'            -> str @"\"""
-          | '\\'            -> str @"\\"
-          | '/'             -> str @"\/"
-          | c when c < ' '  -> str nonPrintableChars.[int c]
-          | c               -> ch c
+          | '\"'                -> str @"\"""
+          | '\\'                -> str @"\\"
+          | '/'                 -> str @"\/"
+          | c when c < ' '      -> str nonPrintableChars.[int c]
+          | c when c > char 127 -> str <| ech c
+          | c                   -> ch c
         ignore <| sb.AppendLine ()
         true
       let appf f            = kprintf app f

@@ -89,6 +89,11 @@ namespace
         {
           result << non_printable_chars[ch];
         }
+        else if (ch > 127)
+        {
+          int i = ch;
+          result << "\\u" << std::hex << std::setfill (L'0') << std::setw (4) << i << std::dec;
+        }
         else
         {
           result << ch;
@@ -305,12 +310,18 @@ int main (int /*argc*/, char const * * argvs)
 
       std::basic_ofstream<char_type>  result_stream (result_file_path);
 
-      result_stream << jp.result.str ();
+      auto result = jp.result.str ();
+
+      result_stream << result;
     }
 
     std::cout << "DONE!" << std::endl;
 
     return 0;
+  }
+  catch (std::exception const & ex)
+  {
+    std::cout << "EXCEPTION! " << ex.what () << std::endl;
   }
   catch (...)
   {
