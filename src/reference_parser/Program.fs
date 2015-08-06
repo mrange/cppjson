@@ -101,7 +101,7 @@ let main argv =
             member x.Expected     (pos, tk) = ignore <| appf  "ExpectedToken    : %d, %s" pos tk
             member x.Unexpected   (pos, tk) = ignore <| appf  "UnexpectedToken  : %d, %s" pos tk
         }
-      
+
       let readFile p =
         let sb  = StringBuilder ()
         use sr  = new StreamReader(jsonPath)

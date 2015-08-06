@@ -213,10 +213,10 @@ namespace
 
     bool number_value (double d)
     {
-      result 
-        << L"NumberValue      : " 
-        << std::setprecision(std::numeric_limits<double>::digits10 + 1)        
-        << d 
+      result
+        << L"NumberValue      : "
+        << std::setprecision(std::numeric_limits<double>::digits10)
+        << d
         << std::endl
         ;
       return true;
