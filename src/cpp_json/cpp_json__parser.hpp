@@ -1,5 +1,5 @@
 // ----------------------------------------------------------------------------------------------
-// Copyright 2015 Mårten Rånge
+// Copyright 2015 MÃ¥rten RÃ¥nge
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -459,7 +459,7 @@ namespace cpp_json { namespace parser
               break;
             case 'u':
               {
-                wchar_t result = 0;
+                wchar_t wresult = 0;
 
                 for (auto iter = 0U; iter < 4U; ++iter)
                 {
@@ -468,7 +468,7 @@ namespace cpp_json { namespace parser
                     return raise__hex_digit () || raise__eos ();
                   }
 
-                  result = result << 4;
+                  wresult = wresult << 4;
                   adv ();
                   auto hd = ch ();
                   switch (hd)
@@ -483,7 +483,7 @@ namespace cpp_json { namespace parser
                   case '7':
                   case '8':
                   case '9':
-                    result += hd - '0';
+                    wresult += hd - '0';
                     break;
                   case 'A':
                   case 'B':
@@ -491,7 +491,7 @@ namespace cpp_json { namespace parser
                   case 'D':
                   case 'E':
                   case 'F':
-                    result += hd - 'A' + 10;
+                    wresult += hd - 'A' + 10;
                     break;
                   case 'a':
                   case 'b':
@@ -499,14 +499,14 @@ namespace cpp_json { namespace parser
                   case 'd':
                   case 'e':
                   case 'f':
-                    result += hd - 'a' + 10;
+                    wresult += hd - 'a' + 10;
                     break;
                   default:
                     return raise__hex_digit ();
                   }
                 }
 
-                context_type::push_wchar_t (result);
+                context_type::push_wchar_t (wresult);
               }
               break;
             default:

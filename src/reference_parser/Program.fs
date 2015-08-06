@@ -1,4 +1,4 @@
-﻿// ----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
 // Copyright 2015 Mårten Rånge
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -63,7 +63,7 @@ let main argv =
       let sb                      = StringBuilder ()
       let inline str (s : string) = ignore <| sb.Append s
       let inline ch  (c : char)   = ignore <| sb.Append c
-      let app (s : string)        = 
+      let app (s : string)        =
         let e = s.Length - 1
         for i = 0 to e do
           match s.[i] with

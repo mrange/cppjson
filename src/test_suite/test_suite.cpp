@@ -1,5 +1,5 @@
 // ----------------------------------------------------------------------------------------------
-// Copyright 2015 Mårten Rånge
+// Copyright 2015 MÃ¥rten RÃ¥nge
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@
 #include "../cpp_json/cpp_json__standard.hpp"
 
 #include <filesystem>
+#include <iomanip>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -27,22 +28,87 @@ namespace
 {
   struct result_json_context
   {
-    using string_type       = std::wstring            ;
-    using char_type         = string_type::value_type ;
-    using iter_type         = char_type const *       ;
-    using stringstream_type = std::wstringstream      ;
+    using string_type         = std::wstring            ;
+    using char_type           = string_type::value_type ;
+    using iter_type           = char_type const *       ;
+    using stringstream_type   = std::wstringstream      ;
 
-    string_type       current_string  ;
-    stringstream_type result          ;
+    string_type               current_string            ;
+    stringstream_type         result                    ;
+    std::vector<string_type>  non_printable_chars       ;
 
-    result_json_context () = default;
+    result_json_context ()
+    {
+      non_printable_chars.reserve (32U);
+      for (auto iter = 0U; iter < 32U; ++iter)
+      {
+        switch (iter)
+        {
+        case '\b':
+          non_printable_chars.push_back (L"\\b");
+          break;
+        case '\f':
+          non_printable_chars.push_back (L"\\f");
+          break;
+        case '\n':
+          non_printable_chars.push_back (L"\\n");
+          break;
+        case '\r':
+          non_printable_chars.push_back (L"\\r");
+          break;
+        case '\t':
+          non_printable_chars.push_back (L"\\t");
+          break;
+        default:
+          stringstream_type ss;
+          ss << "\\u" << std::hex << std::setfill (L'0') << std::setw (4) << iter;
+          non_printable_chars.push_back (ss.str ());
+          break;
+        }
+      }
+
+    }
 
     CPP_JSON__NO_COPY_MOVE (result_json_context);
 
+    void write_char (char_type ch)
+    {
+      switch (ch)
+      {
+      case '\"':
+        result << L"\\\"";
+        break;
+      case '\\':
+        result << L"\\\\";
+        break;
+      case '/':
+        result << L"\\/";
+        break;
+      default:
+        if (ch >= 0 && ch < non_printable_chars.size ())
+        {
+          result << non_printable_chars[ch];
+        }
+        else
+        {
+          result << ch;
+        }
+      }
+    }
+
+    void write_string (string_type const & s)
+    {
+      for (auto && ch : s)
+      {
+        write_char (ch);
+      }
+    }
+
     inline void expected_char (std::size_t pos, char_type ch) throw ()
     {
-      // TODO: Escape
-      result << L"ExpectedChar     : " << pos << L", " << ch << std::endl;
+      result << L"ExpectedChar     : " << pos << L", ";
+      write_char (ch);
+      result << std::endl;
     }
 
     inline void expected_chars (std::size_t pos, string_type const & chs) throw ()
@@ -56,13 +122,16 @@ namespace
     inline void expected_token (std::size_t pos, string_type const & token) throw ()
     {
       // TODO: Escape
-      result << L"ExpectedToken    : " << pos << L", " << token << std::endl;
+      result << L"ExpectedToken    : " << pos << L", ";
+      write_string (token);
+      result << std::endl;
     }
 
     inline void unexpected_token (std::size_t pos, string_type const & token) throw ()
     {
-      // TODO: Escape
-      result << L"UnexpectedToken  : " << pos << L", " << token << std::endl;
+      result << L"UnexpectedToken  : " << pos << L", ";
+      write_string (token);
+      result << std::endl;
     }
 
     inline void clear_string ()
@@ -77,7 +146,6 @@ namespace
 
     inline void push_wchar_t (wchar_t ch)
     {
-      // TODO:
       current_string.push_back (ch);
     }
 
@@ -106,8 +174,9 @@ namespace
 
     bool member_key (string_type const & s)
     {
-      // TODO: Escape
-      result << L"MemberKey        : " << s << std::endl;
+      result << L"MemberKey        : ";
+      write_string (s);
+      result << std::endl;
       return true;
     }
 
@@ -131,14 +200,14 @@ namespace
 
     bool string_value (string_type const & s)
     {
-      // TODO: Escape
-      result << L"StringValue      : " << s << std::endl;
+      result << L"StringValue      : ";
+      write_string (s);
+      result << std::endl;
       return true;
     }
 
     bool number_value (double d)
     {
-      // TODO: CultureInfo
       result << L"NumberValue      : " << d << std::endl;
       return true;
     }
@@ -146,7 +215,7 @@ namespace
   };
 }
 
-int main (int argc, char const * * argvs)
+int main (int /*argc*/, char const * * argvs)
 {
   using namespace cpp_json::standard;
   using namespace std::tr2::sys     ;
@@ -169,7 +238,7 @@ int main (int argc, char const * * argvs)
     auto result_path  = test_cases_path;
     result_path.append ("result");
 
-    directory_iterator end;  
+    directory_iterator end;
 
     for (directory_iterator iter (json_path); iter != end; ++iter)
     {
@@ -218,14 +287,14 @@ int main (int argc, char const * * argvs)
       auto json_end       = json_begin + json_document.size ();
 
       cpp_json::parser::json_parser<result_json_context> jp (json_begin, json_end);
-      
-      jp.result 
+
+      jp.result
         << L"TestCase         : " << json_file_name.string () << std::endl;
 
       auto presult  = jp.try_parse__json ();
       auto ppos     = jp.pos ();
 
-      jp.result 
+      jp.result
         << L"ParsePosition    : " << ppos << std::endl
         << L"ParseResult      : " << (presult ? L"true" : L"false") << std::endl;
 
