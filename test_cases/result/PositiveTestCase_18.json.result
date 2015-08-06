@@ -3,5 +3,5 @@ Array            : begin
 StringValue      : Hello
 There
 Array            : end
-ParsePosition    : 18
+ParsePosition    : 20
 ParseResult      : true

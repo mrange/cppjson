@@ -18,5 +18,5 @@ MemberKey        : isCool
 BoolValue        : true
 Object           : end
 Object           : end
-ParsePosition    : 107
+ParsePosition    : 109
 ParseResult      : true

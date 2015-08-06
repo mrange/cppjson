@@ -1,6 +1,5 @@
 TestCase         : NegativeTestCase_19.json
 Array            : begin
-ExpectedToken    : 8, char
-UnexpectedToken  : 8, EOS
+UnexpectedToken  : 8, NEWLINE
 ParsePosition    : 8
 ParseResult      : false

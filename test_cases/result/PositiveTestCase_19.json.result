@@ -2,5 +2,5 @@ TestCase         : PositiveTestCase_19.json
 Array            : begin
 StringValue      : HelloJ
 Array            : end
-ParsePosition    : 15
+ParsePosition    : 17
 ParseResult      : true

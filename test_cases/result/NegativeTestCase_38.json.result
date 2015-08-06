@@ -4,12 +4,10 @@ ExpectedChar     : 1, -
 ExpectedChar     : 1, 0
 ExpectedToken    : 2, digit
 ExpectedToken    : 4, digit
-UnexpectedToken  : 4, EOS
 ExpectedChar     : 4, e
 ExpectedChar     : 4, E
-UnexpectedToken  : 4, EOS
 NumberValue      : 1.000000
-ExpectedChar     : 4, ,
-UnexpectedToken  : 4, EOS
-ParsePosition    : 4
+ExpectedChar     : 6, ,
+UnexpectedToken  : 6, EOS
+ParsePosition    : 6
 ParseResult      : false

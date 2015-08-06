@@ -8,5 +8,5 @@ ExpectedChar     : 5, e
 ExpectedChar     : 5, E
 NumberValue      : 1.250000
 Array            : end
-ParsePosition    : 6
+ParsePosition    : 8
 ParseResult      : true

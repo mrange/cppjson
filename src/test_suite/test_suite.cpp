@@ -199,7 +199,10 @@ int main (int argc, char const * * argvs)
         continue;
       }
 
-      std::cout << "Processing: " << json_file_path << std::endl;
+      auto result_file_path = result_path;
+      result_file_path.append (json_file_name.string () + ".result");
+
+      std::cout << "Processing: " << json_file_name << std::endl;
 
       stringstream_type               json;
       std::basic_ifstream<char_type>  json_stream (json_file_path);
@@ -216,6 +219,9 @@ int main (int argc, char const * * argvs)
 
       cpp_json::parser::json_parser<result_json_context> jp (json_begin, json_end);
       
+      jp.result 
+        << L"TestCase         : " << json_file_name.string () << std::endl;
+
       auto presult  = jp.try_parse__json ();
       auto ppos     = jp.pos ();
 
@@ -223,9 +229,9 @@ int main (int argc, char const * * argvs)
         << L"ParsePosition    : " << ppos << std::endl
         << L"ParseResult      : " << (presult ? L"true" : L"false") << std::endl;
 
-      auto j = jp.result.str ();
+      std::basic_ofstream<char_type>  result_stream (result_file_path);
 
-      std::wcout << j << std::endl;
+      result_stream << jp.result.str ();
     }
 
     std::cout << "DONE!" << std::endl;

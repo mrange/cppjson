@@ -24,5 +24,5 @@ MemberKey        : postalCode
 StringValue      : 10021
 Object           : end
 Object           : end
-ParsePosition    : 256
+ParsePosition    : 258
 ParseResult      : true

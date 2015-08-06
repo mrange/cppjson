@@ -9,5 +9,5 @@ ExpectedChar     : 6, -
 ExpectedToken    : 7, digit
 NumberValue      : 125.000000
 Array            : end
-ParsePosition    : 8
+ParsePosition    : 10
 ParseResult      : true
