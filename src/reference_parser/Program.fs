@@ -75,13 +75,20 @@ let main argv =
         ignore <| sb.AppendLine ()
         true
       let appf f            = kprintf app f
+      let ftos f            =
+        if Double.IsNegativeInfinity (1./f) then "-0"
+        elif Double.IsNaN f                 then "NaN"
+        elif Double.IsPositiveInfinity f    then "inf"
+        elif Double.IsNegativeInfinity f    then "-inf"
+        else f.ToString ("G", CultureInfo.InvariantCulture)
+
       ignore <| appf "TestCase         : %s" testCase
       let v =
         { new IParseVisitor with
             member x.NullValue    ()        =           app   "NullValue        : null"
-            member x.BoolValue    b         =           appf  "BoolValue        : %s" (if b then "true" else "false")
-            member x.NumberValue  n         =           appf  "NumberValue      : %s" (n.ToString ("G", CultureInfo.InvariantCulture))
-            member x.StringValue  s         =           appf  "StringValue      : %s" (s.ToString ())
+            member x.BoolValue    b         =           appf  "BoolValue        : %s" <| if b then "true" else "false"
+            member x.NumberValue  n         =           appf  "NumberValue      : %s" <| ftos n
+            member x.StringValue  s         =           appf  "StringValue      : %s" <| s.ToString ()
             member x.ArrayBegin   ()        =           app   "Array            : begin"
             member x.ArrayEnd     ()        =           app   "Array            : end"
             member x.ObjectBegin  ()        =           app   "Object           : begin"
