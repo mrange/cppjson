@@ -4997,7 +4997,7 @@ Array            : end
 MemberKey        : self_service_course_id
 NullValue        : null
 MemberKey        : short_description
-StringValue      : Find out how modern electronic markets work, why stock prices change in the ways they do, and how computation can help our understanding of them.  Build algorithms and visualizations to inform investing practice.
+StringValue      : Find out how modern electronic markets work, why stock prices change in the ways they do, and how computation can help our understanding of them. \u00a0Build algorithms and visualizations to inform investing practice.
 MemberKey        : short_name
 StringValue      : compinvesting1
 MemberKey        : category-ids
@@ -5377,7 +5377,7 @@ Array            : end
 MemberKey        : self_service_course_id
 NullValue        : null
 MemberKey        : short_description
-StringValue      : <div>In this course, you will explore several structured, risk management approaches that guide information security decision-making. <\/div>\n<div><\/div>
+StringValue      : <div>In this course, you will explore several structured, risk management approaches that guide information security decision-making.\u00a0<\/div>\n<div><\/div>
 MemberKey        : short_name
 StringValue      : inforisk
 MemberKey        : category-ids
@@ -7861,7 +7861,7 @@ ExpectedChar     : 132579, e
 ExpectedChar     : 132579, E
 NumberValue      : 78
 MemberKey        : location_city
-StringValue      : München
+StringValue      : M\u00fcnchen
 MemberKey        : location_country
 StringValue      : DE
 MemberKey        : location_lat
@@ -7881,7 +7881,7 @@ StringValue      : TUM
 MemberKey        : website
 StringValue      : http:\/\/www.tum.de\/
 MemberKey        : description
-StringValue      : Technische Universität München (TUM) is one of Europe’s top universities. It is committed to excellence in research and teaching, interdisciplinary education and the active promotion of promising young scientists. The university forges strong links with companies and scientific institutions across the world. TUM was one of the first universities in Germany to be named a University of Excellence.
+StringValue      : Technische Universit\u00e4t M\u00fcnchen (TUM) is one of Europe\u2019s top universities. It is committed to excellence in research and teaching, interdisciplinary education and the active promotion of promising young scientists. The university forges strong links with companies and scientific institutions across the world. TUM was one of the first universities in Germany to be named a University of Excellence.
 MemberKey        : short_name
 StringValue      : tum
 MemberKey        : landing_page_banner
@@ -7903,7 +7903,7 @@ StringValue      :
 MemberKey        : location_state
 StringValue      : BY
 MemberKey        : name
-StringValue      : Technische Universität München (TUM)
+StringValue      : Technische Universit\u00e4t M\u00fcnchen (TUM)
 MemberKey        : square_logo
 StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/2c\/6b2e1799cc2e95901e763daac8d476\/TUM-Logo_360x360px.png
 MemberKey        : square_logo_source
@@ -7929,7 +7929,7 @@ Array            : end
 MemberKey        : self_service_course_id
 NullValue        : null
 MemberKey        : short_description
-StringValue      : Dieser Kurs vermittelt einen Überblick über die Grundlagen des Maschinellen Sehens an Hand der Extraktion von 3D-Information aus dem Stereokamerabild einer Szene.
+StringValue      : Dieser Kurs vermittelt einen \u00dcberblick \u00fcber die Grundlagen des Maschinellen Sehens an Hand der Extraktion von 3D-Information aus dem Stereokamerabild einer Szene.
 MemberKey        : short_name
 StringValue      : compvision
 MemberKey        : category-ids
@@ -7964,7 +7964,7 @@ StringValue      : Our wide range of courses allows students to explore topics f
 Object           : end
 Array            : end
 MemberKey        : name
-StringValue      : Einführung in Computer Vision
+StringValue      : Einf\u00fchrung in Computer Vision
 MemberKey        : language
 StringValue      : de
 MemberKey        : courses

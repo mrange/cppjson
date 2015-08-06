@@ -1,6 +1,6 @@
 TestCase         : PositiveTestCase_20.json
 Array            : begin
-StringValue      : \"\\\/\b\f\n\r\t♥
+StringValue      : \"\\\/\b\f\n\r\t\u2665
 Array            : end
 ParsePosition    : 27
 ParseResult      : true
