@@ -2,5 +2,5 @@ TestCase         : PositiveTestCase_20.json
 Array            : begin
 StringValue      : \"\\\/\b\f\n\r\t♥
 Array            : end
-ParsePosition    : 28
+ParsePosition    : 27
 ParseResult      : true

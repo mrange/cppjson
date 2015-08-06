@@ -1,5 +1,5 @@
 TestCase         : Empty.json
 Object           : begin
 Object           : end
-ParsePosition    : 4
+ParsePosition    : 3
 ParseResult      : true

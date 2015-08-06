@@ -9,5 +9,5 @@ ExpectedChar     : 12, e
 ExpectedChar     : 12, E
 NumberValue      : 123
 Object           : end
-ParsePosition    : 15
+ParsePosition    : 14
 ParseResult      : true

@@ -2,5 +2,5 @@ TestCase         : PositiveTestCase_15.json
 Array            : begin
 NullValue        : null
 Array            : end
-ParsePosition    : 8
+ParsePosition    : 7
 ParseResult      : true

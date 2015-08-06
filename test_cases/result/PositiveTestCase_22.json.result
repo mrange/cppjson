@@ -2,5 +2,5 @@ TestCase         : PositiveTestCase_22.json
 Array            : begin
 StringValue      : ģ䕧覫췯
 Array            : end
-ParsePosition    : 30
+ParsePosition    : 29
 ParseResult      : true

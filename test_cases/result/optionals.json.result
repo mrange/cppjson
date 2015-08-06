@@ -5,36 +5,36 @@ Object           : begin
 MemberKey        : stringProperty
 StringValue      : foo
 MemberKey        : intProperty
-ExpectedChar     : 84, -
-ExpectedChar     : 84, 0
-ExpectedToken    : 85, digit
-ExpectedChar     : 85, .
-ExpectedChar     : 85, e
-ExpectedChar     : 85, E
+ExpectedChar     : 83, -
+ExpectedChar     : 83, 0
+ExpectedToken    : 84, digit
+ExpectedChar     : 84, .
+ExpectedChar     : 84, e
+ExpectedChar     : 84, E
 NumberValue      : 2
 MemberKey        : int64Property
-ExpectedChar     : 125, -
-ExpectedChar     : 125, 0
-ExpectedToken    : 135, digit
-ExpectedChar     : 135, .
-ExpectedChar     : 135, e
-ExpectedChar     : 135, E
+ExpectedChar     : 123, -
+ExpectedChar     : 123, 0
+ExpectedToken    : 133, digit
+ExpectedChar     : 133, .
+ExpectedChar     : 133, e
+ExpectedChar     : 133, E
 NumberValue      : 2222222222
 MemberKey        : decimalProperty
-ExpectedChar     : 178, -
-ExpectedChar     : 178, 0
-ExpectedToken    : 179, digit
-ExpectedToken    : 181, digit
-ExpectedChar     : 181, e
-ExpectedChar     : 181, E
+ExpectedChar     : 175, -
+ExpectedChar     : 175, 0
+ExpectedToken    : 176, digit
+ExpectedToken    : 178, digit
+ExpectedChar     : 178, e
+ExpectedChar     : 178, E
 NumberValue      : 2.5
 MemberKey        : floatProperty
-ExpectedChar     : 221, -
-ExpectedChar     : 221, 0
-ExpectedToken    : 263, digit
-ExpectedChar     : 263, .
-ExpectedChar     : 263, e
-ExpectedChar     : 263, E
+ExpectedChar     : 217, -
+ExpectedChar     : 217, 0
+ExpectedToken    : 259, digit
+ExpectedChar     : 259, .
+ExpectedChar     : 259, e
+ExpectedChar     : 259, E
 NumberValue      : 2.22222222222222E+41
 MemberKey        : boolProperty
 BoolValue        : false
@@ -52,43 +52,43 @@ Array            : begin
 Array            : end
 MemberKey        : oneElementArrayProperty
 Array            : begin
-ExpectedChar     : 560, -
-ExpectedChar     : 560, 0
-ExpectedToken    : 561, digit
-ExpectedChar     : 561, .
-ExpectedChar     : 561, e
-ExpectedChar     : 561, E
+ExpectedChar     : 549, -
+ExpectedChar     : 549, 0
+ExpectedToken    : 550, digit
+ExpectedChar     : 550, .
+ExpectedChar     : 550, e
+ExpectedChar     : 550, E
 NumberValue      : 2
 Array            : end
 MemberKey        : multipleElementsArrayProperty
 Array            : begin
-ExpectedChar     : 602, -
-ExpectedChar     : 602, 0
-ExpectedToken    : 603, digit
-ExpectedChar     : 603, .
-ExpectedChar     : 603, e
-ExpectedChar     : 603, E
+ExpectedChar     : 590, -
+ExpectedChar     : 590, 0
+ExpectedToken    : 591, digit
+ExpectedChar     : 591, .
+ExpectedChar     : 591, e
+ExpectedChar     : 591, E
 NumberValue      : 2
-ExpectedChar     : 604, -
-ExpectedChar     : 604, 0
-ExpectedToken    : 605, digit
-ExpectedChar     : 605, .
-ExpectedChar     : 605, e
-ExpectedChar     : 605, E
+ExpectedChar     : 592, -
+ExpectedChar     : 592, 0
+ExpectedToken    : 593, digit
+ExpectedChar     : 593, .
+ExpectedChar     : 593, e
+ExpectedChar     : 593, E
 NumberValue      : 4
-ExpectedChar     : 606, -
-ExpectedChar     : 606, 0
-ExpectedToken    : 607, digit
-ExpectedChar     : 607, .
-ExpectedChar     : 607, e
-ExpectedChar     : 607, E
+ExpectedChar     : 594, -
+ExpectedChar     : 594, 0
+ExpectedToken    : 595, digit
+ExpectedChar     : 595, .
+ExpectedChar     : 595, e
+ExpectedChar     : 595, E
 NumberValue      : 5
-ExpectedChar     : 608, -
-ExpectedChar     : 608, 0
-ExpectedToken    : 609, digit
-ExpectedChar     : 609, .
-ExpectedChar     : 609, e
-ExpectedChar     : 609, E
+ExpectedChar     : 596, -
+ExpectedChar     : 596, 0
+ExpectedToken    : 597, digit
+ExpectedChar     : 597, .
+ExpectedChar     : 597, e
+ExpectedChar     : 597, E
 NumberValue      : 6
 Array            : end
 MemberKey        : arrayOfObjects
@@ -96,56 +96,56 @@ Array            : begin
 Object           : begin
 MemberKey        : heterogeneousArrayProperty
 Array            : begin
-ExpectedChar     : 669, -
-ExpectedChar     : 669, 0
-ExpectedToken    : 670, digit
-ExpectedChar     : 670, .
-ExpectedChar     : 670, e
-ExpectedChar     : 670, E
+ExpectedChar     : 656, -
+ExpectedChar     : 656, 0
+ExpectedToken    : 657, digit
+ExpectedChar     : 657, .
+ExpectedChar     : 657, e
+ExpectedChar     : 657, E
 NumberValue      : 1
-ExpectedChar     : 671, -
-ExpectedChar     : 671, 0
-ExpectedToken    : 672, digit
-ExpectedChar     : 672, .
-ExpectedChar     : 672, e
-ExpectedChar     : 672, E
+ExpectedChar     : 658, -
+ExpectedChar     : 658, 0
+ExpectedToken    : 659, digit
+ExpectedChar     : 659, .
+ExpectedChar     : 659, e
+ExpectedChar     : 659, E
 NumberValue      : 2
 BoolValue        : false
 StringValue      : foo
 Array            : end
 MemberKey        : heterogeneousProperty
-ExpectedChar     : 712, -
-ExpectedChar     : 712, 0
-ExpectedToken    : 713, digit
-ExpectedChar     : 713, .
-ExpectedChar     : 713, e
-ExpectedChar     : 713, E
+ExpectedChar     : 699, -
+ExpectedChar     : 699, 0
+ExpectedToken    : 700, digit
+ExpectedChar     : 700, .
+ExpectedChar     : 700, e
+ExpectedChar     : 700, E
 NumberValue      : 2
 MemberKey        : heterogeneousOptionalProperty
-ExpectedChar     : 748, -
-ExpectedChar     : 748, 0
-ExpectedToken    : 749, digit
-ExpectedChar     : 749, .
-ExpectedChar     : 749, e
-ExpectedChar     : 749, E
+ExpectedChar     : 735, -
+ExpectedChar     : 735, 0
+ExpectedToken    : 736, digit
+ExpectedChar     : 736, .
+ExpectedChar     : 736, e
+ExpectedChar     : 736, E
 NumberValue      : 2
 Object           : end
 Object           : begin
 MemberKey        : heterogeneousArrayProperty
 Array            : begin
-ExpectedChar     : 810, -
-ExpectedChar     : 810, 0
-ExpectedToken    : 811, digit
-ExpectedChar     : 811, .
-ExpectedChar     : 811, e
-ExpectedChar     : 811, E
+ExpectedChar     : 796, -
+ExpectedChar     : 796, 0
+ExpectedToken    : 797, digit
+ExpectedChar     : 797, .
+ExpectedChar     : 797, e
+ExpectedChar     : 797, E
 NumberValue      : 1
-ExpectedChar     : 812, -
-ExpectedChar     : 812, 0
-ExpectedToken    : 813, digit
-ExpectedChar     : 813, .
-ExpectedChar     : 813, e
-ExpectedChar     : 813, E
+ExpectedChar     : 798, -
+ExpectedChar     : 798, 0
+ExpectedToken    : 799, digit
+ExpectedChar     : 799, .
+ExpectedChar     : 799, e
+ExpectedChar     : 799, E
 NumberValue      : 2
 BoolValue        : false
 Array            : end
@@ -167,36 +167,36 @@ MemberKey        : optionalPrimitives
 Array            : begin
 Object           : begin
 MemberKey        : optionalBecauseMissing
-ExpectedChar     : 1058, -
-ExpectedChar     : 1058, 0
-ExpectedToken    : 1059, digit
-ExpectedChar     : 1059, .
-ExpectedChar     : 1059, e
-ExpectedChar     : 1059, E
+ExpectedChar     : 1042, -
+ExpectedChar     : 1042, 0
+ExpectedToken    : 1043, digit
+ExpectedChar     : 1043, .
+ExpectedChar     : 1043, e
+ExpectedChar     : 1043, E
 NumberValue      : 1
 MemberKey        : optionalBecauseNull
-ExpectedChar     : 1085, -
-ExpectedChar     : 1085, 0
-ExpectedToken    : 1086, digit
-ExpectedChar     : 1086, .
-ExpectedChar     : 1086, e
-ExpectedChar     : 1086, E
+ExpectedChar     : 1069, -
+ExpectedChar     : 1069, 0
+ExpectedToken    : 1070, digit
+ExpectedChar     : 1070, .
+ExpectedChar     : 1070, e
+ExpectedChar     : 1070, E
 NumberValue      : 2
 MemberKey        : optionalBecauseEmptyString
-ExpectedChar     : 1119, -
-ExpectedChar     : 1119, 0
-ExpectedToken    : 1120, digit
-ExpectedChar     : 1120, .
-ExpectedChar     : 1120, e
-ExpectedChar     : 1120, E
+ExpectedChar     : 1103, -
+ExpectedChar     : 1103, 0
+ExpectedToken    : 1104, digit
+ExpectedChar     : 1104, .
+ExpectedChar     : 1104, e
+ExpectedChar     : 1104, E
 NumberValue      : 3
 MemberKey        : notOptional
-ExpectedChar     : 1138, -
-ExpectedChar     : 1138, 0
-ExpectedToken    : 1139, digit
-ExpectedChar     : 1139, .
-ExpectedChar     : 1139, e
-ExpectedChar     : 1139, E
+ExpectedChar     : 1122, -
+ExpectedChar     : 1122, 0
+ExpectedToken    : 1123, digit
+ExpectedChar     : 1123, .
+ExpectedChar     : 1123, e
+ExpectedChar     : 1123, E
 NumberValue      : 4
 MemberKey        : nullNotOptional
 NullValue        : null
@@ -216,45 +216,45 @@ Object           : begin
 MemberKey        : optionalBecauseMissing
 Object           : begin
 MemberKey        : a
-ExpectedChar     : 1378, -
-ExpectedChar     : 1378, 0
-ExpectedToken    : 1379, digit
-ExpectedChar     : 1379, .
-ExpectedChar     : 1379, e
-ExpectedChar     : 1379, E
+ExpectedChar     : 1360, -
+ExpectedChar     : 1360, 0
+ExpectedToken    : 1361, digit
+ExpectedChar     : 1361, .
+ExpectedChar     : 1361, e
+ExpectedChar     : 1361, E
 NumberValue      : 1
 Object           : end
 MemberKey        : optionalBecauseNull
 Object           : begin
 MemberKey        : a
-ExpectedChar     : 1411, -
-ExpectedChar     : 1411, 0
-ExpectedToken    : 1412, digit
-ExpectedChar     : 1412, .
-ExpectedChar     : 1412, e
-ExpectedChar     : 1412, E
+ExpectedChar     : 1393, -
+ExpectedChar     : 1393, 0
+ExpectedToken    : 1394, digit
+ExpectedChar     : 1394, .
+ExpectedChar     : 1394, e
+ExpectedChar     : 1394, E
 NumberValue      : 1
 Object           : end
 MemberKey        : optionalBecauseEmptyString
 Object           : begin
 MemberKey        : a
-ExpectedChar     : 1451, -
-ExpectedChar     : 1451, 0
-ExpectedToken    : 1452, digit
-ExpectedChar     : 1452, .
-ExpectedChar     : 1452, e
-ExpectedChar     : 1452, E
+ExpectedChar     : 1433, -
+ExpectedChar     : 1433, 0
+ExpectedToken    : 1434, digit
+ExpectedChar     : 1434, .
+ExpectedChar     : 1434, e
+ExpectedChar     : 1434, E
 NumberValue      : 2
 Object           : end
 MemberKey        : notOptional
 Object           : begin
 MemberKey        : a
-ExpectedChar     : 1476, -
-ExpectedChar     : 1476, 0
-ExpectedToken    : 1477, digit
-ExpectedChar     : 1477, .
-ExpectedChar     : 1477, e
-ExpectedChar     : 1477, E
+ExpectedChar     : 1458, -
+ExpectedChar     : 1458, 0
+ExpectedToken    : 1459, digit
+ExpectedChar     : 1459, .
+ExpectedChar     : 1459, e
+ExpectedChar     : 1459, E
 NumberValue      : 3
 Object           : end
 Object           : end
@@ -266,12 +266,12 @@ StringValue      :
 MemberKey        : notOptional
 Object           : begin
 MemberKey        : a
-ExpectedChar     : 1631, -
-ExpectedChar     : 1631, 0
-ExpectedToken    : 1632, digit
-ExpectedChar     : 1632, .
-ExpectedChar     : 1632, e
-ExpectedChar     : 1632, E
+ExpectedChar     : 1612, -
+ExpectedChar     : 1612, 0
+ExpectedToken    : 1613, digit
+ExpectedChar     : 1613, .
+ExpectedChar     : 1613, e
+ExpectedChar     : 1613, E
 NumberValue      : 4
 Object           : end
 Object           : end
@@ -280,62 +280,62 @@ MemberKey        : heterogeneousArray
 Array            : begin
 Object           : begin
 MemberKey        : a
-ExpectedChar     : 1675, -
-ExpectedChar     : 1675, 0
-ExpectedToken    : 1676, digit
-ExpectedChar     : 1676, .
-ExpectedChar     : 1676, e
-ExpectedChar     : 1676, E
+ExpectedChar     : 1655, -
+ExpectedChar     : 1655, 0
+ExpectedToken    : 1656, digit
+ExpectedChar     : 1656, .
+ExpectedChar     : 1656, e
+ExpectedChar     : 1656, E
 NumberValue      : 1
 Object           : end
-ExpectedChar     : 1680, -
-ExpectedChar     : 1680, 0
-ExpectedToken    : 1681, digit
-ExpectedChar     : 1681, .
-ExpectedChar     : 1681, e
-ExpectedChar     : 1681, E
+ExpectedChar     : 1660, -
+ExpectedChar     : 1660, 0
+ExpectedToken    : 1661, digit
+ExpectedChar     : 1661, .
+ExpectedChar     : 1661, e
+ExpectedChar     : 1661, E
 NumberValue      : 2
 BoolValue        : false
 Array            : begin
-ExpectedChar     : 1691, -
-ExpectedChar     : 1691, 0
-ExpectedToken    : 1692, digit
-ExpectedChar     : 1692, .
-ExpectedChar     : 1692, e
-ExpectedChar     : 1692, E
+ExpectedChar     : 1671, -
+ExpectedChar     : 1671, 0
+ExpectedToken    : 1672, digit
+ExpectedChar     : 1672, .
+ExpectedChar     : 1672, e
+ExpectedChar     : 1672, E
 NumberValue      : 5
-ExpectedChar     : 1694, -
-ExpectedChar     : 1694, 0
-ExpectedToken    : 1695, digit
-ExpectedChar     : 1695, .
-ExpectedChar     : 1695, e
-ExpectedChar     : 1695, E
+ExpectedChar     : 1674, -
+ExpectedChar     : 1674, 0
+ExpectedToken    : 1675, digit
+ExpectedChar     : 1675, .
+ExpectedChar     : 1675, e
+ExpectedChar     : 1675, E
 NumberValue      : 6
-ExpectedChar     : 1697, -
-ExpectedChar     : 1697, 0
-ExpectedToken    : 1698, digit
-ExpectedChar     : 1698, .
-ExpectedChar     : 1698, e
-ExpectedChar     : 1698, E
+ExpectedChar     : 1677, -
+ExpectedChar     : 1677, 0
+ExpectedToken    : 1678, digit
+ExpectedChar     : 1678, .
+ExpectedChar     : 1678, e
+ExpectedChar     : 1678, E
 NumberValue      : 7
 Array            : end
 Array            : begin
-ExpectedChar     : 1702, -
-ExpectedChar     : 1702, 0
-ExpectedToken    : 1703, digit
-ExpectedChar     : 1703, .
-ExpectedChar     : 1703, e
-ExpectedChar     : 1703, E
+ExpectedChar     : 1682, -
+ExpectedChar     : 1682, 0
+ExpectedToken    : 1683, digit
+ExpectedChar     : 1683, .
+ExpectedChar     : 1683, e
+ExpectedChar     : 1683, E
 NumberValue      : 8
 BoolValue        : false
 Object           : begin
 MemberKey        : a
-ExpectedChar     : 1719, -
-ExpectedChar     : 1719, 0
-ExpectedToken    : 1720, digit
-ExpectedChar     : 1720, .
-ExpectedChar     : 1720, e
-ExpectedChar     : 1720, E
+ExpectedChar     : 1699, -
+ExpectedChar     : 1699, 0
+ExpectedToken    : 1700, digit
+ExpectedChar     : 1700, .
+ExpectedChar     : 1700, e
+ExpectedChar     : 1700, E
 NumberValue      : 3
 Object           : end
 Array            : end
@@ -346,23 +346,23 @@ Object           : begin
 MemberKey        : b
 Object           : begin
 MemberKey        : a
-ExpectedChar     : 1773, -
-ExpectedChar     : 1773, 0
-ExpectedToken    : 1774, digit
-ExpectedChar     : 1774, .
-ExpectedChar     : 1774, e
-ExpectedChar     : 1774, E
+ExpectedChar     : 1752, -
+ExpectedChar     : 1752, 0
+ExpectedToken    : 1753, digit
+ExpectedChar     : 1753, .
+ExpectedChar     : 1753, e
+ExpectedChar     : 1753, E
 NumberValue      : 1
 Object           : end
 Object           : end
 Object           : begin
 MemberKey        : b
-ExpectedChar     : 1787, -
-ExpectedChar     : 1787, 0
-ExpectedToken    : 1788, digit
-ExpectedChar     : 1788, .
-ExpectedChar     : 1788, e
-ExpectedChar     : 1788, E
+ExpectedChar     : 1766, -
+ExpectedChar     : 1766, 0
+ExpectedToken    : 1767, digit
+ExpectedChar     : 1767, .
+ExpectedChar     : 1767, e
+ExpectedChar     : 1767, E
 NumberValue      : 2
 Object           : end
 Object           : begin
@@ -372,53 +372,53 @@ Object           : end
 Object           : begin
 MemberKey        : b
 Array            : begin
-ExpectedChar     : 1816, -
-ExpectedChar     : 1816, 0
-ExpectedToken    : 1817, digit
-ExpectedChar     : 1817, .
-ExpectedChar     : 1817, e
-ExpectedChar     : 1817, E
+ExpectedChar     : 1795, -
+ExpectedChar     : 1795, 0
+ExpectedToken    : 1796, digit
+ExpectedChar     : 1796, .
+ExpectedChar     : 1796, e
+ExpectedChar     : 1796, E
 NumberValue      : 5
-ExpectedChar     : 1819, -
-ExpectedChar     : 1819, 0
-ExpectedToken    : 1820, digit
-ExpectedChar     : 1820, .
-ExpectedChar     : 1820, e
-ExpectedChar     : 1820, E
+ExpectedChar     : 1798, -
+ExpectedChar     : 1798, 0
+ExpectedToken    : 1799, digit
+ExpectedChar     : 1799, .
+ExpectedChar     : 1799, e
+ExpectedChar     : 1799, E
 NumberValue      : 6
-ExpectedChar     : 1822, -
-ExpectedChar     : 1822, 0
-ExpectedToken    : 1823, digit
-ExpectedChar     : 1823, .
-ExpectedChar     : 1823, e
-ExpectedChar     : 1823, E
+ExpectedChar     : 1801, -
+ExpectedChar     : 1801, 0
+ExpectedToken    : 1802, digit
+ExpectedChar     : 1802, .
+ExpectedChar     : 1802, e
+ExpectedChar     : 1802, E
 NumberValue      : 7
 Array            : end
 Object           : end
 Object           : begin
 MemberKey        : b
 Array            : begin
-ExpectedChar     : 1836, -
-ExpectedChar     : 1836, 0
-ExpectedToken    : 1837, digit
-ExpectedChar     : 1837, .
-ExpectedChar     : 1837, e
-ExpectedChar     : 1837, E
+ExpectedChar     : 1815, -
+ExpectedChar     : 1815, 0
+ExpectedToken    : 1816, digit
+ExpectedChar     : 1816, .
+ExpectedChar     : 1816, e
+ExpectedChar     : 1816, E
 NumberValue      : 8
 BoolValue        : false
 Object           : begin
 MemberKey        : a
-ExpectedChar     : 1853, -
-ExpectedChar     : 1853, 0
-ExpectedToken    : 1854, digit
-ExpectedChar     : 1854, .
-ExpectedChar     : 1854, e
-ExpectedChar     : 1854, E
+ExpectedChar     : 1832, -
+ExpectedChar     : 1832, 0
+ExpectedToken    : 1833, digit
+ExpectedChar     : 1833, .
+ExpectedChar     : 1833, e
+ExpectedChar     : 1833, E
 NumberValue      : 3
 Object           : end
 Array            : end
 Object           : end
 Array            : end
 Object           : end
-ParsePosition    : 1866
+ParsePosition    : 1843
 ParseResult      : true

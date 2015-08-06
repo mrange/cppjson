@@ -2,5 +2,5 @@ TestCase         : PositiveTestCase_16.json
 Array            : begin
 BoolValue        : true
 Array            : end
-ParsePosition    : 8
+ParsePosition    : 7
 ParseResult      : true

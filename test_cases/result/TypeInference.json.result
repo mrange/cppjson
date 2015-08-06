@@ -4,10 +4,10 @@ Object           : begin
 MemberKey        : intLike
 StringValue      : 123
 MemberKey        : boolLike1
-ExpectedChar     : 63, -
-ExpectedChar     : 64, .
-ExpectedChar     : 64, e
-ExpectedChar     : 64, E
+ExpectedChar     : 60, -
+ExpectedChar     : 61, .
+ExpectedChar     : 61, e
+ExpectedChar     : 61, E
 NumberValue      : 0
 MemberKey        : boolLike2
 StringValue      : 1
@@ -16,16 +16,16 @@ Object           : begin
 MemberKey        : intLike
 StringValue      : 321
 MemberKey        : boolLike1
-ExpectedChar     : 167, -
-ExpectedChar     : 167, 0
-ExpectedToken    : 168, digit
-ExpectedChar     : 168, .
-ExpectedChar     : 168, e
-ExpectedChar     : 168, E
+ExpectedChar     : 159, -
+ExpectedChar     : 159, 0
+ExpectedToken    : 160, digit
+ExpectedChar     : 160, .
+ExpectedChar     : 160, e
+ExpectedChar     : 160, E
 NumberValue      : 1
 MemberKey        : boolLike2
 StringValue      : 0
 Object           : end
 Array            : end
-ParsePosition    : 213
+ParsePosition    : 201
 ParseResult      : true

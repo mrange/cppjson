@@ -2,30 +2,30 @@ TestCase         : WorldBank.json
 Array            : begin
 Object           : begin
 MemberKey        : page
-ExpectedChar     : 26, -
-ExpectedChar     : 26, 0
-ExpectedToken    : 27, digit
-ExpectedChar     : 27, .
-ExpectedChar     : 27, e
-ExpectedChar     : 27, E
+ExpectedChar     : 24, -
+ExpectedChar     : 24, 0
+ExpectedToken    : 25, digit
+ExpectedChar     : 25, .
+ExpectedChar     : 25, e
+ExpectedChar     : 25, E
 NumberValue      : 1
 MemberKey        : pages
-ExpectedChar     : 47, -
-ExpectedChar     : 47, 0
-ExpectedToken    : 48, digit
-ExpectedChar     : 48, .
-ExpectedChar     : 48, e
-ExpectedChar     : 48, E
+ExpectedChar     : 44, -
+ExpectedChar     : 44, 0
+ExpectedToken    : 45, digit
+ExpectedChar     : 45, .
+ExpectedChar     : 45, e
+ExpectedChar     : 45, E
 NumberValue      : 1
 MemberKey        : per_page
 StringValue      : 1000
 MemberKey        : total
-ExpectedChar     : 97, -
-ExpectedChar     : 97, 0
-ExpectedToken    : 99, digit
-ExpectedChar     : 99, .
-ExpectedChar     : 99, e
-ExpectedChar     : 99, E
+ExpectedChar     : 92, -
+ExpectedChar     : 92, 0
+ExpectedToken    : 94, digit
+ExpectedChar     : 94, .
+ExpectedChar     : 94, e
+ExpectedChar     : 94, E
 NumberValue      : 53
 Object           : end
 Array            : begin
@@ -1197,5 +1197,5 @@ StringValue      : 1960
 Object           : end
 Array            : end
 Array            : end
-ParsePosition    : 20515
+ParsePosition    : 19816
 ParseResult      : true

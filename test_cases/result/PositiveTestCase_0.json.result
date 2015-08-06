@@ -6,5 +6,5 @@ ExpectedChar     : 2, e
 ExpectedChar     : 2, E
 NumberValue      : 0
 Array            : end
-ParsePosition    : 5
+ParsePosition    : 4
 ParseResult      : true

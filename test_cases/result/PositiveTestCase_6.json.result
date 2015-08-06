@@ -7,5 +7,5 @@ ExpectedChar     : 7, -
 ExpectedToken    : 8, digit
 NumberValue      : 125
 Array            : end
-ParsePosition    : 11
+ParsePosition    : 10
 ParseResult      : true

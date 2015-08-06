@@ -12,20 +12,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/89
 MemberKey        : id
-ExpectedChar     : 446, -
-ExpectedChar     : 446, 0
-ExpectedToken    : 454, digit
-ExpectedChar     : 454, .
-ExpectedChar     : 454, e
-ExpectedChar     : 454, E
+ExpectedChar     : 439, -
+ExpectedChar     : 439, 0
+ExpectedToken    : 447, digit
+ExpectedChar     : 447, .
+ExpectedChar     : 447, e
+ExpectedChar     : 447, E
 NumberValue      : 11091705
 MemberKey        : number
-ExpectedChar     : 471, -
-ExpectedChar     : 471, 0
-ExpectedToken    : 473, digit
-ExpectedChar     : 473, .
-ExpectedChar     : 473, e
-ExpectedChar     : 473, E
+ExpectedChar     : 463, -
+ExpectedChar     : 463, 0
+ExpectedToken    : 465, digit
+ExpectedChar     : 465, .
+ExpectedChar     : 465, e
+ExpectedChar     : 465, E
 NumberValue      : 89
 MemberKey        : title
 StringValue      : Experimental package
@@ -34,12 +34,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 568, -
-ExpectedChar     : 568, 0
-ExpectedToken    : 574, digit
-ExpectedChar     : 574, .
-ExpectedChar     : 574, e
-ExpectedChar     : 574, E
+ExpectedChar     : 556, -
+ExpectedChar     : 556, 0
+ExpectedToken    : 562, digit
+ExpectedChar     : 562, .
+ExpectedChar     : 562, e
+ExpectedChar     : 562, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -80,10 +80,10 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 1757, -
-ExpectedChar     : 1758, .
-ExpectedChar     : 1758, e
-ExpectedChar     : 1758, E
+ExpectedChar     : 1723, -
+ExpectedChar     : 1724, .
+ExpectedChar     : 1724, e
+ExpectedChar     : 1724, E
 NumberValue      : 0
 MemberKey        : created_at
 StringValue      : 2013-02-17T18:45:56Z
@@ -115,20 +115,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/85
 MemberKey        : id
-ExpectedChar     : 3354, -
-ExpectedChar     : 3354, 0
-ExpectedToken    : 3362, digit
-ExpectedChar     : 3362, .
-ExpectedChar     : 3362, e
-ExpectedChar     : 3362, E
+ExpectedChar     : 3303, -
+ExpectedChar     : 3303, 0
+ExpectedToken    : 3311, digit
+ExpectedChar     : 3311, .
+ExpectedChar     : 3311, e
+ExpectedChar     : 3311, E
 NumberValue      : 11067374
 MemberKey        : number
-ExpectedChar     : 3379, -
-ExpectedChar     : 3379, 0
-ExpectedToken    : 3381, digit
-ExpectedChar     : 3381, .
-ExpectedChar     : 3381, e
-ExpectedChar     : 3381, E
+ExpectedChar     : 3327, -
+ExpectedChar     : 3327, 0
+ExpectedToken    : 3329, digit
+ExpectedChar     : 3329, .
+ExpectedChar     : 3329, e
+ExpectedChar     : 3329, E
 NumberValue      : 85
 MemberKey        : title
 StringValue      : Added ability to override or add headers to CSV provider
@@ -137,12 +137,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : colinbull
 MemberKey        : id
-ExpectedChar     : 3514, -
-ExpectedChar     : 3514, 0
-ExpectedToken    : 3520, digit
-ExpectedChar     : 3520, .
-ExpectedChar     : 3520, e
-ExpectedChar     : 3520, E
+ExpectedChar     : 3458, -
+ExpectedChar     : 3458, 0
+ExpectedToken    : 3464, digit
+ExpectedChar     : 3464, .
+ExpectedChar     : 3464, e
+ExpectedChar     : 3464, E
 NumberValue      : 585546
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/d9dd4f2053c161a94581a0d0d366d03d?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -183,12 +183,12 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 4725, -
-ExpectedChar     : 4725, 0
-ExpectedToken    : 4726, digit
-ExpectedChar     : 4726, .
-ExpectedChar     : 4726, e
-ExpectedChar     : 4726, E
+ExpectedChar     : 4647, -
+ExpectedChar     : 4647, 0
+ExpectedToken    : 4648, digit
+ExpectedChar     : 4648, .
+ExpectedChar     : 4648, e
+ExpectedChar     : 4648, E
 NumberValue      : 5
 MemberKey        : created_at
 StringValue      : 2013-02-16T13:46:43Z
@@ -220,20 +220,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/80
 MemberKey        : id
-ExpectedChar     : 5809, -
-ExpectedChar     : 5809, 0
-ExpectedToken    : 5817, digit
-ExpectedChar     : 5817, .
-ExpectedChar     : 5817, e
-ExpectedChar     : 5817, E
+ExpectedChar     : 5714, -
+ExpectedChar     : 5714, 0
+ExpectedToken    : 5722, digit
+ExpectedChar     : 5722, .
+ExpectedChar     : 5722, e
+ExpectedChar     : 5722, E
 NumberValue      : 11036707
 MemberKey        : number
-ExpectedChar     : 5834, -
-ExpectedChar     : 5834, 0
-ExpectedToken    : 5836, digit
-ExpectedChar     : 5836, .
-ExpectedChar     : 5836, e
-ExpectedChar     : 5836, E
+ExpectedChar     : 5738, -
+ExpectedChar     : 5738, 0
+ExpectedToken    : 5740, digit
+ExpectedChar     : 5740, .
+ExpectedChar     : 5740, e
+ExpectedChar     : 5740, E
 NumberValue      : 80
 MemberKey        : title
 StringValue      : Freebase provider fetching too much data - AllowLocalQueryEvaluation=false not working?
@@ -242,12 +242,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 5998, -
-ExpectedChar     : 5998, 0
-ExpectedToken    : 6004, digit
-ExpectedChar     : 6004, .
-ExpectedChar     : 6004, e
-ExpectedChar     : 6004, E
+ExpectedChar     : 5898, -
+ExpectedChar     : 5898, 0
+ExpectedToken    : 5904, digit
+ExpectedChar     : 5904, .
+ExpectedChar     : 5904, e
+ExpectedChar     : 5904, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -288,10 +288,10 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 7187, -
-ExpectedChar     : 7188, .
-ExpectedChar     : 7188, e
-ExpectedChar     : 7188, E
+ExpectedChar     : 7065, -
+ExpectedChar     : 7066, .
+ExpectedChar     : 7066, e
+ExpectedChar     : 7066, E
 NumberValue      : 0
 MemberKey        : created_at
 StringValue      : 2013-02-15T14:09:54Z
@@ -323,20 +323,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/79
 MemberKey        : id
-ExpectedChar     : 8901, -
-ExpectedChar     : 8901, 0
-ExpectedToken    : 8909, digit
-ExpectedChar     : 8909, .
-ExpectedChar     : 8909, e
-ExpectedChar     : 8909, E
+ExpectedChar     : 8762, -
+ExpectedChar     : 8762, 0
+ExpectedToken    : 8770, digit
+ExpectedChar     : 8770, .
+ExpectedChar     : 8770, e
+ExpectedChar     : 8770, E
 NumberValue      : 11036400
 MemberKey        : number
-ExpectedChar     : 8926, -
-ExpectedChar     : 8926, 0
-ExpectedToken    : 8928, digit
-ExpectedChar     : 8928, .
-ExpectedChar     : 8928, e
-ExpectedChar     : 8928, E
+ExpectedChar     : 8786, -
+ExpectedChar     : 8786, 0
+ExpectedToken    : 8788, digit
+ExpectedChar     : 8788, .
+ExpectedChar     : 8788, e
+ExpectedChar     : 8788, E
 NumberValue      : 79
 MemberKey        : title
 StringValue      : Freebase query error when comparing to null
@@ -345,12 +345,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 9046, -
-ExpectedChar     : 9046, 0
-ExpectedToken    : 9052, digit
-ExpectedChar     : 9052, .
-ExpectedChar     : 9052, e
-ExpectedChar     : 9052, E
+ExpectedChar     : 8902, -
+ExpectedChar     : 8902, 0
+ExpectedToken    : 8908, digit
+ExpectedChar     : 8908, .
+ExpectedChar     : 8908, e
+ExpectedChar     : 8908, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -391,10 +391,10 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 10235, -
-ExpectedChar     : 10236, .
-ExpectedChar     : 10236, e
-ExpectedChar     : 10236, E
+ExpectedChar     : 10069, -
+ExpectedChar     : 10070, .
+ExpectedChar     : 10070, e
+ExpectedChar     : 10070, E
 NumberValue      : 0
 MemberKey        : created_at
 StringValue      : 2013-02-15T14:00:09Z
@@ -426,20 +426,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/77
 MemberKey        : id
-ExpectedChar     : 11857, -
-ExpectedChar     : 11857, 0
-ExpectedToken    : 11865, digit
-ExpectedChar     : 11865, .
-ExpectedChar     : 11865, e
-ExpectedChar     : 11865, E
+ExpectedChar     : 11674, -
+ExpectedChar     : 11674, 0
+ExpectedToken    : 11682, digit
+ExpectedChar     : 11682, .
+ExpectedChar     : 11682, e
+ExpectedChar     : 11682, E
 NumberValue      : 10989696
 MemberKey        : number
-ExpectedChar     : 11882, -
-ExpectedChar     : 11882, 0
-ExpectedToken    : 11884, digit
-ExpectedChar     : 11884, .
-ExpectedChar     : 11884, e
-ExpectedChar     : 11884, E
+ExpectedChar     : 11698, -
+ExpectedChar     : 11698, 0
+ExpectedToken    : 11700, digit
+ExpectedChar     : 11700, .
+ExpectedChar     : 11700, e
+ExpectedChar     : 11700, E
 NumberValue      : 77
 MemberKey        : title
 StringValue      : Missing primitive types in freebase provider
@@ -448,12 +448,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 12003, -
-ExpectedChar     : 12003, 0
-ExpectedToken    : 12009, digit
-ExpectedChar     : 12009, .
-ExpectedChar     : 12009, e
-ExpectedChar     : 12009, E
+ExpectedChar     : 11815, -
+ExpectedChar     : 11815, 0
+ExpectedToken    : 11821, digit
+ExpectedChar     : 11821, .
+ExpectedChar     : 11821, e
+ExpectedChar     : 11821, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -494,10 +494,10 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 13192, -
-ExpectedChar     : 13193, .
-ExpectedChar     : 13193, e
-ExpectedChar     : 13193, E
+ExpectedChar     : 12982, -
+ExpectedChar     : 12983, .
+ExpectedChar     : 12983, e
+ExpectedChar     : 12983, E
 NumberValue      : 0
 MemberKey        : created_at
 StringValue      : 2013-02-14T10:07:34Z
@@ -529,20 +529,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/69
 MemberKey        : id
-ExpectedChar     : 14044, -
-ExpectedChar     : 14044, 0
-ExpectedToken    : 14052, digit
-ExpectedChar     : 14052, .
-ExpectedChar     : 14052, e
-ExpectedChar     : 14052, E
+ExpectedChar     : 13817, -
+ExpectedChar     : 13817, 0
+ExpectedToken    : 13825, digit
+ExpectedChar     : 13825, .
+ExpectedChar     : 13825, e
+ExpectedChar     : 13825, E
 NumberValue      : 10747619
 MemberKey        : number
-ExpectedChar     : 14069, -
-ExpectedChar     : 14069, 0
-ExpectedToken    : 14071, digit
-ExpectedChar     : 14071, .
-ExpectedChar     : 14071, e
-ExpectedChar     : 14071, E
+ExpectedChar     : 13841, -
+ExpectedChar     : 13841, 0
+ExpectedToken    : 13843, digit
+ExpectedChar     : 13843, .
+ExpectedChar     : 13843, e
+ExpectedChar     : 13843, E
 NumberValue      : 69
 MemberKey        : title
 StringValue      : Unnecessary wrapper types in json provider
@@ -551,12 +551,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 14188, -
-ExpectedChar     : 14188, 0
-ExpectedToken    : 14194, digit
-ExpectedChar     : 14194, .
-ExpectedChar     : 14194, e
-ExpectedChar     : 14194, E
+ExpectedChar     : 13956, -
+ExpectedChar     : 13956, 0
+ExpectedToken    : 13962, digit
+ExpectedChar     : 13962, .
+ExpectedChar     : 13962, e
+ExpectedChar     : 13962, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -613,12 +613,12 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 15720, -
-ExpectedChar     : 15720, 0
-ExpectedToken    : 15721, digit
-ExpectedChar     : 15721, .
-ExpectedChar     : 15721, e
-ExpectedChar     : 15721, E
+ExpectedChar     : 15457, -
+ExpectedChar     : 15457, 0
+ExpectedToken    : 15458, digit
+ExpectedChar     : 15458, .
+ExpectedChar     : 15458, e
+ExpectedChar     : 15458, E
 NumberValue      : 3
 MemberKey        : created_at
 StringValue      : 2013-02-07T17:41:19Z
@@ -650,20 +650,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/67
 MemberKey        : id
-ExpectedChar     : 16838, -
-ExpectedChar     : 16838, 0
-ExpectedToken    : 16846, digit
-ExpectedChar     : 16846, .
-ExpectedChar     : 16846, e
-ExpectedChar     : 16846, E
+ExpectedChar     : 16558, -
+ExpectedChar     : 16558, 0
+ExpectedToken    : 16566, digit
+ExpectedChar     : 16566, .
+ExpectedChar     : 16566, e
+ExpectedChar     : 16566, E
 NumberValue      : 10746915
 MemberKey        : number
-ExpectedChar     : 16863, -
-ExpectedChar     : 16863, 0
-ExpectedToken    : 16865, digit
-ExpectedChar     : 16865, .
-ExpectedChar     : 16865, e
-ExpectedChar     : 16865, E
+ExpectedChar     : 16582, -
+ExpectedChar     : 16582, 0
+ExpectedToken    : 16584, digit
+ExpectedChar     : 16584, .
+ExpectedChar     : 16584, e
+ExpectedChar     : 16584, E
 NumberValue      : 67
 MemberKey        : title
 StringValue      : Fix the \"Can access the first 10 amino acids\" test
@@ -672,12 +672,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : tpetricek
 MemberKey        : id
-ExpectedChar     : 16994, -
-ExpectedChar     : 16994, 0
-ExpectedToken    : 17000, digit
-ExpectedChar     : 17000, .
-ExpectedChar     : 17000, e
-ExpectedChar     : 17000, E
+ExpectedChar     : 16709, -
+ExpectedChar     : 16709, 0
+ExpectedToken    : 16715, digit
+ExpectedChar     : 16715, .
+ExpectedChar     : 16715, e
+ExpectedChar     : 16715, E
 NumberValue      : 485413
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/d06834fe3fb105f62b2186aba4a430d5?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -734,12 +734,12 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 18538, -
-ExpectedChar     : 18538, 0
-ExpectedToken    : 18539, digit
-ExpectedChar     : 18539, .
-ExpectedChar     : 18539, e
-ExpectedChar     : 18539, E
+ExpectedChar     : 18222, -
+ExpectedChar     : 18222, 0
+ExpectedToken    : 18223, digit
+ExpectedChar     : 18223, .
+ExpectedChar     : 18223, e
+ExpectedChar     : 18223, E
 NumberValue      : 1
 MemberKey        : created_at
 StringValue      : 2013-02-07T17:30:08Z
@@ -771,20 +771,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/66
 MemberKey        : id
-ExpectedChar     : 19318, -
-ExpectedChar     : 19318, 0
-ExpectedToken    : 19326, digit
-ExpectedChar     : 19326, .
-ExpectedChar     : 19326, e
-ExpectedChar     : 19326, E
+ExpectedChar     : 18985, -
+ExpectedChar     : 18985, 0
+ExpectedToken    : 18993, digit
+ExpectedChar     : 18993, .
+ExpectedChar     : 18993, e
+ExpectedChar     : 18993, E
 NumberValue      : 10746640
 MemberKey        : number
-ExpectedChar     : 19343, -
-ExpectedChar     : 19343, 0
-ExpectedToken    : 19345, digit
-ExpectedChar     : 19345, .
-ExpectedChar     : 19345, e
-ExpectedChar     : 19345, E
+ExpectedChar     : 19009, -
+ExpectedChar     : 19009, 0
+ExpectedToken    : 19011, digit
+ExpectedChar     : 19011, .
+ExpectedChar     : 19011, e
+ExpectedChar     : 19011, E
 NumberValue      : 66
 MemberKey        : title
 StringValue      : Optional Strings in Json\/Xml providers
@@ -793,12 +793,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 19458, -
-ExpectedChar     : 19458, 0
-ExpectedToken    : 19464, digit
-ExpectedChar     : 19464, .
-ExpectedChar     : 19464, e
-ExpectedChar     : 19464, E
+ExpectedChar     : 19120, -
+ExpectedChar     : 19120, 0
+ExpectedToken    : 19126, digit
+ExpectedChar     : 19126, .
+ExpectedChar     : 19126, e
+ExpectedChar     : 19126, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -847,12 +847,12 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 20809, -
-ExpectedChar     : 20809, 0
-ExpectedToken    : 20810, digit
-ExpectedChar     : 20810, .
-ExpectedChar     : 20810, e
-ExpectedChar     : 20810, E
+ExpectedChar     : 20445, -
+ExpectedChar     : 20445, 0
+ExpectedToken    : 20446, digit
+ExpectedChar     : 20446, .
+ExpectedChar     : 20446, e
+ExpectedChar     : 20446, E
 NumberValue      : 2
 MemberKey        : created_at
 StringValue      : 2013-02-07T17:23:26Z
@@ -884,20 +884,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/65
 MemberKey        : id
-ExpectedChar     : 21889, -
-ExpectedChar     : 21889, 0
-ExpectedToken    : 21897, digit
-ExpectedChar     : 21897, .
-ExpectedChar     : 21897, e
-ExpectedChar     : 21897, E
+ExpectedChar     : 21508, -
+ExpectedChar     : 21508, 0
+ExpectedToken    : 21516, digit
+ExpectedChar     : 21516, .
+ExpectedChar     : 21516, e
+ExpectedChar     : 21516, E
 NumberValue      : 10742172
 MemberKey        : number
-ExpectedChar     : 21914, -
-ExpectedChar     : 21914, 0
-ExpectedToken    : 21916, digit
-ExpectedChar     : 21916, .
-ExpectedChar     : 21916, e
-ExpectedChar     : 21916, E
+ExpectedChar     : 21532, -
+ExpectedChar     : 21532, 0
+ExpectedToken    : 21534, digit
+ExpectedChar     : 21534, .
+ExpectedChar     : 21534, e
+ExpectedChar     : 21534, E
 NumberValue      : 65
 MemberKey        : title
 StringValue      : Add FunScript demo
@@ -906,12 +906,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 22009, -
-ExpectedChar     : 22009, 0
-ExpectedToken    : 22015, digit
-ExpectedChar     : 22015, .
-ExpectedChar     : 22015, e
-ExpectedChar     : 22015, E
+ExpectedChar     : 21623, -
+ExpectedChar     : 21623, 0
+ExpectedToken    : 21629, digit
+ExpectedChar     : 21629, .
+ExpectedChar     : 21629, e
+ExpectedChar     : 21629, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -960,10 +960,10 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 23360, -
-ExpectedChar     : 23361, .
-ExpectedChar     : 23361, e
-ExpectedChar     : 23361, E
+ExpectedChar     : 22948, -
+ExpectedChar     : 22949, .
+ExpectedChar     : 22949, e
+ExpectedChar     : 22949, E
 NumberValue      : 0
 MemberKey        : created_at
 StringValue      : 2013-02-07T16:01:58Z
@@ -995,20 +995,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/64
 MemberKey        : id
-ExpectedChar     : 24281, -
-ExpectedChar     : 24281, 0
-ExpectedToken    : 24289, digit
-ExpectedChar     : 24289, .
-ExpectedChar     : 24289, e
-ExpectedChar     : 24289, E
+ExpectedChar     : 23852, -
+ExpectedChar     : 23852, 0
+ExpectedToken    : 23860, digit
+ExpectedChar     : 23860, .
+ExpectedChar     : 23860, e
+ExpectedChar     : 23860, E
 NumberValue      : 10691945
 MemberKey        : number
-ExpectedChar     : 24306, -
-ExpectedChar     : 24306, 0
-ExpectedToken    : 24308, digit
-ExpectedChar     : 24308, .
-ExpectedChar     : 24308, e
-ExpectedChar     : 24308, E
+ExpectedChar     : 23876, -
+ExpectedChar     : 23876, 0
+ExpectedToken    : 23878, digit
+ExpectedChar     : 23878, .
+ExpectedChar     : 23878, e
+ExpectedChar     : 23878, E
 NumberValue      : 64
 MemberKey        : title
 StringValue      : CSV Type provider should have a GetColumn(columnName:string) method for dynamic lookup
@@ -1017,12 +1017,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 24469, -
-ExpectedChar     : 24469, 0
-ExpectedToken    : 24475, digit
-ExpectedChar     : 24475, .
-ExpectedChar     : 24475, e
-ExpectedChar     : 24475, E
+ExpectedChar     : 24035, -
+ExpectedChar     : 24035, 0
+ExpectedToken    : 24041, digit
+ExpectedChar     : 24041, .
+ExpectedChar     : 24041, e
+ExpectedChar     : 24041, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -1079,10 +1079,10 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 25997, -
-ExpectedChar     : 25998, .
-ExpectedChar     : 25998, e
-ExpectedChar     : 25998, E
+ExpectedChar     : 25532, -
+ExpectedChar     : 25533, .
+ExpectedChar     : 25533, e
+ExpectedChar     : 25533, E
 NumberValue      : 0
 MemberKey        : created_at
 StringValue      : 2013-02-06T13:34:51Z
@@ -1114,20 +1114,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/62
 MemberKey        : id
-ExpectedChar     : 27113, -
-ExpectedChar     : 27113, 0
-ExpectedToken    : 27121, digit
-ExpectedChar     : 27121, .
-ExpectedChar     : 27121, e
-ExpectedChar     : 27121, E
+ExpectedChar     : 26631, -
+ExpectedChar     : 26631, 0
+ExpectedToken    : 26639, digit
+ExpectedChar     : 26639, .
+ExpectedChar     : 26639, e
+ExpectedChar     : 26639, E
 NumberValue      : 10577489
 MemberKey        : number
-ExpectedChar     : 27138, -
-ExpectedChar     : 27138, 0
-ExpectedToken    : 27140, digit
-ExpectedChar     : 27140, .
-ExpectedChar     : 27140, e
-ExpectedChar     : 27140, E
+ExpectedChar     : 26655, -
+ExpectedChar     : 26655, 0
+ExpectedToken    : 26657, digit
+ExpectedChar     : 26657, .
+ExpectedChar     : 26657, e
+ExpectedChar     : 26657, E
 NumberValue      : 62
 MemberKey        : title
 StringValue      : add some column descriptors (for code sprint)
@@ -1136,12 +1136,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : nrolland
 MemberKey        : id
-ExpectedChar     : 27261, -
-ExpectedChar     : 27261, 0
-ExpectedToken    : 27266, digit
-ExpectedChar     : 27266, .
-ExpectedChar     : 27266, e
-ExpectedChar     : 27266, E
+ExpectedChar     : 26774, -
+ExpectedChar     : 26774, 0
+ExpectedToken    : 26779, digit
+ExpectedChar     : 26779, .
+ExpectedChar     : 26779, e
+ExpectedChar     : 26779, E
 NumberValue      : 37239
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/91f975afaf89b2bcd5a34722ab4c8505?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -1190,10 +1190,10 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 28622, -
-ExpectedChar     : 28623, .
-ExpectedChar     : 28623, e
-ExpectedChar     : 28623, E
+ExpectedChar     : 28109, -
+ExpectedChar     : 28110, .
+ExpectedChar     : 28110, e
+ExpectedChar     : 28110, E
 NumberValue      : 0
 MemberKey        : created_at
 StringValue      : 2013-02-02T22:03:45Z
@@ -1225,20 +1225,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/61
 MemberKey        : id
-ExpectedChar     : 29476, -
-ExpectedChar     : 29476, 0
-ExpectedToken    : 29484, digit
-ExpectedChar     : 29484, .
-ExpectedChar     : 29484, e
-ExpectedChar     : 29484, E
+ExpectedChar     : 28946, -
+ExpectedChar     : 28946, 0
+ExpectedToken    : 28954, digit
+ExpectedChar     : 28954, .
+ExpectedChar     : 28954, e
+ExpectedChar     : 28954, E
 NumberValue      : 10577412
 MemberKey        : number
-ExpectedChar     : 29501, -
-ExpectedChar     : 29501, 0
-ExpectedToken    : 29503, digit
-ExpectedChar     : 29503, .
-ExpectedChar     : 29503, e
-ExpectedChar     : 29503, E
+ExpectedChar     : 28970, -
+ExpectedChar     : 28970, 0
+ExpectedToken    : 28972, digit
+ExpectedChar     : 28972, .
+ExpectedChar     : 28972, e
+ExpectedChar     : 28972, E
 NumberValue      : 61
 MemberKey        : title
 StringValue      : add a option for header or not in Csvprovider (for code sprint)
@@ -1247,12 +1247,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : nrolland
 MemberKey        : id
-ExpectedChar     : 29642, -
-ExpectedChar     : 29642, 0
-ExpectedToken    : 29647, digit
-ExpectedChar     : 29647, .
-ExpectedChar     : 29647, e
-ExpectedChar     : 29647, E
+ExpectedChar     : 29107, -
+ExpectedChar     : 29107, 0
+ExpectedToken    : 29112, digit
+ExpectedChar     : 29112, .
+ExpectedChar     : 29112, e
+ExpectedChar     : 29112, E
 NumberValue      : 37239
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/91f975afaf89b2bcd5a34722ab4c8505?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -1301,10 +1301,10 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 31003, -
-ExpectedChar     : 31004, .
-ExpectedChar     : 31004, e
-ExpectedChar     : 31004, E
+ExpectedChar     : 30442, -
+ExpectedChar     : 30443, .
+ExpectedChar     : 30443, e
+ExpectedChar     : 30443, E
 NumberValue      : 0
 MemberKey        : created_at
 StringValue      : 2013-02-02T21:57:02Z
@@ -1336,20 +1336,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/59
 MemberKey        : id
-ExpectedChar     : 31831, -
-ExpectedChar     : 31831, 0
-ExpectedToken    : 31839, digit
-ExpectedChar     : 31839, .
-ExpectedChar     : 31839, e
-ExpectedChar     : 31839, E
+ExpectedChar     : 31253, -
+ExpectedChar     : 31253, 0
+ExpectedToken    : 31261, digit
+ExpectedChar     : 31261, .
+ExpectedChar     : 31261, e
+ExpectedChar     : 31261, E
 NumberValue      : 10577341
 MemberKey        : number
-ExpectedChar     : 31856, -
-ExpectedChar     : 31856, 0
-ExpectedToken    : 31858, digit
-ExpectedChar     : 31858, .
-ExpectedChar     : 31858, e
-ExpectedChar     : 31858, E
+ExpectedChar     : 31277, -
+ExpectedChar     : 31277, 0
+ExpectedToken    : 31279, digit
+ExpectedChar     : 31279, .
+ExpectedChar     : 31279, e
+ExpectedChar     : 31279, E
 NumberValue      : 59
 MemberKey        : title
 StringValue      : publish a new nuget (keep for code sprint)
@@ -1358,12 +1358,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : nrolland
 MemberKey        : id
-ExpectedChar     : 31976, -
-ExpectedChar     : 31976, 0
-ExpectedToken    : 31981, digit
-ExpectedChar     : 31981, .
-ExpectedChar     : 31981, e
-ExpectedChar     : 31981, E
+ExpectedChar     : 31393, -
+ExpectedChar     : 31393, 0
+ExpectedToken    : 31398, digit
+ExpectedChar     : 31398, .
+ExpectedChar     : 31398, e
+ExpectedChar     : 31398, E
 NumberValue      : 37239
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/91f975afaf89b2bcd5a34722ab4c8505?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -1412,10 +1412,10 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 33347, -
-ExpectedChar     : 33348, .
-ExpectedChar     : 33348, e
-ExpectedChar     : 33348, E
+ExpectedChar     : 32738, -
+ExpectedChar     : 32739, .
+ExpectedChar     : 32739, e
+ExpectedChar     : 32739, E
 NumberValue      : 0
 MemberKey        : created_at
 StringValue      : 2013-02-02T21:50:27Z
@@ -1447,20 +1447,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/57
 MemberKey        : id
-ExpectedChar     : 34032, -
-ExpectedChar     : 34032, 0
-ExpectedToken    : 34040, digit
-ExpectedChar     : 34040, .
-ExpectedChar     : 34040, e
-ExpectedChar     : 34040, E
+ExpectedChar     : 33406, -
+ExpectedChar     : 33406, 0
+ExpectedToken    : 33414, digit
+ExpectedChar     : 33414, .
+ExpectedChar     : 33414, e
+ExpectedChar     : 33414, E
 NumberValue      : 10546621
 MemberKey        : number
-ExpectedChar     : 34057, -
-ExpectedChar     : 34057, 0
-ExpectedToken    : 34059, digit
-ExpectedChar     : 34059, .
-ExpectedChar     : 34059, e
-ExpectedChar     : 34059, E
+ExpectedChar     : 33430, -
+ExpectedChar     : 33430, 0
+ExpectedToken    : 33432, digit
+ExpectedChar     : 33432, .
+ExpectedChar     : 33432, e
+ExpectedChar     : 33432, E
 NumberValue      : 57
 MemberKey        : title
 StringValue      : Support XSD in XmlProvider
@@ -1469,12 +1469,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 34160, -
-ExpectedChar     : 34160, 0
-ExpectedToken    : 34166, digit
-ExpectedChar     : 34166, .
-ExpectedChar     : 34166, e
-ExpectedChar     : 34166, E
+ExpectedChar     : 33529, -
+ExpectedChar     : 33529, 0
+ExpectedToken    : 33535, digit
+ExpectedChar     : 33535, .
+ExpectedChar     : 33535, e
+ExpectedChar     : 33535, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -1531,10 +1531,10 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 35688, -
-ExpectedChar     : 35689, .
-ExpectedChar     : 35689, e
-ExpectedChar     : 35689, E
+ExpectedChar     : 35026, -
+ExpectedChar     : 35027, .
+ExpectedChar     : 35027, e
+ExpectedChar     : 35027, E
 NumberValue      : 0
 MemberKey        : created_at
 StringValue      : 2013-02-01T16:46:54Z
@@ -1566,20 +1566,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/56
 MemberKey        : id
-ExpectedChar     : 36373, -
-ExpectedChar     : 36373, 0
-ExpectedToken    : 36381, digit
-ExpectedChar     : 36381, .
-ExpectedChar     : 36381, e
-ExpectedChar     : 36381, E
+ExpectedChar     : 35694, -
+ExpectedChar     : 35694, 0
+ExpectedToken    : 35702, digit
+ExpectedChar     : 35702, .
+ExpectedChar     : 35702, e
+ExpectedChar     : 35702, E
 NumberValue      : 10546531
 MemberKey        : number
-ExpectedChar     : 36398, -
-ExpectedChar     : 36398, 0
-ExpectedToken    : 36400, digit
-ExpectedChar     : 36400, .
-ExpectedChar     : 36400, e
-ExpectedChar     : 36400, E
+ExpectedChar     : 35718, -
+ExpectedChar     : 35718, 0
+ExpectedToken    : 35720, digit
+ExpectedChar     : 35720, .
+ExpectedChar     : 35720, e
+ExpectedChar     : 35720, E
 NumberValue      : 56
 MemberKey        : title
 StringValue      : Support mixed separators in CsvProvider?
@@ -1588,12 +1588,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 36515, -
-ExpectedChar     : 36515, 0
-ExpectedToken    : 36521, digit
-ExpectedChar     : 36521, .
-ExpectedChar     : 36521, e
-ExpectedChar     : 36521, E
+ExpectedChar     : 35831, -
+ExpectedChar     : 35831, 0
+ExpectedToken    : 35837, digit
+ExpectedChar     : 35837, .
+ExpectedChar     : 35837, e
+ExpectedChar     : 35837, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -1650,10 +1650,10 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 38045, -
-ExpectedChar     : 38046, .
-ExpectedChar     : 38046, e
-ExpectedChar     : 38046, E
+ExpectedChar     : 37330, -
+ExpectedChar     : 37331, .
+ExpectedChar     : 37331, e
+ExpectedChar     : 37331, E
 NumberValue      : 0
 MemberKey        : created_at
 StringValue      : 2013-02-01T16:44:57Z
@@ -1685,20 +1685,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/55
 MemberKey        : id
-ExpectedChar     : 39075, -
-ExpectedChar     : 39075, 0
-ExpectedToken    : 39083, digit
-ExpectedChar     : 39083, .
-ExpectedChar     : 39083, e
-ExpectedChar     : 39083, E
+ExpectedChar     : 38343, -
+ExpectedChar     : 38343, 0
+ExpectedToken    : 38351, digit
+ExpectedChar     : 38351, .
+ExpectedChar     : 38351, e
+ExpectedChar     : 38351, E
 NumberValue      : 10545929
 MemberKey        : number
-ExpectedChar     : 39100, -
-ExpectedChar     : 39100, 0
-ExpectedToken    : 39102, digit
-ExpectedChar     : 39102, .
-ExpectedChar     : 39102, e
-ExpectedChar     : 39102, E
+ExpectedChar     : 38367, -
+ExpectedChar     : 38367, 0
+ExpectedToken    : 38369, digit
+ExpectedChar     : 38369, .
+ExpectedChar     : 38369, e
+ExpectedChar     : 38369, E
 NumberValue      : 55
 MemberKey        : title
 StringValue      : Allow to specify the NA string in CSV provider
@@ -1707,12 +1707,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 39223, -
-ExpectedChar     : 39223, 0
-ExpectedToken    : 39229, digit
-ExpectedChar     : 39229, .
-ExpectedChar     : 39229, e
-ExpectedChar     : 39229, E
+ExpectedChar     : 38486, -
+ExpectedChar     : 38486, 0
+ExpectedToken    : 38492, digit
+ExpectedChar     : 38492, .
+ExpectedChar     : 38492, e
+ExpectedChar     : 38492, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -1769,10 +1769,10 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 40751, -
-ExpectedChar     : 40752, .
-ExpectedChar     : 40752, e
-ExpectedChar     : 40752, E
+ExpectedChar     : 39983, -
+ExpectedChar     : 39984, .
+ExpectedChar     : 39984, e
+ExpectedChar     : 39984, E
 NumberValue      : 0
 MemberKey        : created_at
 StringValue      : 2013-02-01T16:28:17Z
@@ -1804,20 +1804,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/54
 MemberKey        : id
-ExpectedChar     : 41463, -
-ExpectedChar     : 41463, 0
-ExpectedToken    : 41471, digit
-ExpectedChar     : 41471, .
-ExpectedChar     : 41471, e
-ExpectedChar     : 41471, E
+ExpectedChar     : 40678, -
+ExpectedChar     : 40678, 0
+ExpectedToken    : 40686, digit
+ExpectedChar     : 40686, .
+ExpectedChar     : 40686, e
+ExpectedChar     : 40686, E
 NumberValue      : 10545624
 MemberKey        : number
-ExpectedChar     : 41488, -
-ExpectedChar     : 41488, 0
-ExpectedToken    : 41490, digit
-ExpectedChar     : 41490, .
-ExpectedChar     : 41490, e
-ExpectedChar     : 41490, E
+ExpectedChar     : 40702, -
+ExpectedChar     : 40702, 0
+ExpectedToken    : 40704, digit
+ExpectedChar     : 40704, .
+ExpectedChar     : 40704, e
+ExpectedChar     : 40704, E
 NumberValue      : 54
 MemberKey        : title
 StringValue      : Use a smarter default separator for CSVProvider
@@ -1826,12 +1826,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 41612, -
-ExpectedChar     : 41612, 0
-ExpectedToken    : 41618, digit
-ExpectedChar     : 41618, .
-ExpectedChar     : 41618, e
-ExpectedChar     : 41618, E
+ExpectedChar     : 40822, -
+ExpectedChar     : 40822, 0
+ExpectedToken    : 40828, digit
+ExpectedChar     : 40828, .
+ExpectedChar     : 40828, e
+ExpectedChar     : 40828, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -1888,10 +1888,10 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 43142, -
-ExpectedChar     : 43143, .
-ExpectedChar     : 43143, e
-ExpectedChar     : 43143, E
+ExpectedChar     : 42321, -
+ExpectedChar     : 42322, .
+ExpectedChar     : 42322, e
+ExpectedChar     : 42322, E
 NumberValue      : 0
 MemberKey        : created_at
 StringValue      : 2013-02-01T16:20:31Z
@@ -1923,20 +1923,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/52
 MemberKey        : id
-ExpectedChar     : 44006, -
-ExpectedChar     : 44006, 0
-ExpectedToken    : 44014, digit
-ExpectedChar     : 44014, .
-ExpectedChar     : 44014, e
-ExpectedChar     : 44014, E
+ExpectedChar     : 43168, -
+ExpectedChar     : 43168, 0
+ExpectedToken    : 43176, digit
+ExpectedChar     : 43176, .
+ExpectedChar     : 43176, e
+ExpectedChar     : 43176, E
 NumberValue      : 10542733
 MemberKey        : number
-ExpectedChar     : 44031, -
-ExpectedChar     : 44031, 0
-ExpectedToken    : 44033, digit
-ExpectedChar     : 44033, .
-ExpectedChar     : 44033, e
-ExpectedChar     : 44033, E
+ExpectedChar     : 43192, -
+ExpectedChar     : 43192, 0
+ExpectedToken    : 43194, digit
+ExpectedChar     : 43194, .
+ExpectedChar     : 43194, e
+ExpectedChar     : 43194, E
 NumberValue      : 52
 MemberKey        : title
 StringValue      : Use AddDefinitionLocation in the type providers when using a file in the sample
@@ -1945,12 +1945,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 44187, -
-ExpectedChar     : 44187, 0
-ExpectedToken    : 44193, digit
-ExpectedChar     : 44193, .
-ExpectedChar     : 44193, e
-ExpectedChar     : 44193, E
+ExpectedChar     : 43344, -
+ExpectedChar     : 43344, 0
+ExpectedToken    : 43350, digit
+ExpectedChar     : 43350, .
+ExpectedChar     : 43350, e
+ExpectedChar     : 43350, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -2007,10 +2007,10 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 45715, -
-ExpectedChar     : 45716, .
-ExpectedChar     : 45716, e
-ExpectedChar     : 45716, E
+ExpectedChar     : 44841, -
+ExpectedChar     : 44842, .
+ExpectedChar     : 44842, e
+ExpectedChar     : 44842, E
 NumberValue      : 0
 MemberKey        : created_at
 StringValue      : 2013-02-01T15:03:56Z
@@ -2042,20 +2042,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/48
 MemberKey        : id
-ExpectedChar     : 46593, -
-ExpectedChar     : 46593, 0
-ExpectedToken    : 46601, digit
-ExpectedChar     : 46601, .
-ExpectedChar     : 46601, e
-ExpectedChar     : 46601, E
+ExpectedChar     : 45702, -
+ExpectedChar     : 45702, 0
+ExpectedToken    : 45710, digit
+ExpectedChar     : 45710, .
+ExpectedChar     : 45710, e
+ExpectedChar     : 45710, E
 NumberValue      : 10439321
 MemberKey        : number
-ExpectedChar     : 46618, -
-ExpectedChar     : 46618, 0
-ExpectedToken    : 46620, digit
-ExpectedChar     : 46620, .
-ExpectedChar     : 46620, e
-ExpectedChar     : 46620, E
+ExpectedChar     : 45726, -
+ExpectedChar     : 45726, 0
+ExpectedToken    : 45728, digit
+ExpectedChar     : 45728, .
+ExpectedChar     : 45728, e
+ExpectedChar     : 45728, E
 NumberValue      : 48
 MemberKey        : title
 StringValue      : Consider renaming CsvProvider
@@ -2064,12 +2064,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 46724, -
-ExpectedChar     : 46724, 0
-ExpectedToken    : 46730, digit
-ExpectedChar     : 46730, .
-ExpectedChar     : 46730, e
-ExpectedChar     : 46730, E
+ExpectedChar     : 45828, -
+ExpectedChar     : 45828, 0
+ExpectedToken    : 45834, digit
+ExpectedChar     : 45834, .
+ExpectedChar     : 45834, e
+ExpectedChar     : 45834, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -2126,12 +2126,12 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 48252, -
-ExpectedChar     : 48252, 0
-ExpectedToken    : 48253, digit
-ExpectedChar     : 48253, .
-ExpectedChar     : 48253, e
-ExpectedChar     : 48253, E
+ExpectedChar     : 47325, -
+ExpectedChar     : 47325, 0
+ExpectedToken    : 47326, digit
+ExpectedChar     : 47326, .
+ExpectedChar     : 47326, e
+ExpectedChar     : 47326, E
 NumberValue      : 3
 MemberKey        : created_at
 StringValue      : 2013-01-29T23:29:57Z
@@ -2163,20 +2163,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/39
 MemberKey        : id
-ExpectedChar     : 50015, -
-ExpectedChar     : 50015, 0
-ExpectedToken    : 50023, digit
-ExpectedChar     : 50023, .
-ExpectedChar     : 50023, e
-ExpectedChar     : 50023, E
+ExpectedChar     : 49071, -
+ExpectedChar     : 49071, 0
+ExpectedToken    : 49079, digit
+ExpectedChar     : 49079, .
+ExpectedChar     : 49079, e
+ExpectedChar     : 49079, E
 NumberValue      : 10379680
 MemberKey        : number
-ExpectedChar     : 50040, -
-ExpectedChar     : 50040, 0
-ExpectedToken    : 50042, digit
-ExpectedChar     : 50042, .
-ExpectedChar     : 50042, e
-ExpectedChar     : 50042, E
+ExpectedChar     : 49095, -
+ExpectedChar     : 49095, 0
+ExpectedToken    : 49097, digit
+ExpectedChar     : 49097, .
+ExpectedChar     : 49097, e
+ExpectedChar     : 49097, E
 NumberValue      : 39
 MemberKey        : title
 StringValue      : Yahoo Finance Type Provider
@@ -2185,12 +2185,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 50144, -
-ExpectedChar     : 50144, 0
-ExpectedToken    : 50150, digit
-ExpectedChar     : 50150, .
-ExpectedChar     : 50150, e
-ExpectedChar     : 50150, E
+ExpectedChar     : 49195, -
+ExpectedChar     : 49195, 0
+ExpectedToken    : 49201, digit
+ExpectedChar     : 49201, .
+ExpectedChar     : 49201, e
+ExpectedChar     : 49201, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -2247,12 +2247,12 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 51674, -
-ExpectedChar     : 51674, 0
-ExpectedToken    : 51675, digit
-ExpectedChar     : 51675, .
-ExpectedChar     : 51675, e
-ExpectedChar     : 51675, E
+ExpectedChar     : 50694, -
+ExpectedChar     : 50694, 0
+ExpectedToken    : 50695, digit
+ExpectedChar     : 50695, .
+ExpectedChar     : 50695, e
+ExpectedChar     : 50695, E
 NumberValue      : 1
 MemberKey        : created_at
 StringValue      : 2013-01-28T15:46:37Z
@@ -2284,20 +2284,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/38
 MemberKey        : id
-ExpectedChar     : 52786, -
-ExpectedChar     : 52786, 0
-ExpectedToken    : 52794, digit
-ExpectedChar     : 52794, .
-ExpectedChar     : 52794, e
-ExpectedChar     : 52794, E
+ExpectedChar     : 51789, -
+ExpectedChar     : 51789, 0
+ExpectedToken    : 51797, digit
+ExpectedChar     : 51797, .
+ExpectedChar     : 51797, e
+ExpectedChar     : 51797, E
 NumberValue      : 10379124
 MemberKey        : number
-ExpectedChar     : 52811, -
-ExpectedChar     : 52811, 0
-ExpectedToken    : 52813, digit
-ExpectedChar     : 52813, .
-ExpectedChar     : 52813, e
-ExpectedChar     : 52813, E
+ExpectedChar     : 51813, -
+ExpectedChar     : 51813, 0
+ExpectedToken    : 51815, digit
+ExpectedChar     : 51815, .
+ExpectedChar     : 51815, e
+ExpectedChar     : 51815, E
 NumberValue      : 38
 MemberKey        : title
 StringValue      : NameUtils improvements
@@ -2306,12 +2306,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 52910, -
-ExpectedChar     : 52910, 0
-ExpectedToken    : 52916, digit
-ExpectedChar     : 52916, .
-ExpectedChar     : 52916, e
-ExpectedChar     : 52916, E
+ExpectedChar     : 51908, -
+ExpectedChar     : 51908, 0
+ExpectedToken    : 51914, digit
+ExpectedChar     : 51914, .
+ExpectedChar     : 51914, e
+ExpectedChar     : 51914, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -2368,10 +2368,10 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 54438, -
-ExpectedChar     : 54439, .
-ExpectedChar     : 54439, e
-ExpectedChar     : 54439, E
+ExpectedChar     : 53405, -
+ExpectedChar     : 53406, .
+ExpectedChar     : 53406, e
+ExpectedChar     : 53406, E
 NumberValue      : 0
 MemberKey        : created_at
 StringValue      : 2013-01-28T15:32:50Z
@@ -2403,20 +2403,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/37
 MemberKey        : id
-ExpectedChar     : 55451, -
-ExpectedChar     : 55451, 0
-ExpectedToken    : 55459, digit
-ExpectedChar     : 55459, .
-ExpectedChar     : 55459, e
-ExpectedChar     : 55459, E
+ExpectedChar     : 54401, -
+ExpectedChar     : 54401, 0
+ExpectedToken    : 54409, digit
+ExpectedChar     : 54409, .
+ExpectedChar     : 54409, e
+ExpectedChar     : 54409, E
 NumberValue      : 10378954
 MemberKey        : number
-ExpectedChar     : 55476, -
-ExpectedChar     : 55476, 0
-ExpectedToken    : 55478, digit
-ExpectedChar     : 55478, .
-ExpectedChar     : 55478, e
-ExpectedChar     : 55478, E
+ExpectedChar     : 54425, -
+ExpectedChar     : 54425, 0
+ExpectedToken    : 54427, digit
+ExpectedChar     : 54427, .
+ExpectedChar     : 54427, e
+ExpectedChar     : 54427, E
 NumberValue      : 37
 MemberKey        : title
 StringValue      : Generate enums in csv type provider
@@ -2425,12 +2425,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 55588, -
-ExpectedChar     : 55588, 0
-ExpectedToken    : 55594, digit
-ExpectedChar     : 55594, .
-ExpectedChar     : 55594, e
-ExpectedChar     : 55594, E
+ExpectedChar     : 54533, -
+ExpectedChar     : 54533, 0
+ExpectedToken    : 54539, digit
+ExpectedChar     : 54539, .
+ExpectedChar     : 54539, e
+ExpectedChar     : 54539, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -2479,12 +2479,12 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 56939, -
-ExpectedChar     : 56939, 0
-ExpectedToken    : 56940, digit
-ExpectedChar     : 56940, .
-ExpectedChar     : 56940, e
-ExpectedChar     : 56940, E
+ExpectedChar     : 55858, -
+ExpectedChar     : 55858, 0
+ExpectedToken    : 55859, digit
+ExpectedChar     : 55859, .
+ExpectedChar     : 55859, e
+ExpectedChar     : 55859, E
 NumberValue      : 2
 MemberKey        : created_at
 StringValue      : 2013-01-28T15:27:53Z
@@ -2516,20 +2516,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/32
 MemberKey        : id
-ExpectedChar     : 57913, -
-ExpectedChar     : 57913, 0
-ExpectedToken    : 57921, digit
-ExpectedChar     : 57921, .
-ExpectedChar     : 57921, e
-ExpectedChar     : 57921, E
+ExpectedChar     : 56815, -
+ExpectedChar     : 56815, 0
+ExpectedToken    : 56823, digit
+ExpectedChar     : 56823, .
+ExpectedChar     : 56823, e
+ExpectedChar     : 56823, E
 NumberValue      : 10330252
 MemberKey        : number
-ExpectedChar     : 57938, -
-ExpectedChar     : 57938, 0
-ExpectedToken    : 57940, digit
-ExpectedChar     : 57940, .
-ExpectedChar     : 57940, e
-ExpectedChar     : 57940, E
+ExpectedChar     : 56839, -
+ExpectedChar     : 56839, 0
+ExpectedToken    : 56841, digit
+ExpectedChar     : 56841, .
+ExpectedChar     : 56841, e
+ExpectedChar     : 56841, E
 NumberValue      : 32
 MemberKey        : title
 StringValue      : Write API
@@ -2538,12 +2538,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 58024, -
-ExpectedChar     : 58024, 0
-ExpectedToken    : 58030, digit
-ExpectedChar     : 58030, .
-ExpectedChar     : 58030, e
-ExpectedChar     : 58030, E
+ExpectedChar     : 56921, -
+ExpectedChar     : 56921, 0
+ExpectedToken    : 56927, digit
+ExpectedChar     : 56927, .
+ExpectedChar     : 56927, e
+ExpectedChar     : 56927, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -2600,10 +2600,10 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 59554, -
-ExpectedChar     : 59555, .
-ExpectedChar     : 59555, e
-ExpectedChar     : 59555, E
+ExpectedChar     : 58420, -
+ExpectedChar     : 58421, .
+ExpectedChar     : 58421, e
+ExpectedChar     : 58421, E
 NumberValue      : 0
 MemberKey        : created_at
 StringValue      : 2013-01-25T23:21:00Z
@@ -2635,20 +2635,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/26
 MemberKey        : id
-ExpectedChar     : 60287, -
-ExpectedChar     : 60287, 0
-ExpectedToken    : 60295, digit
-ExpectedChar     : 60295, .
-ExpectedChar     : 60295, e
-ExpectedChar     : 60295, E
+ExpectedChar     : 59136, -
+ExpectedChar     : 59136, 0
+ExpectedToken    : 59144, digit
+ExpectedChar     : 59144, .
+ExpectedChar     : 59144, e
+ExpectedChar     : 59144, E
 NumberValue      : 10327553
 MemberKey        : number
-ExpectedChar     : 60312, -
-ExpectedChar     : 60312, 0
-ExpectedToken    : 60314, digit
-ExpectedChar     : 60314, .
-ExpectedChar     : 60314, e
-ExpectedChar     : 60314, E
+ExpectedChar     : 59160, -
+ExpectedChar     : 59160, 0
+ExpectedToken    : 59162, digit
+ExpectedChar     : 59162, .
+ExpectedChar     : 59162, e
+ExpectedChar     : 59162, E
 NumberValue      : 26
 MemberKey        : title
 StringValue      : Fix System.Xml.Linq reference in portable library for Silverlight
@@ -2657,12 +2657,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 60454, -
-ExpectedChar     : 60454, 0
-ExpectedToken    : 60460, digit
-ExpectedChar     : 60460, .
-ExpectedChar     : 60460, e
-ExpectedChar     : 60460, E
+ExpectedChar     : 59298, -
+ExpectedChar     : 59298, 0
+ExpectedToken    : 59304, digit
+ExpectedChar     : 59304, .
+ExpectedChar     : 59304, e
+ExpectedChar     : 59304, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -2719,12 +2719,12 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 61974, -
-ExpectedChar     : 61974, 0
-ExpectedToken    : 61975, digit
-ExpectedChar     : 61975, .
-ExpectedChar     : 61975, e
-ExpectedChar     : 61975, E
+ExpectedChar     : 60787, -
+ExpectedChar     : 60787, 0
+ExpectedToken    : 60788, digit
+ExpectedChar     : 60788, .
+ExpectedChar     : 60788, e
+ExpectedChar     : 60788, E
 NumberValue      : 4
 MemberKey        : created_at
 StringValue      : 2013-01-25T21:45:23Z
@@ -2756,20 +2756,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/24
 MemberKey        : id
-ExpectedChar     : 62674, -
-ExpectedChar     : 62674, 0
-ExpectedToken    : 62682, digit
-ExpectedChar     : 62682, .
-ExpectedChar     : 62682, e
-ExpectedChar     : 62682, E
+ExpectedChar     : 61470, -
+ExpectedChar     : 61470, 0
+ExpectedToken    : 61478, digit
+ExpectedChar     : 61478, .
+ExpectedChar     : 61478, e
+ExpectedChar     : 61478, E
 NumberValue      : 10327515
 MemberKey        : number
-ExpectedChar     : 62699, -
-ExpectedChar     : 62699, 0
-ExpectedToken    : 62701, digit
-ExpectedChar     : 62701, .
-ExpectedChar     : 62701, e
-ExpectedChar     : 62701, E
+ExpectedChar     : 61494, -
+ExpectedChar     : 61494, 0
+ExpectedToken    : 61496, digit
+ExpectedChar     : 61496, .
+ExpectedChar     : 61496, e
+ExpectedChar     : 61496, E
 NumberValue      : 24
 MemberKey        : title
 StringValue      : Fix enableUriSlashes for Portable version
@@ -2778,12 +2778,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 62817, -
-ExpectedChar     : 62817, 0
-ExpectedToken    : 62823, digit
-ExpectedChar     : 62823, .
-ExpectedChar     : 62823, e
-ExpectedChar     : 62823, E
+ExpectedChar     : 61608, -
+ExpectedChar     : 61608, 0
+ExpectedToken    : 61614, digit
+ExpectedChar     : 61614, .
+ExpectedChar     : 61614, e
+ExpectedChar     : 61614, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -2840,12 +2840,12 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 64339, -
-ExpectedChar     : 64339, 0
-ExpectedToken    : 64340, digit
-ExpectedChar     : 64340, .
-ExpectedChar     : 64340, e
-ExpectedChar     : 64340, E
+ExpectedChar     : 63099, -
+ExpectedChar     : 63099, 0
+ExpectedToken    : 63100, digit
+ExpectedChar     : 63100, .
+ExpectedChar     : 63100, e
+ExpectedChar     : 63100, E
 NumberValue      : 4
 MemberKey        : created_at
 StringValue      : 2013-01-25T21:43:58Z
@@ -2877,20 +2877,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/23
 MemberKey        : id
-ExpectedChar     : 65024, -
-ExpectedChar     : 65024, 0
-ExpectedToken    : 65032, digit
-ExpectedChar     : 65032, .
-ExpectedChar     : 65032, e
-ExpectedChar     : 65032, E
+ExpectedChar     : 63767, -
+ExpectedChar     : 63767, 0
+ExpectedToken    : 63775, digit
+ExpectedChar     : 63775, .
+ExpectedChar     : 63775, e
+ExpectedChar     : 63775, E
 NumberValue      : 10323295
 MemberKey        : number
-ExpectedChar     : 65049, -
-ExpectedChar     : 65049, 0
-ExpectedToken    : 65051, digit
-ExpectedChar     : 65051, .
-ExpectedChar     : 65051, e
-ExpectedChar     : 65051, E
+ExpectedChar     : 63791, -
+ExpectedChar     : 63791, 0
+ExpectedToken    : 63793, digit
+ExpectedChar     : 63793, .
+ExpectedChar     : 63793, e
+ExpectedChar     : 63793, E
 NumberValue      : 23
 MemberKey        : title
 StringValue      : version of fsharpchart is not the current one from nuget
@@ -2899,12 +2899,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : nrolland
 MemberKey        : id
-ExpectedChar     : 65183, -
-ExpectedChar     : 65183, 0
-ExpectedToken    : 65188, digit
-ExpectedChar     : 65188, .
-ExpectedChar     : 65188, e
-ExpectedChar     : 65188, E
+ExpectedChar     : 63921, -
+ExpectedChar     : 63921, 0
+ExpectedToken    : 63926, digit
+ExpectedChar     : 63926, .
+ExpectedChar     : 63926, e
+ExpectedChar     : 63926, E
 NumberValue      : 37239
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/91f975afaf89b2bcd5a34722ab4c8505?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -2953,10 +2953,10 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 66544, -
-ExpectedChar     : 66545, .
-ExpectedChar     : 66545, e
-ExpectedChar     : 66545, E
+ExpectedChar     : 65256, -
+ExpectedChar     : 65257, .
+ExpectedChar     : 65257, e
+ExpectedChar     : 65257, E
 NumberValue      : 0
 MemberKey        : created_at
 StringValue      : 2013-01-25T19:34:09Z
@@ -2988,20 +2988,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/19
 MemberKey        : id
-ExpectedChar     : 67313, -
-ExpectedChar     : 67313, 0
-ExpectedToken    : 67321, digit
-ExpectedChar     : 67321, .
-ExpectedChar     : 67321, e
-ExpectedChar     : 67321, E
+ExpectedChar     : 66008, -
+ExpectedChar     : 66008, 0
+ExpectedToken    : 66016, digit
+ExpectedChar     : 66016, .
+ExpectedChar     : 66016, e
+ExpectedChar     : 66016, E
 NumberValue      : 10269384
 MemberKey        : number
-ExpectedChar     : 67338, -
-ExpectedChar     : 67338, 0
-ExpectedToken    : 67340, digit
-ExpectedChar     : 67340, .
-ExpectedChar     : 67340, e
-ExpectedChar     : 67340, E
+ExpectedChar     : 66032, -
+ExpectedChar     : 66032, 0
+ExpectedToken    : 66034, digit
+ExpectedChar     : 66034, .
+ExpectedChar     : 66034, e
+ExpectedChar     : 66034, E
 NumberValue      : 19
 MemberKey        : title
 StringValue      : Allow overriding the schema in the CSV provider
@@ -3010,12 +3010,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : ovatsus
 MemberKey        : id
-ExpectedChar     : 67462, -
-ExpectedChar     : 67462, 0
-ExpectedToken    : 67468, digit
-ExpectedChar     : 67468, .
-ExpectedChar     : 67468, e
-ExpectedChar     : 67468, E
+ExpectedChar     : 66152, -
+ExpectedChar     : 66152, 0
+ExpectedToken    : 66158, digit
+ExpectedChar     : 66158, .
+ExpectedChar     : 66158, e
+ExpectedChar     : 66158, E
 NumberValue      : 738761
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e6ae26138cd96ab168c1808f2af693f0?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -3072,12 +3072,12 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 68990, -
-ExpectedChar     : 68990, 0
-ExpectedToken    : 68991, digit
-ExpectedChar     : 68991, .
-ExpectedChar     : 68991, e
-ExpectedChar     : 68991, E
+ExpectedChar     : 67649, -
+ExpectedChar     : 67649, 0
+ExpectedToken    : 67650, digit
+ExpectedChar     : 67650, .
+ExpectedChar     : 67650, e
+ExpectedChar     : 67650, E
 NumberValue      : 1
 MemberKey        : created_at
 StringValue      : 2013-01-24T11:32:51Z
@@ -3109,20 +3109,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/18
 MemberKey        : id
-ExpectedChar     : 70014, -
-ExpectedChar     : 70014, 0
-ExpectedToken    : 70022, digit
-ExpectedChar     : 70022, .
-ExpectedChar     : 70022, e
-ExpectedChar     : 70022, E
+ExpectedChar     : 68656, -
+ExpectedChar     : 68656, 0
+ExpectedToken    : 68664, digit
+ExpectedChar     : 68664, .
+ExpectedChar     : 68664, e
+ExpectedChar     : 68664, E
 NumberValue      : 10160408
 MemberKey        : number
-ExpectedChar     : 70039, -
-ExpectedChar     : 70039, 0
-ExpectedToken    : 70041, digit
-ExpectedChar     : 70041, .
-ExpectedChar     : 70041, e
-ExpectedChar     : 70041, E
+ExpectedChar     : 68680, -
+ExpectedChar     : 68680, 0
+ExpectedToken    : 68682, digit
+ExpectedChar     : 68682, .
+ExpectedChar     : 68682, e
+ExpectedChar     : 68682, E
 NumberValue      : 18
 MemberKey        : title
 StringValue      : Add async loading
@@ -3131,12 +3131,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : tpetricek
 MemberKey        : id
-ExpectedChar     : 70135, -
-ExpectedChar     : 70135, 0
-ExpectedToken    : 70141, digit
-ExpectedChar     : 70141, .
-ExpectedChar     : 70141, e
-ExpectedChar     : 70141, E
+ExpectedChar     : 68772, -
+ExpectedChar     : 68772, 0
+ExpectedToken    : 68778, digit
+ExpectedChar     : 68778, .
+ExpectedChar     : 68778, e
+ExpectedChar     : 68778, E
 NumberValue      : 485413
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/d06834fe3fb105f62b2186aba4a430d5?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -3193,12 +3193,12 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 71685, -
-ExpectedChar     : 71685, 0
-ExpectedToken    : 71686, digit
-ExpectedChar     : 71686, .
-ExpectedChar     : 71686, e
-ExpectedChar     : 71686, E
+ExpectedChar     : 70291, -
+ExpectedChar     : 70291, 0
+ExpectedToken    : 70292, digit
+ExpectedChar     : 70292, .
+ExpectedChar     : 70292, e
+ExpectedChar     : 70292, E
 NumberValue      : 4
 MemberKey        : created_at
 StringValue      : 2013-01-21T15:27:22Z
@@ -3230,20 +3230,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/17
 MemberKey        : id
-ExpectedChar     : 72715, -
-ExpectedChar     : 72715, 0
-ExpectedToken    : 72723, digit
-ExpectedChar     : 72723, .
-ExpectedChar     : 72723, e
-ExpectedChar     : 72723, E
+ExpectedChar     : 71304, -
+ExpectedChar     : 71304, 0
+ExpectedToken    : 71312, digit
+ExpectedChar     : 71312, .
+ExpectedChar     : 71312, e
+ExpectedChar     : 71312, E
 NumberValue      : 10128720
 MemberKey        : number
-ExpectedChar     : 72740, -
-ExpectedChar     : 72740, 0
-ExpectedToken    : 72742, digit
-ExpectedChar     : 72742, .
-ExpectedChar     : 72742, e
-ExpectedChar     : 72742, E
+ExpectedChar     : 71328, -
+ExpectedChar     : 71328, 0
+ExpectedToken    : 71330, digit
+ExpectedChar     : 71330, .
+ExpectedChar     : 71330, e
+ExpectedChar     : 71330, E
 NumberValue      : 17
 MemberKey        : title
 StringValue      : Will FSharp.Data work with mono on a Mac?
@@ -3252,12 +3252,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : carsten-j
 MemberKey        : id
-ExpectedChar     : 72860, -
-ExpectedChar     : 72860, 0
-ExpectedToken    : 72867, digit
-ExpectedChar     : 72867, .
-ExpectedChar     : 72867, e
-ExpectedChar     : 72867, E
+ExpectedChar     : 71444, -
+ExpectedChar     : 71444, 0
+ExpectedToken    : 71451, digit
+ExpectedChar     : 71451, .
+ExpectedChar     : 71451, e
+ExpectedChar     : 71451, E
 NumberValue      : 2677833
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/e24931e1dd5980a29c2df12214a93b63?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -3314,12 +3314,12 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 74387, -
-ExpectedChar     : 74387, 0
-ExpectedToken    : 74388, digit
-ExpectedChar     : 74388, .
-ExpectedChar     : 74388, e
-ExpectedChar     : 74388, E
+ExpectedChar     : 72940, -
+ExpectedChar     : 72940, 0
+ExpectedToken    : 72941, digit
+ExpectedChar     : 72941, .
+ExpectedChar     : 72941, e
+ExpectedChar     : 72941, E
 NumberValue      : 5
 MemberKey        : created_at
 StringValue      : 2013-01-19T19:48:34Z
@@ -3351,20 +3351,20 @@ StringValue      : https:\/\/api.github.com\/repos\/tpetricek\/FSharp.Data\/issu
 MemberKey        : html_url
 StringValue      : https:\/\/github.com\/tpetricek\/FSharp.Data\/issues\/10
 MemberKey        : id
-ExpectedChar     : 75209, -
-ExpectedChar     : 75209, 0
-ExpectedToken    : 75216, digit
-ExpectedChar     : 75216, .
-ExpectedChar     : 75216, e
-ExpectedChar     : 75216, E
+ExpectedChar     : 73745, -
+ExpectedChar     : 73745, 0
+ExpectedToken    : 73752, digit
+ExpectedChar     : 73752, .
+ExpectedChar     : 73752, e
+ExpectedChar     : 73752, E
 NumberValue      : 9971160
 MemberKey        : number
-ExpectedChar     : 75233, -
-ExpectedChar     : 75233, 0
-ExpectedToken    : 75235, digit
-ExpectedChar     : 75235, .
-ExpectedChar     : 75235, e
-ExpectedChar     : 75235, E
+ExpectedChar     : 73768, -
+ExpectedChar     : 73768, 0
+ExpectedToken    : 73770, digit
+ExpectedChar     : 73770, .
+ExpectedChar     : 73770, e
+ExpectedChar     : 73770, E
 NumberValue      : 10
 MemberKey        : title
 StringValue      : Add FsCharts to the nuget package
@@ -3373,12 +3373,12 @@ Object           : begin
 MemberKey        : login
 StringValue      : forki
 MemberKey        : id
-ExpectedChar     : 75341, -
-ExpectedChar     : 75341, 0
-ExpectedToken    : 75346, digit
-ExpectedChar     : 75346, .
-ExpectedChar     : 75346, e
-ExpectedChar     : 75346, E
+ExpectedChar     : 73872, -
+ExpectedChar     : 73872, 0
+ExpectedToken    : 73877, digit
+ExpectedChar     : 73877, .
+ExpectedChar     : 73877, e
+ExpectedChar     : 73877, E
 NumberValue      : 57396
 MemberKey        : avatar_url
 StringValue      : https:\/\/secure.gravatar.com\/avatar\/523ac2f66c6152ec45ff96d7f01665d2?d=https:\/\/a248.e.akamai.net\/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png
@@ -3427,12 +3427,12 @@ NullValue        : null
 MemberKey        : milestone
 NullValue        : null
 MemberKey        : comments
-ExpectedChar     : 76669, -
-ExpectedChar     : 76669, 0
-ExpectedToken    : 76670, digit
-ExpectedChar     : 76670, .
-ExpectedChar     : 76670, e
-ExpectedChar     : 76670, E
+ExpectedChar     : 75174, -
+ExpectedChar     : 75174, 0
+ExpectedToken    : 75175, digit
+ExpectedChar     : 75175, .
+ExpectedChar     : 75175, e
+ExpectedChar     : 75175, E
 NumberValue      : 5
 MemberKey        : created_at
 StringValue      : 2013-01-15T08:22:52Z
@@ -3453,5 +3453,5 @@ MemberKey        : body
 StringValue      : Hi,\r\n\r\nsince nearly all of the samples are using FsChart it would be cool it this could become part of the nuget package. This would allow me to write easier tutorials for my Dynamics NAV friends.\r\n\r\nCheers,\r\nSteffen
 Object           : end
 Array            : end
-ParsePosition    : 77139
+ParsePosition    : 75632
 ParseResult      : true

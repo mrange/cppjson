@@ -5,12 +5,12 @@ StringValue      : John
 MemberKey        : lastName
 StringValue      : Doe
 MemberKey        : age
-ExpectedChar     : 71, -
-ExpectedChar     : 71, 0
-ExpectedToken    : 73, digit
-ExpectedChar     : 73, .
-ExpectedChar     : 73, e
-ExpectedChar     : 73, E
+ExpectedChar     : 68, -
+ExpectedChar     : 68, 0
+ExpectedToken    : 70, digit
+ExpectedChar     : 70, .
+ExpectedChar     : 70, e
+ExpectedChar     : 70, E
 NumberValue      : 42
 MemberKey        : address
 Object           : begin
@@ -24,5 +24,5 @@ MemberKey        : postalCode
 StringValue      : 10021
 Object           : end
 Object           : end
-ParsePosition    : 258
+ParsePosition    : 246
 ParseResult      : true

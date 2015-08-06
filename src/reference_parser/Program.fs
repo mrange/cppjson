@@ -91,8 +91,21 @@ let main argv =
             member x.Expected     (pos, tk) = ignore <| appf  "ExpectedToken    : %d, %s" pos tk
             member x.Unexpected   (pos, tk) = ignore <| appf  "UnexpectedToken  : %d, %s" pos tk
         }
+      
+      let readFile p =
+        let sb  = StringBuilder ()
+        use sr  = new StreamReader(jsonPath)
+        let rec loop () =
+          let line = sr.ReadLine ()
+          if line = null then ()
+          else
+            ignore <| sb.Append line
+            ignore <| sb.Append '\n'
+            loop ()
+        loop ()
+        sb.ToString ()
 
-      let json        = File.ReadAllText jsonPath
+      let json        = readFile jsonPath
       let mutable pos = 0
       let result      = tryParse v json &pos
 

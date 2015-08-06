@@ -7,7 +7,7 @@ ExpectedToken    : 4, digit
 ExpectedChar     : 4, e
 ExpectedChar     : 4, E
 NumberValue      : 1
-ExpectedChar     : 6, ,
-UnexpectedToken  : 6, EOS
-ParsePosition    : 6
+ExpectedChar     : 5, ,
+UnexpectedToken  : 5, EOS
+ParsePosition    : 5
 ParseResult      : false
