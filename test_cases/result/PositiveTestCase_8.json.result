@@ -6,7 +6,7 @@ ExpectedToken    : 4, digit
 ExpectedChar     : 4, .
 ExpectedChar     : 4, e
 ExpectedChar     : 4, E
-NumberValue      : 125.000000
+NumberValue      : 125
 Array            : end
 ParsePosition    : 7
 ParseResult      : true

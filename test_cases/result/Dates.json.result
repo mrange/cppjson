@@ -1,7 +1,7 @@
 TestCase         : Dates.json
 Object           : begin
 MemberKey        : birthdate
-StringValue      : /Date(869080830450)/
+StringValue      : \/Date(869080830450)\/
 MemberKey        : anniversary
 StringValue      : 1997-07-16T19:20:30.45+01:00
 MemberKey        : NoTimeZone

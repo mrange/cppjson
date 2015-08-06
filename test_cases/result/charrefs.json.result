@@ -1212,7 +1212,7 @@ Object           : begin
 MemberKey        : key
 StringValue      : &bsol;
 MemberKey        : characters
-StringValue      : \
+StringValue      : \\
 Object           : end
 Object           : begin
 MemberKey        : key
@@ -6504,8 +6504,7 @@ Object           : begin
 MemberKey        : key
 StringValue      : &NewLine;
 MemberKey        : characters
-StringValue      : 
-
+StringValue      : \n
 Object           : end
 Object           : begin
 MemberKey        : key
@@ -8371,25 +8370,25 @@ Object           : begin
 MemberKey        : key
 StringValue      : &quot;
 MemberKey        : characters
-StringValue      : "
+StringValue      : \"
 Object           : end
 Object           : begin
 MemberKey        : key
 StringValue      : &quot
 MemberKey        : characters
-StringValue      : "
+StringValue      : \"
 Object           : end
 Object           : begin
 MemberKey        : key
 StringValue      : &QUOT;
 MemberKey        : characters
-StringValue      : "
+StringValue      : \"
 Object           : end
 Object           : begin
 MemberKey        : key
 StringValue      : &QUOT
 MemberKey        : characters
-StringValue      : "
+StringValue      : \"
 Object           : end
 Object           : begin
 MemberKey        : key
@@ -9733,7 +9732,7 @@ Object           : begin
 MemberKey        : key
 StringValue      : &sol;
 MemberKey        : characters
-StringValue      : /
+StringValue      : \/
 Object           : end
 Object           : begin
 MemberKey        : key
@@ -10399,7 +10398,7 @@ Object           : begin
 MemberKey        : key
 StringValue      : &Tab;
 MemberKey        : characters
-StringValue      : 	
+StringValue      : \t
 Object           : end
 Object           : begin
 MemberKey        : key

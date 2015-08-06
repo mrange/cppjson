@@ -8,7 +8,7 @@ ExpectedToken    : 27, digit
 ExpectedChar     : 27, .
 ExpectedChar     : 27, e
 ExpectedChar     : 27, E
-NumberValue      : 1.000000
+NumberValue      : 1
 MemberKey        : pages
 ExpectedChar     : 47, -
 ExpectedChar     : 47, 0
@@ -16,7 +16,7 @@ ExpectedToken    : 48, digit
 ExpectedChar     : 48, .
 ExpectedChar     : 48, e
 ExpectedChar     : 48, E
-NumberValue      : 1.000000
+NumberValue      : 1
 MemberKey        : per_page
 StringValue      : 1000
 MemberKey        : total
@@ -26,7 +26,7 @@ ExpectedToken    : 99, digit
 ExpectedChar     : 99, .
 ExpectedChar     : 99, e
 ExpectedChar     : 99, E
-NumberValue      : 53.000000
+NumberValue      : 53
 Object           : end
 Array            : begin
 Object           : begin

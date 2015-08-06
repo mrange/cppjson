@@ -12,7 +12,7 @@ ExpectedToken    : 44, digit
 ExpectedChar     : 44, .
 ExpectedChar     : 44, e
 ExpectedChar     : 44, E
-NumberValue      : 29.000000
+NumberValue      : 29
 Object           : end
 Object           : begin
 MemberKey        : name

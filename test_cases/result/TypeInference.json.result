@@ -8,7 +8,7 @@ ExpectedChar     : 63, -
 ExpectedChar     : 64, .
 ExpectedChar     : 64, e
 ExpectedChar     : 64, E
-NumberValue      : 0.000000
+NumberValue      : 0
 MemberKey        : boolLike2
 StringValue      : 1
 Object           : end
@@ -22,7 +22,7 @@ ExpectedToken    : 168, digit
 ExpectedChar     : 168, .
 ExpectedChar     : 168, e
 ExpectedChar     : 168, E
-NumberValue      : 1.000000
+NumberValue      : 1
 MemberKey        : boolLike2
 StringValue      : 0
 Object           : end

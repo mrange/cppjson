@@ -7,7 +7,7 @@ ExpectedToken    : 11, digit
 ExpectedChar     : 11, .
 ExpectedChar     : 11, e
 ExpectedChar     : 11, E
-NumberValue      : 123.000000
+NumberValue      : 123
 Object           : end
 ParsePosition    : 14
 ParseResult      : true

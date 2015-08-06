@@ -11,7 +11,7 @@ ExpectedToken    : 73, digit
 ExpectedChar     : 73, .
 ExpectedChar     : 73, e
 ExpectedChar     : 73, E
-NumberValue      : 42.000000
+NumberValue      : 42
 MemberKey        : address
 Object           : begin
 MemberKey        : streetAddress

@@ -139,7 +139,7 @@ namespace
     bool number_value (double d)
     {
       // TODO: CultureInfo
-      result << L"DoubleValue      : " << d << std::endl;
+      result << L"NumberValue      : " << d << std::endl;
       return true;
     }
 

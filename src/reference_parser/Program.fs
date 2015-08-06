@@ -32,6 +32,18 @@ let main argv =
   try
     Environment.CurrentDirectory <- AppDomain.CurrentDomain.BaseDirectory
 
+    let nonPrintableChars =
+      [|
+        for i in 0..31 ->
+          match char i with
+          | '\b'            -> @"\b"
+          | '\f'            -> @"\f"
+          | '\n'            -> @"\n"
+          | '\r'            -> @"\r"
+          | '\t'            -> @"\t"
+          | ch              -> sprintf "\u%04X" i
+      |]
+
     let rootPath    = Path.GetFullPath @"../../../test_cases/"
     let jsonPath    = Path.Combine (rootPath, "json")
     let resultPath  = Path.Combine (rootPath, "result")
@@ -48,24 +60,36 @@ let main argv =
 
     for testCase, jsonPath, resultPath in testCases do
       printfn "Processing: %s" testCase
-      let sb                = StringBuilder ()
-      let app (s : string)  = ignore <| sb.AppendLine s; true
+      let sb                      = StringBuilder ()
+      let inline str (s : string) = ignore <| sb.Append s
+      let inline ch  (c : char)   = ignore <| sb.Append c
+      let app (s : string)        = 
+        let e = s.Length - 1
+        for i = 0 to e do
+          match s.[i] with
+          | '\"'            -> str @"\"""
+          | '\\'            -> str @"\\"
+          | '/'             -> str @"\/"
+          | c when c < ' '  -> str nonPrintableChars.[int c]
+          | c               -> ch c
+        ignore <| sb.AppendLine ()
+        true
       let appf f            = kprintf app f
       ignore <| appf "TestCase         : %s" testCase
       let v =
         { new IParseVisitor with
             member x.NullValue    ()        =           app   "NullValue        : null"
             member x.BoolValue    b         =           appf  "BoolValue        : %s" (if b then "true" else "false")
-            member x.NumberValue  n         =           appf  "NumberValue      : %f" n // TODO: CultureInvariant
-            member x.StringValue  s         =           appf  "StringValue      : %s" (s.ToString ()) // TODO: Escape
+            member x.NumberValue  n         =           appf  "NumberValue      : %s" (n.ToString ("G", CultureInfo.InvariantCulture))
+            member x.StringValue  s         =           appf  "StringValue      : %s" (s.ToString ())
             member x.ArrayBegin   ()        =           app   "Array            : begin"
             member x.ArrayEnd     ()        =           app   "Array            : end"
             member x.ObjectBegin  ()        =           app   "Object           : begin"
             member x.ObjectEnd    ()        =           app   "Object           : end"
-            member x.MemberKey    mk        =           appf  "MemberKey        : %s" <| mk.ToString () // TODO: Escape
-            member x.ExpectedChar (pos, ch) = ignore <| appf  "ExpectedChar     : %d, %s" pos (ch.ToString ()) // TODO: Escape
-            member x.Expected     (pos, tk) = ignore <| appf  "ExpectedToken    : %d, %s" pos tk  // TODO: Escape
-            member x.Unexpected   (pos, tk) = ignore <| appf  "UnexpectedToken  : %d, %s" pos tk  // TODO: Escape
+            member x.MemberKey    mk        =           appf  "MemberKey        : %s" <| mk.ToString ()
+            member x.ExpectedChar (pos, ch) = ignore <| appf  "ExpectedChar     : %d, %s" pos (ch.ToString ())
+            member x.Expected     (pos, tk) = ignore <| appf  "ExpectedToken    : %d, %s" pos tk
+            member x.Unexpected   (pos, tk) = ignore <| appf  "UnexpectedToken  : %d, %s" pos tk
         }
 
       let json        = File.ReadAllText jsonPath

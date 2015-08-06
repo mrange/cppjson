@@ -13,7 +13,7 @@ ExpectedToken    : 78, digit
 ExpectedChar     : 78, .
 ExpectedChar     : 78, e
 ExpectedChar     : 78, E
-NumberValue      : 25.000000
+NumberValue      : 25
 MemberKey        : isCool
 BoolValue        : true
 Object           : end

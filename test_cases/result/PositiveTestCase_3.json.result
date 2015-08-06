@@ -3,7 +3,7 @@ Array            : begin
 ExpectedToken    : 7, digit
 ExpectedChar     : 7, e
 ExpectedChar     : 7, E
-NumberValue      : -0.125000
+NumberValue      : -0.125
 Array            : end
 ParsePosition    : 10
 ParseResult      : true

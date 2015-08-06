@@ -1,8 +1,8 @@
 TestCase         : NegativeTestCase_30.json
 Array            : begin
-ExpectedChar     : 9, "
-ExpectedChar     : 9, \
-ExpectedChar     : 9, /
+ExpectedChar     : 9, \"
+ExpectedChar     : 9, \\
+ExpectedChar     : 9, \/
 ExpectedChar     : 9, b
 ExpectedChar     : 9, f
 ExpectedChar     : 9, n
