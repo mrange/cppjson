@@ -109,14 +109,14 @@ namespace
       }
     }
 
-    inline void expected_char (std::size_t pos, char_type ch) throw ()
+    void expected_char (std::size_t pos, char_type ch) throw ()
     {
       result << L"ExpectedChar     : " << pos << L", ";
       write_char (ch);
       result << std::endl;
     }
 
-    inline void expected_chars (std::size_t pos, string_type const & chs) throw ()
+    void expected_chars (std::size_t pos, string_type const & chs) throw ()
     {
       for (auto && ch : chs)
       {
@@ -124,7 +124,7 @@ namespace
       }
     }
 
-    inline void expected_token (std::size_t pos, string_type const & token) throw ()
+    void expected_token (std::size_t pos, string_type const & token) throw ()
     {
       // TODO: Escape
       result << L"ExpectedToken    : " << pos << L", ";
@@ -132,29 +132,29 @@ namespace
       result << std::endl;
     }
 
-    inline void unexpected_token (std::size_t pos, string_type const & token) throw ()
+    void unexpected_token (std::size_t pos, string_type const & token) throw ()
     {
       result << L"UnexpectedToken  : " << pos << L", ";
       write_string (token);
       result << std::endl;
     }
 
-    inline void clear_string ()
+    void clear_string ()
     {
       current_string.clear ();
     }
 
-    inline void push_char (char_type ch)
+    void push_char (char_type ch)
     {
       current_string.push_back (ch);
     }
 
-    inline void push_wchar_t (wchar_t ch)
+    void push_wchar_t (wchar_t ch)
     {
       current_string.push_back (ch);
     }
 
-    inline string_type const & get_string () throw ()
+    string_type const & get_string () throw ()
     {
       return current_string;
     }
