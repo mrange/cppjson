@@ -3,5 +3,5 @@ Array            : begin
 BoolValue        : false
 BoolValue        : true
 Array            : end
-ParsePosition    : 18
+ParsePosition    : 22
 ParseResult      : true
