@@ -3,7 +3,7 @@ Array            : begin
 ExpectedChar     : 3, .
 ExpectedChar     : 3, e
 ExpectedChar     : 3, E
-NumberValue      : 0
+NumberValue      : -0
 ExpectedChar     : 3, ,
 ParsePosition    : 3
 ParseResult      : false

@@ -6,7 +6,7 @@ ExpectedChar     : 3, .
 ExpectedChar     : 4, +
 ExpectedChar     : 4, -
 ExpectedToken    : 7, digit
-NumberValue      : -Infinity
+NumberValue      : -inf
 Array            : end
 ParsePosition    : 9
 ParseResult      : true
