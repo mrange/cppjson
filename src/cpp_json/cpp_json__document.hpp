@@ -25,7 +25,7 @@
 
 #include "cpp_json__parser.hpp"
 
-namespace cpp_json { namespace standard
+namespace cpp_json { namespace document
 {
   using string_type           = std::wstring            ;
   using char_type             = string_type::value_type ;

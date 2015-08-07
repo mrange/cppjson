@@ -16,7 +16,7 @@
 
 #include "stdafx.h"
 
-#include "../cpp_json/cpp_json__standard.hpp"
+#include "../cpp_json/cpp_json__document.hpp"
 
 #include <cstdio>
 #include <filesystem>
@@ -315,7 +315,7 @@ namespace
 
   void manual_test_cases ()
   {
-    using namespace cpp_json::standard;
+    using namespace cpp_json::document;
 
     std::vector<string_type> test_cases =
       {
