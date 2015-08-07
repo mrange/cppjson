@@ -319,7 +319,8 @@ namespace
 
     std::vector<string_type> test_cases =
       {
-        LR"([null, 123,-123E100,"Test\tHello", true,false, [true,null],[],{}, {"x":true}])"  ,
+        LR"([null, 123,-123E100,"Test\tHello", true,false, [true,null],[],{}, {"x":true}])" ,
+        LR"(["\b\f\n\r\t\u0010"])"                                                          ,
         LR"(
 {
   "x":null,

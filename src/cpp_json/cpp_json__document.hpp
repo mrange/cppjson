@@ -15,6 +15,7 @@
 // ----------------------------------------------------------------------------------------------
 
 #include <algorithm>
+#include <array>
 #include <cmath>
 #include <cstdio>
 #include <memory>
@@ -151,8 +152,67 @@ namespace cpp_json { namespace document
   {
     constexpr auto default_size = 16U         ;
 
+    struct json_non_printable_chars
+    {
+      using non_printable_char  = std::array<char_type          , 8 >;
+      using non_printable_chars = std::array<non_printable_char , 32>;
+
+      json_non_printable_chars ()
+      {
+        for (auto iter = 0U; iter < table.size (); ++iter)
+        {
+          auto && v = table[iter];
+          std::fill (v.begin (), v.end (), 0);
+
+          auto fmt = L"\\u%04x";
+
+          switch (iter)
+          {
+          case '\b':
+            fmt = L"\\b";
+            break;
+          case '\f':
+            fmt = L"\\f";
+            break;
+          case '\n':
+            fmt = L"\\n";
+            break;
+          case '\r':
+            fmt = L"\\r";
+            break;
+          case '\t':
+            fmt = L"\\t";
+            break;
+          }
+
+          std::swprintf (v.data (), v.size (), fmt, iter);
+        }
+      }
+
+      inline void append (string_type & s, char_type ch) noexcept
+      {
+        if (ch < table.size ())
+        {
+          auto p = table[ch].data ();
+          while (*p)
+          {
+            s += *p++;
+          }
+        }
+        else
+        {
+          s += ch;
+        }
+      }
+
+    private:
+      non_printable_chars table;
+    };
+
     struct json_element_visitor__to_string : json_element_visitor
     {
+      static json_non_printable_chars non_printable_chars;
+
       string_type value;
 
       inline void ch (char_type c)
@@ -169,16 +229,8 @@ namespace cpp_json { namespace document
           value += L"\\/";
           break;
         default:
-          /* TODO:
-          if (c >= 0 && c < non_printable_chars.size ())
-          {
-            result << non_printable_chars[c];
-          }
-          else
-          {
-          }
-          */
-          value += c;
+          non_printable_chars.append (value, c);
+          break;
         }
       }
 
@@ -287,6 +339,8 @@ namespace cpp_json { namespace document
         value += L'}';
       }
     };
+
+    json_non_printable_chars json_element_visitor__to_string::non_printable_chars;
 
     struct json_element_context
     {
@@ -692,7 +746,7 @@ namespace cpp_json { namespace document
     };
   }
 
-  // Parses a JSON string into a JSON document 'result' if successful. 
+  // Parses a JSON string into a JSON document 'result' if successful.
   //  'pos' indicates the first non-consumed character (which may lay beyond the last character in the input string)
   bool parse (string_type const & json, std::size_t & pos, json_element::ptr & result)
   {
@@ -714,7 +768,7 @@ namespace cpp_json { namespace document
     }
   }
 
-  // Parses a JSON string into a JSON document 'result' if successful. 
+  // Parses a JSON string into a JSON document 'result' if successful.
   //  If parse fails 'error' contains an error description.
   //  'pos' indicates the first non-consumed character (which may lay beyond the last character in the input string)
   bool parse (string_type const & json, std::size_t & pos, json_element::ptr & result, string_type & error)
@@ -828,7 +882,7 @@ namespace cpp_json { namespace document
       return false;
     }
   }
-  
+
   // Creates a string from a JSON document
   //  Note: JSON root element is expected to be either an array or object value, if 'json' argument
   //  is neither to_string will return a string that is not valid JSON.
