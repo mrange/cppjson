@@ -137,7 +137,7 @@ namespace
       {
         constexpr auto bsz = 8;
         char buffer[bsz] = {};
-        snprintf (buffer, bsz, "\\u%04X", ch);
+        snprintf (buffer, bsz, "\\u%04x", ch);
         current_string += buffer;
       }
       else
