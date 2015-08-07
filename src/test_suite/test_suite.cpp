@@ -26,12 +26,14 @@
 
 namespace
 {
+  using stringstream_type     = std::wstringstream      ;
+
   struct result_json_context
   {
     using string_type         = std::wstring            ;
     using char_type           = string_type::value_type ;
     using iter_type           = char_type const *       ;
-    using stringstream_type   = std::wstringstream      ;
+    using stringstream_type   = stringstream_type       ;
 
     string_type               current_string            ;
     stringstream_type         result                    ;
@@ -223,16 +225,17 @@ namespace
     }
 
   };
-}
 
-int main (int /*argc*/, char const * * argvs)
-{
-  using namespace cpp_json::standard;
-  using namespace std::tr2::sys     ;
-
-  try
+  void generate_test_results (char const * exe)
   {
-    auto current          = path (argvs[0]);
+    CPP_JSON__ASSERT (exe);
+
+    std::cout << "Running 'generate_test_results'..." << std::endl;
+
+    using namespace cpp_json::standard;
+    using namespace std::tr2::sys     ;
+
+    auto current          = path (exe);
 
     auto test_cases_path = current
       .parent_path ()
@@ -306,7 +309,8 @@ int main (int /*argc*/, char const * * argvs)
 
       jp.result
         << L"ParsePosition    : " << ppos << std::endl
-        << L"ParseResult      : " << (presult ? L"true" : L"false") << std::endl;
+        << L"ParseResult      : " << (presult ? L"true" : L"false") << std::endl
+        ;
 
       std::basic_ofstream<char_type>  result_stream (result_file_path);
 
@@ -314,18 +318,32 @@ int main (int /*argc*/, char const * * argvs)
 
       result_stream << result;
     }
+  }
+}
 
-    std::cout << "DONE!" << std::endl;
+int main (int /*argc*/, char const * * argvs)
+{
+  try
+  {
+    std::cout << "Starting test_suite..." << std::endl;
+
+    generate_test_results (argvs[0]);
+
+    std::cout << "Done" << std::endl;
 
     return 0;
   }
   catch (std::exception const & ex)
   {
     std::cout << "EXCEPTION! " << ex.what () << std::endl;
+
+    return 998;
   }
   catch (...)
   {
     std::cout << "EXCEPTION!" << std::endl;
+
+    return 999;
   }
 }
 

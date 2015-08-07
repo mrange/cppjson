@@ -15,9 +15,9 @@
 // ----------------------------------------------------------------------------------------------
 
 #include <algorithm>
+#include <cmath>
 #include <memory>
 #include <string>
-#include <sstream>
 #include <vector>
 #include <utility>
 #include <tuple>
@@ -29,7 +29,6 @@ namespace cpp_json { namespace standard
   using string_type           = std::wstring            ;
   using char_type             = string_type::value_type ;
   using iter_type             = char_type const *       ;
-  using stringstream_type     = std::wstringstream      ;
 
   struct json_element__null   ;
   struct json_element__bool   ;
@@ -153,39 +152,64 @@ namespace cpp_json { namespace standard
 
     struct json_element_visitor__to_string : json_element_visitor
     {
-      stringstream_type value;
+      string_type value;
+
+      void str (string_type const & s)
+      {
+        // TODO: escaping
+        value += L'"';
+        value += s;
+        value += L'"';
+      }
 
       void visit (json_element__null    & /*v*/) override
       {
-        value << L"null";
+        value += L"null";
       }
 
       void visit (json_element__bool    & v) override
       {
-        value << (v.value ? L"true" : L"false");
+        value += (v.value ? L"true" : L"false");
       }
 
       void visit (json_element__number  & v) override
       {
-        // TODO: invariant culture
-        value << v.value;
+        auto d = v.value;
+        if (std::isnan (d))
+        {
+          value += L"\"NaN\"";
+        }
+        else if (std::isinf (d) && d < 0)
+        {
+          value += L"\"-Inf\"";
+        }
+        else if (std::isinf (d))
+        {
+          value += L"\"+Inf\"";
+        }
+        else
+        {
+          constexpr auto sz = 64U;
+          wchar_t buffer[sz];
+          swprintf (buffer, sz, L"%G", v.value);
+          value += buffer;
+        }
       }
 
       void visit (json_element__string  & v) override
       {
-        // TODO: escaping
-        value << '"' << v.value << '"';
+        str (v.value);
       }
 
       void visit (json_element__array   & v) override
       {
-        value << '[';
+        value += L'[';
         auto sz = v.value.size ();
         for (auto iter = 0U; iter < sz; ++iter)
         {
           if (iter > 0U)
           {
-            value << L", ";
+            value += L", ";
           }
 
           auto && c = v.value[iter];
@@ -195,21 +219,21 @@ namespace cpp_json { namespace standard
           }
           else
           {
-            value << L"null";
+            value += L"null";
           }
         }
-        value << ']';
+        value += L']';
       }
 
       void visit (json_element__object  & v) override
       {
-        value << '{';
+        value += L'{';
         auto sz = v.value.size ();
         for (auto iter = 0U; iter < sz; ++iter)
         {
           if (iter > 0U)
           {
-            value << L", ";
+            value += L", ";
           }
 
           auto && kv  = v.value[iter];
@@ -217,10 +241,9 @@ namespace cpp_json { namespace standard
           auto && k   = std::get<0> (kv);
           auto && c   = std::get<1> (kv);
 
-          // TODO: escaping
-          value << '"' << k << '"';
+          str (k);
 
-          value << ':';
+          value += L':';
 
           if (c)
           {
@@ -228,10 +251,10 @@ namespace cpp_json { namespace standard
           }
           else
           {
-            value << L"null";
+            value += L"null";
           }
         }
-        value << '}';
+        value += L'}';
       }
     };
 
@@ -680,24 +703,33 @@ namespace cpp_json { namespace standard
       expected.erase (std::unique (expected.begin (), expected.end ()), expected.end ());
       unexpected.erase (std::unique (unexpected.begin (), unexpected.end ()), unexpected.end ());
 
-      stringstream_type ss;
+      string_type msg;
 
-      ss
-        << L"Failed to parse input as JSON" << std::endl
-        << json << std::endl  // TODO: Add window and remove whitespace
-        ;
+      auto newline = [&msg] ()
+      {
+        msg += L'\n';
+      };
 
+      msg += L"Failed to parse input as JSON";
+
+      newline ();
+      msg += json;
+
+      newline ();
       for (auto iter = 0U; iter < pos; ++iter)
       {
-        ss << '-';
+        msg += L'-';
       }
-      ss << L"^ Pos: " << pos;
+      msg += L"^ Pos: ";
+      //result += << pos;
 
-      auto append = [&ss] (auto && prepend, auto && vs)
+      auto append = [&msg, &newline] (auto && prepend, auto && vs)
       {
         if (!vs.empty ())
         {
-          ss << std::endl << prepend;
+          newline ();
+          msg += prepend;
+
           auto sz = vs.size();
           for (auto iter = 0U; iter < sz; ++iter)
           {
@@ -706,13 +738,13 @@ namespace cpp_json { namespace standard
             }
             else if (iter + 1U == sz)
             {
-              ss << L" or ";
+              msg += L" or ";
             }
             else
             {
-              ss << L", ";
+              msg += L", ";
             }
-            ss << vs[iter];
+            msg += vs[iter];
           }
         }
       };
@@ -720,7 +752,7 @@ namespace cpp_json { namespace standard
       append (L"EXPECTED: "   , expected);
       append (L"UNEXPECTED: " , unexpected);
 
-      error = ss.str ();
+      error = std::move (msg);
 
       return false;
     }
@@ -735,7 +767,7 @@ namespace cpp_json { namespace standard
 
       json->apply (visitor);
 
-      return visitor.value.str ();
+      return std::move (visitor.value);
     }
     else
     {

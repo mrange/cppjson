@@ -23,6 +23,8 @@
 #include <cstdint>
 #include <filesystem>
 #include <iostream>
+#include <iomanip>
+#include <limits>
 #include <memory>
 #include <string>
 #include <sstream>
