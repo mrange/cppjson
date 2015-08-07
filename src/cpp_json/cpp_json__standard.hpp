@@ -154,11 +154,40 @@ namespace cpp_json { namespace standard
     {
       string_type value;
 
-      void str (string_type const & s)
+      inline void ch (char_type c)
       {
-        // TODO: escaping
+        switch (c)
+        {
+        case '\"':
+          value += L"\\\"";
+          break;
+        case '\\':
+          value += L"\\\\";
+          break;
+        case '/':
+          value += L"\\/";
+          break;
+        default:
+          /* TODO:
+          if (c >= 0 && c < non_printable_chars.size ())
+          {
+            result << non_printable_chars[c];
+          }
+          else
+          {
+          }
+          */
+          value += c;
+        }
+      }
+
+      inline void str (string_type const & s)
+      {
         value += L'"';
-        value += s;
+        for (auto && c : s)
+        {
+          ch (c);
+        }
         value += L'"';
       }
 
@@ -189,9 +218,9 @@ namespace cpp_json { namespace standard
         }
         else
         {
-          constexpr auto sz = 64U;
-          wchar_t buffer[sz];
-          swprintf (buffer, sz, L"%G", v.value);
+          constexpr auto bsz = 64U;
+          wchar_t buffer[bsz];
+          swprintf (buffer, bsz, L"%G", v.value);
           value += buffer;
         }
       }
@@ -415,7 +444,6 @@ namespace cpp_json { namespace standard
 
       inline void push_wchar_t (wchar_t ch)
       {
-        // TODO:
         current_string.push_back (ch);
       }
 
@@ -713,7 +741,17 @@ namespace cpp_json { namespace standard
       msg += L"Failed to parse input as JSON";
 
       newline ();
-      msg += json;
+      for (auto && c : json)  // TODO: Add json window
+      {
+        if (c < ' ')
+        {
+          msg += ' ';
+        }
+        else
+        {
+          msg += c;
+        }
+      }
 
       newline ();
       for (auto iter = 0U; iter < pos; ++iter)
@@ -721,7 +759,13 @@ namespace cpp_json { namespace standard
         msg += L'-';
       }
       msg += L"^ Pos: ";
-      //result += << pos;
+
+      {
+        constexpr auto bsz = 12U;
+        wchar_t spos[bsz]  = {};
+        swprintf (spos, bsz, L"%zd", pos);
+        msg += spos;
+      }
 
       auto append = [&msg, &newline] (auto && prepend, auto && vs)
       {

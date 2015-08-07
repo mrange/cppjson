@@ -26,11 +26,12 @@
 
 namespace
 {
+  using string_type           = std::wstring            ;
   using stringstream_type     = std::wstringstream      ;
 
   struct result_json_context
   {
-    using string_type         = std::wstring            ;
+    using string_type         = string_type             ;
     using char_type           = string_type::value_type ;
     using iter_type           = char_type const *       ;
     using stringstream_type   = stringstream_type       ;
@@ -319,6 +320,41 @@ namespace
       result_stream << result;
     }
   }
+
+  void manual_test_cases ()
+  {
+    using namespace cpp_json::standard;
+
+    std::vector<string_type> test_cases =
+      {
+        LR"([null, 123,-1.23E2,"Test\tHello", true,false, [true,null],[],{}, {"x":true}])"  ,
+        LR"(["\u004Abc"])"                                                                  ,
+        LR"({:null})"                                                                       ,
+        LR"([)"                                                                             ,
+      };
+
+    for (auto && test_case : test_cases)
+    {
+      std::size_t       pos   ;
+      json_element::ptr result;
+      string_type       error ;
+
+      std::wcout << "TEST_CASE: "<< test_case << std::endl;
+
+      if (parse (test_case, pos, result, error))
+      {
+        auto json2 = to_string (result);
+        std::wcout
+          << L"SUCCESS: Pos: " << pos << L" Json: " << json2 << std::endl;
+      }
+      else
+      {
+        std::wcout
+          << L"FAILURE: Pos: " << pos << L" Error: " << error << std::endl;
+      }
+    }
+  }
+
 }
 
 int main (int /*argc*/, char const * * argvs)
@@ -328,6 +364,7 @@ int main (int /*argc*/, char const * * argvs)
     std::cout << "Starting test_suite..." << std::endl;
 
     generate_test_results (argvs[0]);
+    manual_test_cases ();
 
     std::cout << "Done" << std::endl;
 
@@ -349,27 +386,6 @@ int main (int /*argc*/, char const * * argvs)
 
 
 #ifdef DDD
-
-  string_type json = LR"([null, 123,-1.23E2,"Test\tHello", true,false, [true,null],[],{}, {"x":true}])";
-//  string_type json = LR"({:null})";
-//  string_type json = LR"([)";
-//  string_type json = LR"(["\u004Abc"])";
-
-  std::size_t       pos   ;
-  json_element::ptr result;
-  string_type       error ;
-
-  if (parse (json, pos, result, error))
-  {
-    auto json2 = to_string (result);
-    std::wcout
-      << L"SUCCESS: Pos: " << pos << L" Json: " << json2 << std::endl;
-  }
-  else
-  {
-    std::wcout
-      << L"FAILURE: Pos: " << pos << L" Error: " << error << std::endl;
-  }
 
 
 #endif

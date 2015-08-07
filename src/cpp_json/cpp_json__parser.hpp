@@ -24,25 +24,48 @@
   name              (name &&     )  = delete; \
   name & operator=  (name const &)  = delete; \
   name & operator=  (name &&     )  = delete;
+#define CPP_JSON__PICK(s)    json_string_literal<char_type>::pick (s, L##s)
 
 namespace cpp_json { namespace parser
 {
+  template<typename char_type>
+  struct json_string_literal;
+
+  template<>
+  struct json_string_literal<char>
+  {
+    constexpr static auto pick (char const * s, wchar_t const * /*ws*/) throw ()
+    {
+      return s;
+    }
+  };
+
+  template<>
+  struct json_string_literal<wchar_t>
+  {
+    constexpr static auto pick (char const * /*s*/, wchar_t const * ws) throw ()
+    {
+      return ws;
+    }
+  };
+
   template<typename string_type>
   struct json_tokens
   {
-    // TODO: Convert to string_type
+    using char_type = typename string_type::value_type;
+
     json_tokens ()
-      : token__eos                  (L"EOS"        )
-      , token__null                 (L"null"       )
-      , token__false                (L"false"      )
-      , token__true                 (L"true"       )
-      , token__digit                (L"digit"      )
-      , token__hex_digit            (L"hexdigit"   )
-      , token__char                 (L"char"       )
-      , token__escapes              (L"\"\\/bfnrtu")
-      , token__new_line             (L"NEWLINE"    )
-      , token__root_value_preludes  (L"{["         )
-      , token__value_preludes       (L"\"{[-"      )
+      : token__eos                  (CPP_JSON__PICK ("EOS"        ))
+      , token__null                 (CPP_JSON__PICK ("null"       ))
+      , token__false                (CPP_JSON__PICK ("false"      ))
+      , token__true                 (CPP_JSON__PICK ("true"       ))
+      , token__digit                (CPP_JSON__PICK ("digit"      ))
+      , token__hex_digit            (CPP_JSON__PICK ("hexdigit"   ))
+      , token__char                 (CPP_JSON__PICK ("char"       ))
+      , token__escapes              (CPP_JSON__PICK ("\"\\/bfnrtu"))
+      , token__new_line             (CPP_JSON__PICK ("NEWLINE"    ))
+      , token__root_value_preludes  (CPP_JSON__PICK ("{["         ))
+      , token__value_preludes       (CPP_JSON__PICK ("\"{[-"      ))
     {
     }
 
@@ -178,7 +201,7 @@ namespace cpp_json { namespace parser
       return true;
     }
 
-    inline bool test__char (char c) throw ()
+    constexpr bool test__char (char c) throw ()
     {
       return neos () && ch () == c;
     }
