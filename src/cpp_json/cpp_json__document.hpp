@@ -692,6 +692,31 @@ namespace cpp_json { namespace document
     };
   }
 
+  // Parses a JSON string into a JSON document 'result' if successful. 
+  //  'pos' indicates the first non-consumed character (which may lay beyond the last character in the input string)
+  bool parse (string_type const & json, std::size_t & pos, json_element::ptr & result)
+  {
+    auto begin  = json.c_str ()       ;
+    auto end    = begin + json.size ();
+    cpp_json::parser::json_parser<details::builder_json_context> jp (begin, end);
+
+    if (jp.try_parse__json ())
+    {
+      pos     = static_cast<std::size_t> (jp.current - begin);
+      result  = jp.root ();
+      return true;
+    }
+    else
+    {
+      pos = static_cast<std::size_t> (jp.current - begin);
+      result.reset ();
+      return false;
+    }
+  }
+
+  // Parses a JSON string into a JSON document 'result' if successful. 
+  //  If parse fails 'error' contains an error description.
+  //  'pos' indicates the first non-consumed character (which may lay beyond the last character in the input string)
   bool parse (string_type const & json, std::size_t & pos, json_element::ptr & result, string_type & error)
   {
     auto begin  = json.c_str ()       ;
@@ -707,6 +732,7 @@ namespace cpp_json { namespace document
     else
     {
       pos = static_cast<std::size_t> (jp.current - begin);
+      result.reset ();
 
       cpp_json::parser::json_parser<details::error_json_context> ejp (begin, end);
       ejp.error_pos = jp.pos ();
@@ -802,10 +828,12 @@ namespace cpp_json { namespace document
       return false;
     }
   }
-
+  
+  // Creates a string from a JSON document
+  //  Note: JSON root element is expected to be either an array or object value, if 'json' argument
+  //  is neither to_string will return a string that is not valid JSON.
   string_type to_string (json_element::ptr const & json)
   {
-    // TODO: Make sure return valid JSON document at all times
     if (json)
     {
       details::json_element_visitor__to_string visitor;
