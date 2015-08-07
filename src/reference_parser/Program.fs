@@ -69,12 +69,9 @@ let main argv =
         let e = s.Length - 1
         for i = 0 to e do
           match s.[i] with
-          | '\"'                -> str @"\"""
-          | '\\'                -> str @"\\"
-          | '/'                 -> str @"\/"
-          | c when c < ' '      -> str nonPrintableChars.[int c]
-          | c when c > char 127 -> str <| ech c
-          | c                   -> ch c
+          | c when int c < nonPrintableChars.Length -> str nonPrintableChars.[int c]
+          | c when c > char 127                     -> str <| ech c
+          | c                                       -> ch c
         ignore <| sb.AppendLine ()
         true
       let appf f            = kprintf app f

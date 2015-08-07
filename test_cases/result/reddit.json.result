@@ -56,7 +56,7 @@ ExpectedChar     : 554, e
 ExpectedChar     : 554, E
 NumberValue      : 0
 MemberKey        : body_html
-StringValue      : &lt;div class=\"md\"&gt;&lt;p&gt;I love what YOU&amp;#39;RE DOING. Thanks a ton.&lt;\/p&gt;\n&lt;\/div&gt;
+StringValue      : &lt;div class="md"&gt;&lt;p&gt;I love what YOU&amp;#39;RE DOING. Thanks a ton.&lt;/p&gt;\n&lt;/div&gt;
 MemberKey        : link_id
 StringValue      : t3_2424px
 MemberKey        : score_hidden
@@ -74,7 +74,7 @@ NumberValue      : 1398586311
 MemberKey        : author_flair_text
 NullValue        : null
 MemberKey        : link_url
-StringValue      : https:\/\/www.crowdtilt.com\/campaigns\/save-net-neutrality-billboard-in-fccs-backyard
+StringValue      : https://www.crowdtilt.com/campaigns/save-net-neutrality-billboard-in-fccs-backyard
 MemberKey        : created_utc
 ExpectedChar     : 911, -
 ExpectedChar     : 911, 0

@@ -39,7 +39,7 @@ NumberValue      : 2.22222222222222e+41
 MemberKey        : boolProperty
 BoolValue        : false
 MemberKey        : dateProperty
-StringValue      : 2005\/5\/5
+StringValue      : 2005/5/5
 MemberKey        : guidProperty
 StringValue      : {312B0D64-B27C-4ED2-B2A6-89EA6DD299F5}
 Object           : end
@@ -160,7 +160,7 @@ Array            : begin
 BoolValue        : false
 Array            : end
 MemberKey        : heterogeneousProperty
-StringValue      : 2005\/5\/5
+StringValue      : 2005/5/5
 Object           : end
 Array            : end
 MemberKey        : optionalPrimitives

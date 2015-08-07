@@ -4,7 +4,7 @@ ExpectedToken    : 1, null
 ExpectedToken    : 1, true
 ExpectedToken    : 1, false
 ExpectedToken    : 1, digit
-ExpectedChar     : 1, \"
+ExpectedChar     : 1, "
 ExpectedChar     : 1, {
 ExpectedChar     : 1, [
 ExpectedChar     : 1, -

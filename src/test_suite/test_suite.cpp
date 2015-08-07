@@ -26,15 +26,12 @@
 
 namespace
 {
-  using string_type           = std::wstring            ;
-  using stringstream_type     = std::wstringstream      ;
-
   struct result_json_context
   {
-    using string_type         = string_type             ;
+    using string_type         = std::string             ;
     using char_type           = string_type::value_type ;
     using iter_type           = char_type const *       ;
-    using stringstream_type   = stringstream_type       ;
+    using stringstream_type   = std::stringstream       ;
 
     string_type               current_string            ;
     stringstream_type         result                    ;
@@ -48,23 +45,23 @@ namespace
         switch (iter)
         {
         case '\b':
-          non_printable_chars.push_back (L"\\b");
+          non_printable_chars.push_back ("\\b");
           break;
         case '\f':
-          non_printable_chars.push_back (L"\\f");
+          non_printable_chars.push_back ("\\f");
           break;
         case '\n':
-          non_printable_chars.push_back (L"\\n");
+          non_printable_chars.push_back ("\\n");
           break;
         case '\r':
-          non_printable_chars.push_back (L"\\r");
+          non_printable_chars.push_back ("\\r");
           break;
         case '\t':
-          non_printable_chars.push_back (L"\\t");
+          non_printable_chars.push_back ("\\t");
           break;
         default:
           stringstream_type ss;
-          ss << "\\u" << std::hex << std::setfill (L'0') << std::setw (4) << iter;
+          ss << "\\u" << std::hex << std::setfill ('0') << std::setw (4) << iter;
           non_printable_chars.push_back (ss.str ());
           break;
         }
@@ -76,31 +73,13 @@ namespace
 
     void write_char (char_type ch)
     {
-      switch (ch)
+      if (ch >= 0 && ch < non_printable_chars.size ())
       {
-      case '\"':
-        result << L"\\\"";
-        break;
-      case '\\':
-        result << L"\\\\";
-        break;
-      case '/':
-        result << L"\\/";
-        break;
-      default:
-        if (ch >= 0 && ch < non_printable_chars.size ())
-        {
-          result << non_printable_chars[ch];
-        }
-        else if (ch > 127)
-        {
-          int i = ch;
-          result << "\\u" << std::hex << std::setfill (L'0') << std::setw (4) << i << std::dec;
-        }
-        else
-        {
-          result << ch;
-        }
+        result << non_printable_chars[ch];
+      }
+      else
+      {
+        result << ch;
       }
     }
 
@@ -114,7 +93,7 @@ namespace
 
     void expected_char (std::size_t pos, char_type ch) throw ()
     {
-      result << L"ExpectedChar     : " << pos << L", ";
+      result << "ExpectedChar     : " << pos << ", ";
       write_char (ch);
       result << std::endl;
     }
@@ -130,14 +109,14 @@ namespace
     void expected_token (std::size_t pos, string_type const & token) throw ()
     {
       // TODO: Escape
-      result << L"ExpectedToken    : " << pos << L", ";
+      result << "ExpectedToken    : " << pos << ", ";
       write_string (token);
       result << std::endl;
     }
 
     void unexpected_token (std::size_t pos, string_type const & token) throw ()
     {
-      result << L"UnexpectedToken  : " << pos << L", ";
+      result << "UnexpectedToken  : " << pos << ", ";
       write_string (token);
       result << std::endl;
     }
@@ -154,7 +133,17 @@ namespace
 
     void push_wchar_t (wchar_t ch)
     {
-      current_string.push_back (ch);
+      if (ch > 127)
+      {
+        constexpr auto bsz = 8;
+        char buffer[bsz] = {};
+        snprintf (buffer, bsz, "\\u%04X", ch);
+        current_string += buffer;
+      }
+      else
+      {
+        current_string.push_back (ch);
+      }
     }
 
     string_type const & get_string () throw ()
@@ -164,25 +153,25 @@ namespace
 
     bool array_begin ()
     {
-      result << L"Array            : begin" << std::endl;
+      result << "Array            : begin" << std::endl;
       return true;
     }
 
     bool array_end ()
     {
-      result << L"Array            : end" << std::endl;
+      result << "Array            : end" << std::endl;
       return true;
     }
 
     bool object_begin ()
     {
-      result << L"Object           : begin" << std::endl;
+      result << "Object           : begin" << std::endl;
       return true;
     }
 
     bool member_key (string_type const & s)
     {
-      result << L"MemberKey        : ";
+      result << "MemberKey        : ";
       write_string (s);
       result << std::endl;
       return true;
@@ -190,25 +179,25 @@ namespace
 
     bool object_end ()
     {
-      result << L"Object           : end" << std::endl;
+      result << "Object           : end" << std::endl;
       return true;
     }
 
     bool bool_value (bool b)
     {
-      result << L"BoolValue        : " << (b ? L"true" : L"false") << std::endl;
+      result << "BoolValue        : " << (b ? "true" : "false") << std::endl;
       return true;
     }
 
     bool null_value ()
     {
-      result << L"NullValue        : null" << std::endl;
+      result << "NullValue        : null" << std::endl;
       return true;
     }
 
     bool string_value (string_type const & s)
     {
-      result << L"StringValue      : ";
+      result << "StringValue      : ";
       write_string (s);
       result << std::endl;
       return true;
@@ -217,7 +206,7 @@ namespace
     bool number_value (double d)
     {
       result
-        << L"NumberValue      : "
+        << "NumberValue      : "
         << std::setprecision(std::numeric_limits<double>::digits10)
         << d
         << std::endl
@@ -287,9 +276,12 @@ namespace
 
       std::cout << "Processing: " << json_file_name << std::endl;
 
-      stringstream_type               json;
-      std::basic_ifstream<char_type>  json_stream (json_file_path);
-      string_type                     json_line;
+      using stringstream_type = result_json_context::stringstream_type;
+      using string_type       = result_json_context::string_type;
+
+      stringstream_type   json;
+      std::ifstream       json_stream (json_file_path);
+      string_type         json_line;
 
       while (std::getline (json_stream, json_line))
       {
@@ -303,17 +295,17 @@ namespace
       cpp_json::parser::json_parser<result_json_context> jp (json_begin, json_end);
 
       jp.result
-        << L"TestCase         : " << json_file_name.string () << std::endl;
+        << "TestCase         : " << json_file_name.string () << std::endl;
 
       auto presult  = jp.try_parse__json ();
       auto ppos     = jp.pos ();
 
       jp.result
-        << L"ParsePosition    : " << ppos << std::endl
-        << L"ParseResult      : " << (presult ? L"true" : L"false") << std::endl
+        << "ParsePosition    : " << ppos << std::endl
+        << "ParseResult      : " << (presult ? "true" : "false") << std::endl
         ;
 
-      std::basic_ofstream<char_type>  result_stream (result_file_path);
+      std::ofstream result_stream (result_file_path);
 
       auto result = jp.result.str ();
 

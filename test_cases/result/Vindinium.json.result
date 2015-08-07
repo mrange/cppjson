@@ -461,9 +461,9 @@ Object           : end
 MemberKey        : token
 StringValue      : lte0
 MemberKey        : viewUrl
-StringValue      : http:\/\/localhost:9000\/s2xh3aig
+StringValue      : http://localhost:9000/s2xh3aig
 MemberKey        : playUrl
-StringValue      : http:\/\/localhost:9000\/api\/s2xh3aig\/lte0\/play
+StringValue      : http://localhost:9000/api/s2xh3aig/lte0/play
 Object           : end
 ParsePosition    : 2839
 ParseResult      : true

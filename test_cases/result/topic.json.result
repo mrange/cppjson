@@ -2,13 +2,13 @@ TestCase         : topic.json
 Array            : begin
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/ml\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/ml/large-icon.png
 MemberKey        : preview_link
-StringValue      : https:\/\/class.coursera.org\/ml\/lecture\/preview
+StringValue      : https://class.coursera.org/ml/lecture/preview
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/ml\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/ml/small-icon.hover.png
 MemberKey        : large_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/ml\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/ml/large-icon.png
 MemberKey        : video
 StringValue      : e0WKJLovaZg
 MemberKey        : university-ids
@@ -33,11 +33,11 @@ NullValue        : null
 MemberKey        : website_twitter
 StringValue      : 
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/dc\/581cda352d067023dcdcc0d9efd36e\/favicon-stanford.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/dc/581cda352d067023dcdcc0d9efd36e/favicon-stanford.ico
 MemberKey        : website_facebook
 StringValue      : 
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/d8\/4c69670e0826e42c6cd80b4a02b9a2\/stanford.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/d8/4c69670e0826e42c6cd80b4a02b9a2/stanford.png
 MemberKey        : background_color
 StringValue      : 
 MemberKey        : id
@@ -106,9 +106,9 @@ ExpectedChar     : 1809, e
 ExpectedChar     : 1809, E
 NumberValue      : -122.1430195
 MemberKey        : home_link
-StringValue      : http:\/\/online.stanford.edu\/
+StringValue      : http://online.stanford.edu/
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/21\/9a0294e2bf773901afbfcb5ef47d97\/Stanford_Coursera-200x48_RedText_BG.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/21/9a0294e2bf773901afbfcb5ef47d97/Stanford_Coursera-200x48_RedText_BG.png
 MemberKey        : display
 BoolValue        : true
 Object           : end
@@ -131,7 +131,7 @@ ExpectedChar     : 2361, e
 ExpectedChar     : 2361, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/ml\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/ml/small-icon.hover.png
 MemberKey        : instructor
 StringValue      : Andrew Ng, Associate Professor
 MemberKey        : categories
@@ -331,7 +331,7 @@ StringValue      :
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/ml-003\/
+StringValue      : https://class.coursera.org/ml-003/
 MemberKey        : creator_id
 NullValue        : null
 MemberKey        : proctored_exam_completion_date
@@ -359,13 +359,13 @@ BoolValue        : true
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/hci\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/hci/large-icon.png
 MemberKey        : preview_link
-StringValue      : https:\/\/class.coursera.org\/hci-2012-002\/lecture\/preview
+StringValue      : https://class.coursera.org/hci-2012-002/lecture/preview
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/hci\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/hci/small-icon.hover.png
 MemberKey        : large_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/hci\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/hci/large-icon.png
 MemberKey        : video
 StringValue      : GBwLAqOjbrA
 MemberKey        : university-ids
@@ -390,11 +390,11 @@ NullValue        : null
 MemberKey        : website_twitter
 StringValue      : 
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/dc\/581cda352d067023dcdcc0d9efd36e\/favicon-stanford.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/dc/581cda352d067023dcdcc0d9efd36e/favicon-stanford.ico
 MemberKey        : website_facebook
 StringValue      : 
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/d8\/4c69670e0826e42c6cd80b4a02b9a2\/stanford.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/d8/4c69670e0826e42c6cd80b4a02b9a2/stanford.png
 MemberKey        : background_color
 StringValue      : 
 MemberKey        : id
@@ -463,9 +463,9 @@ ExpectedChar     : 7296, e
 ExpectedChar     : 7296, E
 NumberValue      : -122.1430195
 MemberKey        : home_link
-StringValue      : http:\/\/online.stanford.edu\/
+StringValue      : http://online.stanford.edu/
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/21\/9a0294e2bf773901afbfcb5ef47d97\/Stanford_Coursera-200x48_RedText_BG.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/21/9a0294e2bf773901afbfcb5ef47d97/Stanford_Coursera-200x48_RedText_BG.png
 MemberKey        : display
 BoolValue        : true
 Object           : end
@@ -488,7 +488,7 @@ ExpectedChar     : 7870, e
 ExpectedChar     : 7870, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/hci\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/hci/small-icon.hover.png
 MemberKey        : instructor
 StringValue      : Scott  Klemmer
 MemberKey        : categories
@@ -704,7 +704,7 @@ StringValue      : Congratulations on completing the Apprentice track!  Your fin
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/hci-2012-002\/
+StringValue      : https://class.coursera.org/hci-2012-002/
 MemberKey        : creator_id
 NullValue        : null
 MemberKey        : proctored_exam_completion_date
@@ -884,7 +884,7 @@ StringValue      : Congratulations on completing the Apprentice track!  Your fin
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/hci-003\/
+StringValue      : https://class.coursera.org/hci-003/
 MemberKey        : creator_id
 ExpectedChar     : 14281, -
 ExpectedChar     : 14281, 0
@@ -925,13 +925,13 @@ BoolValue        : true
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/crypto\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/crypto/large-icon.png
 MemberKey        : preview_link
 NullValue        : null
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/crypto\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/crypto/small-icon.hover.png
 MemberKey        : large_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/crypto\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/crypto/large-icon.png
 MemberKey        : video
 StringValue      : 0t1oCt88XJk
 MemberKey        : university-ids
@@ -956,11 +956,11 @@ NullValue        : null
 MemberKey        : website_twitter
 StringValue      : 
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/dc\/581cda352d067023dcdcc0d9efd36e\/favicon-stanford.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/dc/581cda352d067023dcdcc0d9efd36e/favicon-stanford.ico
 MemberKey        : website_facebook
 StringValue      : 
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/d8\/4c69670e0826e42c6cd80b4a02b9a2\/stanford.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/d8/4c69670e0826e42c6cd80b4a02b9a2/stanford.png
 MemberKey        : background_color
 StringValue      : 
 MemberKey        : id
@@ -1029,9 +1029,9 @@ ExpectedChar     : 16303, e
 ExpectedChar     : 16303, E
 NumberValue      : -122.1430195
 MemberKey        : home_link
-StringValue      : http:\/\/online.stanford.edu\/
+StringValue      : http://online.stanford.edu/
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/21\/9a0294e2bf773901afbfcb5ef47d97\/Stanford_Coursera-200x48_RedText_BG.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/21/9a0294e2bf773901afbfcb5ef47d97/Stanford_Coursera-200x48_RedText_BG.png
 MemberKey        : display
 BoolValue        : true
 Object           : end
@@ -1054,7 +1054,7 @@ ExpectedChar     : 16852, e
 ExpectedChar     : 16852, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/crypto\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/crypto/small-icon.hover.png
 MemberKey        : instructor
 StringValue      : Dan Boneh, Professor
 MemberKey        : categories
@@ -1270,7 +1270,7 @@ StringValue      : The final grade was calculated based on 6 equally-weighted as
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/crypto-2012-003\/
+StringValue      : https://class.coursera.org/crypto-2012-003/
 MemberKey        : creator_id
 NullValue        : null
 MemberKey        : proctored_exam_completion_date
@@ -1298,13 +1298,13 @@ BoolValue        : true
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/b5\/62b8827c61b48597f9b526ce04aaee\/dbLogo.jpg
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/b5/62b8827c61b48597f9b526ce04aaee/dbLogo.jpg
 MemberKey        : preview_link
 NullValue        : null
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/cb\/61b70b13451469aa582fc91d020f64\/dbLogo.jpg
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/cb/61b70b13451469aa582fc91d020f64/dbLogo.jpg
 MemberKey        : large_icon
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/c9\/643d403b593b865b40c64b0f6cc33c\/dbLogo.jpg
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/c9/643d403b593b865b40c64b0f6cc33c/dbLogo.jpg
 MemberKey        : video
 StringValue      : 
 MemberKey        : university-ids
@@ -1329,11 +1329,11 @@ NullValue        : null
 MemberKey        : website_twitter
 StringValue      : 
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/dc\/581cda352d067023dcdcc0d9efd36e\/favicon-stanford.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/dc/581cda352d067023dcdcc0d9efd36e/favicon-stanford.ico
 MemberKey        : website_facebook
 StringValue      : 
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/d8\/4c69670e0826e42c6cd80b4a02b9a2\/stanford.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/d8/4c69670e0826e42c6cd80b4a02b9a2/stanford.png
 MemberKey        : background_color
 StringValue      : 
 MemberKey        : id
@@ -1402,9 +1402,9 @@ ExpectedChar     : 22921, e
 ExpectedChar     : 22921, E
 NumberValue      : -122.1430195
 MemberKey        : home_link
-StringValue      : http:\/\/online.stanford.edu\/
+StringValue      : http://online.stanford.edu/
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/21\/9a0294e2bf773901afbfcb5ef47d97\/Stanford_Coursera-200x48_RedText_BG.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/21/9a0294e2bf773901afbfcb5ef47d97/Stanford_Coursera-200x48_RedText_BG.png
 MemberKey        : display
 BoolValue        : true
 Object           : end
@@ -1433,7 +1433,7 @@ ExpectedChar     : 23446, e
 ExpectedChar     : 23446, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/cb\/61b70b13451469aa582fc91d020f64\/dbLogo.jpg
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/cb/61b70b13451469aa582fc91d020f64/dbLogo.jpg
 MemberKey        : instructor
 StringValue      : Jennifer Widom, Professor
 MemberKey        : categories
@@ -1615,7 +1615,7 @@ StringValue      :
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/db\/
+StringValue      : https://class.coursera.org/db/
 MemberKey        : creator_id
 NullValue        : null
 MemberKey        : proctored_exam_completion_date
@@ -1643,13 +1643,13 @@ BoolValue        : true
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/compilers\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/compilers/large-icon.png
 MemberKey        : preview_link
-StringValue      : https:\/\/class.coursera.org\/compilers\/lecture\/preview
+StringValue      : https://class.coursera.org/compilers/lecture/preview
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/compilers\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/compilers/small-icon.hover.png
 MemberKey        : large_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/compilers\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/compilers/large-icon.png
 MemberKey        : video
 StringValue      : sm0QQO-WZlM
 MemberKey        : university-ids
@@ -1674,11 +1674,11 @@ NullValue        : null
 MemberKey        : website_twitter
 StringValue      : 
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/dc\/581cda352d067023dcdcc0d9efd36e\/favicon-stanford.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/dc/581cda352d067023dcdcc0d9efd36e/favicon-stanford.ico
 MemberKey        : website_facebook
 StringValue      : 
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/d8\/4c69670e0826e42c6cd80b4a02b9a2\/stanford.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/d8/4c69670e0826e42c6cd80b4a02b9a2/stanford.png
 MemberKey        : background_color
 StringValue      : 
 MemberKey        : id
@@ -1747,9 +1747,9 @@ ExpectedChar     : 28462, e
 ExpectedChar     : 28462, E
 NumberValue      : -122.1430195
 MemberKey        : home_link
-StringValue      : http:\/\/online.stanford.edu\/
+StringValue      : http://online.stanford.edu/
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/21\/9a0294e2bf773901afbfcb5ef47d97\/Stanford_Coursera-200x48_RedText_BG.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/21/9a0294e2bf773901afbfcb5ef47d97/Stanford_Coursera-200x48_RedText_BG.png
 MemberKey        : display
 BoolValue        : true
 Object           : end
@@ -1778,7 +1778,7 @@ ExpectedChar     : 29189, e
 ExpectedChar     : 29189, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/compilers\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/compilers/small-icon.hover.png
 MemberKey        : instructor
 StringValue      : Alex Aiken, Professor
 MemberKey        : categories
@@ -1953,7 +1953,7 @@ NullValue        : null
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/compilers-selfservice\/
+StringValue      : https://class.coursera.org/compilers-selfservice/
 MemberKey        : creator_id
 NullValue        : null
 MemberKey        : proctored_exam_completion_date
@@ -1981,13 +1981,13 @@ BoolValue        : true
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/08\/22d8b0b6c3bedfc930f9e42c067b82\/more-height_2.png
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/08/22d8b0b6c3bedfc930f9e42c067b82/more-height_2.png
 MemberKey        : preview_link
 NullValue        : null
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/40\/89e1c7e5b1209fd587aae6fe8615af\/more-height_2.png
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/40/89e1c7e5b1209fd587aae6fe8615af/more-height_2.png
 MemberKey        : large_icon
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/16\/14c599959bd3d6e7b0a710e7d4eb5f\/more-height_2.png
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/16/14c599959bd3d6e7b0a710e7d4eb5f/more-height_2.png
 MemberKey        : video
 StringValue      : KXsz5aPCYFM
 MemberKey        : university-ids
@@ -2012,11 +2012,11 @@ NullValue        : null
 MemberKey        : website_twitter
 StringValue      : 
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/dc\/581cda352d067023dcdcc0d9efd36e\/favicon-stanford.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/dc/581cda352d067023dcdcc0d9efd36e/favicon-stanford.ico
 MemberKey        : website_facebook
 StringValue      : 
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/d8\/4c69670e0826e42c6cd80b4a02b9a2\/stanford.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/d8/4c69670e0826e42c6cd80b4a02b9a2/stanford.png
 MemberKey        : location_lat
 ExpectedChar     : 33251, -
 ExpectedChar     : 33251, 0
@@ -2085,9 +2085,9 @@ ExpectedChar     : 34180, e
 ExpectedChar     : 34180, E
 NumberValue      : -122.1430195
 MemberKey        : home_link
-StringValue      : http:\/\/online.stanford.edu\/
+StringValue      : http://online.stanford.edu/
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/21\/9a0294e2bf773901afbfcb5ef47d97\/Stanford_Coursera-200x48_RedText_BG.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/21/9a0294e2bf773901afbfcb5ef47d97/Stanford_Coursera-200x48_RedText_BG.png
 MemberKey        : square_logo_svg
 NullValue        : null
 Object           : end
@@ -2109,7 +2109,7 @@ ExpectedChar     : 34660, e
 ExpectedChar     : 34660, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/40\/89e1c7e5b1209fd587aae6fe8615af\/more-height_2.png
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/40/89e1c7e5b1209fd587aae6fe8615af/more-height_2.png
 MemberKey        : instructor
 StringValue      : Dan Boneh and Dawn Song
 MemberKey        : categories
@@ -2285,7 +2285,7 @@ StringValue      :
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/security\/
+StringValue      : https://class.coursera.org/security/
 MemberKey        : certificates_ready
 BoolValue        : false
 MemberKey        : proctored_exam_completion_date
@@ -2313,13 +2313,13 @@ BoolValue        : true
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/gametheory\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/gametheory/large-icon.png
 MemberKey        : preview_link
-StringValue      : https:\/\/class.coursera.org\/gametheory-2012-002\/lecture\/preview
+StringValue      : https://class.coursera.org/gametheory-2012-002/lecture/preview
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/gametheory\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/gametheory/small-icon.hover.png
 MemberKey        : large_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/gametheory\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/gametheory/large-icon.png
 MemberKey        : video
 StringValue      : d1k7DNuRBoI
 MemberKey        : university-ids
@@ -2345,11 +2345,11 @@ NullValue        : null
 MemberKey        : website_twitter
 StringValue      : 
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/dc\/581cda352d067023dcdcc0d9efd36e\/favicon-stanford.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/dc/581cda352d067023dcdcc0d9efd36e/favicon-stanford.ico
 MemberKey        : website_facebook
 StringValue      : 
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/d8\/4c69670e0826e42c6cd80b4a02b9a2\/stanford.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/d8/4c69670e0826e42c6cd80b4a02b9a2/stanford.png
 MemberKey        : background_color
 StringValue      : 
 MemberKey        : id
@@ -2418,9 +2418,9 @@ ExpectedChar     : 39338, e
 ExpectedChar     : 39338, E
 NumberValue      : -122.1430195
 MemberKey        : home_link
-StringValue      : http:\/\/online.stanford.edu\/
+StringValue      : http://online.stanford.edu/
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/21\/9a0294e2bf773901afbfcb5ef47d97\/Stanford_Coursera-200x48_RedText_BG.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/21/9a0294e2bf773901afbfcb5ef47d97/Stanford_Coursera-200x48_RedText_BG.png
 MemberKey        : display
 BoolValue        : true
 Object           : end
@@ -2432,11 +2432,11 @@ NullValue        : null
 MemberKey        : website_twitter
 StringValue      : ubcaplaceofmind
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/d1\/159770b1b64f0bb3736e0a1ad5144b\/favicon.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/d1/159770b1b64f0bb3736e0a1ad5144b/favicon.ico
 MemberKey        : website_facebook
 StringValue      : universityofbc
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/d1\/4b45f1fa68329d09b869d990e5d48e\/panel_signature3.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/d1/4b45f1fa68329d09b869d990e5d48e/panel_signature3.png
 MemberKey        : background_color
 StringValue      : 
 MemberKey        : id
@@ -2466,17 +2466,17 @@ StringValue      : #0f2144
 MemberKey        : abbr_name
 StringValue      : UBC
 MemberKey        : website
-StringValue      : http:\/\/www.ubc.ca\/
+StringValue      : http://www.ubc.ca/
 MemberKey        : description
 StringValue      : The University of British Columbia is a global centre for research and teaching.
 MemberKey        : short_name
 StringValue      : ubc
 MemberKey        : landing_page_banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/1f\/1a1a7375877cd97e0d8b02301e42e7\/UBC-Coursera-Banner-1280x320.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/1f/1a1a7375877cd97e0d8b02301e42e7/UBC-Coursera-Banner-1280x320.jpg
 MemberKey        : mailing_list_id
 NullValue        : null
 MemberKey        : website_youtube
-StringValue      : user\/ubc
+StringValue      : user/ubc
 MemberKey        : partner_type
 ExpectedChar     : 40750, -
 ExpectedChar     : 40750, 0
@@ -2486,15 +2486,15 @@ ExpectedChar     : 40751, e
 ExpectedChar     : 40751, E
 NumberValue      : 1
 MemberKey        : banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/dd\/396bbc8612e8d7bd419bdffa4c9f36\/ubc4.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/dd/396bbc8612e8d7bd419bdffa4c9f36/ubc4.jpg
 MemberKey        : location_state
 StringValue      : BC
 MemberKey        : name
 StringValue      : The University of British Columbia
 MemberKey        : square_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/38\/521e5807d761297a1cf2dcc56ede8e\/UBC-Coursera-Avatar-360x360.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/38/521e5807d761297a1cf2dcc56ede8e/UBC-Coursera-Avatar-360x360.png
 MemberKey        : square_logo_source
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/cc\/5fd6b4afd6c4f42d006c13bcb3a3ff\/UBC-Coursera-Avatar-360x360.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/cc/5fd6b4afd6c4f42d006c13bcb3a3ff/UBC-Coursera-Avatar-360x360.jpg
 MemberKey        : square_logo_svg
 StringValue      : 
 MemberKey        : location_lng
@@ -2507,7 +2507,7 @@ NumberValue      : -123.252496
 MemberKey        : home_link
 NullValue        : null
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/1f\/a1b550b8642963fd065c0315202ded\/UBC-Coursera-Signature-200x48-v2.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/1f/a1b550b8642963fd065c0315202ded/UBC-Coursera-Signature-200x48-v2.png
 MemberKey        : display
 BoolValue        : true
 Object           : end
@@ -2531,7 +2531,7 @@ ExpectedChar     : 41979, e
 ExpectedChar     : 41979, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/gametheory\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/gametheory/small-icon.hover.png
 MemberKey        : instructor
 StringValue      : Kevin Leyton-Brown, Matthew O. Jackson and Yoav Shoham
 MemberKey        : categories
@@ -2781,7 +2781,7 @@ StringValue      : The final grade was based on 7 assignments (70% of the final 
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/gametheory-2012-002\/
+StringValue      : https://class.coursera.org/gametheory-2012-002/
 MemberKey        : creator_id
 NullValue        : null
 MemberKey        : proctored_exam_completion_date
@@ -2793,7 +2793,7 @@ NullValue        : null
 Object           : end
 Array            : end
 MemberKey        : university_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/05\/e189ccd6ee363b8a52cf199f5d05d0\/stanford_ubc.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/05/e189ccd6ee363b8a52cf199f5d05d0/stanford_ubc.png
 MemberKey        : course-ids
 Array            : begin
 ExpectedChar     : 46211, -
@@ -2809,13 +2809,13 @@ BoolValue        : true
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/comparch\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/comparch/large-icon.png
 MemberKey        : preview_link
 NullValue        : null
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/comparch\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/comparch/small-icon.hover.png
 MemberKey        : large_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/comparch\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/comparch/large-icon.png
 MemberKey        : video
 StringValue      : nkozG17Q_34
 MemberKey        : university-ids
@@ -2840,11 +2840,11 @@ NullValue        : null
 MemberKey        : website_twitter
 StringValue      : princeton
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/d4\/29daf4b768e1aa467202d4d2dcf8d8\/favicon-princeton.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/d4/29daf4b768e1aa467202d4d2dcf8d8/favicon-princeton.ico
 MemberKey        : website_facebook
 StringValue      : PrincetonU
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/94\/cc9200e336d38ce029873b13cbe93b\/logo-princeton-front.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/94/cc9200e336d38ce029873b13cbe93b/logo-princeton-front.png
 MemberKey        : background_color
 StringValue      : 
 MemberKey        : id
@@ -2868,17 +2868,17 @@ StringValue      : #BA632D
 MemberKey        : abbr_name
 StringValue      : Princeton
 MemberKey        : website
-StringValue      : http:\/\/www.princeton.edu\/
+StringValue      : http://www.princeton.edu/
 MemberKey        : description
 StringValue      : Princeton University is a private research university located in Princeton, New Jersey, United States. It is one of the eight universities of the Ivy League, and one of the nine Colonial Colleges founded before the American Revolution.
 MemberKey        : short_name
 StringValue      : princeton
 MemberKey        : landing_page_banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/88\/84ac58eed29633d7a951928ad9aa17\/banner1.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/88/84ac58eed29633d7a951928ad9aa17/banner1.jpg
 MemberKey        : mailing_list_id
 NullValue        : null
 MemberKey        : website_youtube
-StringValue      : princetonuniversity\/
+StringValue      : princetonuniversity/
 MemberKey        : partner_type
 ExpectedChar     : 47922, -
 ExpectedChar     : 47922, 0
@@ -2888,15 +2888,15 @@ ExpectedChar     : 47923, e
 ExpectedChar     : 47923, E
 NumberValue      : 1
 MemberKey        : banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/b9\/4cbcc8b5a797cdaff8a944cc55b22f\/banner-princeton.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/b9/4cbcc8b5a797cdaff8a944cc55b22f/banner-princeton.jpg
 MemberKey        : location_state
 StringValue      : 
 MemberKey        : name
 StringValue      : Princeton University
 MemberKey        : square_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/44\/8de6f8bd5ac4cf7e36bdcf7ceff393\/PU_subscription_logo.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/44/8de6f8bd5ac4cf7e36bdcf7ceff393/PU_subscription_logo.png
 MemberKey        : square_logo_source
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/63\/480dbb489b5e6570ebffb8304c3053\/PU_subscription_logo.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/63/480dbb489b5e6570ebffb8304c3053/PU_subscription_logo.png
 MemberKey        : square_logo_svg
 StringValue      : 
 MemberKey        : location_lng
@@ -2904,7 +2904,7 @@ NullValue        : null
 MemberKey        : home_link
 NullValue        : null
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/0f\/c062f1496dedaf429cdf6c5c8ed471\/PUsig2.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/0f/c062f1496dedaf429cdf6c5c8ed471/PUsig2.png
 MemberKey        : display
 BoolValue        : true
 Object           : end
@@ -2927,7 +2927,7 @@ ExpectedChar     : 48948, e
 ExpectedChar     : 48948, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/comparch\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/comparch/small-icon.hover.png
 MemberKey        : instructor
 StringValue      : David Wentzlaff
 MemberKey        : categories
@@ -3139,7 +3139,7 @@ StringValue      :
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/comparch-2012-001\/
+StringValue      : https://class.coursera.org/comparch-2012-001/
 MemberKey        : creator_id
 NullValue        : null
 MemberKey        : proctored_exam_completion_date
@@ -3167,13 +3167,13 @@ BoolValue        : true
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/algs4partI\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/algs4partI/large-icon.png
 MemberKey        : preview_link
 NullValue        : null
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/algs4partI\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/algs4partI/small-icon.hover.png
 MemberKey        : large_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/algs4partI\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/algs4partI/large-icon.png
 MemberKey        : video
 StringValue      : gZV5jVF8lJ8
 MemberKey        : university-ids
@@ -3198,11 +3198,11 @@ NullValue        : null
 MemberKey        : website_twitter
 StringValue      : princeton
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/d4\/29daf4b768e1aa467202d4d2dcf8d8\/favicon-princeton.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/d4/29daf4b768e1aa467202d4d2dcf8d8/favicon-princeton.ico
 MemberKey        : website_facebook
 StringValue      : PrincetonU
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/94\/cc9200e336d38ce029873b13cbe93b\/logo-princeton-front.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/94/cc9200e336d38ce029873b13cbe93b/logo-princeton-front.png
 MemberKey        : background_color
 StringValue      : 
 MemberKey        : id
@@ -3226,17 +3226,17 @@ StringValue      : #BA632D
 MemberKey        : abbr_name
 StringValue      : Princeton
 MemberKey        : website
-StringValue      : http:\/\/www.princeton.edu\/
+StringValue      : http://www.princeton.edu/
 MemberKey        : description
 StringValue      : Princeton University is a private research university located in Princeton, New Jersey, United States. It is one of the eight universities of the Ivy League, and one of the nine Colonial Colleges founded before the American Revolution.
 MemberKey        : short_name
 StringValue      : princeton
 MemberKey        : landing_page_banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/88\/84ac58eed29633d7a951928ad9aa17\/banner1.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/88/84ac58eed29633d7a951928ad9aa17/banner1.jpg
 MemberKey        : mailing_list_id
 NullValue        : null
 MemberKey        : website_youtube
-StringValue      : princetonuniversity\/
+StringValue      : princetonuniversity/
 MemberKey        : partner_type
 ExpectedChar     : 53782, -
 ExpectedChar     : 53782, 0
@@ -3246,15 +3246,15 @@ ExpectedChar     : 53783, e
 ExpectedChar     : 53783, E
 NumberValue      : 1
 MemberKey        : banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/b9\/4cbcc8b5a797cdaff8a944cc55b22f\/banner-princeton.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/b9/4cbcc8b5a797cdaff8a944cc55b22f/banner-princeton.jpg
 MemberKey        : location_state
 StringValue      : 
 MemberKey        : name
 StringValue      : Princeton University
 MemberKey        : square_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/44\/8de6f8bd5ac4cf7e36bdcf7ceff393\/PU_subscription_logo.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/44/8de6f8bd5ac4cf7e36bdcf7ceff393/PU_subscription_logo.png
 MemberKey        : square_logo_source
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/63\/480dbb489b5e6570ebffb8304c3053\/PU_subscription_logo.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/63/480dbb489b5e6570ebffb8304c3053/PU_subscription_logo.png
 MemberKey        : square_logo_svg
 StringValue      : 
 MemberKey        : location_lng
@@ -3262,7 +3262,7 @@ NullValue        : null
 MemberKey        : home_link
 NullValue        : null
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/0f\/c062f1496dedaf429cdf6c5c8ed471\/PUsig2.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/0f/c062f1496dedaf429cdf6c5c8ed471/PUsig2.png
 MemberKey        : display
 BoolValue        : true
 Object           : end
@@ -3285,7 +3285,7 @@ ExpectedChar     : 55013, e
 ExpectedChar     : 55013, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/algs4partI\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/algs4partI/small-icon.hover.png
 MemberKey        : instructor
 StringValue      : Kevin Wayne and Robert Sedgewick
 MemberKey        : categories
@@ -3504,7 +3504,7 @@ StringValue      :
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/algs4partI-2012-001\/
+StringValue      : https://class.coursera.org/algs4partI-2012-001/
 MemberKey        : creator_id
 NullValue        : null
 MemberKey        : proctored_exam_completion_date
@@ -3532,13 +3532,13 @@ BoolValue        : true
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/algs4partII\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/algs4partII/large-icon.png
 MemberKey        : preview_link
 NullValue        : null
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/algs4partII\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/algs4partII/small-icon.hover.png
 MemberKey        : large_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/algs4partII\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/algs4partII/large-icon.png
 MemberKey        : video
 StringValue      : GO8frjxq25I
 MemberKey        : university-ids
@@ -3563,11 +3563,11 @@ NullValue        : null
 MemberKey        : website_twitter
 StringValue      : princeton
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/d4\/29daf4b768e1aa467202d4d2dcf8d8\/favicon-princeton.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/d4/29daf4b768e1aa467202d4d2dcf8d8/favicon-princeton.ico
 MemberKey        : website_facebook
 StringValue      : PrincetonU
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/94\/cc9200e336d38ce029873b13cbe93b\/logo-princeton-front.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/94/cc9200e336d38ce029873b13cbe93b/logo-princeton-front.png
 MemberKey        : background_color
 StringValue      : 
 MemberKey        : id
@@ -3591,17 +3591,17 @@ StringValue      : #BA632D
 MemberKey        : abbr_name
 StringValue      : Princeton
 MemberKey        : website
-StringValue      : http:\/\/www.princeton.edu\/
+StringValue      : http://www.princeton.edu/
 MemberKey        : description
 StringValue      : Princeton University is a private research university located in Princeton, New Jersey, United States. It is one of the eight universities of the Ivy League, and one of the nine Colonial Colleges founded before the American Revolution.
 MemberKey        : short_name
 StringValue      : princeton
 MemberKey        : landing_page_banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/88\/84ac58eed29633d7a951928ad9aa17\/banner1.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/88/84ac58eed29633d7a951928ad9aa17/banner1.jpg
 MemberKey        : mailing_list_id
 NullValue        : null
 MemberKey        : website_youtube
-StringValue      : princetonuniversity\/
+StringValue      : princetonuniversity/
 MemberKey        : partner_type
 ExpectedChar     : 59910, -
 ExpectedChar     : 59910, 0
@@ -3611,15 +3611,15 @@ ExpectedChar     : 59911, e
 ExpectedChar     : 59911, E
 NumberValue      : 1
 MemberKey        : banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/b9\/4cbcc8b5a797cdaff8a944cc55b22f\/banner-princeton.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/b9/4cbcc8b5a797cdaff8a944cc55b22f/banner-princeton.jpg
 MemberKey        : location_state
 StringValue      : 
 MemberKey        : name
 StringValue      : Princeton University
 MemberKey        : square_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/44\/8de6f8bd5ac4cf7e36bdcf7ceff393\/PU_subscription_logo.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/44/8de6f8bd5ac4cf7e36bdcf7ceff393/PU_subscription_logo.png
 MemberKey        : square_logo_source
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/63\/480dbb489b5e6570ebffb8304c3053\/PU_subscription_logo.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/63/480dbb489b5e6570ebffb8304c3053/PU_subscription_logo.png
 MemberKey        : square_logo_svg
 StringValue      : 
 MemberKey        : location_lng
@@ -3627,7 +3627,7 @@ NullValue        : null
 MemberKey        : home_link
 NullValue        : null
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/0f\/c062f1496dedaf429cdf6c5c8ed471\/PUsig2.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/0f/c062f1496dedaf429cdf6c5c8ed471/PUsig2.png
 MemberKey        : display
 BoolValue        : true
 Object           : end
@@ -3650,7 +3650,7 @@ ExpectedChar     : 61066, e
 ExpectedChar     : 61066, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/algs4partII\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/algs4partII/small-icon.hover.png
 MemberKey        : instructor
 StringValue      : Kevin Wayne and Robert Sedgewick
 MemberKey        : categories
@@ -3855,7 +3855,7 @@ StringValue      :
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/algs4partII-001\/
+StringValue      : https://class.coursera.org/algs4partII-001/
 MemberKey        : creator_id
 ExpectedChar     : 63994, -
 ExpectedChar     : 63994, 0
@@ -3889,13 +3889,13 @@ BoolValue        : true
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/sna\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/sna/large-icon.png
 MemberKey        : preview_link
 NullValue        : null
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/sna\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/sna/small-icon.hover.png
 MemberKey        : large_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/sna\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/sna/large-icon.png
 MemberKey        : video
 StringValue      : AJGGiAb47S4
 MemberKey        : university-ids
@@ -3914,17 +3914,17 @@ MemberKey        : universities
 Array            : begin
 Object           : begin
 MemberKey        : rectangular_logo_svg
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/75\/07a2c2f614597144b29c9e63bbee75\/U-M_Coursera_Logo-2.svg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/75/07a2c2f614597144b29c9e63bbee75/U-M_Coursera_Logo-2.svg
 MemberKey        : wordmark
 NullValue        : null
 MemberKey        : website_twitter
 StringValue      : umich
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/50\/52265d555e7bf0b0b86f7a1a07a183\/favicon-umich.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/50/52265d555e7bf0b0b86f7a1a07a183/favicon-umich.ico
 MemberKey        : website_facebook
 StringValue      : universityofmichigan
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/99\/263203c94842c44bcf757c4a801e8f\/U-M_LogoSmHoriz_160x60.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/99/263203c94842c44bcf757c4a801e8f/U-M_LogoSmHoriz_160x60.png
 MemberKey        : background_color
 StringValue      : 
 MemberKey        : id
@@ -3954,17 +3954,17 @@ StringValue      : #002e5f
 MemberKey        : abbr_name
 StringValue      : Michigan
 MemberKey        : website
-StringValue      : http:\/\/www.umich.edu\/
+StringValue      : http://www.umich.edu/
 MemberKey        : description
 StringValue      : The University of Michigan is a public research university located in Ann Arbor, Michigan in the United States.
 MemberKey        : short_name
 StringValue      : umich
 MemberKey        : landing_page_banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/03\/70c6a457583d267a869cb6555b4de5\/DIL-17Apr12_AT150a_EDIT_TO_2.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/03/70c6a457583d267a869cb6555b4de5/DIL-17Apr12_AT150a_EDIT_TO_2.jpg
 MemberKey        : mailing_list_id
 NullValue        : null
 MemberKey        : website_youtube
-StringValue      : user\/um
+StringValue      : user/um
 MemberKey        : partner_type
 ExpectedChar     : 65912, -
 ExpectedChar     : 65912, 0
@@ -3974,17 +3974,17 @@ ExpectedChar     : 65913, e
 ExpectedChar     : 65913, E
 NumberValue      : 1
 MemberKey        : banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/36\/1d953d8380a15d8eb0d307c7cde0bb\/banner-umich.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/36/1d953d8380a15d8eb0d307c7cde0bb/banner-umich.jpg
 MemberKey        : location_state
 StringValue      : MI
 MemberKey        : name
 StringValue      : University of Michigan
 MemberKey        : square_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/70\/de505d47be7d3a063b51b6f856a6e2\/New-Block-M-Stacked-Blue-295C_600x600.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/70/de505d47be7d3a063b51b6f856a6e2/New-Block-M-Stacked-Blue-295C_600x600.png
 MemberKey        : square_logo_source
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/26\/23ecbedd1043250eab7d1b0a41696b\/New-Block-M-Stacked-Blue-295C_600x600.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/26/23ecbedd1043250eab7d1b0a41696b/New-Block-M-Stacked-Blue-295C_600x600.png
 MemberKey        : square_logo_svg
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/6b\/fce84d27ebcd493f839f14df253541\/New-Block-M-Stacked-Blue-295C_.svg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/6b/fce84d27ebcd493f839f14df253541/New-Block-M-Stacked-Blue-295C_.svg
 MemberKey        : location_lng
 ExpectedChar     : 66624, 0
 ExpectedToken    : 66626, digit
@@ -3995,7 +3995,7 @@ NumberValue      : -83.7430378
 MemberKey        : home_link
 StringValue      : 
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/05\/1a1f4b975bf71dba0ac79042ed651e\/U-M_LogoSmHoriz_200x48.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/05/1a1f4b975bf71dba0ac79042ed651e/U-M_LogoSmHoriz_200x48.png
 MemberKey        : display
 BoolValue        : true
 Object           : end
@@ -4018,7 +4018,7 @@ ExpectedChar     : 67215, e
 ExpectedChar     : 67215, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/sna\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/sna/small-icon.hover.png
 MemberKey        : instructor
 StringValue      : Lada Adamic
 MemberKey        : categories
@@ -4238,7 +4238,7 @@ StringValue      : The regular track final grade is based on 7 assignments (70% 
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/sna-2012-001\/
+StringValue      : https://class.coursera.org/sna-2012-001/
 MemberKey        : creator_id
 NullValue        : null
 MemberKey        : proctored_exam_completion_date
@@ -4266,13 +4266,13 @@ BoolValue        : true
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/introACpartI\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/introACpartI/large-icon.png
 MemberKey        : preview_link
 NullValue        : null
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/introACpartI\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/introACpartI/small-icon.hover.png
 MemberKey        : large_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/introACpartI\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/introACpartI/large-icon.png
 MemberKey        : video
 StringValue      : Zrq-8qZks3U
 MemberKey        : university-ids
@@ -4297,11 +4297,11 @@ NullValue        : null
 MemberKey        : website_twitter
 StringValue      : princeton
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/d4\/29daf4b768e1aa467202d4d2dcf8d8\/favicon-princeton.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/d4/29daf4b768e1aa467202d4d2dcf8d8/favicon-princeton.ico
 MemberKey        : website_facebook
 StringValue      : PrincetonU
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/94\/cc9200e336d38ce029873b13cbe93b\/logo-princeton-front.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/94/cc9200e336d38ce029873b13cbe93b/logo-princeton-front.png
 MemberKey        : location_lat
 NullValue        : null
 MemberKey        : background_color
@@ -4327,7 +4327,7 @@ StringValue      : #BA632D
 MemberKey        : abbr_name
 StringValue      : Princeton
 MemberKey        : website
-StringValue      : http:\/\/www.princeton.edu\/
+StringValue      : http://www.princeton.edu/
 MemberKey        : description
 StringValue      : Princeton University is a private research university located in Princeton, New Jersey, United States. It is one of the eight universities of the Ivy League, and one of the nine Colonial Colleges founded before the American Revolution.
 MemberKey        : short_name
@@ -4335,7 +4335,7 @@ StringValue      : princeton
 MemberKey        : location_state
 StringValue      : 
 MemberKey        : website_youtube
-StringValue      : princetonuniversity\/
+StringValue      : princetonuniversity/
 MemberKey        : partner_type
 ExpectedChar     : 72693, -
 ExpectedChar     : 72693, 0
@@ -4345,15 +4345,15 @@ ExpectedChar     : 72694, e
 ExpectedChar     : 72694, E
 NumberValue      : 1
 MemberKey        : banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/b9\/4cbcc8b5a797cdaff8a944cc55b22f\/banner-princeton.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/b9/4cbcc8b5a797cdaff8a944cc55b22f/banner-princeton.jpg
 MemberKey        : landing_page_banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/88\/84ac58eed29633d7a951928ad9aa17\/banner1.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/88/84ac58eed29633d7a951928ad9aa17/banner1.jpg
 MemberKey        : name
 StringValue      : Princeton University
 MemberKey        : square_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/44\/8de6f8bd5ac4cf7e36bdcf7ceff393\/PU_subscription_logo.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/44/8de6f8bd5ac4cf7e36bdcf7ceff393/PU_subscription_logo.png
 MemberKey        : square_logo_source
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/63\/480dbb489b5e6570ebffb8304c3053\/PU_subscription_logo.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/63/480dbb489b5e6570ebffb8304c3053/PU_subscription_logo.png
 MemberKey        : display
 BoolValue        : true
 MemberKey        : location_lng
@@ -4361,7 +4361,7 @@ NullValue        : null
 MemberKey        : home_link
 NullValue        : null
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/0f\/c062f1496dedaf429cdf6c5c8ed471\/PUsig2.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/0f/c062f1496dedaf429cdf6c5c8ed471/PUsig2.png
 MemberKey        : square_logo_svg
 StringValue      : 
 Object           : end
@@ -4383,7 +4383,7 @@ ExpectedChar     : 74059, e
 ExpectedChar     : 74059, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/introACpartI\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/introACpartI/small-icon.hover.png
 MemberKey        : instructor
 StringValue      : Robert Sedgewick
 MemberKey        : categories
@@ -4563,7 +4563,7 @@ StringValue      :
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/introACpartI-001\/
+StringValue      : https://class.coursera.org/introACpartI-001/
 MemberKey        : certificates_ready
 BoolValue        : false
 MemberKey        : proctored_exam_completion_date
@@ -4591,13 +4591,13 @@ BoolValue        : false
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/__courserainternal\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/__courserainternal/large-icon.png
 MemberKey        : preview_link
 StringValue      : 
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/__courserainternal\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/__courserainternal/small-icon.hover.png
 MemberKey        : large_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/__courserainternal\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/__courserainternal/large-icon.png
 MemberKey        : video
 StringValue      : dummylink
 MemberKey        : university-ids
@@ -4626,7 +4626,7 @@ StringValue      :
 MemberKey        : website_facebook
 StringValue      : 
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/22\/c122fadabd6e23bd278cade259b843\/160_coursera-01.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/22/c122fadabd6e23bd278cade259b843/160_coursera-01.png
 MemberKey        : location_lat
 ExpectedChar     : 77581, -
 ExpectedChar     : 77581, 0
@@ -4682,7 +4682,7 @@ StringValue      :
 MemberKey        : name
 StringValue      : Coursera
 MemberKey        : square_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/a6\/2a6416aa61cf1f8d3138d0c787bb8b\/Screen-Shot-2013-01-28-at-9.42.14-PM.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/a6/2a6416aa61cf1f8d3138d0c787bb8b/Screen-Shot-2013-01-28-at-9.42.14-PM.png
 MemberKey        : square_logo_source
 StringValue      : 
 MemberKey        : display
@@ -4695,9 +4695,9 @@ ExpectedChar     : 78340, e
 ExpectedChar     : 78340, E
 NumberValue      : -122.4194155
 MemberKey        : home_link
-StringValue      : http:\/\/www.coursera.org
+StringValue      : http://www.coursera.org
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/6a\/c15c38afd852855ccf4f97e43867b5\/coursera_1500-copy.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/6a/c15c38afd852855ccf4f97e43867b5/coursera_1500-copy.png
 MemberKey        : square_logo_svg
 StringValue      : 
 Object           : end
@@ -4705,7 +4705,7 @@ Array            : end
 MemberKey        : self_service_course_id
 NullValue        : null
 MemberKey        : short_description
-StringValue      : <p>Coursera Internal<\/p>
+StringValue      : <p>Coursera Internal</p>
 MemberKey        : short_name
 StringValue      : __courserainternal
 MemberKey        : category-ids
@@ -4718,7 +4718,7 @@ ExpectedChar     : 78755, e
 ExpectedChar     : 78755, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/__courserainternal\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/__courserainternal/small-icon.hover.png
 MemberKey        : instructor
 StringValue      : Coursera, Inc.
 MemberKey        : categories
@@ -4883,13 +4883,13 @@ BoolValue        : false
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/compinvesting1\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/compinvesting1/large-icon.png
 MemberKey        : preview_link
-StringValue      : https:\/\/class.coursera.org\/compinvesting1-002\/lecture\/preview
+StringValue      : https://class.coursera.org/compinvesting1-002/lecture/preview
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/compinvesting1\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/compinvesting1/small-icon.hover.png
 MemberKey        : large_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/compinvesting1\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/compinvesting1/large-icon.png
 MemberKey        : video
 StringValue      : HUDwIEeil38
 MemberKey        : university-ids
@@ -4908,17 +4908,17 @@ MemberKey        : universities
 Array            : begin
 Object           : begin
 MemberKey        : rectangular_logo_svg
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/e6\/f7803ce100fc4fd2ff4314a25995b3\/Coursera-STO-logo-01.svg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/e6/f7803ce100fc4fd2ff4314a25995b3/Coursera-STO-logo-01.svg
 MemberKey        : wordmark
 NullValue        : null
 MemberKey        : website_twitter
 StringValue      : georgiatech
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/88\/4d9c7e8a6ad0e787553d8b9d77d450\/favicon-gatech.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/88/4d9c7e8a6ad0e787553d8b9d77d450/favicon-gatech.ico
 MemberKey        : website_facebook
 StringValue      : georgiatech
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/30\/4b35cef753fcd6f13494279b65dc84\/Georgia-Tech.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/30/4b35cef753fcd6f13494279b65dc84/Georgia-Tech.png
 MemberKey        : background_color
 StringValue      : 
 MemberKey        : id
@@ -4948,13 +4948,13 @@ StringValue      : #C59353
 MemberKey        : abbr_name
 StringValue      : Georgia Tech
 MemberKey        : website
-StringValue      : http:\/\/www.gatech.edu\/
+StringValue      : http://www.gatech.edu/
 MemberKey        : description
 StringValue      : The Georgia Institute of Technology is one of the nation's top research universities, distinguished by its commitment to improving the human condition through advanced science and technology.\n\nGeorgia Tech's campus occupies 400 acres in the heart of the city of Atlanta, where more than 20,000 undergraduate and graduate students receive a focused, technologically based education.
 MemberKey        : short_name
 StringValue      : gatech
 MemberKey        : landing_page_banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/24\/0de4d4975ff698bdce7b8cf2f86c88\/GT-Coursera-Banner.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/24/0de4d4975ff698bdce7b8cf2f86c88/GT-Coursera-Banner.jpg
 MemberKey        : mailing_list_id
 NullValue        : null
 MemberKey        : website_youtube
@@ -4968,17 +4968,17 @@ ExpectedChar     : 83193, e
 ExpectedChar     : 83193, E
 NumberValue      : 1
 MemberKey        : banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/ee\/a21fe3506486f9ef6b5d7ca324d55f\/banner-gatech.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/ee/a21fe3506486f9ef6b5d7ca324d55f/banner-gatech.jpg
 MemberKey        : location_state
 StringValue      : GA
 MemberKey        : name
 StringValue      : Georgia Institute of Technology
 MemberKey        : square_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/27\/a693dcb342a1ed209fdb0c2de7e6a3\/GT-Coursera-logo-square.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/27/a693dcb342a1ed209fdb0c2de7e6a3/GT-Coursera-logo-square.png
 MemberKey        : square_logo_source
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/be\/3e07cb47dd285544de28654fb24b18\/GT-Coursera-logo-square.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/be/3e07cb47dd285544de28654fb24b18/GT-Coursera-logo-square.png
 MemberKey        : square_logo_svg
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/29\/c5d764e8d4ad4eca175ca2f7a6ae40\/GT-Coursera-logo-square.svg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/29/c5d764e8d4ad4eca175ca2f7a6ae40/GT-Coursera-logo-square.svg
 MemberKey        : location_lng
 ExpectedChar     : 83879, 0
 ExpectedToken    : 83881, digit
@@ -4989,7 +4989,7 @@ NumberValue      : -84.3988806
 MemberKey        : home_link
 NullValue        : null
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/c4\/4371496c5361191aa6a9721cfbe1cf\/Georgia-Institute-of-Technology.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/c4/4371496c5361191aa6a9721cfbe1cf/Georgia-Institute-of-Technology.png
 MemberKey        : display
 BoolValue        : true
 Object           : end
@@ -5012,7 +5012,7 @@ ExpectedChar     : 84508, e
 ExpectedChar     : 84508, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/compinvesting1\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/compinvesting1/small-icon.hover.png
 MemberKey        : instructor
 StringValue      : Tucker Balch
 MemberKey        : categories
@@ -5235,7 +5235,7 @@ StringValue      : The final grade was based on 4 quizzes (40% of the final grad
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/compinvesting1-2012-001\/
+StringValue      : https://class.coursera.org/compinvesting1-2012-001/
 MemberKey        : creator_id
 NullValue        : null
 MemberKey        : proctored_exam_completion_date
@@ -5263,13 +5263,13 @@ BoolValue        : true
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/f2\/1f3c174e05ac2b604742aa79a989c5\/small-icon.hover.png
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/f2/1f3c174e05ac2b604742aa79a989c5/small-icon.hover.png
 MemberKey        : preview_link
 NullValue        : null
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/56\/3d5827c565edde379dabc12ba8f36c\/small-icon.hover.png
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/56/3d5827c565edde379dabc12ba8f36c/small-icon.hover.png
 MemberKey        : large_icon
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/bc\/1b1da1510430626d00a99244019e0a\/small-icon.hover.png
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/bc/1b1da1510430626d00a99244019e0a/small-icon.hover.png
 MemberKey        : video
 StringValue      : 
 MemberKey        : university-ids
@@ -5294,11 +5294,11 @@ NullValue        : null
 MemberKey        : website_twitter
 StringValue      : UW
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/98\/7480c1f9271144aa75fe024a1ad5a0\/favicon-uw.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/98/7480c1f9271144aa75fe024a1ad5a0/favicon-uw.ico
 MemberKey        : website_facebook
 StringValue      : UofWA
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/53\/2f0ff155b3390e3d7190c363a4a045\/uw-logo-coursera-transparent.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/53/2f0ff155b3390e3d7190c363a4a045/uw-logo-coursera-transparent.png
 MemberKey        : background_color
 StringValue      : 
 MemberKey        : id
@@ -5328,17 +5328,17 @@ StringValue      : #38255a
 MemberKey        : abbr_name
 StringValue      : Washington
 MemberKey        : website
-StringValue      : https:\/\/www.washington.edu\/
+StringValue      : https://www.washington.edu/
 MemberKey        : description
 StringValue      : Founded in 1861, the University of Washington is one of the oldest state-supported institutions of higher education on the West Coast and is one of the preeminent research universities in the world.
 MemberKey        : short_name
 StringValue      : uw
 MemberKey        : landing_page_banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/d0\/f1be9c6b196a5a0446da96548a85b6\/banner-uw1.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/d0/f1be9c6b196a5a0446da96548a85b6/banner-uw1.jpg
 MemberKey        : mailing_list_id
 NullValue        : null
 MemberKey        : website_youtube
-StringValue      : user\/uwhuskies
+StringValue      : user/uwhuskies
 MemberKey        : partner_type
 ExpectedChar     : 90258, -
 ExpectedChar     : 90258, 0
@@ -5348,15 +5348,15 @@ ExpectedChar     : 90259, e
 ExpectedChar     : 90259, E
 NumberValue      : 1
 MemberKey        : banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/5d\/7f56a74b7b3009b4a888e372a41f67\/banner-uw1.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/5d/7f56a74b7b3009b4a888e372a41f67/banner-uw1.jpg
 MemberKey        : location_state
 StringValue      : WA
 MemberKey        : name
 StringValue      : University of Washington
 MemberKey        : square_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/8a\/903cf68039c31a207eb7eafff458f7\/w-patch-purple.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/8a/903cf68039c31a207eb7eafff458f7/w-patch-purple.png
 MemberKey        : square_logo_source
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/76\/45ce3d3eba0b28c763eacbb2387322\/w-patch-purple.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/76/45ce3d3eba0b28c763eacbb2387322/w-patch-purple.png
 MemberKey        : square_logo_svg
 StringValue      : 
 MemberKey        : location_lng
@@ -5377,7 +5377,7 @@ Array            : end
 MemberKey        : self_service_course_id
 NullValue        : null
 MemberKey        : short_description
-StringValue      : <div>In this course, you will explore several structured, risk management approaches that guide information security decision-making.\u00a0<\/div>\n<div><\/div>
+StringValue      : <div>In this course, you will explore several structured, risk management approaches that guide information security decision-making.\u00a0</div>\n<div></div>
 MemberKey        : short_name
 StringValue      : inforisk
 MemberKey        : category-ids
@@ -5392,7 +5392,7 @@ ExpectedChar     : 91244, e
 ExpectedChar     : 91244, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/56\/3d5827c565edde379dabc12ba8f36c\/small-icon.hover.png
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/56/3d5827c565edde379dabc12ba8f36c/small-icon.hover.png
 MemberKey        : instructor
 StringValue      : 
 MemberKey        : categories
@@ -5590,7 +5590,7 @@ StringValue      :
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/inforisk-2012-001\/
+StringValue      : https://class.coursera.org/inforisk-2012-001/
 MemberKey        : creator_id
 NullValue        : null
 MemberKey        : proctored_exam_completion_date
@@ -5618,13 +5618,13 @@ BoolValue        : true
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/compneuro\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/compneuro/large-icon.png
 MemberKey        : preview_link
 NullValue        : null
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/compneuro\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/compneuro/small-icon.hover.png
 MemberKey        : large_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/compneuro\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/compneuro/large-icon.png
 MemberKey        : video
 StringValue      : exBbVX0pYxo
 MemberKey        : university-ids
@@ -5649,11 +5649,11 @@ NullValue        : null
 MemberKey        : website_twitter
 StringValue      : UW
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/98\/7480c1f9271144aa75fe024a1ad5a0\/favicon-uw.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/98/7480c1f9271144aa75fe024a1ad5a0/favicon-uw.ico
 MemberKey        : website_facebook
 StringValue      : UofWA
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/53\/2f0ff155b3390e3d7190c363a4a045\/uw-logo-coursera-transparent.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/53/2f0ff155b3390e3d7190c363a4a045/uw-logo-coursera-transparent.png
 MemberKey        : background_color
 StringValue      : 
 MemberKey        : id
@@ -5683,17 +5683,17 @@ StringValue      : #38255a
 MemberKey        : abbr_name
 StringValue      : Washington
 MemberKey        : website
-StringValue      : https:\/\/www.washington.edu\/
+StringValue      : https://www.washington.edu/
 MemberKey        : description
 StringValue      : Founded in 1861, the University of Washington is one of the oldest state-supported institutions of higher education on the West Coast and is one of the preeminent research universities in the world.
 MemberKey        : short_name
 StringValue      : uw
 MemberKey        : landing_page_banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/d0\/f1be9c6b196a5a0446da96548a85b6\/banner-uw1.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/d0/f1be9c6b196a5a0446da96548a85b6/banner-uw1.jpg
 MemberKey        : mailing_list_id
 NullValue        : null
 MemberKey        : website_youtube
-StringValue      : user\/uwhuskies
+StringValue      : user/uwhuskies
 MemberKey        : partner_type
 ExpectedChar     : 96050, -
 ExpectedChar     : 96050, 0
@@ -5703,15 +5703,15 @@ ExpectedChar     : 96051, e
 ExpectedChar     : 96051, E
 NumberValue      : 1
 MemberKey        : banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/5d\/7f56a74b7b3009b4a888e372a41f67\/banner-uw1.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/5d/7f56a74b7b3009b4a888e372a41f67/banner-uw1.jpg
 MemberKey        : location_state
 StringValue      : WA
 MemberKey        : name
 StringValue      : University of Washington
 MemberKey        : square_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/8a\/903cf68039c31a207eb7eafff458f7\/w-patch-purple.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/8a/903cf68039c31a207eb7eafff458f7/w-patch-purple.png
 MemberKey        : square_logo_source
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/76\/45ce3d3eba0b28c763eacbb2387322\/w-patch-purple.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/76/45ce3d3eba0b28c763eacbb2387322/w-patch-purple.png
 MemberKey        : square_logo_svg
 StringValue      : 
 MemberKey        : location_lng
@@ -5747,7 +5747,7 @@ ExpectedChar     : 97198, e
 ExpectedChar     : 97198, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/compneuro\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/compneuro/small-icon.hover.png
 MemberKey        : instructor
 StringValue      : Rajesh P. N. Rao and Adrienne Fairhall
 MemberKey        : categories
@@ -5972,7 +5972,7 @@ StringValue      : The final grade is based on 5 homework assignments. To receiv
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/compneuro-001\/
+StringValue      : https://class.coursera.org/compneuro-001/
 MemberKey        : creator_id
 NullValue        : null
 MemberKey        : proctored_exam_completion_date
@@ -6000,13 +6000,13 @@ BoolValue        : true
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/crypto2\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/crypto2/large-icon.png
 MemberKey        : preview_link
 NullValue        : null
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/crypto2\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/crypto2/small-icon.hover.png
 MemberKey        : large_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/crypto2\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/crypto2/large-icon.png
 MemberKey        : video
 StringValue      : 
 MemberKey        : university-ids
@@ -6031,11 +6031,11 @@ NullValue        : null
 MemberKey        : website_twitter
 StringValue      : 
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/dc\/581cda352d067023dcdcc0d9efd36e\/favicon-stanford.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/dc/581cda352d067023dcdcc0d9efd36e/favicon-stanford.ico
 MemberKey        : website_facebook
 StringValue      : 
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/d8\/4c69670e0826e42c6cd80b4a02b9a2\/stanford.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/d8/4c69670e0826e42c6cd80b4a02b9a2/stanford.png
 MemberKey        : background_color
 StringValue      : 
 MemberKey        : id
@@ -6104,9 +6104,9 @@ ExpectedChar     : 102477, e
 ExpectedChar     : 102477, E
 NumberValue      : -122.1430195
 MemberKey        : home_link
-StringValue      : http:\/\/online.stanford.edu\/
+StringValue      : http://online.stanford.edu/
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/21\/9a0294e2bf773901afbfcb5ef47d97\/Stanford_Coursera-200x48_RedText_BG.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/21/9a0294e2bf773901afbfcb5ef47d97/Stanford_Coursera-200x48_RedText_BG.png
 MemberKey        : display
 BoolValue        : true
 Object           : end
@@ -6129,7 +6129,7 @@ ExpectedChar     : 103041, e
 ExpectedChar     : 103041, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/crypto2\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/crypto2/small-icon.hover.png
 MemberKey        : instructor
 StringValue      : Dan Boneh, Professor
 MemberKey        : categories
@@ -6329,7 +6329,7 @@ StringValue      :
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/crypto2-2013-001\/
+StringValue      : https://class.coursera.org/crypto2-2013-001/
 MemberKey        : creator_id
 NullValue        : null
 MemberKey        : proctored_exam_completion_date
@@ -6357,13 +6357,13 @@ BoolValue        : true
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/bigdata\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/bigdata/large-icon.png
 MemberKey        : preview_link
 NullValue        : null
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/bigdata\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/bigdata/small-icon.hover.png
 MemberKey        : large_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/bigdata\/large-icon.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/bigdata/large-icon.png
 MemberKey        : video
 StringValue      : LKBZTL7mOgA
 MemberKey        : university-ids
@@ -6388,11 +6388,11 @@ NullValue        : null
 MemberKey        : website_twitter
 StringValue      : 
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/93\/8531f10a9edadb75ba98db75fb5ad4\/favicon-iitd.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/93/8531f10a9edadb75ba98db75fb5ad4/favicon-iitd.ico
 MemberKey        : website_facebook
 StringValue      : 
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/bc\/189a02293cf34426f34a396d34e742\/logo-iitd-v2-course.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/bc/189a02293cf34426f34a396d34e742/logo-iitd-v2-course.png
 MemberKey        : background_color
 StringValue      : 
 MemberKey        : id
@@ -6450,7 +6450,7 @@ StringValue      :
 MemberKey        : location_lng
 NullValue        : null
 MemberKey        : home_link
-StringValue      : http:\/\/www.iitd.ac.in\/
+StringValue      : http://www.iitd.ac.in/
 MemberKey        : class_logo
 StringValue      : 
 MemberKey        : display
@@ -6474,7 +6474,7 @@ ExpectedChar     : 108318, e
 ExpectedChar     : 108318, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/s3.amazonaws.com\/coursera\/topics\/bigdata\/small-icon.hover.png
+StringValue      : https://s3.amazonaws.com/coursera/topics/bigdata/small-icon.hover.png
 MemberKey        : instructor
 StringValue      : Gautam Shroff
 MemberKey        : categories
@@ -6506,7 +6506,7 @@ MemberKey        : courses
 Array            : begin
 Object           : begin
 MemberKey        : grading_policy_distinction
-StringValue      : The final grade was based on your best 5 of 8 quizzes (10% of the final grade), best 3 of 4 homework assignments (25% of the final grade), best 2 of 3 programming\/analysis assignments (25% of the final grade) and all of the final exam (40% of the final grade). To receive a Statement of Accomplishment with Distinction, you need to have obtained >= 85% of the maximum possible score.
+StringValue      : The final grade was based on your best 5 of 8 quizzes (10% of the final grade), best 3 of 4 homework assignments (25% of the final grade), best 2 of 3 programming/analysis assignments (25% of the final grade) and all of the final exam (40% of the final grade). To receive a Statement of Accomplishment with Distinction, you need to have obtained >= 85% of the maximum possible score.
 MemberKey        : ace_track_price_display
 NullValue        : null
 MemberKey        : signature_track_certificate_design_id
@@ -6670,11 +6670,11 @@ NullValue        : null
 MemberKey        : eligible_for_ACE
 BoolValue        : false
 MemberKey        : grading_policy_normal
-StringValue      : The final grade was based on your best 5 of 8 quizzes (10% of the final grade), best 3 of 4 homework assignments (25% of the final grade), best 2 of 3 programming\/analysis assignments (25% of the final grade) and all of the final exam (40% of the final grade). To receive a Statement of Accomplishment, you need to have obtained >= 61% of the maximum possible score.
+StringValue      : The final grade was based on your best 5 of 8 quizzes (10% of the final grade), best 3 of 4 homework assignments (25% of the final grade), best 2 of 3 programming/analysis assignments (25% of the final grade) and all of the final exam (40% of the final grade). To receive a Statement of Accomplishment, you need to have obtained >= 61% of the maximum possible score.
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/bigdata-002\/
+StringValue      : https://class.coursera.org/bigdata-002/
 MemberKey        : creator_id
 NullValue        : null
 MemberKey        : proctored_exam_completion_date
@@ -6702,13 +6702,13 @@ BoolValue        : true
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/26\/761dfb7b58773c88fe4cb2aed26a3c\/iStock_000020359734_Small.jpg
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/26/761dfb7b58773c88fe4cb2aed26a3c/iStock_000020359734_Small.jpg
 MemberKey        : preview_link
 NullValue        : null
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/c5\/42ab154bbf6f76f51b74b8347deab5\/iStock_000020359734_Small.jpg
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/c5/42ab154bbf6f76f51b74b8347deab5/iStock_000020359734_Small.jpg
 MemberKey        : large_icon
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/7e\/0150790f6c92c48d03bf6178ea9193\/iStock_000020359734_Small.jpg
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/7e/0150790f6c92c48d03bf6178ea9193/iStock_000020359734_Small.jpg
 MemberKey        : video
 StringValue      : 
 MemberKey        : university-ids
@@ -6733,11 +6733,11 @@ NullValue        : null
 MemberKey        : website_twitter
 StringValue      : columbia
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/72\/c9b56e3ff66fa6e1ca52bdea9440ae\/ColumbialittleLOGO4.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/72/c9b56e3ff66fa6e1ca52bdea9440ae/ColumbialittleLOGO4.png
 MemberKey        : website_facebook
 StringValue      : Columbia
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/9b\/42f2eca2f10769400d1f8519892413\/ColumbiaLOGO.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/9b/42f2eca2f10769400d1f8519892413/ColumbiaLOGO.png
 MemberKey        : background_color
 StringValue      : 
 MemberKey        : id
@@ -6767,13 +6767,13 @@ StringValue      : #1f2f60
 MemberKey        : abbr_name
 StringValue      : Columbia
 MemberKey        : website
-StringValue      : http:\/\/www.columbia.edu\/
+StringValue      : http://www.columbia.edu/
 MemberKey        : description
 StringValue      : For more than 250 years, Columbia has been a leader in higher education in the nation and around the world. At the core of our wide range of academic inquiry is the commitment to attract and engage the best minds in pursuit of greater human understanding, pioneering new discoveries and service to society.
 MemberKey        : short_name
 StringValue      : columbia
 MemberKey        : landing_page_banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/3d\/731d687dff430714ea6413c8b9d932\/banner_coursera_columbia.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/3d/731d687dff430714ea6413c8b9d932/banner_coursera_columbia.jpg
 MemberKey        : mailing_list_id
 NullValue        : null
 MemberKey        : website_youtube
@@ -6787,15 +6787,15 @@ ExpectedChar     : 113928, e
 ExpectedChar     : 113928, E
 NumberValue      : 1
 MemberKey        : banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/0d\/6b60ecae321cd9d6e02b5a1376e7cb\/columbia-banner.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/0d/6b60ecae321cd9d6e02b5a1376e7cb/columbia-banner.jpg
 MemberKey        : location_state
 StringValue      : NY
 MemberKey        : name
 StringValue      : Columbia University
 MemberKey        : square_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/d2\/74c67a99b3e2516e7efbb4d9892721\/cu_collegiate_blue.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/d2/74c67a99b3e2516e7efbb4d9892721/cu_collegiate_blue.png
 MemberKey        : square_logo_source
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/bb\/d42540e622a1bb89a1b5f2258f3602\/cu_collegiate_blue.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/bb/d42540e622a1bb89a1b5f2258f3602/cu_collegiate_blue.png
 MemberKey        : square_logo_svg
 StringValue      : 
 MemberKey        : location_lng
@@ -6808,7 +6808,7 @@ NumberValue      : -74.0059731
 MemberKey        : home_link
 NullValue        : null
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/8e\/592ba6a9789657a5a0912204491332\/logo_cu_background_trans.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/8e/592ba6a9789657a5a0912204491332/logo_cu_background_trans.png
 MemberKey        : display
 BoolValue        : true
 Object           : end
@@ -6830,7 +6830,7 @@ ExpectedChar     : 115201, e
 ExpectedChar     : 115201, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/c5\/42ab154bbf6f76f51b74b8347deab5\/iStock_000020359734_Small.jpg
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/c5/42ab154bbf6f76f51b74b8347deab5/iStock_000020359734_Small.jpg
 MemberKey        : instructor
 StringValue      : Michael Collins
 MemberKey        : categories
@@ -6898,7 +6898,7 @@ ExpectedChar     : 116408, e
 ExpectedChar     : 116408, E
 NumberValue      : 2
 MemberKey        : certificate_description
-StringValue      : This introductory graduate\/advanced undergraduate course introduces mathematical and computational models of language, and the application of these models to key problems in natural language processing.
+StringValue      : This introductory graduate/advanced undergraduate course introduces mathematical and computational models of language, and the application of these models to key problems in natural language processing.
 MemberKey        : start_date_string
 NullValue        : null
 MemberKey        : chegg_session_id
@@ -7030,7 +7030,7 @@ StringValue      : The final grade was based on 4 quizzes (50% of the final grad
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/nlangp-001\/
+StringValue      : https://class.coursera.org/nlangp-001/
 MemberKey        : creator_id
 NullValue        : null
 MemberKey        : proctored_exam_completion_date
@@ -7058,13 +7058,13 @@ BoolValue        : true
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/90\/214ce37265a397e3cb97fd25e658de\/cavallaro-logo.png
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/90/214ce37265a397e3cb97fd25e658de/cavallaro-logo.png
 MemberKey        : preview_link
 NullValue        : null
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/d4\/edab6f88cb29582e8215774b2fa19e\/cavallaro-logo.png
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/d4/edab6f88cb29582e8215774b2fa19e/cavallaro-logo.png
 MemberKey        : large_icon
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/e8\/06553aa034970e31d0c6372c02822e\/cavallaro-logo.png
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/e8/06553aa034970e31d0c6372c02822e/cavallaro-logo.png
 MemberKey        : video
 StringValue      : G_ejj8NfiUw
 MemberKey        : university-ids
@@ -7089,11 +7089,11 @@ NullValue        : null
 MemberKey        : website_twitter
 StringValue      : LondonU
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/b9\/7737f6a77362b5ef13cb10fd1aeaa0\/uol.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/b9/7737f6a77362b5ef13cb10fd1aeaa0/uol.ico
 MemberKey        : website_facebook
 StringValue      : LondonU
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/50\/b867b6dc7439e708b44006cea8c399\/ULondonTrans.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/50/b867b6dc7439e708b44006cea8c399/ULondonTrans.png
 MemberKey        : background_color
 StringValue      : 
 MemberKey        : id
@@ -7123,17 +7123,17 @@ StringValue      : #4F7FA2
 MemberKey        : abbr_name
 StringValue      : London International
 MemberKey        : website
-StringValue      : http:\/\/www.londoninternational.ac.uk\/
+StringValue      : http://www.londoninternational.ac.uk/
 MemberKey        : description
 StringValue      : The University of London is a federal University with 18 world leading Colleges.  Our International Programmes were founded in 1858 and have enriched the lives of thousands of students across the globe.  Our alumni includes 7 Nobel Prize winners.  Today, we are a global leader in distance and flexible study, offering degree programmes to 52,000 students in 190 countries.
 MemberKey        : short_name
 StringValue      : london
 MemberKey        : landing_page_banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/8c\/8a71f733b70e2d8e16f5a5a548464b\/UoLIP-Coursera-Banner_opt2.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/8c/8a71f733b70e2d8e16f5a5a548464b/UoLIP-Coursera-Banner_opt2.jpg
 MemberKey        : mailing_list_id
 NullValue        : null
 MemberKey        : website_youtube
-StringValue      : user\/unioflondon
+StringValue      : user/unioflondon
 MemberKey        : partner_type
 ExpectedChar     : 120634, -
 ExpectedChar     : 120634, 0
@@ -7143,17 +7143,17 @@ ExpectedChar     : 120635, e
 ExpectedChar     : 120635, E
 NumberValue      : 1
 MemberKey        : banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/96\/1040015ba05fc94541f6d10a9bd3e4\/Header_928x220.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/96/1040015ba05fc94541f6d10a9bd3e4/Header_928x220.jpg
 MemberKey        : location_state
 StringValue      : 
 MemberKey        : name
 StringValue      : University of London International Programmes
 MemberKey        : square_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/43\/a6210027ba5aece40a701cd587d75a\/UoLIP-logo-360x360.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/43/a6210027ba5aece40a701cd587d75a/UoLIP-logo-360x360.png
 MemberKey        : square_logo_source
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/fa\/c5f9b56ff7f4d1000c7a4b5201070c\/UoLIP-logo-360x360.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/fa/c5f9b56ff7f4d1000c7a4b5201070c/UoLIP-logo-360x360.png
 MemberKey        : square_logo_svg
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/1a\/dd7cd4af07eb1ee5017d2f4cda53a6\/UoLIP-logo-360x360.svg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/1a/dd7cd4af07eb1ee5017d2f4cda53a6/UoLIP-logo-360x360.svg
 MemberKey        : location_lng
 ExpectedToken    : 121335, digit
 ExpectedChar     : 121335, e
@@ -7162,7 +7162,7 @@ NumberValue      : -0.12873500000001
 MemberKey        : home_link
 NullValue        : null
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/ca\/b1f99e17d2ba14a0ad911017419f2e\/wide-logo-png.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/ca/b1f99e17d2ba14a0ad911017419f2e/wide-logo-png.png
 MemberKey        : display
 BoolValue        : true
 Object           : end
@@ -7185,7 +7185,7 @@ ExpectedChar     : 121940, e
 ExpectedChar     : 121940, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/d4\/edab6f88cb29582e8215774b2fa19e\/cavallaro-logo.png
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/d4/edab6f88cb29582e8215774b2fa19e/cavallaro-logo.png
 MemberKey        : instructor
 StringValue      : Lorenzo Cavallaro of Royal Holloway, University of London
 MemberKey        : categories
@@ -7397,7 +7397,7 @@ StringValue      :
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/malsoftware-001\/
+StringValue      : https://class.coursera.org/malsoftware-001/
 MemberKey        : creator_id
 NullValue        : null
 MemberKey        : proctored_exam_completion_date
@@ -7409,7 +7409,7 @@ StringValue      : 2013-07-02
 Object           : end
 Array            : end
 MemberKey        : university_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/89\/0539fcb47b048c506f175b7ef56c51\/RHUL-logo.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/89/0539fcb47b048c506f175b7ef56c51/RHUL-logo.png
 MemberKey        : course-ids
 Array            : begin
 ExpectedChar     : 125288, -
@@ -7425,13 +7425,13 @@ BoolValue        : true
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/d6\/b79772266def5c49c018552620b760\/logo.png
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/d6/b79772266def5c49c018552620b760/logo.png
 MemberKey        : preview_link
 NullValue        : null
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/f0\/4fba1627b59c96672c9c067eed24c0\/logo.png
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/f0/4fba1627b59c96672c9c067eed24c0/logo.png
 MemberKey        : large_icon
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/6d\/36b377d4ad926485cb6342444f6743\/logo.png
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/6d/36b377d4ad926485cb6342444f6743/logo.png
 MemberKey        : video
 StringValue      : 
 MemberKey        : university-ids
@@ -7456,11 +7456,11 @@ NullValue        : null
 MemberKey        : website_twitter
 StringValue      : 
 MemberKey        : favicon
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/dc\/581cda352d067023dcdcc0d9efd36e\/favicon-stanford.ico
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/dc/581cda352d067023dcdcc0d9efd36e/favicon-stanford.ico
 MemberKey        : website_facebook
 StringValue      : 
 MemberKey        : logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/d8\/4c69670e0826e42c6cd80b4a02b9a2\/stanford.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/d8/4c69670e0826e42c6cd80b4a02b9a2/stanford.png
 MemberKey        : background_color
 StringValue      : 
 MemberKey        : id
@@ -7529,9 +7529,9 @@ ExpectedChar     : 127164, e
 ExpectedChar     : 127164, E
 NumberValue      : -122.1430195
 MemberKey        : home_link
-StringValue      : http:\/\/online.stanford.edu\/
+StringValue      : http://online.stanford.edu/
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/21\/9a0294e2bf773901afbfcb5ef47d97\/Stanford_Coursera-200x48_RedText_BG.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/21/9a0294e2bf773901afbfcb5ef47d97/Stanford_Coursera-200x48_RedText_BG.png
 MemberKey        : display
 BoolValue        : true
 Object           : end
@@ -7555,7 +7555,7 @@ ExpectedChar     : 127699, e
 ExpectedChar     : 127699, E
 NumberValue      : 0
 MemberKey        : small_icon
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/f0\/4fba1627b59c96672c9c067eed24c0\/logo.png
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/f0/4fba1627b59c96672c9c067eed24c0/logo.png
 MemberKey        : instructor
 StringValue      : Balaji S. Srinivasan; Vijay Pande
 MemberKey        : categories
@@ -7786,7 +7786,7 @@ StringValue      : The final grade was based entirely on multiple choice questio
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/startup-001\/
+StringValue      : https://class.coursera.org/startup-001/
 MemberKey        : creator_id
 NullValue        : null
 MemberKey        : proctored_exam_completion_date
@@ -7814,13 +7814,13 @@ BoolValue        : true
 Object           : end
 Object           : begin
 MemberKey        : photo
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/37\/dc9609e73affd2ed41611617dfe67d\/Course_Logo_Computer_Vision.jpg
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/37/dc9609e73affd2ed41611617dfe67d/Course_Logo_Computer_Vision.jpg
 MemberKey        : preview_link
 NullValue        : null
 MemberKey        : small_icon_hover
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/58\/2d3041eb65a7d499fb670d86d0d934\/Course_Logo_Computer_Vision.jpg
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/58/2d3041eb65a7d499fb670d86d0d934/Course_Logo_Computer_Vision.jpg
 MemberKey        : large_icon
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/3f\/cb4a7c3ce0e6ac6a504ed714fcf59f\/Course_Logo_Computer_Vision.jpg
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/3f/cb4a7c3ce0e6ac6a504ed714fcf59f/Course_Logo_Computer_Vision.jpg
 MemberKey        : video
 StringValue      : 
 MemberKey        : university-ids
@@ -7879,13 +7879,13 @@ StringValue      : #0065BD
 MemberKey        : abbr_name
 StringValue      : TUM
 MemberKey        : website
-StringValue      : http:\/\/www.tum.de\/
+StringValue      : http://www.tum.de/
 MemberKey        : description
 StringValue      : Technische Universit\u00e4t M\u00fcnchen (TUM) is one of Europe\u2019s top universities. It is committed to excellence in research and teaching, interdisciplinary education and the active promotion of promising young scientists. The university forges strong links with companies and scientific institutions across the world. TUM was one of the first universities in Germany to be named a University of Excellence.
 MemberKey        : short_name
 StringValue      : tum
 MemberKey        : landing_page_banner
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/cf\/fd14d92dd4fa15b7ee49a52246d41b\/TUM-Haupteingang_1280x320px.jpg
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/cf/fd14d92dd4fa15b7ee49a52246d41b/TUM-Haupteingang_1280x320px.jpg
 MemberKey        : mailing_list_id
 NullValue        : null
 MemberKey        : website_youtube
@@ -7905,9 +7905,9 @@ StringValue      : BY
 MemberKey        : name
 StringValue      : Technische Universit\u00e4t M\u00fcnchen (TUM)
 MemberKey        : square_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/2c\/6b2e1799cc2e95901e763daac8d476\/TUM-Logo_360x360px.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/2c/6b2e1799cc2e95901e763daac8d476/TUM-Logo_360x360px.png
 MemberKey        : square_logo_source
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/46\/6537b2cdd206869a732a8d278a95e1\/TUM-Logo_360x360px.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/46/6537b2cdd206869a732a8d278a95e1/TUM-Logo_360x360px.png
 MemberKey        : square_logo_svg
 StringValue      : 
 MemberKey        : location_lng
@@ -7921,7 +7921,7 @@ NumberValue      : 11.5770851
 MemberKey        : home_link
 NullValue        : null
 MemberKey        : class_logo
-StringValue      : https:\/\/coursera-university-assets.s3.amazonaws.com\/5f\/a33c1f53da7ef95c6ebccf1378de46\/TUM-Logo_200x48px.png
+StringValue      : https://coursera-university-assets.s3.amazonaws.com/5f/a33c1f53da7ef95c6ebccf1378de46/TUM-Logo_200x48px.png
 MemberKey        : display
 BoolValue        : true
 Object           : end
@@ -7939,7 +7939,7 @@ Array            : end
 MemberKey        : visibility
 NullValue        : null
 MemberKey        : small_icon
-StringValue      : https:\/\/coursera-course-photos.s3.amazonaws.com\/58\/2d3041eb65a7d499fb670d86d0d934\/Course_Logo_Computer_Vision.jpg
+StringValue      : https://coursera-course-photos.s3.amazonaws.com/58/2d3041eb65a7d499fb670d86d0d934/Course_Logo_Computer_Vision.jpg
 MemberKey        : instructor
 StringValue      : Martin Kleinsteuber
 MemberKey        : categories
@@ -8101,7 +8101,7 @@ StringValue      :
 MemberKey        : ace_open_date
 NullValue        : null
 MemberKey        : home_link
-StringValue      : https:\/\/class.coursera.org\/compvision-001\/
+StringValue      : https://class.coursera.org/compvision-001/
 MemberKey        : creator_id
 ExpectedChar     : 137174, -
 ExpectedChar     : 137174, 0
