@@ -399,7 +399,7 @@ namespace cpp_json { namespace standard
 
     };
 
-    struct default_json_context
+    struct builder_json_context
     {
       using string_type = string_type ;
       using char_type   = char_type   ;
@@ -409,13 +409,13 @@ namespace cpp_json { namespace standard
 
       std::vector<json_element_context::ptr>  element_context ;
 
-      default_json_context ()
+      builder_json_context ()
       {
         current_string.reserve (default_size);
         element_context.push_back (std::make_shared<json_element_context__root> ());
       }
 
-      CPP_JSON__NO_COPY_MOVE (default_json_context);
+      CPP_JSON__NO_COPY_MOVE (builder_json_context);
 
       inline void expected_char (std::size_t /*pos*/, char_type /*ch*/) noexcept
       {
@@ -696,7 +696,7 @@ namespace cpp_json { namespace standard
   {
     auto begin  = json.c_str ()       ;
     auto end    = begin + json.size ();
-    cpp_json::parser::json_parser<details::default_json_context> jp (begin, end);
+    cpp_json::parser::json_parser<details::builder_json_context> jp (begin, end);
 
     if (jp.try_parse__json ())
     {
