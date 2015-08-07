@@ -18,6 +18,7 @@
 
 #include "../cpp_json/cpp_json__standard.hpp"
 
+#include <cstdio>
 #include <filesystem>
 #include <iomanip>
 #include <iostream>
@@ -137,7 +138,7 @@ namespace
       {
         constexpr auto bsz = 8;
         char buffer[bsz] = {};
-        snprintf (buffer, bsz, "\\u%04x", ch);
+        std::snprintf (buffer, bsz, "\\u%04x", ch);
         current_string += buffer;
       }
       else
@@ -319,10 +320,19 @@ namespace
 
     std::vector<string_type> test_cases =
       {
-        LR"([null, 123,-1.23E2,"Test\tHello", true,false, [true,null],[],{}, {"x":true}])"  ,
+        LR"([null, 123,-123E100,"Test\tHello", true,false, [true,null],[],{}, {"x":true}])"  ,
+        LR"(
+{
+  "x":null,
+  "y":3
+})"                                                                                         ,
         LR"(["\u004Abc"])"                                                                  ,
         LR"({:null})"                                                                       ,
         LR"([)"                                                                             ,
+        LR"(
+{
+  "x":null,
+  })"                                                                                       ,
       };
 
     for (auto && test_case : test_cases)

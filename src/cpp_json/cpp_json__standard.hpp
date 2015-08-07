@@ -16,6 +16,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <cstdio>
 #include <memory>
 #include <string>
 #include <vector>
@@ -220,7 +221,7 @@ namespace cpp_json { namespace standard
         {
           constexpr auto bsz = 64U;
           wchar_t buffer[bsz];
-          swprintf (buffer, bsz, L"%G", v.value);
+          std::swprintf (buffer, bsz, L"%G", v.value);
           value += buffer;
         }
       }
@@ -763,7 +764,7 @@ namespace cpp_json { namespace standard
       {
         constexpr auto bsz = 12U;
         wchar_t spos[bsz]  = {};
-        swprintf (spos, bsz, L"%zd", pos);
+        std::swprintf (spos, bsz, L"%zd", pos);
         msg += spos;
       }
 
