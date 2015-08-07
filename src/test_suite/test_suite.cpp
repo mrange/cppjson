@@ -92,14 +92,14 @@ namespace
       }
     }
 
-    void expected_char (std::size_t pos, char_type ch) throw ()
+    void expected_char (std::size_t pos, char_type ch) noexcept
     {
       result << "ExpectedChar     : " << pos << ", ";
       write_char (ch);
       result << std::endl;
     }
 
-    void expected_chars (std::size_t pos, string_type const & chs) throw ()
+    void expected_chars (std::size_t pos, string_type const & chs) noexcept
     {
       for (auto && ch : chs)
       {
@@ -107,7 +107,7 @@ namespace
       }
     }
 
-    void expected_token (std::size_t pos, string_type const & token) throw ()
+    void expected_token (std::size_t pos, string_type const & token) noexcept
     {
       // TODO: Escape
       result << "ExpectedToken    : " << pos << ", ";
@@ -115,7 +115,7 @@ namespace
       result << std::endl;
     }
 
-    void unexpected_token (std::size_t pos, string_type const & token) throw ()
+    void unexpected_token (std::size_t pos, string_type const & token) noexcept
     {
       result << "UnexpectedToken  : " << pos << ", ";
       write_string (token);
@@ -143,11 +143,11 @@ namespace
       }
       else
       {
-        current_string.push_back (ch);
+        current_string.push_back (static_cast<char> (ch));
       }
     }
 
-    string_type const & get_string () throw ()
+    string_type const & get_string () noexcept
     {
       return current_string;
     }
@@ -223,7 +223,6 @@ namespace
 
     std::cout << "Running 'generate_test_results'..." << std::endl;
 
-    using namespace cpp_json::standard;
     using namespace std::tr2::sys     ;
 
     auto current          = path (exe);
@@ -385,9 +384,3 @@ int main (int /*argc*/, char const * * argvs)
     return 999;
   }
 }
-
-
-#ifdef DDD
-
-
-#endif

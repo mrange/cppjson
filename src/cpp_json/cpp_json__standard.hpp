@@ -417,19 +417,19 @@ namespace cpp_json { namespace standard
 
       CPP_JSON__NO_COPY_MOVE (default_json_context);
 
-      inline void expected_char (std::size_t /*pos*/, char_type /*ch*/) throw ()
+      inline void expected_char (std::size_t /*pos*/, char_type /*ch*/) noexcept
       {
       }
 
-      inline void expected_chars (std::size_t /*pos*/, string_type const & /*chs*/) throw ()
+      inline void expected_chars (std::size_t /*pos*/, string_type const & /*chs*/) noexcept
       {
       }
 
-      inline void expected_token (std::size_t /*pos*/, string_type const & /*token*/) throw ()
+      inline void expected_token (std::size_t /*pos*/, string_type const & /*token*/) noexcept
       {
       }
 
-      inline void unexpected_token (std::size_t /*pos*/, string_type const & /*token*/) throw ()
+      inline void unexpected_token (std::size_t /*pos*/, string_type const & /*token*/) noexcept
       {
       }
 
@@ -448,7 +448,7 @@ namespace cpp_json { namespace standard
         current_string.push_back (ch);
       }
 
-      inline string_type const & get_string () throw ()
+      inline string_type const & get_string () noexcept
       {
         return current_string;
       }
@@ -640,7 +640,7 @@ namespace cpp_json { namespace standard
       {
       }
 
-      inline string_type const & get_string () throw ()
+      inline string_type const & get_string () noexcept
       {
         return current_string;
       }

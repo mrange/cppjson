@@ -18,7 +18,6 @@
 #include <cmath>
 
 #define CPP_JSON__ASSERT    assert
-#define CPP_JSON__NOEXCEPT  throw ()
 #define CPP_JSON__NO_COPY_MOVE(name)          \
   name              (name const &)  = delete; \
   name              (name &&     )  = delete; \
@@ -34,7 +33,7 @@ namespace cpp_json { namespace parser
   template<>
   struct json_string_literal<char>
   {
-    constexpr static auto pick (char const * s, wchar_t const * /*ws*/) throw ()
+    constexpr static auto pick (char const * s, wchar_t const * /*ws*/) noexcept
     {
       return s;
     }
@@ -43,10 +42,44 @@ namespace cpp_json { namespace parser
   template<>
   struct json_string_literal<wchar_t>
   {
-    constexpr static auto pick (char const * /*s*/, wchar_t const * ws) throw ()
+    constexpr static auto pick (char const * /*s*/, wchar_t const * ws) noexcept
     {
       return ws;
     }
+  };
+
+  struct json_pow10table
+  {
+    constexpr static int  min_power_10  = -322;
+    constexpr static int  max_power_10  = 307;
+    constexpr static int  table_size    = max_power_10 - min_power_10 + 1;
+
+    inline json_pow10table () noexcept
+    {
+      for (auto p = 0; p < table_size; ++p)
+      {
+        pow10table[p] = std::pow (10.0, static_cast<double> (p + min_power_10));
+      }
+    }
+
+    inline double pow10 (int i) noexcept
+    {
+      if (i < min_power_10)
+      {
+        return 0.0;
+      }
+      else if (i > max_power_10)
+      {
+        return INFINITY;
+      }
+      else
+      {
+        return pow10table[i - min_power_10];
+      }
+    }
+
+  private:
+    double                pow10table[table_size];
   };
 
   template<typename string_type>
@@ -90,41 +123,42 @@ namespace cpp_json { namespace parser
     using string_type     = typename context_type::string_type  ;
     using iter_type       = typename context_type::iter_type    ;
 
-    static json_tokens<string_type> tokens;
+    static json_tokens<string_type> tokens                      ;
+    static json_pow10table          pow10table                  ;
 
     iter_type const begin                                       ;
     iter_type const end                                         ;
     iter_type       current                                     ;
 
-    constexpr json_parser (iter_type begin, iter_type end) throw ()
+    constexpr json_parser (iter_type begin, iter_type end) noexcept
       : begin   (begin)
       , end     (end)
       , current (begin)
     {
     }
 
-    constexpr bool eos () const throw ()
+    constexpr bool eos () const noexcept
     {
       return current >= end;
     }
 
-    constexpr bool neos () const throw ()
+    constexpr bool neos () const noexcept
     {
       return current < end;
     }
 
-    constexpr char_type ch () const throw ()
+    constexpr char_type ch () const noexcept
     {
       return *current;
     }
 
-    constexpr std::size_t pos () const throw ()
+    constexpr std::size_t pos () const noexcept
     {
       CPP_JSON__ASSERT (current >= begin);
       return static_cast<std::size_t> (current - begin);
     }
 
-    inline void adv () throw ()
+    inline void adv () noexcept
     {
       ++current;
     }
@@ -182,17 +216,17 @@ namespace cpp_json { namespace parser
       return false;
     }
 
-    static constexpr bool is_white_space (char_type ch) throw ()
+    static constexpr bool is_white_space (char_type ch) noexcept
     {
       return ch == '\t' || ch == '\n' || ch == '\r' || ch == ' ';
     }
 
-    static constexpr bool is_digit (char_type ch) throw ()
+    static constexpr bool is_digit (char_type ch) noexcept
     {
       return ch >= '0' && ch <= '9';
     }
 
-    inline bool consume__white_space () throw ()
+    inline bool consume__white_space () noexcept
     {
       while (neos () && is_white_space (ch ()))
       {
@@ -201,7 +235,7 @@ namespace cpp_json { namespace parser
       return true;
     }
 
-    constexpr bool test__char (char c) throw ()
+    constexpr bool test__char (char c) const noexcept
     {
       return neos () && ch () == c;
     }
@@ -247,7 +281,7 @@ namespace cpp_json { namespace parser
       }
     }
 
-    inline bool try_consume__token (string_type const & tk) throw ()
+    inline bool try_consume__token (string_type const & tk) noexcept
     {
       auto tsz = tk.size ();
 
@@ -353,9 +387,9 @@ namespace cpp_json { namespace parser
       }
     }
 
-    static constexpr double pow10 (double d) throw ()
+    static constexpr double pow10 (int i) throw ()
     {
-      return std::pow (10.0, d);
+      return pow10table.pow10 (i);
     }
 
     bool try_parse__fraction (double & r)
@@ -366,8 +400,7 @@ namespace cpp_json { namespace parser
         auto uf = 0.0;
         if (try_parse__uint (uf))
         {
-          // TODO: table optimize
-          r = uf * pow10 (static_cast<double> (scurrent - current));
+          r = uf * pow10 (static_cast<int> (scurrent - current));
           return true;
         }
         else
@@ -739,6 +772,9 @@ namespace cpp_json { namespace parser
         ;
     }
   };
+
+  template<typename TContext>
+  json_pow10table json_parser<TContext>::pow10table;
 
   template<typename TContext>
   json_tokens<typename TContext::string_type> json_parser<TContext>::tokens;
