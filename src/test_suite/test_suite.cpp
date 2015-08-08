@@ -27,9 +27,58 @@
 #include <fstream>
 #include <sstream>
 
+#define TEST_EQ(expected, actual) test_eq (__FILE__, __LINE__, expected, #expected, actual, #actual)
+
 namespace
 {
   std::uint32_t errors = 0;
+  std::wstring_convert<std::codecvt_utf8<wchar_t>> utf8_converter;
+
+  std::string to_utf8 (std::wstring const & s)
+  {
+    return utf8_converter.to_bytes(s);
+  }
+
+  template<typename TExpected, typename TActual>
+  bool test_eq (
+      char const *  file_name
+    , int           line_no
+    , TExpected &&  expected
+    , const char *  sexpected
+    , TActual &&    actual
+    , const char *  sactual
+    )
+  {
+    CPP_JSON__ASSERT (file_name);
+    CPP_JSON__ASSERT (sexpected);
+    CPP_JSON__ASSERT (sactual);
+
+    if (expected == actual)
+    {
+      return true;
+    }
+    else
+    {
+      ++errors;
+      std::cout
+        << file_name
+        << "("
+        << line_no
+        << "): EQ - "
+        << sexpected
+        << "{"
+        << std::forward<TExpected> (expected)
+        << "} == "
+        << sactual
+        << "{"
+        << std::forward<TActual> (actual)
+        << "}"
+        << std::endl
+        ;
+
+      return false;
+    }
+  }
 
   struct result_json_context
   {
@@ -405,6 +454,8 @@ namespace
 
   void manual_test_cases ()
   {
+    std::cout << "Running 'manual_test_cases'..." << std::endl;
+
     using namespace cpp_json::document;
 
     std::vector<string_type> test_cases =
@@ -448,6 +499,58 @@ namespace
     }
   }
 
+  void document_test_cases ()
+  {
+    std::wcout << "Running 'document_test_cases'..." << std::endl;
+
+    using namespace cpp_json::document;
+
+    //                               0    1   2    3      4    5     6           7  8  9
+    string_type json_document = LR"([null,125,1.25,"Test",true,false,[true,null],[],{},{"x":true}])";
+
+    std::size_t       pos   ;
+    json_element::ptr result;
+
+    if (parse (json_document, pos, result))
+    {
+      CPP_JSON__ASSERT (result);
+
+      TEST_EQ (false  , result->is_scalar ());
+      TEST_EQ (false  , result->is_error ());
+      TEST_EQ (10     , result->size ());
+
+      TEST_EQ (true   , result->at (10)->is_error ());
+
+      TEST_EQ (true   , result->at (0)->is_null ());
+
+      TEST_EQ (125    , result->at (1)->as_number ());
+      TEST_EQ ("125"  , to_utf8 (result->at (1)->as_string ()));
+
+      TEST_EQ (1.25   , result->at (2)->as_number ());
+      TEST_EQ ("1.25" , to_utf8 (result->at (2)->as_string ()));
+
+      TEST_EQ ("Test"  , to_utf8 (result->at (3)->as_string ()));
+
+      TEST_EQ (true   , result->at (4)->as_bool ());
+
+      TEST_EQ (false  , result->at (5)->as_bool ());
+
+      TEST_EQ (2      , result->at (6)->size ());
+
+      TEST_EQ (0      , result->at (7)->size ());
+
+      TEST_EQ (0      , result->at (8)->size ());
+
+      TEST_EQ (1      , result->at (9)->size ());
+    }
+    else
+    {
+      ++errors;
+      std::cout
+        << "FAILURE: Pos: " << pos << std::endl;
+    }
+  }
+
 }
 
 int main (int /*argc*/, char const * * argvs)
@@ -459,9 +562,10 @@ int main (int /*argc*/, char const * * argvs)
     auto exe = argvs[0];
     CPP_JSON__ASSERT (exe);
 
-//    generate_test_results (exe);
+    generate_test_results (exe);
     process_test_cases (exe);
-//    manual_test_cases ();
+    manual_test_cases ();
+    document_test_cases ();
 
     if (errors > 0)
     {

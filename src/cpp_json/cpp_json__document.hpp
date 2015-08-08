@@ -75,7 +75,7 @@ namespace cpp_json { namespace document
     virtual strings_type  names     () const                          = 0;
 
     virtual bool          is_error  () const                          = 0;
-    virtual bool          has_value () const                          = 0;
+    virtual bool          is_scalar () const                          = 0;
 
     virtual bool          is_null   () const                          = 0;
     virtual bool          as_bool   () const                          = 0;
@@ -94,12 +94,12 @@ namespace cpp_json { namespace document
       return 0;
     }
 
-    ptr at (std::size_t idx) const override
+    ptr at (std::size_t /*idx*/) const override
     {
       return std::make_shared<json_element__error> ();
     }
 
-    ptr get (string_type const & name) const  override
+    ptr get (string_type const & /*name*/) const  override
     {
       return std::make_shared<json_element__error> ();
     }
@@ -113,7 +113,7 @@ namespace cpp_json { namespace document
       return true;
     }
 
-    bool has_value () const override
+    bool is_scalar () const override
     {
       return false;
     }
@@ -149,12 +149,12 @@ namespace cpp_json { namespace document
       return 0;
     }
 
-    ptr at (std::size_t idx) const override
+    ptr at (std::size_t /*idx*/) const override
     {
       return std::make_shared<json_element__error> ();
     }
 
-    ptr get (string_type const & name) const  override
+    ptr get (string_type const & /*name*/) const  override
     {
       return std::make_shared<json_element__error> ();
     }
@@ -168,7 +168,7 @@ namespace cpp_json { namespace document
       return false;
     }
 
-    bool has_value () const override
+    bool is_scalar () const override
     {
       return true;
     }
@@ -261,7 +261,11 @@ namespace cpp_json { namespace document
     }
     string_type as_string () const override
     {
-      return std::to_wstring (value);
+      constexpr auto bsz = 64U;
+      wchar_t buffer[bsz];
+      std::swprintf (buffer, bsz, L"%G", value);
+
+      return buffer;
     }
 
     void apply (json_element_visitor & v) override
@@ -322,7 +326,7 @@ namespace cpp_json { namespace document
       }
     }
 
-    ptr get (string_type const & name) const  override
+    ptr get (string_type const & /*name*/) const  override
     {
       return std::make_shared<json_element__error> ();
     }
@@ -336,7 +340,7 @@ namespace cpp_json { namespace document
       return false;
     }
 
-    bool has_value () const override
+    bool is_scalar () const override
     {
       return false;
     }
@@ -417,7 +421,7 @@ namespace cpp_json { namespace document
       return false;
     }
 
-    bool has_value () const override
+    bool is_scalar () const override
     {
       return false;
     }
