@@ -1180,8 +1180,8 @@ namespace cpp_json { namespace document
         }
       };
 
-      append (L"EXPECTED: "   , expected);
-      append (L"UNEXPECTED: " , unexpected);
+      append (L"Expected: "   , expected);
+      append (L"Unexpected: " , unexpected);
 
       error = std::move (msg);
 

@@ -143,7 +143,7 @@ namespace cpp_json { namespace parser
   //    // Gets cached string
   //    string_type const & get_string ();
   //
-  //    The following methods are invoked when JSON values are discovered
+  //    // The following methods are invoked when JSON values are discovered
   //
   //    bool array_begin ();
   //    bool array_end ();

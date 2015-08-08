@@ -470,6 +470,7 @@ namespace
         LR"(["\u004Abc"])"                                                                  ,
         LR"({:null})"                                                                       ,
         LR"([)"                                                                             ,
+        LR"({"abc":})"                                                                      ,
         LR"(
 {
   "x":null,
