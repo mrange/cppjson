@@ -1,0 +1,6 @@
+TestCase         : PositiveTestCase_17.json
+Array            : begin
+BoolValue        : false
+Array            : end
+ParsePosition    : 8
+ParseResult      : true

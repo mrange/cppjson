@@ -1,0 +1,7 @@
+TestCase         : PositiveTestCase_30.json
+Array            : begin
+BoolValue        : false
+BoolValue        : true
+Array            : end
+ParsePosition    : 18
+ParseResult      : true

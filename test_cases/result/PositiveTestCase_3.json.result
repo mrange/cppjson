@@ -1,0 +1,9 @@
+TestCase         : PositiveTestCase_3.json
+Array            : begin
+ExpectedToken    : 7, digit
+ExpectedChar     : 7, e
+ExpectedChar     : 7, E
+NumberValue      : -0.125
+Array            : end
+ParsePosition    : 9
+ParseResult      : true

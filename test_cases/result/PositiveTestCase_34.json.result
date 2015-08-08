@@ -1,0 +1,12 @@
+TestCase         : PositiveTestCase_34.json
+Array            : begin
+ExpectedChar     : 2, 0
+ExpectedToken    : 3, digit
+ExpectedChar     : 3, .
+ExpectedChar     : 4, +
+ExpectedChar     : 4, -
+ExpectedToken    : 7, digit
+NumberValue      : -inf
+Array            : end
+ParsePosition    : 9
+ParseResult      : true

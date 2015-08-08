@@ -1,0 +1,6 @@
+TestCase         : NegativeTestCase_35.json
+Array            : begin
+Array            : end
+ExpectedToken    : 3, EOS
+ParsePosition    : 3
+ParseResult      : false

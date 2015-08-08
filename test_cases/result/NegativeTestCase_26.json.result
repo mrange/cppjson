@@ -1,0 +1,13 @@
+TestCase         : NegativeTestCase_26.json
+Object           : begin
+MemberKey        : abc
+ExpectedToken    : 7, null
+ExpectedToken    : 7, true
+ExpectedToken    : 7, false
+ExpectedToken    : 7, digit
+ExpectedChar     : 7, "
+ExpectedChar     : 7, {
+ExpectedChar     : 7, [
+ExpectedChar     : 7, -
+ParsePosition    : 7
+ParseResult      : false

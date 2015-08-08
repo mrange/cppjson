@@ -1,0 +1,1201 @@
+TestCase         : WorldBank.json
+Array            : begin
+Object           : begin
+MemberKey        : page
+ExpectedChar     : 24, -
+ExpectedChar     : 24, 0
+ExpectedToken    : 25, digit
+ExpectedChar     : 25, .
+ExpectedChar     : 25, e
+ExpectedChar     : 25, E
+NumberValue      : 1
+MemberKey        : pages
+ExpectedChar     : 44, -
+ExpectedChar     : 44, 0
+ExpectedToken    : 45, digit
+ExpectedChar     : 45, .
+ExpectedChar     : 45, e
+ExpectedChar     : 45, E
+NumberValue      : 1
+MemberKey        : per_page
+StringValue      : 1000
+MemberKey        : total
+ExpectedChar     : 92, -
+ExpectedChar     : 92, 0
+ExpectedToken    : 94, digit
+ExpectedChar     : 94, .
+ExpectedChar     : 94, e
+ExpectedChar     : 94, E
+NumberValue      : 53
+Object           : end
+Array            : begin
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 2012
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 2011
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+StringValue      : 35.1422970266502
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 2010
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+StringValue      : 31.034880222506
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 2009
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+StringValue      : 25.475163645463
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 2008
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+StringValue      : 24.1933198328061
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 2007
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+StringValue      : 23.7080545570765
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 2006
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+StringValue      : 22.0334615295746
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 2005
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+StringValue      : 20.1083787500358
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 2004
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+StringValue      : 18.2677252058791
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 2003
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+StringValue      : 15.4255646477354
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 2002
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+StringValue      : 14.8744342075761
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 2001
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+StringValue      : 13.2188686145055
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 2000
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+StringValue      : 11.3566955774787
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1999
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+StringValue      : 10.1787800927734
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1998
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+StringValue      : 10.1535658732129
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1997
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+StringValue      : 10.5203014347956
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1996
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+StringValue      : 12.7078339884043
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1995
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+StringValue      : 14.7818078232509
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1994
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+StringValue      : 16.6567773464055
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1993
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1992
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1991
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1990
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1989
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1988
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1987
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1986
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1985
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1984
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1983
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1982
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1981
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1980
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1979
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1978
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1977
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1976
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1975
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1974
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1973
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1972
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1971
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1970
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1969
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1968
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1967
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1966
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1965
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1964
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1963
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1962
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1961
+Object           : end
+Object           : begin
+MemberKey        : indicator
+Object           : begin
+MemberKey        : id
+StringValue      : GC.DOD.TOTL.GD.ZS
+MemberKey        : value
+StringValue      : Central government debt, total (% of GDP)
+Object           : end
+MemberKey        : country
+Object           : begin
+MemberKey        : id
+StringValue      : CZ
+MemberKey        : value
+StringValue      : Czech Republic
+Object           : end
+MemberKey        : value
+NullValue        : null
+MemberKey        : decimal
+StringValue      : 1
+MemberKey        : date
+StringValue      : 1960
+Object           : end
+Array            : end
+Array            : end
+ParsePosition    : 19816
+ParseResult      : true

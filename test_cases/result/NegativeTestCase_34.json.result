@@ -1,0 +1,6 @@
+TestCase         : NegativeTestCase_34.json
+ExpectedChar     : 0, {
+ExpectedChar     : 0, [
+UnexpectedToken  : 0, EOS
+ParsePosition    : 0
+ParseResult      : false

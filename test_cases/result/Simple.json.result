@@ -1,0 +1,19 @@
+TestCase         : Simple.json
+Object           : begin
+MemberKey        : firstName
+StringValue      : John
+MemberKey        : lastName
+StringValue      : Doe
+MemberKey        : age
+ExpectedChar     : 55, -
+ExpectedChar     : 55, 0
+ExpectedToken    : 57, digit
+ExpectedChar     : 57, .
+ExpectedChar     : 57, e
+ExpectedChar     : 57, E
+NumberValue      : 25
+MemberKey        : isCool
+BoolValue        : true
+Object           : end
+ParsePosition    : 78
+ParseResult      : true

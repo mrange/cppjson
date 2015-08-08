@@ -1,0 +1,27 @@
+TestCase         : projects.json
+Object           : begin
+MemberKey        : ordercontainer
+Object           : begin
+MemberKey        : backgrounds
+Object           : begin
+MemberKey        : background
+Object           : begin
+MemberKey        : title
+Object           : begin
+MemberKey        : text
+StringValue      : purple stars
+Object           : end
+Object           : end
+Object           : end
+MemberKey        : project
+Object           : begin
+MemberKey        : title
+Object           : begin
+MemberKey        : text
+StringValue      : Avery
+Object           : end
+Object           : end
+Object           : end
+Object           : end
+ParsePosition    : 168
+ParseResult      : true

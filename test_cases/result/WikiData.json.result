@@ -1,0 +1,28 @@
+TestCase         : WikiData.json
+Object           : begin
+MemberKey        : firstName
+StringValue      : John
+MemberKey        : lastName
+StringValue      : Doe
+MemberKey        : age
+ExpectedChar     : 68, -
+ExpectedChar     : 68, 0
+ExpectedToken    : 70, digit
+ExpectedChar     : 70, .
+ExpectedChar     : 70, e
+ExpectedChar     : 70, E
+NumberValue      : 42
+MemberKey        : address
+Object           : begin
+MemberKey        : streetAddress
+StringValue      : 21 2nd Street
+MemberKey        : city
+StringValue      : New York
+MemberKey        : state
+StringValue      : NY
+MemberKey        : postalCode
+StringValue      : 10021
+Object           : end
+Object           : end
+ParsePosition    : 246
+ParseResult      : true

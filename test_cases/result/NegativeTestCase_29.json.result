@@ -1,0 +1,13 @@
+TestCase         : NegativeTestCase_29.json
+Array            : begin
+ExpectedChar     : 96, "
+ExpectedChar     : 96, \
+ExpectedChar     : 96, /
+ExpectedChar     : 96, b
+ExpectedChar     : 96, f
+ExpectedChar     : 96, n
+ExpectedChar     : 96, r
+ExpectedChar     : 96, t
+ExpectedChar     : 96, u
+ParsePosition    : 96
+ParseResult      : false

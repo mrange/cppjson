@@ -1,0 +1,12 @@
+TestCase         : NegativeTestCase_32.json
+Array            : begin
+ExpectedToken    : 1, null
+ExpectedToken    : 1, true
+ExpectedToken    : 1, false
+ExpectedToken    : 1, digit
+ExpectedChar     : 1, "
+ExpectedChar     : 1, {
+ExpectedChar     : 1, [
+ExpectedChar     : 1, -
+ParsePosition    : 1
+ParseResult      : false

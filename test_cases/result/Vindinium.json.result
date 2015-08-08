@@ -1,0 +1,469 @@
+TestCase         : Vindinium.json
+Object           : begin
+MemberKey        : game
+Object           : begin
+MemberKey        : id
+StringValue      : s2xh3aig
+MemberKey        : turn
+ExpectedChar     : 50, -
+ExpectedChar     : 50, 0
+ExpectedToken    : 54, digit
+ExpectedChar     : 54, .
+ExpectedChar     : 54, e
+ExpectedChar     : 54, E
+NumberValue      : 1100
+MemberKey        : maxTurns
+ExpectedChar     : 73, -
+ExpectedChar     : 73, 0
+ExpectedToken    : 77, digit
+ExpectedChar     : 77, .
+ExpectedChar     : 77, e
+ExpectedChar     : 77, E
+NumberValue      : 1200
+MemberKey        : heroes
+Array            : begin
+Object           : begin
+MemberKey        : id
+ExpectedChar     : 124, -
+ExpectedChar     : 124, 0
+ExpectedToken    : 125, digit
+ExpectedChar     : 125, .
+ExpectedChar     : 125, e
+ExpectedChar     : 125, E
+NumberValue      : 1
+MemberKey        : name
+StringValue      : vjousse
+MemberKey        : userId
+StringValue      : j07ws669
+MemberKey        : elo
+ExpectedChar     : 208, -
+ExpectedChar     : 208, 0
+ExpectedToken    : 212, digit
+ExpectedChar     : 212, .
+ExpectedChar     : 212, e
+ExpectedChar     : 212, E
+NumberValue      : 1200
+MemberKey        : pos
+Object           : begin
+MemberKey        : x
+ExpectedChar     : 253, -
+ExpectedChar     : 253, 0
+ExpectedToken    : 254, digit
+ExpectedChar     : 254, .
+ExpectedChar     : 254, e
+ExpectedChar     : 254, E
+NumberValue      : 5
+MemberKey        : y
+ExpectedChar     : 275, -
+ExpectedChar     : 275, 0
+ExpectedToken    : 276, digit
+ExpectedChar     : 276, .
+ExpectedChar     : 276, e
+ExpectedChar     : 276, E
+NumberValue      : 6
+Object           : end
+MemberKey        : life
+ExpectedChar     : 311, -
+ExpectedChar     : 311, 0
+ExpectedToken    : 313, digit
+ExpectedChar     : 313, .
+ExpectedChar     : 313, e
+ExpectedChar     : 313, E
+NumberValue      : 60
+MemberKey        : gold
+ExpectedChar     : 334, -
+ExpectedChar     : 335, .
+ExpectedChar     : 335, e
+ExpectedChar     : 335, E
+NumberValue      : 0
+MemberKey        : mineCount
+ExpectedChar     : 361, -
+ExpectedChar     : 362, .
+ExpectedChar     : 362, e
+ExpectedChar     : 362, E
+NumberValue      : 0
+MemberKey        : spawnPos
+Object           : begin
+MemberKey        : x
+ExpectedChar     : 408, -
+ExpectedChar     : 408, 0
+ExpectedToken    : 409, digit
+ExpectedChar     : 409, .
+ExpectedChar     : 409, e
+ExpectedChar     : 409, E
+NumberValue      : 5
+MemberKey        : y
+ExpectedChar     : 430, -
+ExpectedChar     : 430, 0
+ExpectedToken    : 431, digit
+ExpectedChar     : 431, .
+ExpectedChar     : 431, e
+ExpectedChar     : 431, E
+NumberValue      : 6
+Object           : end
+MemberKey        : crashed
+BoolValue        : true
+Object           : end
+Object           : begin
+MemberKey        : id
+ExpectedChar     : 514, -
+ExpectedChar     : 514, 0
+ExpectedToken    : 515, digit
+ExpectedChar     : 515, .
+ExpectedChar     : 515, e
+ExpectedChar     : 515, E
+NumberValue      : 2
+MemberKey        : name
+StringValue      : vjousse
+MemberKey        : userId
+StringValue      : j07ws669
+MemberKey        : elo
+ExpectedChar     : 598, -
+ExpectedChar     : 598, 0
+ExpectedToken    : 602, digit
+ExpectedChar     : 602, .
+ExpectedChar     : 602, e
+ExpectedChar     : 602, E
+NumberValue      : 1200
+MemberKey        : pos
+Object           : begin
+MemberKey        : x
+ExpectedChar     : 643, -
+ExpectedChar     : 643, 0
+ExpectedToken    : 645, digit
+ExpectedChar     : 645, .
+ExpectedChar     : 645, e
+ExpectedChar     : 645, E
+NumberValue      : 12
+MemberKey        : y
+ExpectedChar     : 666, -
+ExpectedChar     : 666, 0
+ExpectedToken    : 667, digit
+ExpectedChar     : 667, .
+ExpectedChar     : 667, e
+ExpectedChar     : 667, E
+NumberValue      : 6
+Object           : end
+MemberKey        : life
+ExpectedChar     : 702, -
+ExpectedChar     : 702, 0
+ExpectedToken    : 705, digit
+ExpectedChar     : 705, .
+ExpectedChar     : 705, e
+ExpectedChar     : 705, E
+NumberValue      : 100
+MemberKey        : gold
+ExpectedChar     : 726, -
+ExpectedChar     : 727, .
+ExpectedChar     : 727, e
+ExpectedChar     : 727, E
+NumberValue      : 0
+MemberKey        : mineCount
+ExpectedChar     : 753, -
+ExpectedChar     : 754, .
+ExpectedChar     : 754, e
+ExpectedChar     : 754, E
+NumberValue      : 0
+MemberKey        : spawnPos
+Object           : begin
+MemberKey        : x
+ExpectedChar     : 800, -
+ExpectedChar     : 800, 0
+ExpectedToken    : 802, digit
+ExpectedChar     : 802, .
+ExpectedChar     : 802, e
+ExpectedChar     : 802, E
+NumberValue      : 12
+MemberKey        : y
+ExpectedChar     : 823, -
+ExpectedChar     : 823, 0
+ExpectedToken    : 824, digit
+ExpectedChar     : 824, .
+ExpectedChar     : 824, e
+ExpectedChar     : 824, E
+NumberValue      : 6
+Object           : end
+MemberKey        : crashed
+BoolValue        : true
+Object           : end
+Object           : begin
+MemberKey        : id
+ExpectedChar     : 907, -
+ExpectedChar     : 907, 0
+ExpectedToken    : 908, digit
+ExpectedChar     : 908, .
+ExpectedChar     : 908, e
+ExpectedChar     : 908, E
+NumberValue      : 3
+MemberKey        : name
+StringValue      : vjousse
+MemberKey        : userId
+StringValue      : j07ws669
+MemberKey        : elo
+ExpectedChar     : 991, -
+ExpectedChar     : 991, 0
+ExpectedToken    : 995, digit
+ExpectedChar     : 995, .
+ExpectedChar     : 995, e
+ExpectedChar     : 995, E
+NumberValue      : 1200
+MemberKey        : pos
+Object           : begin
+MemberKey        : x
+ExpectedChar     : 1036, -
+ExpectedChar     : 1036, 0
+ExpectedToken    : 1038, digit
+ExpectedChar     : 1038, .
+ExpectedChar     : 1038, e
+ExpectedChar     : 1038, E
+NumberValue      : 12
+MemberKey        : y
+ExpectedChar     : 1059, -
+ExpectedChar     : 1059, 0
+ExpectedToken    : 1061, digit
+ExpectedChar     : 1061, .
+ExpectedChar     : 1061, e
+ExpectedChar     : 1061, E
+NumberValue      : 11
+Object           : end
+MemberKey        : life
+ExpectedChar     : 1096, -
+ExpectedChar     : 1096, 0
+ExpectedToken    : 1098, digit
+ExpectedChar     : 1098, .
+ExpectedChar     : 1098, e
+ExpectedChar     : 1098, E
+NumberValue      : 80
+MemberKey        : gold
+ExpectedChar     : 1119, -
+ExpectedChar     : 1120, .
+ExpectedChar     : 1120, e
+ExpectedChar     : 1120, E
+NumberValue      : 0
+MemberKey        : mineCount
+ExpectedChar     : 1146, -
+ExpectedChar     : 1147, .
+ExpectedChar     : 1147, e
+ExpectedChar     : 1147, E
+NumberValue      : 0
+MemberKey        : spawnPos
+Object           : begin
+MemberKey        : x
+ExpectedChar     : 1193, -
+ExpectedChar     : 1193, 0
+ExpectedToken    : 1195, digit
+ExpectedChar     : 1195, .
+ExpectedChar     : 1195, e
+ExpectedChar     : 1195, E
+NumberValue      : 12
+MemberKey        : y
+ExpectedChar     : 1216, -
+ExpectedChar     : 1216, 0
+ExpectedToken    : 1218, digit
+ExpectedChar     : 1218, .
+ExpectedChar     : 1218, e
+ExpectedChar     : 1218, E
+NumberValue      : 11
+Object           : end
+MemberKey        : crashed
+BoolValue        : true
+Object           : end
+Object           : begin
+MemberKey        : id
+ExpectedChar     : 1301, -
+ExpectedChar     : 1301, 0
+ExpectedToken    : 1302, digit
+ExpectedChar     : 1302, .
+ExpectedChar     : 1302, e
+ExpectedChar     : 1302, E
+NumberValue      : 4
+MemberKey        : name
+StringValue      : vjousse
+MemberKey        : userId
+StringValue      : j07ws669
+MemberKey        : elo
+ExpectedChar     : 1385, -
+ExpectedChar     : 1385, 0
+ExpectedToken    : 1389, digit
+ExpectedChar     : 1389, .
+ExpectedChar     : 1389, e
+ExpectedChar     : 1389, E
+NumberValue      : 1200
+MemberKey        : pos
+Object           : begin
+MemberKey        : x
+ExpectedChar     : 1430, -
+ExpectedChar     : 1430, 0
+ExpectedToken    : 1431, digit
+ExpectedChar     : 1431, .
+ExpectedChar     : 1431, e
+ExpectedChar     : 1431, E
+NumberValue      : 4
+MemberKey        : y
+ExpectedChar     : 1452, -
+ExpectedChar     : 1452, 0
+ExpectedToken    : 1453, digit
+ExpectedChar     : 1453, .
+ExpectedChar     : 1453, e
+ExpectedChar     : 1453, E
+NumberValue      : 8
+Object           : end
+MemberKey        : life
+ExpectedChar     : 1488, -
+ExpectedChar     : 1488, 0
+ExpectedToken    : 1490, digit
+ExpectedChar     : 1490, .
+ExpectedChar     : 1490, e
+ExpectedChar     : 1490, E
+NumberValue      : 38
+MemberKey        : gold
+ExpectedChar     : 1511, -
+ExpectedChar     : 1511, 0
+ExpectedToken    : 1515, digit
+ExpectedChar     : 1515, .
+ExpectedChar     : 1515, e
+ExpectedChar     : 1515, E
+NumberValue      : 1078
+MemberKey        : mineCount
+ExpectedChar     : 1541, -
+ExpectedChar     : 1541, 0
+ExpectedToken    : 1542, digit
+ExpectedChar     : 1542, .
+ExpectedChar     : 1542, e
+ExpectedChar     : 1542, E
+NumberValue      : 6
+MemberKey        : spawnPos
+Object           : begin
+MemberKey        : x
+ExpectedChar     : 1588, -
+ExpectedChar     : 1588, 0
+ExpectedToken    : 1589, digit
+ExpectedChar     : 1589, .
+ExpectedChar     : 1589, e
+ExpectedChar     : 1589, E
+NumberValue      : 5
+MemberKey        : y
+ExpectedChar     : 1610, -
+ExpectedChar     : 1610, 0
+ExpectedToken    : 1612, digit
+ExpectedChar     : 1612, .
+ExpectedChar     : 1612, e
+ExpectedChar     : 1612, E
+NumberValue      : 11
+Object           : end
+MemberKey        : crashed
+BoolValue        : false
+Object           : end
+Array            : end
+MemberKey        : board
+Object           : begin
+MemberKey        : size
+ExpectedChar     : 1708, -
+ExpectedChar     : 1708, 0
+ExpectedToken    : 1710, digit
+ExpectedChar     : 1710, .
+ExpectedChar     : 1710, e
+ExpectedChar     : 1710, E
+NumberValue      : 18
+MemberKey        : tiles
+StringValue      : ##############        ############################        ##############################    ##############################$4    $4############################  @4    ########################  @1##    ##    ####################  []        []  ##################        ####        ####################  $4####$4  ########################  $4####$4  ####################        ####        ##################  []        []  ####################  @2##    ##@3  ########################        ############################$-    $-##############################    ##############################        ############################        ##############
+Object           : end
+MemberKey        : finished
+BoolValue        : true
+Object           : end
+MemberKey        : hero
+Object           : begin
+MemberKey        : id
+ExpectedChar     : 2440, -
+ExpectedChar     : 2440, 0
+ExpectedToken    : 2441, digit
+ExpectedChar     : 2441, .
+ExpectedChar     : 2441, e
+ExpectedChar     : 2441, E
+NumberValue      : 4
+MemberKey        : name
+StringValue      : vjousse
+MemberKey        : userId
+StringValue      : j07ws669
+MemberKey        : elo
+ExpectedChar     : 2506, -
+ExpectedChar     : 2506, 0
+ExpectedToken    : 2510, digit
+ExpectedChar     : 2510, .
+ExpectedChar     : 2510, e
+ExpectedChar     : 2510, E
+NumberValue      : 1200
+MemberKey        : pos
+Object           : begin
+MemberKey        : x
+ExpectedChar     : 2539, -
+ExpectedChar     : 2539, 0
+ExpectedToken    : 2540, digit
+ExpectedChar     : 2540, .
+ExpectedChar     : 2540, e
+ExpectedChar     : 2540, E
+NumberValue      : 4
+MemberKey        : y
+ExpectedChar     : 2555, -
+ExpectedChar     : 2555, 0
+ExpectedToken    : 2556, digit
+ExpectedChar     : 2556, .
+ExpectedChar     : 2556, e
+ExpectedChar     : 2556, E
+NumberValue      : 8
+Object           : end
+MemberKey        : life
+ExpectedChar     : 2579, -
+ExpectedChar     : 2579, 0
+ExpectedToken    : 2581, digit
+ExpectedChar     : 2581, .
+ExpectedChar     : 2581, e
+ExpectedChar     : 2581, E
+NumberValue      : 38
+MemberKey        : gold
+ExpectedChar     : 2596, -
+ExpectedChar     : 2596, 0
+ExpectedToken    : 2600, digit
+ExpectedChar     : 2600, .
+ExpectedChar     : 2600, e
+ExpectedChar     : 2600, E
+NumberValue      : 1078
+MemberKey        : mineCount
+ExpectedChar     : 2620, -
+ExpectedChar     : 2620, 0
+ExpectedToken    : 2621, digit
+ExpectedChar     : 2621, .
+ExpectedChar     : 2621, e
+ExpectedChar     : 2621, E
+NumberValue      : 6
+MemberKey        : spawnPos
+Object           : begin
+MemberKey        : x
+ExpectedChar     : 2655, -
+ExpectedChar     : 2655, 0
+ExpectedToken    : 2656, digit
+ExpectedChar     : 2656, .
+ExpectedChar     : 2656, e
+ExpectedChar     : 2656, E
+NumberValue      : 5
+MemberKey        : y
+ExpectedChar     : 2671, -
+ExpectedChar     : 2671, 0
+ExpectedToken    : 2673, digit
+ExpectedChar     : 2673, .
+ExpectedChar     : 2673, e
+ExpectedChar     : 2673, E
+NumberValue      : 11
+Object           : end
+MemberKey        : crashed
+BoolValue        : false
+Object           : end
+MemberKey        : token
+StringValue      : lte0
+MemberKey        : viewUrl
+StringValue      : http://localhost:9000/s2xh3aig
+MemberKey        : playUrl
+StringValue      : http://localhost:9000/api/s2xh3aig/lte0/play
+Object           : end
+ParsePosition    : 2839
+ParseResult      : true

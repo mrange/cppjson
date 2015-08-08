@@ -1,0 +1,5 @@
+TestCase         : NegativeTestCase_36.json
+Array            : begin
+UnexpectedToken  : 2, NEWLINE
+ParsePosition    : 2
+ParseResult      : false

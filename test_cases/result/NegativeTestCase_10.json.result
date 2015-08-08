@@ -1,0 +1,10 @@
+TestCase         : NegativeTestCase_10.json
+Array            : begin
+ExpectedChar     : 1, -
+ExpectedChar     : 2, .
+ExpectedChar     : 2, e
+ExpectedChar     : 2, E
+NumberValue      : 0
+ExpectedChar     : 2, ,
+ParsePosition    : 2
+ParseResult      : false

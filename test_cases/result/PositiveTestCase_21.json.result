@@ -1,0 +1,6 @@
+TestCase         : PositiveTestCase_21.json
+Array            : begin
+StringValue      : \u0123\u4567\u89ab\ucdef
+Array            : end
+ParsePosition    : 29
+ParseResult      : true
