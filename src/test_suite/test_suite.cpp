@@ -18,8 +18,10 @@
 
 #include "../cpp_json/cpp_json__document.hpp"
 
+#include <cstdint>
 #include <cstdio>
 #include <filesystem>
+#include <functional>
 #include <iomanip>
 #include <iostream>
 #include <fstream>
@@ -27,6 +29,8 @@
 
 namespace
 {
+  std::uint32_t errors = 0;
+
   struct result_json_context
   {
     using string_type         = std::string             ;
@@ -217,11 +221,32 @@ namespace
 
   };
 
-  void generate_test_results (char const * exe)
+  template<typename TChar>
+  std::basic_string<TChar> read_file (std::tr2::sys::path const & p)
+  {
+    std::basic_stringstream<TChar>  content         ;
+    std::basic_string<TChar>        line            ;
+    std::basic_ifstream<TChar>      input_stream (p);
+
+    while (std::getline (input_stream, line))
+    {
+      content << line << std::endl;
+    }
+
+    return content.str ();
+  }
+
+  using visit_test_case = std::function<
+    void (
+        std::string         const & file_name
+      , std::tr2::sys::path const & json_file_path
+      , std::tr2::sys::path const & result_file_path
+      )>;
+
+  void visit_all_test_cases (char const * exe, visit_test_case visit)
   {
     CPP_JSON__ASSERT (exe);
-
-    std::cout << "Running 'generate_test_results'..." << std::endl;
+    CPP_JSON__ASSERT (visit);
 
     using namespace std::tr2::sys     ;
 
@@ -271,46 +296,111 @@ namespace
         continue;
       }
 
+      auto file_name        = json_file_name.string ();
       auto result_file_path = result_path;
-      result_file_path.append (json_file_name.string () + ".result");
+      result_file_path.append (file_name + ".result");
 
-      std::cout << "Processing: " << json_file_name << std::endl;
-
-      using stringstream_type = result_json_context::stringstream_type;
-      using string_type       = result_json_context::string_type;
-
-      stringstream_type   json;
-      std::ifstream       json_stream (json_file_path);
-      string_type         json_line;
-
-      while (std::getline (json_stream, json_line))
-      {
-        json << json_line << std::endl;
-      }
-
-      auto json_document  = json.str ();
-      auto json_begin     = json_document.c_str ();
-      auto json_end       = json_begin + json_document.size ();
-
-      cpp_json::parser::json_parser<result_json_context> jp (json_begin, json_end);
-
-      jp.result
-        << "TestCase         : " << json_file_name.string () << std::endl;
-
-      auto presult  = jp.try_parse__json ();
-      auto ppos     = jp.pos ();
-
-      jp.result
-        << "ParsePosition    : " << ppos << std::endl
-        << "ParseResult      : " << (presult ? "true" : "false") << std::endl
-        ;
-
-      std::ofstream result_stream (result_file_path);
-
-      auto result = jp.result.str ();
-
-      result_stream << result;
+      visit (file_name, json_file_path, result_file_path);
     }
+  }
+
+  void generate_test_results (char const * exe)
+  {
+    std::cout << "Running 'generate_test_results'..." << std::endl;
+
+    using namespace std::tr2::sys     ;
+
+    visit_all_test_cases (
+        exe
+      , [] (
+          std::string const & file_name
+        , path        const & json_file_path
+        , path        const & result_file_path
+        )
+      {
+        std::cout << "Processing: " << file_name << std::endl;
+
+        using stringstream_type = result_json_context::stringstream_type;
+        using string_type       = result_json_context::string_type;
+
+        auto json_document  = read_file<string_type::value_type> (json_file_path);
+
+        auto json_begin     = json_document.c_str ();
+        auto json_end       = json_begin + json_document.size ();
+
+        cpp_json::parser::json_parser<result_json_context> jp (json_begin, json_end);
+
+        jp.result
+          << "TestCase         : " << file_name << std::endl;
+
+        auto presult  = jp.try_parse__json ();
+        auto ppos     = jp.pos ();
+
+        jp.result
+          << "ParsePosition    : " << ppos << std::endl
+          << "ParseResult      : " << (presult ? "true" : "false") << std::endl
+          ;
+
+        std::ofstream result_stream (result_file_path);
+
+        auto result = jp.result.str ();
+
+        result_stream << result;
+      });
+  }
+
+  void process_test_cases (char const * exe)
+  {
+    std::cout << "Running 'process_test_cases'..." << std::endl;
+
+    using namespace cpp_json::document;
+    using namespace std::tr2::sys     ;
+
+    visit_all_test_cases (
+        exe
+      , [] (
+          std::string const & file_name
+        , path        const & json_file_path
+        , path        const & result_file_path
+        )
+      {
+        std::cout << "Processing: " << file_name << std::endl;
+
+        std::size_t       pos   ;
+        json_element::ptr result;
+
+        auto json_document  = read_file<string_type::value_type> (json_file_path);
+
+        if (parse (json_document, pos, result))
+        {
+          auto serialized = to_string (result);
+
+          std::size_t       ipos    ;
+          json_element::ptr iresult ;
+
+          if (parse (serialized, ipos, iresult))
+          {
+            auto iserialized = to_string (iresult);
+
+            if (iserialized != serialized)
+            {
+              ++errors;
+              std::cout
+                << "FAILURE: Serialized documents don't match" << std::endl;
+            }
+          }
+          else
+          {
+            ++errors;
+            std::cout
+              << "FAILURE: Failed to parse serialized json document" << std::endl;
+          }
+        }
+        else
+        {
+          // Failure cases are ignored
+        }
+      });
   }
 
   void manual_test_cases ()
@@ -351,6 +441,7 @@ namespace
       }
       else
       {
+        ++errors;
         std::wcout
           << L"FAILURE: Pos: " << pos << L" Error: " << error << std::endl;
       }
@@ -365,12 +456,23 @@ int main (int /*argc*/, char const * * argvs)
   {
     std::cout << "Starting test_suite..." << std::endl;
 
-    generate_test_results (argvs[0]);
-    manual_test_cases ();
+    auto exe = argvs[0];
+    CPP_JSON__ASSERT (exe);
 
-    std::cout << "Done" << std::endl;
+//    generate_test_results (exe);
+    process_test_cases (exe);
+//    manual_test_cases ();
 
-    return 0;
+    if (errors > 0)
+    {
+      std::cout << errors << " errors detected" << std::endl;
+      return 997;
+    }
+    else
+    {
+      std::cout << "No errors detected" << std::endl;
+      return 0;
+    }
   }
   catch (std::exception const & ex)
   {
