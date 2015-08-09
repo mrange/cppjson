@@ -410,7 +410,7 @@ namespace
       , [] (
           std::string const & file_name
         , path        const & json_file_path
-        , path        const & result_file_path
+        , path        const & /*result_file_path*/
         )
       {
         std::cout << "Processing: " << file_name << std::endl;

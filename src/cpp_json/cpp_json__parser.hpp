@@ -27,94 +27,96 @@
 
 namespace cpp_json { namespace parser
 {
-  template<typename char_type>
-  struct json_string_literal;
-
-  template<>
-  struct json_string_literal<char>
+  namespace details
   {
-    constexpr static auto pick (char const * s, wchar_t const * /*ws*/) noexcept
-    {
-      return s;
-    }
-  };
+    template<typename char_type>
+    struct json_string_literal;
 
-  template<>
-  struct json_string_literal<wchar_t>
-  {
-    constexpr static auto pick (char const * /*s*/, wchar_t const * ws) noexcept
+    template<>
+    struct json_string_literal<char>
     {
-      return ws;
-    }
-  };
-
-  struct json_pow10table
-  {
-    constexpr static int  min_power_10  = -322;
-    constexpr static int  max_power_10  = 307;
-    constexpr static int  table_size    = max_power_10 - min_power_10 + 1;
-
-    inline json_pow10table () noexcept
-    {
-      for (auto p = 0; p < table_size; ++p)
+      constexpr static auto pick (char const * s, wchar_t const * /*ws*/) noexcept
       {
-        pow10table[p] = std::pow (10.0, static_cast<double> (p + min_power_10));
+        return s;
       }
-    }
+    };
 
-    inline double pow10 (int i) noexcept
+    template<>
+    struct json_string_literal<wchar_t>
     {
-      if (i < min_power_10)
+      constexpr static auto pick (char const * /*s*/, wchar_t const * ws) noexcept
       {
-        return 0.0;
+        return ws;
       }
-      else if (i > max_power_10)
-      {
-        return INFINITY;
-      }
-      else
-      {
-        return pow10table[i - min_power_10];
-      }
-    }
+    };
 
-  private:
-    double                pow10table[table_size];
-  };
-
-  template<typename string_type>
-  struct json_tokens
-  {
-    using char_type = typename string_type::value_type;
-
-    json_tokens ()
-      : token__eos                  (CPP_JSON__PICK ("EOS"        ))
-      , token__null                 (CPP_JSON__PICK ("null"       ))
-      , token__false                (CPP_JSON__PICK ("false"      ))
-      , token__true                 (CPP_JSON__PICK ("true"       ))
-      , token__digit                (CPP_JSON__PICK ("digit"      ))
-      , token__hex_digit            (CPP_JSON__PICK ("hexdigit"   ))
-      , token__char                 (CPP_JSON__PICK ("char"       ))
-      , token__escapes              (CPP_JSON__PICK ("\"\\/bfnrtu"))
-      , token__new_line             (CPP_JSON__PICK ("NEWLINE"    ))
-      , token__root_value_preludes  (CPP_JSON__PICK ("{["         ))
-      , token__value_preludes       (CPP_JSON__PICK ("\"{[-"      ))
+    struct json_pow10table
     {
-    }
+      constexpr static int  min_power_10  = -322;
+      constexpr static int  max_power_10  = 307;
+      constexpr static int  table_size    = max_power_10 - min_power_10 + 1;
 
-    string_type const token__eos                ;
-    string_type const token__null               ;
-    string_type const token__false              ;
-    string_type const token__true               ;
-    string_type const token__digit              ;
-    string_type const token__hex_digit          ;
-    string_type const token__char               ;
-    string_type const token__escapes            ;
-    string_type const token__new_line           ;
-    string_type const token__root_value_preludes;
-    string_type const token__value_preludes     ;
-  };
+      inline json_pow10table () noexcept
+      {
+        for (auto p = 0; p < table_size; ++p)
+        {
+          pow10table[p] = std::pow (10.0, static_cast<double> (p + min_power_10));
+        }
+      }
 
+      inline double pow10 (int i) noexcept
+      {
+        if (i < min_power_10)
+        {
+          return 0.0;
+        }
+        else if (i > max_power_10)
+        {
+          return INFINITY;
+        }
+        else
+        {
+          return pow10table[i - min_power_10];
+        }
+      }
+
+    private:
+      double                pow10table[table_size];
+    };
+
+    template<typename string_type>
+    struct json_tokens
+    {
+      using char_type = typename string_type::value_type;
+
+      json_tokens ()
+        : token__eos                  (CPP_JSON__PICK ("EOS"        ))
+        , token__null                 (CPP_JSON__PICK ("null"       ))
+        , token__false                (CPP_JSON__PICK ("false"      ))
+        , token__true                 (CPP_JSON__PICK ("true"       ))
+        , token__digit                (CPP_JSON__PICK ("digit"      ))
+        , token__hex_digit            (CPP_JSON__PICK ("hexdigit"   ))
+        , token__char                 (CPP_JSON__PICK ("char"       ))
+        , token__escapes              (CPP_JSON__PICK ("\"\\/bfnrtu"))
+        , token__new_line             (CPP_JSON__PICK ("NEWLINE"    ))
+        , token__root_value_preludes  (CPP_JSON__PICK ("{["         ))
+        , token__value_preludes       (CPP_JSON__PICK ("\"{[-"      ))
+      {
+      }
+
+      string_type const token__eos                ;
+      string_type const token__null               ;
+      string_type const token__false              ;
+      string_type const token__true               ;
+      string_type const token__digit              ;
+      string_type const token__hex_digit          ;
+      string_type const token__char               ;
+      string_type const token__escapes            ;
+      string_type const token__new_line           ;
+      string_type const token__root_value_preludes;
+      string_type const token__value_preludes     ;
+    };
+  }
   // TContext must fulfill the following contract
   //  struct some_json_context
   //  {
@@ -169,19 +171,37 @@ namespace cpp_json { namespace parser
     using string_type     = typename context_type::string_type  ;
     using iter_type       = typename context_type::iter_type    ;
 
-    static json_tokens<string_type> tokens                      ;
-    static json_pow10table          pow10table                  ;
-
-    iter_type const begin                                       ;
-    iter_type const end                                         ;
-    iter_type       current                                     ;
-
     constexpr json_parser (iter_type begin, iter_type end) noexcept
       : begin   (begin)
       , end     (end)
       , current (begin)
     {
     }
+
+    // Gets current parser position
+    constexpr std::size_t pos () const noexcept
+    {
+      CPP_JSON__ASSERT (current >= begin);
+      return static_cast<std::size_t> (current - begin);
+    }
+
+    // Tries to parse input as JSON
+    bool try_parse__json ()
+    {
+      return
+            consume__white_space ()
+        &&  try_parse__root_value ()
+        &&  try_parse__eos ()
+        ;
+    }
+
+  private:
+    static details::json_tokens<string_type> tokens             ;
+    static details::json_pow10table          pow10table         ;
+
+    iter_type const begin                                       ;
+    iter_type const end                                         ;
+    iter_type       current                                     ;
 
     constexpr bool eos () const noexcept
     {
@@ -196,12 +216,6 @@ namespace cpp_json { namespace parser
     constexpr char_type ch () const noexcept
     {
       return *current;
-    }
-
-    constexpr std::size_t pos () const noexcept
-    {
-      CPP_JSON__ASSERT (current >= begin);
-      return static_cast<std::size_t> (current - begin);
     }
 
     inline void adv () noexcept
@@ -433,7 +447,7 @@ namespace cpp_json { namespace parser
       }
     }
 
-    static constexpr double pow10 (int i) throw ()
+    constexpr static double pow10 (int i) noexcept
     {
       return pow10table.pow10 (i);
     }
@@ -808,21 +822,12 @@ namespace cpp_json { namespace parser
         return false;
       }
     }
-
-    bool try_parse__json ()
-    {
-      return
-            consume__white_space ()
-        &&  try_parse__root_value ()
-        &&  try_parse__eos ()
-        ;
-    }
   };
 
   template<typename TContext>
-  json_pow10table json_parser<TContext>::pow10table;
+  details::json_pow10table json_parser<TContext>::pow10table;
 
   template<typename TContext>
-  json_tokens<typename TContext::string_type> json_parser<TContext>::tokens;
+  details::json_tokens<typename TContext::string_type> json_parser<TContext>::tokens;
 
 } }

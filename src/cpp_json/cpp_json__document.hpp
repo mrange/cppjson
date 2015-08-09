@@ -17,6 +17,7 @@
 #include <algorithm>
 #include <array>
 #include <cmath>
+#include <cwchar>
 #include <cstdio>
 #include <memory>
 #include <string>
@@ -33,14 +34,18 @@ namespace cpp_json { namespace document
   using char_type             = string_type::value_type ;
   using iter_type             = char_type const *       ;
 
-  struct json_element__null   ;
-  struct json_element__bool   ;
-  struct json_element__number ;
-  struct json_element__string ;
-  struct json_element__array  ;
-  struct json_element__object ;
-  struct json_element__error  ;
+  namespace details
+  {
+    struct json_element__null   ;
+    struct json_element__bool   ;
+    struct json_element__number ;
+    struct json_element__string ;
+    struct json_element__array  ;
+    struct json_element__object ;
+    struct json_element__error  ;
+  }
 
+  // Implement json_element_visitor to traverse the JSON DOM using 'apply' method
   struct json_element_visitor
   {
     using ptr = std::shared_ptr<json_element_visitor> ;
@@ -50,15 +55,16 @@ namespace cpp_json { namespace document
 
     CPP_JSON__NO_COPY_MOVE (json_element_visitor);
 
-    virtual void visit (json_element__null    & v) = 0;
-    virtual void visit (json_element__bool    & v) = 0;
-    virtual void visit (json_element__number  & v) = 0;
-    virtual void visit (json_element__string  & v) = 0;
-    virtual void visit (json_element__object  & v) = 0;
-    virtual void visit (json_element__array   & v) = 0;
-    virtual void visit (json_element__error   & v) = 0;
+    virtual bool visit (details::json_element__null    & v) = 0;
+    virtual bool visit (details::json_element__bool    & v) = 0;
+    virtual bool visit (details::json_element__number  & v) = 0;
+    virtual bool visit (details::json_element__string  & v) = 0;
+    virtual bool visit (details::json_element__object  & v) = 0;
+    virtual bool visit (details::json_element__array   & v) = 0;
+    virtual bool visit (details::json_element__error   & v) = 0;
   };
 
+  // The interface for JSON DOM elemnt
   struct json_element
   {
     using ptr = std::shared_ptr<json_element> ;
@@ -68,389 +74,423 @@ namespace cpp_json { namespace document
 
     CPP_JSON__NO_COPY_MOVE (json_element);
 
+    // Returns the number of children (object/array)
     virtual std::size_t   size      () const                          = 0;
+    // Returns the child at index (object/array)
+    //  if out of bounds returns an error DOM element
     virtual ptr           at        (std::size_t idx) const           = 0;
 
+    // Returns the child with name (object)
+    //  if not found returns an error DOM element
     virtual ptr           get       (string_type const & name) const  = 0;
+    // Returns all member names (object)
+    //  May contain duplicates, is in order
     virtual strings_type  names     () const                          = 0;
 
+    // Returns true if DOM element represents an error
     virtual bool          is_error  () const                          = 0;
+    // Returns true if DOM element represents an scalar
     virtual bool          is_scalar () const                          = 0;
 
+    // Returns true if DOM element represents a null value
     virtual bool          is_null   () const                          = 0;
+    // Converts the value to a boolean value
     virtual bool          as_bool   () const                          = 0;
+    // Converts the value to a double value
     virtual double        as_number () const                          = 0;
+    // Converts the value to a string value
     virtual string_type   as_string () const                          = 0;
 
-    virtual void          apply     (json_element_visitor & v)        = 0;
-  };
-
-  struct json_element__error : json_element
-  {
-    using tptr  = std::shared_ptr<json_element__error> ;
-
-    std::size_t size () const override
-    {
-      return 0;
-    }
-
-    ptr at (std::size_t /*idx*/) const override
-    {
-      return std::make_shared<json_element__error> ();
-    }
-
-    ptr get (string_type const & /*name*/) const  override
-    {
-      return std::make_shared<json_element__error> ();
-    }
-    strings_type names () const override
-    {
-      return strings_type ();
-    }
-
-    bool is_error () const override
-    {
-      return true;
-    }
-
-    bool is_scalar () const override
-    {
-      return false;
-    }
-
-    bool is_null () const override
-    {
-      return false;
-    }
-    bool as_bool () const override
-    {
-      return false;
-    }
-    double as_number () const override
-    {
-      return 0.0;
-    }
-    string_type as_string () const override
-    {
-      // TODO:
-      return L"";
-    }
-
-    void apply (json_element_visitor & v) override
-    {
-      v.visit (*this);
-    }
-  };
-
-  struct json_element__value : json_element
-  {
-    std::size_t size () const override
-    {
-      return 0;
-    }
-
-    ptr at (std::size_t /*idx*/) const override
-    {
-      return std::make_shared<json_element__error> ();
-    }
-
-    ptr get (string_type const & /*name*/) const  override
-    {
-      return std::make_shared<json_element__error> ();
-    }
-    strings_type names () const override
-    {
-      return strings_type ();
-    }
-
-    bool is_error () const override
-    {
-      return false;
-    }
-
-    bool is_scalar () const override
-    {
-      return true;
-    }
-  };
-
-  struct json_element__null : json_element__value
-  {
-    using tptr  = std::shared_ptr<json_element__null> ;
-
-
-    bool is_null () const override
-    {
-      return true;
-    }
-    bool as_bool () const override
-    {
-      return false;
-    }
-    double as_number () const override
-    {
-      return 0.0;
-    }
-    string_type as_string () const override
-    {
-      return L"null";
-    }
-
-    void apply (json_element_visitor & v) override
-    {
-      v.visit (*this);
-    }
-  };
-
-  struct json_element__bool : json_element__value
-  {
-    using tptr  = std::shared_ptr<json_element__bool> ;
-
-    bool value;
-
-    json_element__bool ()
-      : value (false)
-    {
-    }
-
-    bool is_null () const override
-    {
-      return false;
-    }
-    bool as_bool () const override
-    {
-      return value;
-    }
-    double as_number () const override
-    {
-      return value ? 1.0 : 0.0;
-    }
-    string_type as_string () const override
-    {
-      return value ? L"true" : L"false";
-    }
-
-    void apply (json_element_visitor & v) override
-    {
-      v.visit (*this);
-    }
-  };
-
-  struct json_element__number : json_element__value
-  {
-    using tptr  = std::shared_ptr<json_element__number> ;
-
-    double value;
-
-    json_element__number ()
-      : value (0.0)
-    {
-    }
-
-    bool is_null () const override
-    {
-      return false;
-    }
-    bool as_bool () const override
-    {
-      return value != 0.0;
-    }
-    double as_number () const override
-    {
-      return value;
-    }
-    string_type as_string () const override
-    {
-      constexpr auto bsz = 64U;
-      wchar_t buffer[bsz];
-      std::swprintf (buffer, bsz, L"%G", value);
-
-      return buffer;
-    }
-
-    void apply (json_element_visitor & v) override
-    {
-      v.visit (*this);
-    }
-  };
-
-  struct json_element__string : json_element__value
-  {
-    using tptr  = std::shared_ptr<json_element__string> ;
-
-    string_type value;
-
-    bool is_null () const override
-    {
-      return false;
-    }
-    bool as_bool () const override
-    {
-      return !value.empty ();
-    }
-    double as_number () const override
-    {
-      return std::stod (value);
-    }
-    string_type as_string () const override
-    {
-      return value;
-    }
-
-    void apply (json_element_visitor & v) override
-    {
-      v.visit (*this);
-    }
-  };
-
-  struct json_element__array : json_element
-  {
-    using tptr  = std::shared_ptr<json_element__array>  ;
-
-    std::vector<json_element::ptr> value;
-
-    std::size_t size () const override
-    {
-      return value.size ();
-    }
-
-    ptr at (std::size_t idx) const override
-    {
-      if (idx < value.size ())
-      {
-        return value[idx];
-      }
-      else
-      {
-        return std::make_shared<json_element__error> ();
-      }
-    }
-
-    ptr get (string_type const & /*name*/) const  override
-    {
-      return std::make_shared<json_element__error> ();
-    }
-    strings_type names () const override
-    {
-      return strings_type ();
-    }
-
-    bool is_error  () const override
-    {
-      return false;
-    }
-
-    bool is_scalar () const override
-    {
-      return false;
-    }
-
-    bool is_null () const override
-    {
-      return false;
-    }
-    bool as_bool () const override
-    {
-      return false;
-    }
-    double as_number () const override
-    {
-      return 0.0;
-    }
-    string_type as_string () const override
-    {
-      return L"";
-    }
-
-    void apply (json_element_visitor & v) override
-    {
-      v.visit (*this);
-    }
-  };
-
-  struct json_element__object : json_element
-  {
-    using tptr  = std::shared_ptr<json_element__object> ;
-
-    std::vector<std::tuple<string_type, json_element::ptr>> value;
-
-    std::size_t size () const override
-    {
-      return value.size ();
-    }
-
-    ptr at (std::size_t idx) const override
-    {
-      if (idx < value.size ())
-      {
-        return std::get<1> (value[idx]);
-      }
-      else
-      {
-        return std::make_shared<json_element__error> ();
-      }
-    }
-
-    ptr get (string_type const & name) const  override
-    {
-      for (auto && kv : value)
-      {
-        if (std::get<0> (kv) == name)
-        {
-          return std::get<1> (kv);
-        }
-      }
-
-      return std::make_shared<json_element__error> ();
-    }
-    strings_type names () const override
-    {
-      strings_type result;
-      result.reserve (value.size ());
-
-      for (auto && kv : value)
-      {
-        result.push_back (std::get<0> (kv));
-      }
-
-      return result;
-    }
-
-    bool is_error  () const override
-    {
-      return false;
-    }
-
-    bool is_scalar () const override
-    {
-      return false;
-    }
-
-    bool is_null () const override
-    {
-      return false;
-    }
-    bool as_bool () const override
-    {
-      return false;
-    }
-    double as_number () const override
-    {
-      return 0.0;
-    }
-    string_type as_string () const override
-    {
-      return L"";
-    }
-
-    void apply (json_element_visitor & v) override
-    {
-      v.visit (*this);
-    }
+    // Applies the JSON element visitor to the element
+    virtual bool          apply     (json_element_visitor & v)        = 0;
   };
 
   namespace details
   {
+    void to_string (string_type & value, double d)
+    {
+      if (std::isnan (d))
+      {
+        value += L"\"NaN\"";
+      }
+      else if (std::isinf (d) && d < 0)
+      {
+        value += L"\"-Inf\"";
+      }
+      else if (std::isinf (d))
+      {
+        value += L"\"+Inf\"";
+      }
+      else
+      {
+        constexpr auto bsz = 64U;
+        wchar_t buffer[bsz];
+        std::swprintf (buffer, bsz, L"%G", d);
+        value += buffer;
+      }
+    }
+
+    struct json_element__error : json_element
+    {
+      using tptr  = std::shared_ptr<json_element__error> ;
+
+      std::size_t size () const override
+      {
+        return 0;
+      }
+
+      ptr at (std::size_t /*idx*/) const override
+      {
+        return std::make_shared<json_element__error> ();
+      }
+
+      ptr get (string_type const & /*name*/) const  override
+      {
+        return std::make_shared<json_element__error> ();
+      }
+      strings_type names () const override
+      {
+        return strings_type ();
+      }
+
+      bool is_error () const override
+      {
+        return true;
+      }
+
+      bool is_scalar () const override
+      {
+        return false;
+      }
+
+      bool is_null () const override
+      {
+        return false;
+      }
+      bool as_bool () const override
+      {
+        return false;
+      }
+      double as_number () const override
+      {
+        return 0.0;
+      }
+      string_type as_string () const override
+      {
+        return L"\"json_element__error\"";
+      }
+
+      bool apply (json_element_visitor & v) override
+      {
+        return v.visit (*this);
+      }
+    };
+
+    struct json_element__value : json_element
+    {
+      std::size_t size () const override
+      {
+        return 0;
+      }
+
+      ptr at (std::size_t /*idx*/) const override
+      {
+        return std::make_shared<json_element__error> ();
+      }
+
+      ptr get (string_type const & /*name*/) const  override
+      {
+        return std::make_shared<json_element__error> ();
+      }
+      strings_type names () const override
+      {
+        return strings_type ();
+      }
+
+      bool is_error () const override
+      {
+        return false;
+      }
+
+      bool is_scalar () const override
+      {
+        return true;
+      }
+    };
+
+    struct json_element__null : json_element__value
+    {
+      using tptr  = std::shared_ptr<json_element__null> ;
+
+      bool is_null () const override
+      {
+        return true;
+      }
+      bool as_bool () const override
+      {
+        return false;
+      }
+      double as_number () const override
+      {
+        return 0.0;
+      }
+      string_type as_string () const override
+      {
+        return L"null";
+      }
+
+      bool apply (json_element_visitor & v) override
+      {
+        return v.visit (*this);
+      }
+    };
+
+    struct json_element__bool : json_element__value
+    {
+      using tptr  = std::shared_ptr<json_element__bool> ;
+
+      bool value;
+
+      json_element__bool ()
+        : value (false)
+      {
+      }
+
+      bool is_null () const override
+      {
+        return false;
+      }
+      bool as_bool () const override
+      {
+        return value;
+      }
+      double as_number () const override
+      {
+        return value ? 1.0 : 0.0;
+      }
+      string_type as_string () const override
+      {
+        return value ? L"true" : L"false";
+      }
+
+      bool apply (json_element_visitor & v) override
+      {
+        return v.visit (*this);
+      }
+    };
+
+    struct json_element__number : json_element__value
+    {
+      using tptr  = std::shared_ptr<json_element__number> ;
+
+      double value;
+
+      json_element__number ()
+        : value (0.0)
+      {
+      }
+
+      bool is_null () const override
+      {
+        return false;
+      }
+      bool as_bool () const override
+      {
+        return value != 0.0;
+      }
+      double as_number () const override
+      {
+        return value;
+      }
+      string_type as_string () const override
+      {
+        string_type result;
+        to_string (result, value);
+        return result;
+      }
+
+      bool apply (json_element_visitor & v) override
+      {
+        return v.visit (*this);
+      }
+    };
+
+    struct json_element__string : json_element__value
+    {
+      using tptr  = std::shared_ptr<json_element__string> ;
+
+      string_type value;
+
+      bool is_null () const override
+      {
+        return false;
+      }
+      bool as_bool () const override
+      {
+        return !value.empty ();
+      }
+      double as_number () const override
+      {
+        char_type * e = nullptr;
+        return std::wcstof (value.c_str (), &e);
+      }
+      string_type as_string () const override
+      {
+        return value;
+      }
+
+      bool apply (json_element_visitor & v) override
+      {
+        return v.visit (*this);
+      }
+    };
+
+    struct json_element__array : json_element
+    {
+      using tptr  = std::shared_ptr<json_element__array>  ;
+
+      std::vector<json_element::ptr> value;
+
+      std::size_t size () const override
+      {
+        return value.size ();
+      }
+
+      ptr at (std::size_t idx) const override
+      {
+        if (idx < value.size ())
+        {
+          return value[idx];
+        }
+        else
+        {
+          return std::make_shared<json_element__error> ();
+        }
+      }
+
+      ptr get (string_type const & /*name*/) const  override
+      {
+        return std::make_shared<json_element__error> ();
+      }
+      strings_type names () const override
+      {
+        return strings_type ();
+      }
+
+      bool is_error  () const override
+      {
+        return false;
+      }
+
+      bool is_scalar () const override
+      {
+        return false;
+      }
+
+      bool is_null () const override
+      {
+        return false;
+      }
+      bool as_bool () const override
+      {
+        return false;
+      }
+      double as_number () const override
+      {
+        return 0.0;
+      }
+      string_type as_string () const override
+      {
+        return L"";
+      }
+
+      bool apply (json_element_visitor & v) override
+      {
+        return v.visit (*this);
+      }
+    };
+
+    struct json_element__object : json_element
+    {
+      using tptr  = std::shared_ptr<json_element__object> ;
+
+      std::vector<std::tuple<string_type, json_element::ptr>> value;
+
+      std::size_t size () const override
+      {
+        return value.size ();
+      }
+
+      ptr at (std::size_t idx) const override
+      {
+        if (idx < value.size ())
+        {
+          return std::get<1> (value[idx]);
+        }
+        else
+        {
+          return std::make_shared<json_element__error> ();
+        }
+      }
+
+      ptr get (string_type const & name) const  override
+      {
+        for (auto && kv : value)
+        {
+          if (std::get<0> (kv) == name)
+          {
+            return std::get<1> (kv);
+          }
+        }
+
+        return std::make_shared<json_element__error> ();
+      }
+      strings_type names () const override
+      {
+        strings_type result;
+        result.reserve (value.size ());
+
+        for (auto && kv : value)
+        {
+          result.push_back (std::get<0> (kv));
+        }
+
+        return result;
+      }
+
+      bool is_error  () const override
+      {
+        return false;
+      }
+
+      bool is_scalar () const override
+      {
+        return false;
+      }
+
+      bool is_null () const override
+      {
+        return false;
+      }
+      bool as_bool () const override
+      {
+        return false;
+      }
+      double as_number () const override
+      {
+        return 0.0;
+      }
+      string_type as_string () const override
+      {
+        return L"";
+      }
+
+      bool apply (json_element_visitor & v) override
+      {
+        return v.visit (*this);
+      }
+    };
+
     constexpr auto default_size = 16U         ;
 
     struct json_non_printable_chars
@@ -545,46 +585,35 @@ namespace cpp_json { namespace document
         value += L'"';
       }
 
-      void visit (json_element__null    & /*v*/) override
+      bool visit (json_element__null    & /*v*/) override
       {
         value += L"null";
+
+        return true;
       }
 
-      void visit (json_element__bool    & v) override
+      bool visit (json_element__bool    & v) override
       {
         value += (v.value ? L"true" : L"false");
+
+        return true;
       }
 
-      void visit (json_element__number  & v) override
+      bool visit (json_element__number  & v) override
       {
-        auto d = v.value;
-        if (std::isnan (d))
-        {
-          value += L"\"NaN\"";
-        }
-        else if (std::isinf (d) && d < 0)
-        {
-          value += L"\"-Inf\"";
-        }
-        else if (std::isinf (d))
-        {
-          value += L"\"+Inf\"";
-        }
-        else
-        {
-          constexpr auto bsz = 64U;
-          wchar_t buffer[bsz];
-          std::swprintf (buffer, bsz, L"%G", v.value);
-          value += buffer;
-        }
+        to_string (value, v.value);
+
+        return true;
       }
 
-      void visit (json_element__string  & v) override
+      bool visit (json_element__string  & v) override
       {
         str (v.value);
+
+        return true;
       }
 
-      void visit (json_element__array   & v) override
+      bool visit (json_element__array   & v) override
       {
         value += L'[';
         auto sz = v.value.size ();
@@ -606,9 +635,11 @@ namespace cpp_json { namespace document
           }
         }
         value += L']';
+
+        return true;
       }
 
-      void visit (json_element__object  & v) override
+      bool visit (json_element__object  & v) override
       {
         value += L'{';
         auto sz = v.value.size ();
@@ -638,11 +669,15 @@ namespace cpp_json { namespace document
           }
         }
         value += L'}';
+
+        return true;
       }
 
-      void visit (json_element__error  & v) override
+      bool visit (json_element__error  & v) override
       {
         str (v.as_string ());
+
+        return true;
       }
     };
 
@@ -1062,13 +1097,13 @@ namespace cpp_json { namespace document
 
     if (jp.try_parse__json ())
     {
-      pos     = static_cast<std::size_t> (jp.current - begin);
+      pos     = jp.pos ();
       result  = jp.root ();
       return true;
     }
     else
     {
-      pos = static_cast<std::size_t> (jp.current - begin);
+      pos = jp.pos ();
       result.reset ();
       return false;
     }
@@ -1085,13 +1120,13 @@ namespace cpp_json { namespace document
 
     if (jp.try_parse__json ())
     {
-      pos     = static_cast<std::size_t> (jp.current - begin);
+      pos     = jp.pos ();
       result  = jp.root ();
       return true;
     }
     else
     {
-      pos = static_cast<std::size_t> (jp.current - begin);
+      pos = jp.pos ();
       result.reset ();
 
       cpp_json::parser::json_parser<details::error_json_context> ejp (begin, end);
