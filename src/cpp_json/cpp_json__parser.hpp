@@ -545,7 +545,7 @@ namespace cpp_json { namespace parser
           return true;
         case '\n':
         case '\r':
-          unexpected_token (pos (), tokens.token__new_line);
+          context_type::unexpected_token (pos (), tokens.token__new_line);
           return false;
         case '\\':
           {
@@ -699,7 +699,7 @@ namespace cpp_json { namespace parser
     {
       return
             try_parse__string_impl ()
-        &&  context_type::member_key (current_string)
+        &&  context_type::member_key (context_type::get_string ())
         ;
     }
 

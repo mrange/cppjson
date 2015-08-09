@@ -18,14 +18,21 @@
 
 #include "../cpp_json/cpp_json__document.hpp"
 
+#include <codecvt>
 #include <cstdint>
 #include <cstdio>
-#include <filesystem>
+#include <fstream>
 #include <functional>
 #include <iomanip>
 #include <iostream>
-#include <fstream>
+#include <locale>
 #include <sstream>
+
+#ifdef CPP_JSON__FILESYSTEM
+#include <filesystem>
+
+using namespace std::tr2::sys;
+#endif
 
 #define TEST_EQ(expected, actual) test_eq (__FILE__, __LINE__, expected, #expected, actual, #actual)
 
@@ -269,8 +276,9 @@ namespace
 
   };
 
+#ifdef CPP_JSON__FILESYSTEM
   template<typename TChar>
-  std::basic_string<TChar> read_file (std::tr2::sys::path const & p)
+  std::basic_string<TChar> read_file (path const & p)
   {
     std::basic_stringstream<TChar>  content         ;
     std::basic_string<TChar>        line            ;
@@ -286,17 +294,15 @@ namespace
 
   using visit_test_case = std::function<
     void (
-        std::string         const & file_name
-      , std::tr2::sys::path const & json_file_path
-      , std::tr2::sys::path const & result_file_path
+        std::string const & file_name
+      , path        const & json_file_path
+      , path        const & result_file_path
       )>;
 
   void visit_all_test_cases (char const * exe, visit_test_case visit)
   {
     CPP_JSON__ASSERT (exe);
     CPP_JSON__ASSERT (visit);
-
-    using namespace std::tr2::sys     ;
 
     auto current          = path (exe);
 
@@ -356,8 +362,6 @@ namespace
   {
     std::cout << "Running 'generate_test_results'..." << std::endl;
 
-    using namespace std::tr2::sys     ;
-
     visit_all_test_cases (
         exe
       , [] (
@@ -402,7 +406,6 @@ namespace
     std::cout << "Running 'process_test_cases'..." << std::endl;
 
     using namespace cpp_json::document;
-    using namespace std::tr2::sys     ;
 
     visit_all_test_cases (
         exe
@@ -450,6 +453,7 @@ namespace
         }
       });
   }
+#endif
 
   void manual_test_cases ()
   {
@@ -788,8 +792,10 @@ int main (int /*argc*/, char const * * argvs)
     auto exe = argvs[0];
     CPP_JSON__ASSERT (exe);
 
+#ifdef CPP_JSON__FILESYSTEM
     generate_test_results (exe);
     process_test_cases (exe);
+#endif
     manual_test_cases ();
     document_test_cases ();
 

@@ -18,11 +18,12 @@
 
 #include <algorithm>
 #include <cassert>
+#include <codecvt>
 #include <cstdint>
-#include <filesystem>
 #include <iostream>
 #include <iomanip>
 #include <limits>
+#include <locale>
 #include <memory>
 #include <string>
 #include <sstream>
