@@ -35,7 +35,7 @@ namespace cpp_json { namespace parser
     template<>
     struct json_string_literal<char>
     {
-      constexpr static auto pick (char const * s, wchar_t const * /*ws*/) noexcept
+      constexpr static char const *  pick (char const * s, wchar_t const * /*ws*/) noexcept
       {
         return s;
       }
@@ -44,7 +44,7 @@ namespace cpp_json { namespace parser
     template<>
     struct json_string_literal<wchar_t>
     {
-      constexpr static auto pick (char const * /*s*/, wchar_t const * ws) noexcept
+      constexpr static wchar_t const *  pick (char const * /*s*/, wchar_t const * ws) noexcept
       {
         return ws;
       }
@@ -181,7 +181,8 @@ namespace cpp_json { namespace parser
     // Gets current parser position
     constexpr std::size_t pos () const noexcept
     {
-      CPP_JSON__ASSERT (current >= begin);
+      // C++14: Use of assert in constexpr is a C++14 feature
+      // CPP_JSON__ASSERT (current >= begin);
       return static_cast<std::size_t> (current - begin);
     }
 
@@ -545,7 +546,7 @@ namespace cpp_json { namespace parser
           return true;
         case '\n':
         case '\r':
-          unexpected_token (pos (), tokens.token__new_line);
+          context_type::unexpected_token (pos (), tokens.token__new_line);
           return false;
         case '\\':
           {
@@ -699,7 +700,7 @@ namespace cpp_json { namespace parser
     {
       return
             try_parse__string_impl ()
-        &&  context_type::member_key (current_string)
+        &&  context_type::member_key (context_type::get_string ())
         ;
     }
 

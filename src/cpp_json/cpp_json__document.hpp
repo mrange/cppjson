@@ -1198,8 +1198,10 @@ namespace cpp_json { namespace document
           msg += spos;
         }
 
-        auto append = [&msg, &newline] (auto && prepend, auto && vs)
+        auto append = [&msg, &newline] (wchar_t const * prepend, std::vector<string_type> const & vs)
         {
+          CPP_JSON__ASSERT (prepend);
+
           if (!vs.empty ())
           {
             newline ();

@@ -122,7 +122,6 @@ void parse_json (std::wstring const & json)
 
 # TODO
 
-1. Remove C++14 dependency
 1. Improve error message test coverage
 1. Add test cases for memory allocation
 1. Add test cases for performance
