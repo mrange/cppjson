@@ -124,8 +124,6 @@ void parse_json (std::wstring const & json)
 
 1. Remove C++14 dependency
 1. Improve error message test coverage
-1. Improve DOM test coverage
-1. Improve DOM experience
 1. Add test cases for memory allocation
 1. Add test cases for performance
 1. Remove C++11 dependency

@@ -492,12 +492,26 @@ namespace
       }
       else
       {
-        ++errors;
         std::wcout
           << L"FAILURE: Pos: " << pos << L" Error: " << error << std::endl;
       }
     }
   }
+
+  struct document_test_case
+  {
+    int         index     ;
+    std::size_t size      ;
+    bool        at        ;
+    bool        get       ;
+    bool        names     ;
+    bool        is_error  ;
+    bool        is_scalar ;
+    bool        is_null   ;
+    bool        as_bool   ;
+    double      as_number ;
+    std::string as_string ;
+  };
 
   void document_test_cases ()
   {
@@ -507,8 +521,8 @@ namespace
 
     // TODO: Improve DOM testing
 
-    //                               0    1   2    3      4    5     6           7  8  9
-    string_type json_document = LR"([null,125,1.25,"Test",true,false,[true,null],[],{},{"x":true}])";
+    //                               0    1 2   3    4     5  6    7     8           9  10 11
+    string_type json_document = LR"([null,0,125,1.25,"125","",true,false,[true,null],[],{},{"xyz":true,"zyx":null}])";
 
     std::size_t       pos   ;
     json_element::ptr result;
@@ -517,33 +531,243 @@ namespace
     {
       CPP_JSON__ASSERT (result);
 
-      TEST_EQ (false  , result->is_scalar ());
-      TEST_EQ (false  , result->is_error ());
-      TEST_EQ (10     , result->size ());
+      std::vector<document_test_case> oracles
+      {
+        {
+          -1            , // index
+          12            , // size
+          true          , // at
+          true          , // get
+          true          , // names
+          false         , // is_error
+          false         , // is_scalar
+          false         , // is_null
+          false         , // as_bool
+          0             , // as_number
+          ""            , // as_string
+        },
+        {
+          0             , // index
+          0             , // size
+          true          , // at
+          true          , // get
+          true          , // names
+          false         , // is_error
+          true          , // is_scalar
+          true          , // is_null
+          false         , // as_bool
+          0             , // as_number
+          "null"        , // as_string
+        },
+        {
+          1             , // index
+          0             , // size
+          true          , // at
+          true          , // get
+          true          , // names
+          false         , // is_error
+          true          , // is_scalar
+          false         , // is_null
+          false         , // as_bool
+          0             , // as_number
+          "0"           , // as_string
+        },
+        {
+          2             , // index
+          0             , // size
+          true          , // at
+          true          , // get
+          true          , // names
+          false         , // is_error
+          true          , // is_scalar
+          false         , // is_null
+          true          , // as_bool
+          125           , // as_number
+          "125"         , // as_string
+        },
+        {
+          3             , // index
+          0             , // size
+          true          , // at
+          true          , // get
+          true          , // names
+          false         , // is_error
+          true          , // is_scalar
+          false         , // is_null
+          true          , // as_bool
+          1.25          , // as_number
+          "1.25"        , // as_string
+        },
+        {
+          4             , // index
+          0             , // size
+          true          , // at
+          true          , // get
+          true          , // names
+          false         , // is_error
+          true          , // is_scalar
+          false         , // is_null
+          true          , // as_bool
+          125           , // as_number
+          "125"         , // as_string
+        },
+        {
+          5             , // index
+          0             , // size
+          true          , // at
+          true          , // get
+          true          , // names
+          false         , // is_error
+          true          , // is_scalar
+          false         , // is_null
+          false         , // as_bool
+          0             , // as_number
+          ""            , // as_string
+        },
+        {
+          6             , // index
+          0             , // size
+          true          , // at
+          true          , // get
+          true          , // names
+          false         , // is_error
+          true          , // is_scalar
+          false         , // is_null
+          true          , // as_bool
+          1             , // as_number
+          "true"        , // as_string
+        },
+        {
+          7             , // index
+          0             , // size
+          true          , // at
+          true          , // get
+          true          , // names
+          false         , // is_error
+          true          , // is_scalar
+          false         , // is_null
+          false         , // as_bool
+          0             , // as_number
+          "false"       , // as_string
+        },
+        {
+          8             , // index
+          2             , // size
+          true          , // at
+          true          , // get
+          true          , // names
+          false         , // is_error
+          false         , // is_scalar
+          false         , // is_null
+          false         , // as_bool
+          0             , // as_number
+          ""            , // as_string
+        },
+        {
+          9             , // index
+          0             , // size
+          true          , // at
+          true          , // get
+          true          , // names
+          false         , // is_error
+          false         , // is_scalar
+          false         , // is_null
+          false         , // as_bool
+          0             , // as_number
+          ""            , // as_string
+        },
+        {
+          10            , // index
+          0             , // size
+          true          , // at
+          true          , // get
+          true          , // names
+          false         , // is_error
+          false         , // is_scalar
+          false         , // is_null
+          false         , // as_bool
+          0             , // as_number
+          ""            , // as_string
+        },
+        {
+          11            , // index
+          2             , // size
+          true          , // at
+          true          , // get
+          false         , // names
+          false         , // is_error
+          false         , // is_scalar
+          false         , // is_null
+          false         , // as_bool
+          0             , // as_number
+          ""            , // as_string
+        },
+      };
 
-      TEST_EQ (true   , result->at (10)->is_error ());
+      auto size = result->size ();
 
-      TEST_EQ (true   , result->at (0)->is_null ());
+      for (auto && oracle : oracles)
+      {
+        auto index = oracle.index;
+        auto actual =
+            index > -1
+          ? result->at (index)
+          : result
+          ;
 
-      TEST_EQ (125    , result->at (1)->as_number ());
-      TEST_EQ ("125"  , to_utf8 (result->at (1)->as_string ()));
+        std::cout << "Testing against index: " << index << std::endl;
 
-      TEST_EQ (1.25   , result->at (2)->as_number ());
-      TEST_EQ ("1.25" , to_utf8 (result->at (2)->as_string ()));
+        TEST_EQ (oracle.size      , actual->size ());
+        TEST_EQ (oracle.at        , actual->at  (size)->is_error ());
+        TEST_EQ (oracle.get       , actual->get (L"")->is_error ());
+        TEST_EQ (oracle.names     , actual->names ().empty ());
+        TEST_EQ (oracle.is_error  , actual->is_error ());
+        TEST_EQ (oracle.is_scalar , actual->is_scalar ());
+        TEST_EQ (oracle.is_null   , actual->is_null ());
+        TEST_EQ (oracle.as_bool   , actual->as_bool ());
+        TEST_EQ (oracle.as_number , actual->as_number ());
+        TEST_EQ (oracle.as_string , to_utf8 (actual->as_string ()));
+      }
 
-      TEST_EQ ("Test"  , to_utf8 (result->at (3)->as_string ()));
+      {
+        auto actual     = result->at (8);
+        auto true_value = actual->at (0);
+        auto null_value = actual->at (1);
 
-      TEST_EQ (true   , result->at (4)->as_bool ());
+        TEST_EQ (2        , actual->size ());
+        TEST_EQ (true     , true_value->as_bool ());
+        TEST_EQ ("true"   , to_utf8 (true_value->as_string ()));
+        TEST_EQ (false    , null_value->as_bool ());
+        TEST_EQ ("null"   , to_utf8 (null_value->as_string ()));
+      }
 
-      TEST_EQ (false  , result->at (5)->as_bool ());
+      {
+        auto actual     = result->at (11);
+        auto true_value = actual->at (0);
+        auto null_value = actual->at (1);
 
-      TEST_EQ (2      , result->at (6)->size ());
+        TEST_EQ (2        , actual->size ());
+        TEST_EQ (true     , true_value->as_bool ());
+        TEST_EQ ("true"   , to_utf8 (true_value->as_string ()));
+        TEST_EQ (false    , null_value->as_bool ());
+        TEST_EQ ("null"   , to_utf8 (null_value->as_string ()));
+      }
 
-      TEST_EQ (0      , result->at (7)->size ());
+      {
+        auto actual     = result->at (11);
+        auto names      = actual->names ();
+        auto true_value = actual->get (L"xyz");
+        auto null_value = actual->get (L"zyx");
 
-      TEST_EQ (0      , result->at (8)->size ());
+        strings_type oracle = {L"xyz", L"zyx"};
 
-      TEST_EQ (1      , result->at (9)->size ());
+        TEST_EQ (2        , actual->size ());
+        TEST_EQ (true     , names == oracle);
+        TEST_EQ (true     , true_value->as_bool ());
+        TEST_EQ ("true"   , to_utf8 (true_value->as_string ()));
+        TEST_EQ (false    , null_value->as_bool ());
+        TEST_EQ ("null"   , to_utf8 (null_value->as_string ()));
+      }
     }
     else
     {
