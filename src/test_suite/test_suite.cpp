@@ -28,6 +28,10 @@
 #include <locale>
 #include <sstream>
 
+#if _MSC_VER >= 1900
+# define CPP_JSON__FILESYSTEM // VS 2015 supports a preliminary version of filesystem
+#endif
+
 #ifdef CPP_JSON__FILESYSTEM
 #include <filesystem>
 
