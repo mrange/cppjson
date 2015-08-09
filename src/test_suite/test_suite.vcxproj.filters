@@ -21,5 +21,6 @@
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="test_suite.cpp" />
+    <ClCompile Include="linker_test_case.cpp" />
   </ItemGroup>
 </Project>

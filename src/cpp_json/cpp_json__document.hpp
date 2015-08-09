@@ -107,28 +107,98 @@ namespace cpp_json { namespace document
 
   namespace details
   {
-    void to_string (string_type & value, double d)
+    constexpr auto default_size = 16U         ;
+
+    struct utils
     {
-      if (std::isnan (d))
+      static void to_string (string_type & value, double d)
       {
-        value += L"\"NaN\"";
+        if (std::isnan (d))
+        {
+          value += L"\"NaN\"";
+        }
+        else if (std::isinf (d) && d < 0)
+        {
+          value += L"\"-Inf\"";
+        }
+        else if (std::isinf (d))
+        {
+          value += L"\"+Inf\"";
+        }
+        else
+        {
+          constexpr auto bsz = 64U;
+          wchar_t buffer[bsz];
+          std::swprintf (buffer, bsz, L"%G", d);
+          value += buffer;
+        }
       }
-      else if (std::isinf (d) && d < 0)
+    };
+
+    struct json_non_printable_chars
+    {
+      using non_printable_char  = std::array<char_type          , 8 >;
+      using non_printable_chars = std::array<non_printable_char , 32>;
+
+      json_non_printable_chars ()
       {
-        value += L"\"-Inf\"";
+        for (auto iter = 0U; iter < table.size (); ++iter)
+        {
+          auto && v = table[iter];
+          std::fill (v.begin (), v.end (), 0);
+
+          auto fmt = L"\\u%04x";
+
+          switch (iter)
+          {
+          case '\b':
+            fmt = L"\\b";
+            break;
+          case '\f':
+            fmt = L"\\f";
+            break;
+          case '\n':
+            fmt = L"\\n";
+            break;
+          case '\r':
+            fmt = L"\\r";
+            break;
+          case '\t':
+            fmt = L"\\t";
+            break;
+          }
+
+          std::swprintf (v.data (), v.size (), fmt, iter);
+        }
       }
-      else if (std::isinf (d))
+
+      static json_non_printable_chars const & get ()
       {
-        value += L"\"+Inf\"";
+        // TODO: Race condition issue (until compilers widely support magic statics)
+        static json_non_printable_chars non_printable_chars;
+        return non_printable_chars;
       }
-      else
+
+      inline void append (string_type & s, char_type ch) const noexcept
       {
-        constexpr auto bsz = 64U;
-        wchar_t buffer[bsz];
-        std::swprintf (buffer, bsz, L"%G", d);
-        value += buffer;
+
+        if (ch < table.size ())
+        {
+          auto p = table[ch].data ();
+          while (*p)
+          {
+            s += *p++;
+          }
+        }
+        else
+        {
+          s += ch;
+        }
       }
-    }
+
+    private:
+      non_printable_chars table;
+    };
 
     struct json_element__error : json_element
     {
@@ -305,7 +375,7 @@ namespace cpp_json { namespace document
       string_type as_string () const override
       {
         string_type result;
-        to_string (result, value);
+        utils::to_string (result, value);
         return result;
       }
 
@@ -491,69 +561,8 @@ namespace cpp_json { namespace document
       }
     };
 
-    constexpr auto default_size = 16U         ;
-
-    struct json_non_printable_chars
-    {
-      using non_printable_char  = std::array<char_type          , 8 >;
-      using non_printable_chars = std::array<non_printable_char , 32>;
-
-      json_non_printable_chars ()
-      {
-        for (auto iter = 0U; iter < table.size (); ++iter)
-        {
-          auto && v = table[iter];
-          std::fill (v.begin (), v.end (), 0);
-
-          auto fmt = L"\\u%04x";
-
-          switch (iter)
-          {
-          case '\b':
-            fmt = L"\\b";
-            break;
-          case '\f':
-            fmt = L"\\f";
-            break;
-          case '\n':
-            fmt = L"\\n";
-            break;
-          case '\r':
-            fmt = L"\\r";
-            break;
-          case '\t':
-            fmt = L"\\t";
-            break;
-          }
-
-          std::swprintf (v.data (), v.size (), fmt, iter);
-        }
-      }
-
-      inline void append (string_type & s, char_type ch) noexcept
-      {
-        if (ch < table.size ())
-        {
-          auto p = table[ch].data ();
-          while (*p)
-          {
-            s += *p++;
-          }
-        }
-        else
-        {
-          s += ch;
-        }
-      }
-
-    private:
-      non_printable_chars table;
-    };
-
     struct json_element_visitor__to_string : json_element_visitor
     {
-      static json_non_printable_chars non_printable_chars;
-
       string_type value;
 
       inline void ch (char_type c)
@@ -570,7 +579,7 @@ namespace cpp_json { namespace document
           value += L"\\/";
           break;
         default:
-          non_printable_chars.append (value, c);
+          json_non_printable_chars::get ().append (value, c);
           break;
         }
       }
@@ -601,7 +610,7 @@ namespace cpp_json { namespace document
 
       bool visit (json_element__number  & v) override
       {
-        to_string (value, v.value);
+        utils::to_string (value, v.value);
 
         return true;
       }
@@ -680,8 +689,6 @@ namespace cpp_json { namespace document
         return true;
       }
     };
-
-    json_non_printable_chars json_element_visitor__to_string::non_printable_chars;
 
     struct json_element_context
     {
@@ -1087,160 +1094,162 @@ namespace cpp_json { namespace document
     };
   }
 
-  // Parses a JSON string into a JSON document 'result' if successful.
-  //  'pos' indicates the first non-consumed character (which may lay beyond the last character in the input string)
-  bool parse (string_type const & json, std::size_t & pos, json_element::ptr & result)
+  struct json_document
   {
-    auto begin  = json.c_str ()       ;
-    auto end    = begin + json.size ();
-    cpp_json::parser::json_parser<details::builder_json_context> jp (begin, end);
-
-    if (jp.try_parse__json ())
+    // Parses a JSON string into a JSON document 'result' if successful.
+    //  'pos' indicates the first non-consumed character (which may lay beyond the last character in the input string)
+    static bool parse (string_type const & json, std::size_t & pos, json_element::ptr & result)
     {
-      pos     = jp.pos ();
-      result  = jp.root ();
-      return true;
-    }
-    else
-    {
-      pos = jp.pos ();
-      result.reset ();
-      return false;
-    }
-  }
+      auto begin  = json.c_str ()       ;
+      auto end    = begin + json.size ();
+      cpp_json::parser::json_parser<details::builder_json_context> jp (begin, end);
 
-  // Parses a JSON string into a JSON document 'result' if successful.
-  //  If parse fails 'error' contains an error description.
-  //  'pos' indicates the first non-consumed character (which may lay beyond the last character in the input string)
-  bool parse (string_type const & json, std::size_t & pos, json_element::ptr & result, string_type & error)
-  {
-    auto begin  = json.c_str ()       ;
-    auto end    = begin + json.size ();
-    cpp_json::parser::json_parser<details::builder_json_context> jp (begin, end);
-
-    if (jp.try_parse__json ())
-    {
-      pos     = jp.pos ();
-      result  = jp.root ();
-      return true;
-    }
-    else
-    {
-      pos = jp.pos ();
-      result.reset ();
-
-      cpp_json::parser::json_parser<details::error_json_context> ejp (begin, end);
-      ejp.error_pos = jp.pos ();
-      auto eresult  = ejp.try_parse__json ();
-      CPP_JSON__ASSERT (!eresult);
-
-      auto sz = ejp.exp_chars.size () + ejp.exp_tokens.size ();
-
-      std::vector<string_type> expected   = std::move (ejp.exp_tokens);
-      std::vector<string_type> unexpected = std::move (ejp.unexp_tokens);
-
-      expected.reserve (sz);
-
-      for (auto ch : ejp.exp_chars)
+      if (jp.try_parse__json ())
       {
-        details::error_json_context::char_type token[] = {'\'', ch, '\'', 0};
-        expected.push_back (string_type (token));
+        pos     = jp.pos ();
+        result  = jp.root ();
+        return true;
       }
-
-      std::sort (expected.begin (), expected.end ());
-      std::sort (unexpected.begin (), unexpected.end ());
-
-      expected.erase (std::unique (expected.begin (), expected.end ()), expected.end ());
-      unexpected.erase (std::unique (unexpected.begin (), unexpected.end ()), unexpected.end ());
-
-      string_type msg;
-
-      auto newline = [&msg] ()
+      else
       {
-        msg += L'\n';
-      };
+        pos = jp.pos ();
+        result.reset ();
+        return false;
+      }
+    }
 
-      msg += L"Failed to parse input as JSON";
+    // Parses a JSON string into a JSON document 'result' if successful.
+    //  If parse fails 'error' contains an error description.
+    //  'pos' indicates the first non-consumed character (which may lay beyond the last character in the input string)
+    static bool parse (string_type const & json, std::size_t & pos, json_element::ptr & result, string_type & error)
+    {
+      auto begin  = json.c_str ()       ;
+      auto end    = begin + json.size ();
+      cpp_json::parser::json_parser<details::builder_json_context> jp (begin, end);
 
-      newline ();
-      for (auto && c : json)  // TODO: Add json window
+      if (jp.try_parse__json ())
       {
-        if (c < ' ')
+        pos     = jp.pos ();
+        result  = jp.root ();
+        return true;
+      }
+      else
+      {
+        pos = jp.pos ();
+        result.reset ();
+
+        cpp_json::parser::json_parser<details::error_json_context> ejp (begin, end);
+        ejp.error_pos = jp.pos ();
+        auto eresult  = ejp.try_parse__json ();
+        CPP_JSON__ASSERT (!eresult);
+
+        auto sz = ejp.exp_chars.size () + ejp.exp_tokens.size ();
+
+        std::vector<string_type> expected   = std::move (ejp.exp_tokens);
+        std::vector<string_type> unexpected = std::move (ejp.unexp_tokens);
+
+        expected.reserve (sz);
+
+        for (auto ch : ejp.exp_chars)
         {
-          msg += ' ';
+          details::error_json_context::char_type token[] = {'\'', ch, '\'', 0};
+          expected.push_back (string_type (token));
         }
-        else
+
+        std::sort (expected.begin (), expected.end ());
+        std::sort (unexpected.begin (), unexpected.end ());
+
+        expected.erase (std::unique (expected.begin (), expected.end ()), expected.end ());
+        unexpected.erase (std::unique (unexpected.begin (), unexpected.end ()), unexpected.end ());
+
+        string_type msg;
+
+        auto newline = [&msg] ()
         {
-          msg += c;
-        }
-      }
+          msg += L'\n';
+        };
 
-      newline ();
-      for (auto iter = 0U; iter < pos; ++iter)
-      {
-        msg += L'-';
-      }
-      msg += L"^ Pos: ";
+        msg += L"Failed to parse input as JSON";
 
-      {
-        constexpr auto bsz = 12U;
-        wchar_t spos[bsz]  = {};
-        std::swprintf (spos, bsz, L"%zd", pos);
-        msg += spos;
-      }
-
-      auto append = [&msg, &newline] (auto && prepend, auto && vs)
-      {
-        if (!vs.empty ())
+        newline ();
+        for (auto && c : json)  // TODO: Add json window
         {
-          newline ();
-          msg += prepend;
-
-          auto sz = vs.size();
-          for (auto iter = 0U; iter < sz; ++iter)
+          if (c < ' ')
           {
-            if (iter == 0U)
-            {
-            }
-            else if (iter + 1U == sz)
-            {
-              msg += L" or ";
-            }
-            else
-            {
-              msg += L", ";
-            }
-            msg += vs[iter];
+            msg += ' ';
+          }
+          else
+          {
+            msg += c;
           }
         }
-      };
 
-      append (L"Expected: "   , expected);
-      append (L"Unexpected: " , unexpected);
+        newline ();
+        for (auto iter = 0U; iter < pos; ++iter)
+        {
+          msg += L'-';
+        }
+        msg += L"^ Pos: ";
 
-      error = std::move (msg);
+        {
+          constexpr auto bsz = 12U;
+          wchar_t spos[bsz]  = {};
+          std::swprintf (spos, bsz, L"%zd", pos);
+          msg += spos;
+        }
 
-      return false;
+        auto append = [&msg, &newline] (auto && prepend, auto && vs)
+        {
+          if (!vs.empty ())
+          {
+            newline ();
+            msg += prepend;
+
+            auto sz = vs.size();
+            for (auto iter = 0U; iter < sz; ++iter)
+            {
+              if (iter == 0U)
+              {
+              }
+              else if (iter + 1U == sz)
+              {
+                msg += L" or ";
+              }
+              else
+              {
+                msg += L", ";
+              }
+              msg += vs[iter];
+            }
+          }
+        };
+
+        append (L"Expected: "   , expected);
+        append (L"Unexpected: " , unexpected);
+
+        error = std::move (msg);
+
+        return false;
+      }
     }
-  }
 
-  // Creates a string from a JSON document
-  //  Note: JSON root element is expected to be either an array or object value, if 'json' argument
-  //  is neither to_string will return a string that is not valid JSON.
-  string_type to_string (json_element::ptr const & json)
-  {
-    if (json)
+    // Creates a string from a JSON document
+    //  Note: JSON root element is expected to be either an array or object value, if 'json' argument
+    //  is neither to_string will return a string that is not valid JSON.
+    static string_type to_string (json_element::ptr const & json)
     {
-      details::json_element_visitor__to_string visitor;
+      if (json)
+      {
+        details::json_element_visitor__to_string visitor;
 
-      json->apply (visitor);
+        json->apply (visitor);
 
-      return std::move (visitor.value);
+        return std::move (visitor.value);
+      }
+      else
+      {
+        return L"null";
+      }
     }
-    else
-    {
-      return L"null";
-    }
-  }
-
+  };
 } }

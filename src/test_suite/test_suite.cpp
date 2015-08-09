@@ -162,7 +162,6 @@ namespace
 
     void expected_token (std::size_t pos, string_type const & token) noexcept
     {
-      // TODO: Escape
       result << "ExpectedToken    : " << pos << ", ";
       write_string (token);
       result << std::endl;
@@ -420,16 +419,16 @@ namespace
 
         auto json_document  = read_file<string_type::value_type> (json_file_path);
 
-        if (parse (json_document, pos, result))
+        if (json_document::parse (json_document, pos, result))
         {
-          auto serialized = to_string (result);
+          auto serialized = json_document::to_string (result);
 
           std::size_t       ipos    ;
           json_element::ptr iresult ;
 
-          if (parse (serialized, ipos, iresult))
+          if (json_document::parse (serialized, ipos, iresult))
           {
-            auto iserialized = to_string (iresult);
+            auto iserialized = json_document::to_string (iresult);
 
             if (iserialized != serialized)
             {
@@ -485,9 +484,9 @@ namespace
 
       std::wcout << "TEST_CASE: "<< test_case << std::endl;
 
-      if (parse (test_case, pos, result, error))
+      if (json_document::parse (test_case, pos, result, error))
       {
-        auto json2 = to_string (result);
+        auto json2 = json_document::to_string (result);
         std::wcout
           << L"SUCCESS: Pos: " << pos << L" Json: " << json2 << std::endl;
       }
@@ -506,13 +505,15 @@ namespace
 
     using namespace cpp_json::document;
 
+    // TODO: Improve DOM testing
+
     //                               0    1   2    3      4    5     6           7  8  9
     string_type json_document = LR"([null,125,1.25,"Test",true,false,[true,null],[],{},{"x":true}])";
 
     std::size_t       pos   ;
     json_element::ptr result;
 
-    if (parse (json_document, pos, result))
+    if (json_document::parse (json_document, pos, result))
     {
       CPP_JSON__ASSERT (result);
 
