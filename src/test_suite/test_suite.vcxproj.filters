@@ -20,6 +20,9 @@
     <ClInclude Include="..\cpp_json\cpp_json__document.hpp">
       <Filter>cpp_json</Filter>
     </ClInclude>
+    <ClInclude Include="..\cpp_json\cpp_json__unions.hpp">
+      <Filter>cpp_json</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -37,5 +40,6 @@
       <Filter>jsoncpp</Filter>
     </ClCompile>
     <ClCompile Include="perf__jsoncpp_callback.cpp" />
+    <ClCompile Include="perf__parse_json_document2.cpp" />
   </ItemGroup>
 </Project>

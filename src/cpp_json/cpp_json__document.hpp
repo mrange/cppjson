@@ -875,10 +875,10 @@ namespace cpp_json { namespace document
         auto && next = element_context.back ();
         CPP_JSON__ASSERT (next);
 
-        auto && element = back->get_element ();
+        auto element = back->get_element ();
         CPP_JSON__ASSERT (element);
 
-        next->add_value (element);
+        next->add_value (std::move (element));
 
         return true;
       }
@@ -965,6 +965,254 @@ namespace cpp_json { namespace document
       }
 
       json_element::ptr root () const
+      {
+        CPP_JSON__ASSERT (!element_context.empty ());
+        CPP_JSON__ASSERT (element_context.front ());
+        return element_context.front ()->get_element ();
+      }
+
+    };
+    
+    struct json_element_context2
+    {
+      using ptr = std::shared_ptr<json_element_context2> ;
+
+      json_element_context2 ()          = default;
+      virtual ~json_element_context2 () = default;
+
+      CPP_JSON__NO_COPY_MOVE (json_element_context2);
+
+      virtual bool        add_value    (json_value && json          ) = 0;
+      virtual bool        set_key      (doc_string_type const & key ) = 0;
+      virtual json_value  get_element  ()                             = 0;
+    };
+
+    struct json_element_context2__root : json_element_context2
+    {
+      json_value value;
+
+      virtual bool add_value (json_value && json) override
+      {
+        value = std::move (json);
+
+        return true;
+      }
+
+      virtual bool set_key (doc_string_type const & /*key*/) override
+      {
+        CPP_JSON__ASSERT (false);
+
+        return true;
+      }
+
+      virtual json_value get_element () override
+      {
+        return std::move (value);
+      }
+
+    };
+
+    struct json_element_context2__array : json_element_context2
+    {
+      std::vector<json_value> values;
+
+      virtual bool add_value (json_value && json) override
+      {
+        values.push_back (std::move (json));
+
+        return true;
+      }
+
+      virtual bool set_key (doc_string_type const & /*key*/) override
+      {
+        CPP_JSON__ASSERT (false);
+
+        return true;
+      }
+
+      virtual json_value get_element () override
+      {
+        return json_value::array_value (std::move (values));
+      }
+
+    };
+
+    struct json_element_context2__object : json_element_context2
+    {
+      doc_string_type key;
+      std::vector<std::tuple<doc_string_type, json_value>> values;
+
+      virtual bool add_value (json_value && json) override
+      {
+        values.emplace_back (std::move (key), std::move (json));
+
+        return true;
+      }
+
+      virtual bool set_key (doc_string_type const & k) override
+      {
+        key = k;
+        return true;
+      }
+
+      virtual json_value get_element () override
+      {
+        return json_value::object_value (std::move (values));
+      }
+
+    };
+
+    struct builder_json_context2
+    {
+      using string_type = doc_string_type ;
+      using char_type   = doc_char_type   ;
+      using iter_type   = doc_iter_type   ;
+
+      string_type                             current_string  ;
+
+      std::vector<json_element_context2::ptr> element_context ;
+
+      builder_json_context2 ()
+      {
+        current_string.reserve (default_size);
+        element_context.push_back (std::make_shared<json_element_context2__root> ());
+      }
+
+      CPP_JSON__NO_COPY_MOVE (builder_json_context2);
+
+      inline void expected_char (std::size_t /*pos*/, char_type /*ch*/) noexcept
+      {
+      }
+
+      inline void expected_chars (std::size_t /*pos*/, string_type const & /*chs*/) noexcept
+      {
+      }
+
+      inline void expected_token (std::size_t /*pos*/, string_type const & /*token*/) noexcept
+      {
+      }
+
+      inline void unexpected_token (std::size_t /*pos*/, string_type const & /*token*/) noexcept
+      {
+      }
+
+      inline void clear_string ()
+      {
+        current_string.clear ();
+      }
+
+      inline void push_char (char_type ch)
+      {
+        current_string.push_back (ch);
+      }
+
+      inline void push_wchar_t (wchar_t ch)
+      {
+        current_string.push_back (ch);
+      }
+
+      inline string_type const & get_string () noexcept
+      {
+        return current_string;
+      }
+
+      template<typename T>
+      inline bool push ()
+      {
+        element_context.push_back (std::make_shared<T> ());
+        return true;
+      }
+
+      inline bool pop ()
+      {
+        CPP_JSON__ASSERT (!element_context.empty ());
+        auto back = element_context.back ();
+        CPP_JSON__ASSERT (back);
+
+        element_context.pop_back ();
+
+        CPP_JSON__ASSERT (!element_context.empty ());
+        auto && next = element_context.back ();
+        CPP_JSON__ASSERT (next);
+
+        auto element = back->get_element ();
+
+        next->add_value (std::move (element));
+
+        return true;
+      }
+
+      bool array_begin ()
+      {
+        return push<json_element_context2__array> ();
+      }
+
+      bool array_end ()
+      {
+        return pop ();
+      }
+
+      bool object_begin ()
+      {
+        return push<json_element_context2__object> ();
+      }
+
+      bool member_key (string_type const & s)
+      {
+        CPP_JSON__ASSERT (!element_context.empty ());
+        auto && back = element_context.back ();
+        CPP_JSON__ASSERT (back);
+        back->set_key (s);
+
+        return true;
+      }
+
+      bool object_end ()
+      {
+        return pop ();
+      }
+
+      bool bool_value (bool b)
+      {
+        CPP_JSON__ASSERT (!element_context.empty ());
+        auto && back = element_context.back ();
+        CPP_JSON__ASSERT (back);
+        back->add_value (json_value::bool_value (b));
+
+        return true;
+      }
+
+      bool null_value ()
+      {
+        CPP_JSON__ASSERT (!element_context.empty ());
+        auto && back = element_context.back ();
+        CPP_JSON__ASSERT (back);
+        back->add_value (json_value::null_value ());
+
+        return true;
+      }
+
+      bool string_value (string_type const & s)
+      {
+        CPP_JSON__ASSERT (!element_context.empty ());
+        auto && back = element_context.back ();
+        CPP_JSON__ASSERT (back);
+        back->add_value (json_value::string_value (s));
+
+        return true;
+      }
+
+      bool number_value (double d)
+      {
+        CPP_JSON__ASSERT (!element_context.empty ());
+        auto && back = element_context.back ();
+        CPP_JSON__ASSERT (back);
+        back->add_value (json_value::number_value (d));
+
+        return true;
+      }
+
+      json_value root () const
       {
         CPP_JSON__ASSERT (!element_context.empty ());
         CPP_JSON__ASSERT (element_context.front ());
@@ -1097,6 +1345,25 @@ namespace cpp_json { namespace document
 
   struct json_document
   {
+    static bool parse2 (doc_string_type const & json, std::size_t & pos, json_value & result)
+    {
+      auto begin  = json.c_str ()       ;
+      auto end    = begin + json.size ();
+      cpp_json::parser::json_parser<details::builder_json_context2> jp (begin, end);
+
+      if (jp.try_parse__json ())
+      {
+        pos     = jp.pos ();
+        result  = jp.root ();
+        return true;
+      }
+      else
+      {
+        pos = jp.pos ();
+        return false;
+      }
+    }
+
     // Parses a JSON string into a JSON document 'result' if successful.
     //  'pos' indicates the first non-consumed character (which may lay beyond the last character in the input string)
     static bool parse (doc_string_type const & json, std::size_t & pos, json_element::ptr & result)

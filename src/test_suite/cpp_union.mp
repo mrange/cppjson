@@ -114,7 +114,7 @@ namespace @@=ns=@@
 
       destroy (*this);
 
-      switch (vt)
+      switch (v.vt)
       {
       default:
       case @@=union_name=@@_type::vt__empty_value:
@@ -132,6 +132,8 @@ namespace @@=ns=@@
 
       vt = v.vt;
       v.vt = @@=union_name=@@_type::vt__empty_value;
+
+      return *this;
     }
 
     @@=union_name=@@ & operator= (@@=union_name=@@ const & v)

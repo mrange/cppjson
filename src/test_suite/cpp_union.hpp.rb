@@ -257,7 +257,7 @@ def generate_document (document)
     document.write '      destroy (*this);'
     document.new_line
     document.new_line
-    document.write '      switch (vt)'
+    document.write '      switch (v.vt)'
     document.new_line
     document.write '      {'
     document.new_line
@@ -299,6 +299,9 @@ def generate_document (document)
     document.write '      v.vt = '
     document.write (union_name)
     document.write '_type::vt__empty_value;'
+    document.new_line
+    document.new_line
+    document.write '      return *this;'
     document.new_line
     document.write '    }'
     document.new_line

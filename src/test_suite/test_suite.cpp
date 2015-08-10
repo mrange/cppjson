@@ -42,6 +42,7 @@ using namespace std::tr2::sys;
 
 void perf__parse_json_callback  (std::wstring const & json_document);
 void perf__parse_json_document  (std::wstring const & json_document);
+void perf__parse_json_document2 (std::wstring const & json_document);
 void perf__jsoncpp_document     (std::string const & json_document);
 
 namespace
@@ -525,9 +526,11 @@ namespace
         auto time__cpp_json_document = time_it (count, [&json_wdocument] () { perf__parse_json_document (json_wdocument); });
         std::cout << "cpp_json_document: Milliseconds: " << time__cpp_json_document << std::endl;
 
+        auto time__cpp_json_document2 = time_it (count, [&json_wdocument] () { perf__parse_json_document2 (json_wdocument); });
+        std::cout << "cpp_json_document2: Milliseconds: " << time__cpp_json_document2 << std::endl;
+
         auto time__jsoncpp_document = time_it (count, [&json_adocument] () { perf__jsoncpp_document (json_adocument); });
         std::cout << "jsoncpp_document: Milliseconds: " << time__jsoncpp_document << std::endl;
-
       });
   }
 #endif

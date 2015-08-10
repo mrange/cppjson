@@ -140,7 +140,7 @@ namespace document
 
       destroy (*this);
 
-      switch (vt)
+      switch (v.vt)
       {
       default:
       case json_value_type::vt__empty_value:
@@ -168,6 +168,8 @@ namespace document
 
       vt = v.vt;
       v.vt = json_value_type::vt__empty_value;
+
+      return *this;
     }
 
     json_value & operator= (json_value const & v)
