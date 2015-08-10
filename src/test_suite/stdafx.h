@@ -18,7 +18,6 @@
 
 #include <algorithm>
 #include <cassert>
-#include <codecvt>
 #include <cstdint>
 #include <iostream>
 #include <iomanip>

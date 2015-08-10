@@ -29,7 +29,7 @@ namespace cpp_json { namespace parser
 {
   namespace details
   {
-    template<typename char_type>
+    template<typename TChar>
     struct json_string_literal;
 
     template<>
@@ -84,10 +84,11 @@ namespace cpp_json { namespace parser
       double                pow10table[table_size];
     };
 
-    template<typename string_type>
+    template<typename TString>
     struct json_tokens
     {
-      using char_type = typename string_type::value_type;
+      using string_type = TString                         ;
+      using char_type   = typename string_type::value_type;
 
       json_tokens ()
         : token__eos                  (CPP_JSON__PICK ("EOS"        ))

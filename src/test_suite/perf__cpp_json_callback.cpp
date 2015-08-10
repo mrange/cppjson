@@ -1,5 +1,5 @@
 // ----------------------------------------------------------------------------------------------
-// Copyright 2015 Mårten Rånge
+// Copyright 2015 MÃ¥rten RÃ¥nge
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -40,15 +40,15 @@ namespace
     inline void expected_token   (std::size_t /*pos*/, string_type const & /*token*/) noexcept
     {
     }
-  
+
     // unexpected* methods are invoked when parser encountered an unexpected token
     //  Note: certain elements are considered optional so a call to an unexpected* method might not stop parsing
     inline void unexpected_token (std::size_t pos, string_type const & /*token*/)
     {
     }
-  
+
     // Methods used to build string values
-  
+
     // Clears cached string
     inline void clear_string ()
     {
@@ -66,9 +66,9 @@ namespace
     {
       return empty;
     }
-  
+
     // The following methods are invoked when JSON values are discovered
-  
+
     inline bool array_begin ()
     {
       return true;
@@ -77,7 +77,7 @@ namespace
     {
       return true;
     }
-  
+
     inline bool object_begin ()
     {
       return true;
@@ -90,22 +90,22 @@ namespace
     {
       return true;
     }
-  
+
     inline bool bool_value (bool /*b*/)
     {
       return true;
     }
-  
+
     inline bool null_value ()
     {
       return true;
     }
-  
+
     inline bool string_value (string_type const & /*s*/)
     {
       return true;
     }
-  
+
     inline bool number_value (double /*d*/)
     {
       return true;
