@@ -16,48 +16,44 @@
 
 require 'carnelian/executor'
 
-$namespace  = "MyNamespace"
+$namespace  = ["cpp_json", "document"]
 $unions     =
-    [
-        {
-            name:   "json_value"                                                            ,
-            variants:
-                [
-                    {
-                        type:           "unit"                                              ,
-                        name:           "error_value"                                       ,
-                    }                                                                       ,
-                    {
-                        type:           "unit"                                              ,
-                        name:           "null_value"                                        ,
-                    }                                                                       ,
-                    {
-                        type:           "unit"                                              ,
-                        name:           "false_value"                                       ,
-                    }                                                                       ,
-                    {
-                        type:           "unit"                                              ,
-                        name:           "true_value"                                        ,
-                    }                                                                       ,
-                    {
-                        type:           "double"                                            ,
-                        name:           "number_value"                                      ,
-                    }                                                                       ,
-                    {
-                        type:           "std::wstring"                                      ,
-                        name:           "string_value"                                      ,
-                    }                                                                       ,
-                    {
-                        type:           "std::vector<json_value>"                           ,
-                        name:           "array_value"                                       ,
-                    }                                                                       ,
-                    {
-                        type:           "std::vector<std::tuple<std::wstring, json_value>>" ,
-                        name:           "object_value"                                      ,
-                    }                                                                       ,
-                ]                                                                           ,
-        }                                                                                   ,
-    ]
+  [
+    {
+      name:   "json_value"                                                      ,
+      variants:
+        [
+          {
+            type:           "unit"                                              ,
+            name:           "error_value"                                       ,
+          }                                                                     ,
+          {
+            type:           "unit"                                              ,
+            name:           "null_value"                                        ,
+          }                                                                     ,
+          {
+            type:           "bool"                                              ,
+            name:           "bool_value"                                        ,
+          }                                                                     ,
+          {
+            type:           "double"                                            ,
+            name:           "number_value"                                      ,
+          }                                                                     ,
+          {
+            type:           "std::wstring"                                      ,
+            name:           "string_value"                                      ,
+          }                                                                     ,
+          {
+            type:           "std::vector<json_value>"                           ,
+            name:           "array_value"                                       ,
+          }                                                                     ,
+          {
+            type:           "std::vector<std::tuple<std::wstring, json_value>>" ,
+            name:           "object_value"                                      ,
+          }                                                                     ,
+        ]                                                                       ,
+    }                                                                           ,
+  ]
 
 CarnelianExecutor.build_metaprogram_to_file   "cpp_union.mp", "cpp_union.hpp.rb"
 CarnelianExecutor.execute_metaprogram_to_file "cpp_union.mp", "../cpp_json/cpp_json__unions.hpp"

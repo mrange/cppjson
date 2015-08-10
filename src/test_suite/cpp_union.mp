@@ -16,17 +16,31 @@
 // limitations under the License.
 // ----------------------------------------------------------------------------------------------
 
-namespace @@=$namespace=@@
+#include <type_traits>
+
+@@> for ns in $namespace
+namespace @@=ns=@@
 {
+@@> end
 @@> for union in $unions
 @@>   union_name  = union.get :name
 @@>   variants    = union.get(:variants, [])
 @@>
 
+  enum class @@=union_name=@@_type : std::uint8_t
+  {
+    vt__empty_value,
+@@>   for variant in variants
+@@>     variant_type = variant.get :type
+@@>     variant_name = variant.get :name
+    vt__@@=variant_name=@@,
+@@>   end
+  };
+
   struct @@=union_name=@@
   {
     @@=union_name=@@ () noexcept
-      vt (value_type::empty_value)
+      : vt (@@=union_name=@@_type::vt__empty_value)
     {
     }
 
@@ -35,19 +49,19 @@ namespace @@=$namespace=@@
       switch (vt)
       {
       default:
-      case value_type::empty_value:
+      case @@=union_name=@@_type::vt__empty_value:
         break;
 @@>   for variant in variants
 @@>     variant_type = variant.get :type
 @@>     variant_name = variant.get :name
-      case value_type::@@=variant_name=@@:
+      case @@=union_name=@@_type::vt__@@=variant_name=@@:
 @@>     if variant_type != "unit" then
-        destroy (@@=variant_name=@@);
+        destroy (v__@@=variant_name=@@);
 @@>     end
         break;
 @@>   end
       }
-      vt = value_type::empty_value;
+      vt = @@=union_name=@@_type::vt__empty_value;
     }
 
     @@=union_name=@@ (@@=union_name=@@ && v) noexcept
@@ -56,19 +70,19 @@ namespace @@=$namespace=@@
       switch (vt)
       {
       default:
-      case value_type::empty_value:
+      case @@=union_name=@@_type::vt__empty_value:
         break;
 @@>   for variant in variants
 @@>     variant_type = variant.get :type
 @@>     variant_name = variant.get :name
-      case value_type::@@=variant_name=@@:
+      case @@=union_name=@@_type::vt__@@=variant_name=@@:
 @@>     if variant_type != "unit" then
-        new (&@@=variant_name=@@) @@=variant_type=@@ (std::move (v.@@=variant_name=@@));
+        new (&v__@@=variant_name=@@) @@=variant_type=@@ (std::move (v.v__@@=variant_name=@@));
 @@>     end
         break;
 @@>   end
       }
-      v.vt = value_type::empty_value;
+      v.vt = @@=union_name=@@_type::vt__empty_value;
     }
 
     @@=union_name=@@ (@@=union_name=@@ const & v)
@@ -77,14 +91,14 @@ namespace @@=$namespace=@@
       switch (vt)
       {
       default:
-      case value_type::empty_value:
+      case @@=union_name=@@_type::vt__empty_value:
         break;
 @@>   for variant in variants
 @@>     variant_type = variant.get :type
 @@>     variant_name = variant.get :name
-      case value_type::@@=variant_name=@@:
+      case @@=union_name=@@_type::vt__@@=variant_name=@@:
 @@>     if variant_type != "unit" then
-        new (&@@=variant_name=@@) @@=variant_type=@@ (v.@@=variant_name=@@);
+        new (&v__@@=variant_name=@@) @@=variant_type=@@ (v.v__@@=variant_name=@@);
 @@>     end
         break;
 @@>   end
@@ -98,26 +112,26 @@ namespace @@=$namespace=@@
         return *this;
       }
 
-      ~@@=union_name=@@ ();
+      destroy (*this);
 
       switch (vt)
       {
       default:
-      case value_type::empty_value:
+      case @@=union_name=@@_type::vt__empty_value:
         break;
 @@>   for variant in variants
 @@>     variant_type = variant.get :type
 @@>     variant_name = variant.get :name
-      case value_type::@@=variant_name=@@:
+      case @@=union_name=@@_type::vt__@@=variant_name=@@:
 @@>     if variant_type != "unit" then
-        new (&@@=variant_name=@@) @@=variant_type=@@ (std::move (v.@@=variant_name=@@));
+        new (&v__@@=variant_name=@@) @@=variant_type=@@ (std::move (v.v__@@=variant_name=@@));
 @@>     end
         break;
 @@>   end
       }
 
       vt = v.vt;
-      v.vt = value_type::empty_value;
+      v.vt = @@=union_name=@@_type::vt__empty_value;
     }
 
     @@=union_name=@@ & operator= (@@=union_name=@@ const & v)
@@ -132,6 +146,21 @@ namespace @@=$namespace=@@
       return *this = std::move (copy);
     }
 
+    void swap (@@=union_name=@@ & v) noexcept
+    {
+      std::swap (*this, v);
+    }
+
+    @@=union_name=@@_type get__type () const noexcept
+    {
+      return vt;
+    }
+
+    bool is__empty_value () const
+    {
+      return vt == @@=union_name=@@_type::vt__empty_value;
+    }
+
     static @@=union_name=@@ empty_value ()
     {
       return @@=union_name=@@ ();
@@ -140,50 +169,67 @@ namespace @@=$namespace=@@
 @@>   for variant in variants
 @@>     variant_type = variant.get :type
 @@>     variant_name = variant.get :name
+    bool is__@@=variant_name=@@ () const
+    {
+      return vt == @@=union_name=@@_type::vt__@@=variant_name=@@;
+    }
+
 @@>     if variant_type != "unit" then
-    inline static @@=union_name=@@ @@=variant_name=@@ (@@=variant_type=@@ && v)
+    static @@=union_name=@@ @@=variant_name=@@ (@@=variant_type=@@ && v)
     {
       @@=union_name=@@ u;
-      u.vt = value_type::@@=variant_name=@@;
-      new (&u.@@=variant_name=@@) @@=variant_type=@@ (std::move (v.@@=variant_name=@@));
+      u.vt = @@=union_name=@@_type::vt__@@=variant_name=@@;
+      new (&u.v__@@=variant_name=@@) @@=variant_type=@@ (std::move (v));
       return u;
     }
 
-    inline static @@=union_name=@@ @@=variant_name=@@ (@@=variant_type=@@ const & v)
+    static @@=union_name=@@ @@=variant_name=@@ (@@=variant_type=@@ const & v)
     {
       @@=union_name=@@ u;
-      u.vt = value_type::@@=variant_name=@@;
-      new (&u.@@=variant_name=@@) @@=variant_type=@@ (v.@@=variant_name=@@);
+      u.vt = @@=union_name=@@_type::vt__@@=variant_name=@@;
+      new (&u.v__@@=variant_name=@@) @@=variant_type=@@ (v);
       return u;
     }
 
+    bool get__@@=variant_name=@@ (@@=variant_type=@@ & v) const
+    {
+      if (vt == @@=union_name=@@_type::vt__@@=variant_name=@@)
+      {
+        v = v__@@=variant_name=@@;
+
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+
+    void set__@@=variant_name=@@ (@@=variant_type=@@ && v) noexcept
+    {
+      *this = @@=union_name=@@::@@=variant_name=@@ (std::move (v));
+    }
+
+    void set__@@=variant_name=@@ (@@=variant_type=@@ const & v)
+    {
+      *this = @@=union_name=@@::@@=variant_name=@@ (v);
+    }
 @@>     else
-    inline static @@=union_name=@@ @@=variant_name=@@ ()
+    static @@=union_name=@@ @@=variant_name=@@ ()
     {
       @@=union_name=@@ u;
-      u.vt = value_type::@@=variant_name=@@;
+      u.vt = @@=union_name=@@_type::vt__@@=variant_name=@@;
       return u;
     }
 
 @@>     end
 @@>   end
   private:
-
     template<typename T>
     static void destroy (T & v) noexcept
     {
       v.~T ();
     }
-
-    enum class value_type : std::uint8_t
-    {
-      empty_value,
-@@>   for variant in variants
-@@>     variant_type = variant.get :type
-@@>     variant_name = variant.get :name
-      @@=variant_name=@@,
-@@>   end
-    };
 
     union
     {
@@ -191,16 +237,18 @@ namespace @@=$namespace=@@
 @@>     variant_type = variant.get :type
 @@>     variant_name = variant.get :name
 @@>     if variant_type != "unit" then
-      @@=variant_type=@@ @@=variant_name=@@;
+      @@=variant_type=@@ v__@@=variant_name=@@;
 @@>     end
 @@>   end
     };
 
-    value_type vt;
+    @@=union_name=@@_type vt;
   };
 
 @@> end
-}
+@@> for ns in $namespace.reverse
+} // @@=ns=@@
+@@> end
 
 @@+ class Hash
 @@+     def get (key, defaultValue=nil)

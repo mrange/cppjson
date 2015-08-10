@@ -46,63 +46,6 @@ void perf__jsoncpp_document     (std::string const & json_document);
 
 namespace
 {
-  struct json_value
-  {
-    json_value ()
-      : value_type (json_value_type::error_value)
-    {
-    }
-
-    json_value (json_value const & jv)
-      : value_type (jv.value_type)
-    {
-      switch (value_type)
-      {
-      default:
-      case json_value_type::error_value:
-        break;
-      case json_value_type::null_value:
-        break;
-      case json_value_type::false_value:
-        break;
-      case json_value_type::true_value:
-        break;
-      case json_value_type::number_value:
-        new (&number_value) double (jv.number_value);
-        break;
-      case json_value_type::string_value:
-        break;
-      case json_value_type::array_value:
-        break;
-      case json_value_type::object_value:
-        break;
-      }
-    }
-
-  private:
-    enum class json_value_type : std::uint8_t
-    {
-      error_value   ,
-      null_value    ,
-      false_value   ,
-      true_value    ,
-      number_value  ,
-      string_value  ,
-      array_value   ,
-      object_value  ,
-    };
-
-    union
-    {
-      double                                            number_value  ;
-      std::wstring                                      string_value  ;
-      std::vector<json_value>                           array_value   ;
-      std::vector<std::tuple<std::wstring, json_value>> object_value  ;
-    };
-
-    json_value_type value_type;
-  };
-
   std::uint32_t errors = 0;
 
   std::string to_ascii (std::wstring const & s)

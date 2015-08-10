@@ -26,6 +26,7 @@
 #include <tuple>
 
 #include "cpp_json__parser.hpp"
+#include "cpp_json__unions.hpp"
 
 namespace cpp_json { namespace document
 {

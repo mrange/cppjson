@@ -38,15 +38,39 @@ def generate_document (document)
     document.write '// ----------------------------------------------------------------------------------------------'
     document.new_line
     document.new_line
+    document.write '#include <type_traits>'
+    document.new_line
+    document.new_line
+     for ns in $namespace
     document.write 'namespace '
-    document.write ($namespace)
+    document.write (ns)
     document.new_line
     document.write '{'
     document.new_line
+     end
      for union in $unions
        union_name  = union.get :name
        variants    = union.get(:variants, [])
     
+    document.new_line
+    document.write '  enum class '
+    document.write (union_name)
+    document.write '_type : std::uint8_t'
+    document.new_line
+    document.write '  {'
+    document.new_line
+    document.write '    vt__empty_value,'
+    document.new_line
+       for variant in variants
+         variant_type = variant.get :type
+         variant_name = variant.get :name
+    document.write '    vt__'
+    document.write (variant_name)
+    document.write ','
+    document.new_line
+       end
+    document.write '  };'
+    document.new_line
     document.new_line
     document.write '  struct '
     document.write (union_name)
@@ -57,7 +81,9 @@ def generate_document (document)
     document.write (union_name)
     document.write ' () noexcept'
     document.new_line
-    document.write '      vt (value_type::empty_value)'
+    document.write '      : vt ('
+    document.write (union_name)
+    document.write '_type::vt__empty_value)'
     document.new_line
     document.write '    {'
     document.new_line
@@ -76,19 +102,23 @@ def generate_document (document)
     document.new_line
     document.write '      default:'
     document.new_line
-    document.write '      case value_type::empty_value:'
+    document.write '      case '
+    document.write (union_name)
+    document.write '_type::vt__empty_value:'
     document.new_line
     document.write '        break;'
     document.new_line
        for variant in variants
          variant_type = variant.get :type
          variant_name = variant.get :name
-    document.write '      case value_type::'
+    document.write '      case '
+    document.write (union_name)
+    document.write '_type::vt__'
     document.write (variant_name)
     document.write ':'
     document.new_line
          if variant_type != "unit" then
-    document.write '        destroy ('
+    document.write '        destroy (v__'
     document.write (variant_name)
     document.write ');'
     document.new_line
@@ -98,7 +128,9 @@ def generate_document (document)
        end
     document.write '      }'
     document.new_line
-    document.write '      vt = value_type::empty_value;'
+    document.write '      vt = '
+    document.write (union_name)
+    document.write '_type::vt__empty_value;'
     document.new_line
     document.write '    }'
     document.new_line
@@ -119,23 +151,27 @@ def generate_document (document)
     document.new_line
     document.write '      default:'
     document.new_line
-    document.write '      case value_type::empty_value:'
+    document.write '      case '
+    document.write (union_name)
+    document.write '_type::vt__empty_value:'
     document.new_line
     document.write '        break;'
     document.new_line
        for variant in variants
          variant_type = variant.get :type
          variant_name = variant.get :name
-    document.write '      case value_type::'
+    document.write '      case '
+    document.write (union_name)
+    document.write '_type::vt__'
     document.write (variant_name)
     document.write ':'
     document.new_line
          if variant_type != "unit" then
-    document.write '        new (&'
+    document.write '        new (&v__'
     document.write (variant_name)
     document.write ') '
     document.write (variant_type)
-    document.write ' (std::move (v.'
+    document.write ' (std::move (v.v__'
     document.write (variant_name)
     document.write '));'
     document.new_line
@@ -145,7 +181,9 @@ def generate_document (document)
        end
     document.write '      }'
     document.new_line
-    document.write '      v.vt = value_type::empty_value;'
+    document.write '      v.vt = '
+    document.write (union_name)
+    document.write '_type::vt__empty_value;'
     document.new_line
     document.write '    }'
     document.new_line
@@ -166,23 +204,27 @@ def generate_document (document)
     document.new_line
     document.write '      default:'
     document.new_line
-    document.write '      case value_type::empty_value:'
+    document.write '      case '
+    document.write (union_name)
+    document.write '_type::vt__empty_value:'
     document.new_line
     document.write '        break;'
     document.new_line
        for variant in variants
          variant_type = variant.get :type
          variant_name = variant.get :name
-    document.write '      case value_type::'
+    document.write '      case '
+    document.write (union_name)
+    document.write '_type::vt__'
     document.write (variant_name)
     document.write ':'
     document.new_line
          if variant_type != "unit" then
-    document.write '        new (&'
+    document.write '        new (&v__'
     document.write (variant_name)
     document.write ') '
     document.write (variant_type)
-    document.write ' (v.'
+    document.write ' (v.v__'
     document.write (variant_name)
     document.write ');'
     document.new_line
@@ -212,9 +254,7 @@ def generate_document (document)
     document.write '      }'
     document.new_line
     document.new_line
-    document.write '      ~'
-    document.write (union_name)
-    document.write ' ();'
+    document.write '      destroy (*this);'
     document.new_line
     document.new_line
     document.write '      switch (vt)'
@@ -223,23 +263,27 @@ def generate_document (document)
     document.new_line
     document.write '      default:'
     document.new_line
-    document.write '      case value_type::empty_value:'
+    document.write '      case '
+    document.write (union_name)
+    document.write '_type::vt__empty_value:'
     document.new_line
     document.write '        break;'
     document.new_line
        for variant in variants
          variant_type = variant.get :type
          variant_name = variant.get :name
-    document.write '      case value_type::'
+    document.write '      case '
+    document.write (union_name)
+    document.write '_type::vt__'
     document.write (variant_name)
     document.write ':'
     document.new_line
          if variant_type != "unit" then
-    document.write '        new (&'
+    document.write '        new (&v__'
     document.write (variant_name)
     document.write ') '
     document.write (variant_type)
-    document.write ' (std::move (v.'
+    document.write ' (std::move (v.v__'
     document.write (variant_name)
     document.write '));'
     document.new_line
@@ -252,7 +296,9 @@ def generate_document (document)
     document.new_line
     document.write '      vt = v.vt;'
     document.new_line
-    document.write '      v.vt = value_type::empty_value;'
+    document.write '      v.vt = '
+    document.write (union_name)
+    document.write '_type::vt__empty_value;'
     document.new_line
     document.write '    }'
     document.new_line
@@ -284,6 +330,39 @@ def generate_document (document)
     document.write '    }'
     document.new_line
     document.new_line
+    document.write '    void swap ('
+    document.write (union_name)
+    document.write ' & v) noexcept'
+    document.new_line
+    document.write '    {'
+    document.new_line
+    document.write '      std::swap (*this, v);'
+    document.new_line
+    document.write '    }'
+    document.new_line
+    document.new_line
+    document.write '    '
+    document.write (union_name)
+    document.write '_type get__type () const noexcept'
+    document.new_line
+    document.write '    {'
+    document.new_line
+    document.write '      return vt;'
+    document.new_line
+    document.write '    }'
+    document.new_line
+    document.new_line
+    document.write '    bool is__empty_value () const'
+    document.new_line
+    document.write '    {'
+    document.new_line
+    document.write '      return vt == '
+    document.write (union_name)
+    document.write '_type::vt__empty_value;'
+    document.new_line
+    document.write '    }'
+    document.new_line
+    document.new_line
     document.write '    static '
     document.write (union_name)
     document.write ' empty_value ()'
@@ -300,8 +379,23 @@ def generate_document (document)
        for variant in variants
          variant_type = variant.get :type
          variant_name = variant.get :name
+    document.write '    bool is__'
+    document.write (variant_name)
+    document.write ' () const'
+    document.new_line
+    document.write '    {'
+    document.new_line
+    document.write '      return vt == '
+    document.write (union_name)
+    document.write '_type::vt__'
+    document.write (variant_name)
+    document.write ';'
+    document.new_line
+    document.write '    }'
+    document.new_line
+    document.new_line
          if variant_type != "unit" then
-    document.write '    inline static '
+    document.write '    static '
     document.write (union_name)
     document.write ' '
     document.write (variant_name)
@@ -315,24 +409,24 @@ def generate_document (document)
     document.write (union_name)
     document.write ' u;'
     document.new_line
-    document.write '      u.vt = value_type::'
+    document.write '      u.vt = '
+    document.write (union_name)
+    document.write '_type::vt__'
     document.write (variant_name)
     document.write ';'
     document.new_line
-    document.write '      new (&u.'
+    document.write '      new (&u.v__'
     document.write (variant_name)
     document.write ') '
     document.write (variant_type)
-    document.write ' (std::move (v.'
-    document.write (variant_name)
-    document.write '));'
+    document.write ' (std::move (v));'
     document.new_line
     document.write '      return u;'
     document.new_line
     document.write '    }'
     document.new_line
     document.new_line
-    document.write '    inline static '
+    document.write '    static '
     document.write (union_name)
     document.write ' '
     document.write (variant_name)
@@ -346,25 +440,94 @@ def generate_document (document)
     document.write (union_name)
     document.write ' u;'
     document.new_line
-    document.write '      u.vt = value_type::'
+    document.write '      u.vt = '
+    document.write (union_name)
+    document.write '_type::vt__'
     document.write (variant_name)
     document.write ';'
     document.new_line
-    document.write '      new (&u.'
+    document.write '      new (&u.v__'
     document.write (variant_name)
     document.write ') '
     document.write (variant_type)
-    document.write ' (v.'
-    document.write (variant_name)
-    document.write ');'
+    document.write ' (v);'
     document.new_line
     document.write '      return u;'
     document.new_line
     document.write '    }'
     document.new_line
     document.new_line
+    document.write '    bool get__'
+    document.write (variant_name)
+    document.write ' ('
+    document.write (variant_type)
+    document.write ' & v) const'
+    document.new_line
+    document.write '    {'
+    document.new_line
+    document.write '      if (vt == '
+    document.write (union_name)
+    document.write '_type::vt__'
+    document.write (variant_name)
+    document.write ')'
+    document.new_line
+    document.write '      {'
+    document.new_line
+    document.write '        v = v__'
+    document.write (variant_name)
+    document.write ';'
+    document.new_line
+    document.new_line
+    document.write '        return true;'
+    document.new_line
+    document.write '      }'
+    document.new_line
+    document.write '      else'
+    document.new_line
+    document.write '      {'
+    document.new_line
+    document.write '        return false;'
+    document.new_line
+    document.write '      }'
+    document.new_line
+    document.write '    }'
+    document.new_line
+    document.new_line
+    document.write '    void set__'
+    document.write (variant_name)
+    document.write ' ('
+    document.write (variant_type)
+    document.write ' && v) noexcept'
+    document.new_line
+    document.write '    {'
+    document.new_line
+    document.write '      *this = '
+    document.write (union_name)
+    document.write '::'
+    document.write (variant_name)
+    document.write ' (std::move (v));'
+    document.new_line
+    document.write '    }'
+    document.new_line
+    document.new_line
+    document.write '    void set__'
+    document.write (variant_name)
+    document.write ' ('
+    document.write (variant_type)
+    document.write ' const & v)'
+    document.new_line
+    document.write '    {'
+    document.new_line
+    document.write '      *this = '
+    document.write (union_name)
+    document.write '::'
+    document.write (variant_name)
+    document.write ' (v);'
+    document.new_line
+    document.write '    }'
+    document.new_line
          else
-    document.write '    inline static '
+    document.write '    static '
     document.write (union_name)
     document.write ' '
     document.write (variant_name)
@@ -376,7 +539,9 @@ def generate_document (document)
     document.write (union_name)
     document.write ' u;'
     document.new_line
-    document.write '      u.vt = value_type::'
+    document.write '      u.vt = '
+    document.write (union_name)
+    document.write '_type::vt__'
     document.write (variant_name)
     document.write ';'
     document.new_line
@@ -389,7 +554,6 @@ def generate_document (document)
        end
     document.write '  private:'
     document.new_line
-    document.new_line
     document.write '    template<typename T>'
     document.new_line
     document.write '    static void destroy (T & v) noexcept'
@@ -399,23 +563,6 @@ def generate_document (document)
     document.write '      v.~T ();'
     document.new_line
     document.write '    }'
-    document.new_line
-    document.new_line
-    document.write '    enum class value_type : std::uint8_t'
-    document.new_line
-    document.write '    {'
-    document.new_line
-    document.write '      empty_value,'
-    document.new_line
-       for variant in variants
-         variant_type = variant.get :type
-         variant_name = variant.get :name
-    document.write '      '
-    document.write (variant_name)
-    document.write ','
-    document.new_line
-       end
-    document.write '    };'
     document.new_line
     document.new_line
     document.write '    union'
@@ -428,7 +575,7 @@ def generate_document (document)
          if variant_type != "unit" then
     document.write '      '
     document.write (variant_type)
-    document.write ' '
+    document.write ' v__'
     document.write (variant_name)
     document.write ';'
     document.new_line
@@ -437,14 +584,19 @@ def generate_document (document)
     document.write '    };'
     document.new_line
     document.new_line
-    document.write '    value_type vt;'
+    document.write '    '
+    document.write (union_name)
+    document.write '_type vt;'
     document.new_line
     document.write '  };'
     document.new_line
     document.new_line
      end
-    document.write '}'
+     for ns in $namespace.reverse
+    document.write '} // '
+    document.write (ns)
     document.new_line
+     end
     document.new_line
     document.new_line
 end
