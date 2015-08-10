@@ -18,7 +18,6 @@
 
 #include "../cpp_json/cpp_json__document.hpp"
 
-#include <codecvt>
 #include <cstdint>
 #include <cstdio>
 #include <fstream>
@@ -43,11 +42,18 @@ using namespace std::tr2::sys;
 namespace
 {
   std::uint32_t errors = 0;
-  std::wstring_convert<std::codecvt_utf8<wchar_t>> utf8_converter;
 
-  std::string to_utf8 (std::wstring const & s)
+  std::string to_ascii (std::wstring const & s)
   {
-    return utf8_converter.to_bytes(s);
+    std::string result;
+    result.reserve (s.size ());
+    for (auto && wch : s)
+    {
+      auto ch = static_cast<char> (wch);
+      CPP_JSON__ASSERT (ch == wch);
+      result.push_back (ch);
+    }
+    return result;
   }
 
   template<typename TExpected, typename TActual>
@@ -465,7 +471,7 @@ namespace
 
     using namespace cpp_json::document;
 
-    std::vector<string_type> test_cases =
+    std::vector<doc_string_type> test_cases =
       {
         LR"([null, 123,-123E100,"Test\tHello", true,false, [true,null],[],{}, {"x":true}])" ,
         LR"(["\b\f\n\r\t\u0010"])"                                                          ,
@@ -488,7 +494,7 @@ namespace
     {
       std::size_t       pos   ;
       json_element::ptr result;
-      string_type       error ;
+      doc_string_type   error ;
 
       std::wcout << "TEST_CASE: "<< test_case << std::endl;
 
@@ -529,8 +535,8 @@ namespace
 
     // TODO: Improve DOM testing
 
-    //                               0    1 2   3    4     5  6    7     8           9  10 11
-    string_type json_document = LR"([null,0,125,1.25,"125","",true,false,[true,null],[],{},{"xyz":true,"zyx":null}])";
+    //                                   0    1 2   3    4     5  6    7     8           9  10 11
+    doc_string_type json_document = LR"([null,0,125,1.25,"125","",true,false,[true,null],[],{},{"xyz":true,"zyx":null}])";
 
     std::size_t       pos   ;
     json_element::ptr result;
@@ -734,7 +740,7 @@ namespace
         TEST_EQ (oracle.is_null   , actual->is_null ());
         TEST_EQ (oracle.as_bool   , actual->as_bool ());
         TEST_EQ (oracle.as_number , actual->as_number ());
-        TEST_EQ (oracle.as_string , to_utf8 (actual->as_string ()));
+        TEST_EQ (oracle.as_string , to_ascii (actual->as_string ()));
       }
 
       {
@@ -744,9 +750,9 @@ namespace
 
         TEST_EQ (2        , actual->size ());
         TEST_EQ (true     , true_value->as_bool ());
-        TEST_EQ ("true"   , to_utf8 (true_value->as_string ()));
+        TEST_EQ ("true"   , to_ascii (true_value->as_string ()));
         TEST_EQ (false    , null_value->as_bool ());
-        TEST_EQ ("null"   , to_utf8 (null_value->as_string ()));
+        TEST_EQ ("null"   , to_ascii (null_value->as_string ()));
       }
 
       {
@@ -756,9 +762,9 @@ namespace
 
         TEST_EQ (2        , actual->size ());
         TEST_EQ (true     , true_value->as_bool ());
-        TEST_EQ ("true"   , to_utf8 (true_value->as_string ()));
+        TEST_EQ ("true"   , to_ascii (true_value->as_string ()));
         TEST_EQ (false    , null_value->as_bool ());
-        TEST_EQ ("null"   , to_utf8 (null_value->as_string ()));
+        TEST_EQ ("null"   , to_ascii (null_value->as_string ()));
       }
 
       {
@@ -767,14 +773,14 @@ namespace
         auto true_value = actual->get (L"xyz");
         auto null_value = actual->get (L"zyx");
 
-        strings_type oracle = {L"xyz", L"zyx"};
+        doc_strings_type oracle = {L"xyz", L"zyx"};
 
         TEST_EQ (2        , actual->size ());
         TEST_EQ (true     , names == oracle);
         TEST_EQ (true     , true_value->as_bool ());
-        TEST_EQ ("true"   , to_utf8 (true_value->as_string ()));
+        TEST_EQ ("true"   , to_ascii (true_value->as_string ()));
         TEST_EQ (false    , null_value->as_bool ());
-        TEST_EQ ("null"   , to_utf8 (null_value->as_string ()));
+        TEST_EQ ("null"   , to_ascii (null_value->as_string ()));
       }
     }
     else
