@@ -29,10 +29,10 @@
 
 namespace cpp_json { namespace document
 {
-  using string_type           = std::wstring            ;
-  using strings_type          = std::vector<string_type>;
-  using char_type             = string_type::value_type ;
-  using iter_type             = char_type const *       ;
+  using doc_string_type   = std::wstring                ;
+  using doc_strings_type  = std::vector<doc_string_type>;
+  using doc_char_type     = doc_string_type::value_type ;
+  using doc_iter_type     = doc_char_type const *       ;
 
   namespace details
   {
@@ -75,34 +75,34 @@ namespace cpp_json { namespace document
     CPP_JSON__NO_COPY_MOVE (json_element);
 
     // Returns the number of children (object/array)
-    virtual std::size_t   size      () const                          = 0;
+    virtual std::size_t       size      () const                          = 0;
     // Returns the child at index (object/array)
     //  if out of bounds returns an error DOM element
-    virtual ptr           at        (std::size_t idx) const           = 0;
+    virtual ptr               at        (std::size_t idx) const           = 0;
 
     // Returns the child with name (object)
     //  if not found returns an error DOM element
-    virtual ptr           get       (string_type const & name) const  = 0;
+    virtual ptr               get       (doc_string_type const & name) const  = 0;
     // Returns all member names (object)
     //  May contain duplicates, is in order
-    virtual strings_type  names     () const                          = 0;
+    virtual doc_strings_type  names     () const                          = 0;
 
     // Returns true if DOM element represents an error
-    virtual bool          is_error  () const                          = 0;
+    virtual bool              is_error  () const                          = 0;
     // Returns true if DOM element represents an scalar
-    virtual bool          is_scalar () const                          = 0;
+    virtual bool              is_scalar () const                          = 0;
 
     // Returns true if DOM element represents a null value
-    virtual bool          is_null   () const                          = 0;
+    virtual bool              is_null   () const                          = 0;
     // Converts the value to a boolean value
-    virtual bool          as_bool   () const                          = 0;
+    virtual bool              as_bool   () const                          = 0;
     // Converts the value to a double value
-    virtual double        as_number () const                          = 0;
+    virtual double            as_number () const                          = 0;
     // Converts the value to a string value
-    virtual string_type   as_string () const                          = 0;
+    virtual doc_string_type   as_string () const                          = 0;
 
     // Applies the JSON element visitor to the element
-    virtual bool          apply     (json_element_visitor & v)        = 0;
+    virtual bool              apply     (json_element_visitor & v)        = 0;
   };
 
   namespace details
@@ -111,7 +111,7 @@ namespace cpp_json { namespace document
 
     struct utils
     {
-      static void to_string (string_type & value, double d)
+      static void to_string (doc_string_type & value, double d)
       {
         if (std::isnan (d))
         {
@@ -137,7 +137,7 @@ namespace cpp_json { namespace document
 
     struct json_non_printable_chars
     {
-      using non_printable_char  = std::array<char_type          , 8 >;
+      using non_printable_char  = std::array<doc_char_type      , 8 >;
       using non_printable_chars = std::array<non_printable_char , 32>;
 
       json_non_printable_chars ()
@@ -179,7 +179,7 @@ namespace cpp_json { namespace document
         return non_printable_chars;
       }
 
-      inline void append (string_type & s, char_type ch) const noexcept
+      inline void append (doc_string_type & s, doc_char_type ch) const noexcept
       {
 
         if (ch < table.size ())
@@ -214,13 +214,13 @@ namespace cpp_json { namespace document
         return std::make_shared<json_element__error> ();
       }
 
-      ptr get (string_type const & /*name*/) const  override
+      ptr get (doc_string_type const & /*name*/) const  override
       {
         return std::make_shared<json_element__error> ();
       }
-      strings_type names () const override
+      doc_strings_type names () const override
       {
-        return strings_type ();
+        return doc_strings_type ();
       }
 
       bool is_error () const override
@@ -245,7 +245,7 @@ namespace cpp_json { namespace document
       {
         return 0.0;
       }
-      string_type as_string () const override
+      doc_string_type as_string () const override
       {
         return L"\"json_element__error\"";
       }
@@ -268,13 +268,13 @@ namespace cpp_json { namespace document
         return std::make_shared<json_element__error> ();
       }
 
-      ptr get (string_type const & /*name*/) const  override
+      ptr get (doc_string_type const & /*name*/) const  override
       {
         return std::make_shared<json_element__error> ();
       }
-      strings_type names () const override
+      doc_strings_type names () const override
       {
-        return strings_type ();
+        return doc_strings_type ();
       }
 
       bool is_error () const override
@@ -304,7 +304,7 @@ namespace cpp_json { namespace document
       {
         return 0.0;
       }
-      string_type as_string () const override
+      doc_string_type as_string () const override
       {
         return L"null";
       }
@@ -338,7 +338,7 @@ namespace cpp_json { namespace document
       {
         return value ? 1.0 : 0.0;
       }
-      string_type as_string () const override
+      doc_string_type as_string () const override
       {
         return value ? L"true" : L"false";
       }
@@ -372,9 +372,9 @@ namespace cpp_json { namespace document
       {
         return value;
       }
-      string_type as_string () const override
+      doc_string_type as_string () const override
       {
-        string_type result;
+        doc_string_type result;
         utils::to_string (result, value);
         return result;
       }
@@ -389,7 +389,7 @@ namespace cpp_json { namespace document
     {
       using tptr  = std::shared_ptr<json_element__string> ;
 
-      string_type value;
+      doc_string_type value;
 
       bool is_null () const override
       {
@@ -401,10 +401,10 @@ namespace cpp_json { namespace document
       }
       double as_number () const override
       {
-        char_type * e = nullptr;
+        doc_char_type * e = nullptr;
         return std::wcstof (value.c_str (), &e);
       }
-      string_type as_string () const override
+      doc_string_type as_string () const override
       {
         return value;
       }
@@ -438,13 +438,13 @@ namespace cpp_json { namespace document
         }
       }
 
-      ptr get (string_type const & /*name*/) const  override
+      ptr get (doc_string_type const & /*name*/) const  override
       {
         return std::make_shared<json_element__error> ();
       }
-      strings_type names () const override
+      doc_strings_type names () const override
       {
-        return strings_type ();
+        return doc_strings_type ();
       }
 
       bool is_error  () const override
@@ -469,7 +469,7 @@ namespace cpp_json { namespace document
       {
         return 0.0;
       }
-      string_type as_string () const override
+      doc_string_type as_string () const override
       {
         return L"";
       }
@@ -484,7 +484,7 @@ namespace cpp_json { namespace document
     {
       using tptr  = std::shared_ptr<json_element__object> ;
 
-      std::vector<std::tuple<string_type, json_element::ptr>> value;
+      std::vector<std::tuple<doc_string_type, json_element::ptr>> value;
 
       std::size_t size () const override
       {
@@ -503,7 +503,7 @@ namespace cpp_json { namespace document
         }
       }
 
-      ptr get (string_type const & name) const  override
+      ptr get (doc_string_type const & name) const  override
       {
         for (auto && kv : value)
         {
@@ -515,9 +515,9 @@ namespace cpp_json { namespace document
 
         return std::make_shared<json_element__error> ();
       }
-      strings_type names () const override
+      doc_strings_type names () const override
       {
-        strings_type result;
+        doc_strings_type result;
         result.reserve (value.size ());
 
         for (auto && kv : value)
@@ -550,7 +550,7 @@ namespace cpp_json { namespace document
       {
         return 0.0;
       }
-      string_type as_string () const override
+      doc_string_type as_string () const override
       {
         return L"";
       }
@@ -563,9 +563,9 @@ namespace cpp_json { namespace document
 
     struct json_element_visitor__to_string : json_element_visitor
     {
-      string_type value;
+      doc_string_type value;
 
-      inline void ch (char_type c)
+      inline void ch (doc_char_type c)
       {
         switch (c)
         {
@@ -584,7 +584,7 @@ namespace cpp_json { namespace document
         }
       }
 
-      inline void str (string_type const & s)
+      inline void str (doc_string_type const & s)
       {
         value += L'"';
         for (auto && c : s)
@@ -700,7 +700,7 @@ namespace cpp_json { namespace document
       CPP_JSON__NO_COPY_MOVE (json_element_context);
 
       virtual bool              add_value    (json_element::ptr const & json )  = 0;
-      virtual bool              set_key      (string_type const & key        )  = 0;
+      virtual bool              set_key      (doc_string_type const & key     ) = 0;
       virtual json_element::ptr get_element  ()                                 = 0;
     };
 
@@ -721,7 +721,7 @@ namespace cpp_json { namespace document
         return true;
       }
 
-      virtual bool set_key (string_type const & /*key*/) override
+      virtual bool set_key (doc_string_type const & /*key*/) override
       {
         CPP_JSON__ASSERT (false);
 
@@ -754,7 +754,7 @@ namespace cpp_json { namespace document
         return true;
       }
 
-      virtual bool set_key (string_type const & /*key*/) override
+      virtual bool set_key (doc_string_type const & /*key*/) override
       {
         CPP_JSON__ASSERT (false);
 
@@ -772,7 +772,7 @@ namespace cpp_json { namespace document
     {
       json_element__object::tptr value;
 
-      string_type key;
+      doc_string_type key;
 
       json_element_context__object ()
         : value (std::make_shared<json_element__object> ())
@@ -787,7 +787,7 @@ namespace cpp_json { namespace document
         return true;
       }
 
-      virtual bool set_key (string_type const & k) override
+      virtual bool set_key (doc_string_type const & k) override
       {
         key = k;
 
@@ -803,9 +803,9 @@ namespace cpp_json { namespace document
 
     struct builder_json_context
     {
-      using string_type = string_type ;
-      using char_type   = char_type   ;
-      using iter_type   = iter_type   ;
+      using string_type = doc_string_type ;
+      using char_type   = doc_char_type   ;
+      using iter_type   = doc_iter_type   ;
 
       string_type                             current_string  ;
 
@@ -974,9 +974,9 @@ namespace cpp_json { namespace document
 
     struct error_json_context
     {
-      using string_type = string_type ;
-      using char_type   = char_type   ;
-      using iter_type   = iter_type   ;
+      using string_type = doc_string_type ;
+      using char_type   = doc_char_type   ;
+      using iter_type   = doc_iter_type   ;
 
       std::size_t               error_pos     ;
       string_type               current_string;
@@ -1098,7 +1098,7 @@ namespace cpp_json { namespace document
   {
     // Parses a JSON string into a JSON document 'result' if successful.
     //  'pos' indicates the first non-consumed character (which may lay beyond the last character in the input string)
-    static bool parse (string_type const & json, std::size_t & pos, json_element::ptr & result)
+    static bool parse (doc_string_type const & json, std::size_t & pos, json_element::ptr & result)
     {
       auto begin  = json.c_str ()       ;
       auto end    = begin + json.size ();
@@ -1121,7 +1121,7 @@ namespace cpp_json { namespace document
     // Parses a JSON string into a JSON document 'result' if successful.
     //  If parse fails 'error' contains an error description.
     //  'pos' indicates the first non-consumed character (which may lay beyond the last character in the input string)
-    static bool parse (string_type const & json, std::size_t & pos, json_element::ptr & result, string_type & error)
+    static bool parse (doc_string_type const & json, std::size_t & pos, json_element::ptr & result, doc_string_type & error)
     {
       auto begin  = json.c_str ()       ;
       auto end    = begin + json.size ();
@@ -1145,15 +1145,15 @@ namespace cpp_json { namespace document
 
         auto sz = ejp.exp_chars.size () + ejp.exp_tokens.size ();
 
-        std::vector<string_type> expected   = std::move (ejp.exp_tokens);
-        std::vector<string_type> unexpected = std::move (ejp.unexp_tokens);
+        std::vector<doc_string_type> expected   = std::move (ejp.exp_tokens);
+        std::vector<doc_string_type> unexpected = std::move (ejp.unexp_tokens);
 
         expected.reserve (sz);
 
         for (auto ch : ejp.exp_chars)
         {
           details::error_json_context::char_type token[] = {'\'', ch, '\'', 0};
-          expected.push_back (string_type (token));
+          expected.push_back (doc_string_type (token));
         }
 
         std::sort (expected.begin (), expected.end ());
@@ -1162,7 +1162,7 @@ namespace cpp_json { namespace document
         expected.erase (std::unique (expected.begin (), expected.end ()), expected.end ());
         unexpected.erase (std::unique (unexpected.begin (), unexpected.end ()), unexpected.end ());
 
-        string_type msg;
+        doc_string_type msg;
 
         auto newline = [&msg] ()
         {
@@ -1198,7 +1198,7 @@ namespace cpp_json { namespace document
           msg += spos;
         }
 
-        auto append = [&msg, &newline] (wchar_t const * prepend, std::vector<string_type> const & vs)
+        auto append = [&msg, &newline] (wchar_t const * prepend, std::vector<doc_string_type> const & vs)
         {
           CPP_JSON__ASSERT (prepend);
 
@@ -1238,7 +1238,7 @@ namespace cpp_json { namespace document
     // Creates a string from a JSON document
     //  Note: JSON root element is expected to be either an array or object value, if 'json' argument
     //  is neither to_string will return a string that is not valid JSON.
-    static string_type to_string (json_element::ptr const & json)
+    static doc_string_type to_string (json_element::ptr const & json)
     {
       if (json)
       {
