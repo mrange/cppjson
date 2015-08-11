@@ -156,7 +156,8 @@
   <ItemGroup>
     <ClInclude Include="..\cpp_json\cpp_json__parser.hpp" />
     <ClInclude Include="..\cpp_json\cpp_json__document.hpp" />
-    <ClInclude Include="..\cpp_json\cpp_json__unions.hpp" />
+    <ClInclude Include="..\cpp_json\cpp_json__value.hpp" />
+    <ClInclude Include="..\cpp_json\cpp_json__value_g.hpp" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>

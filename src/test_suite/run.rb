@@ -28,10 +28,6 @@ $unions     =
             name:           "error_value"                                       ,
           }                                                                     ,
           {
-            type:           "unit"                                              ,
-            name:           "null_value"                                        ,
-          }                                                                     ,
-          {
             type:           "bool"                                              ,
             name:           "bool_value"                                        ,
           }                                                                     ,
@@ -52,8 +48,21 @@ $unions     =
             name:           "object_value"                                      ,
           }                                                                     ,
         ]                                                                       ,
-    }                                                                           ,
+      members:
+        [
+          "std::size_t                size      () const"                         ,
+          "json_value const &         at        (std::size_t idx) const"          ,
+          "json_value &               at        (std::size_t idx)"                ,
+          "json_value const &         get       (std::wstring const & name) const",
+          "json_value &               get       (std::wstring const & name)"      ,
+          "std::vector<std::wstring>  names     () const"                         ,
+          "bool                       is_scalar () const"                         ,
+          "bool                       as_bool   () const"                         ,
+          "double                     as_number () const"                         ,
+          "std::wstring               as_string () const"                         ,
+        ]                                                                         ,
+    }                                                                             ,
   ]
 
 CarnelianExecutor.build_metaprogram_to_file   "cpp_union.mp", "cpp_union.hpp.rb"
-CarnelianExecutor.execute_metaprogram_to_file "cpp_union.mp", "../cpp_json/cpp_json__unions.hpp"
+CarnelianExecutor.execute_metaprogram_to_file "cpp_union.mp", "../cpp_json/cpp_json__value_g.hpp"

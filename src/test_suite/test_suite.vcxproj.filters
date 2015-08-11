@@ -20,7 +20,10 @@
     <ClInclude Include="..\cpp_json\cpp_json__document.hpp">
       <Filter>cpp_json</Filter>
     </ClInclude>
-    <ClInclude Include="..\cpp_json\cpp_json__unions.hpp">
+    <ClInclude Include="..\cpp_json\cpp_json__value.hpp">
+      <Filter>cpp_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cpp_json\cpp_json__value_g.hpp">
       <Filter>cpp_json</Filter>
     </ClInclude>
   </ItemGroup>

@@ -25,6 +25,7 @@ namespace @@=ns=@@
 @@> for union in $unions
 @@>   union_name  = union.get :name
 @@>   variants    = union.get(:variants, [])
+@@>   members     = union.get(:members, [])
 @@>
 
   enum class @@=union_name=@@_type : std::uint8_t
@@ -46,26 +47,11 @@ namespace @@=ns=@@
 
     ~@@=union_name=@@ () noexcept
     {
-      switch (vt)
-      {
-      default:
-      case @@=union_name=@@_type::vt__empty_value:
-        break;
-@@>   for variant in variants
-@@>     variant_type = variant.get :type
-@@>     variant_name = variant.get :name
-      case @@=union_name=@@_type::vt__@@=variant_name=@@:
-@@>     if variant_type != "unit" then
-        destroy (v__@@=variant_name=@@);
-@@>     end
-        break;
-@@>   end
-      }
-      vt = @@=union_name=@@_type::vt__empty_value;
+      clear ();
     }
 
     @@=union_name=@@ (@@=union_name=@@ && v) noexcept
-      : vt (v.vt)
+      : vt (@@=union_name=@@_type::vt__empty_value)
     {
       switch (vt)
       {
@@ -112,7 +98,7 @@ namespace @@=ns=@@
         return *this;
       }
 
-      destroy (*this);
+      clear ();
 
       switch (v.vt)
       {
@@ -148,6 +134,26 @@ namespace @@=ns=@@
       return *this = std::move (copy);
     }
 
+    void clear () noexcept
+    {
+      switch (vt)
+      {
+      default:
+      case @@=union_name=@@_type::vt__empty_value:
+        break;
+@@>   for variant in variants
+@@>     variant_type = variant.get :type
+@@>     variant_name = variant.get :name
+      case @@=union_name=@@_type::vt__@@=variant_name=@@:
+@@>     if variant_type != "unit" then
+        destroy (v__@@=variant_name=@@);
+@@>     end
+        break;
+@@>   end
+      }
+      vt = @@=union_name=@@_type::vt__empty_value;
+    }
+
     void swap (@@=union_name=@@ & v) noexcept
     {
       std::swap (*this, v);
@@ -180,17 +186,35 @@ namespace @@=ns=@@
     static @@=union_name=@@ @@=variant_name=@@ (@@=variant_type=@@ && v)
     {
       @@=union_name=@@ u;
-      u.vt = @@=union_name=@@_type::vt__@@=variant_name=@@;
       new (&u.v__@@=variant_name=@@) @@=variant_type=@@ (std::move (v));
+      u.vt = @@=union_name=@@_type::vt__@@=variant_name=@@;
       return u;
     }
 
     static @@=union_name=@@ @@=variant_name=@@ (@@=variant_type=@@ const & v)
     {
       @@=union_name=@@ u;
-      u.vt = @@=union_name=@@_type::vt__@@=variant_name=@@;
       new (&u.v__@@=variant_name=@@) @@=variant_type=@@ (v);
+      u.vt = @@=union_name=@@_type::vt__@@=variant_name=@@;
       return u;
+    }
+
+    template<typename TVisitor>
+    void visit__@@=variant_name=@@ (TVisitor && v) const
+    {
+      if (vt == @@=union_name=@@_type::vt__@@=variant_name=@@)
+      {
+        std::forward<TVisitor> (v) (v__@@=variant_name=@@);
+      }
+    }
+
+    template<typename TVisitor>
+    void visit__@@=variant_name=@@ (TVisitor && v)
+    {
+      if (vt == @@=union_name=@@_type::vt__@@=variant_name=@@)
+      {
+        std::forward<TVisitor> (v) (v__@@=variant_name=@@);
+      }
     }
 
     bool get__@@=variant_name=@@ (@@=variant_type=@@ & v) const
@@ -204,6 +228,42 @@ namespace @@=ns=@@
       else
       {
         return false;
+      }
+    }
+
+    @@=variant_type=@@ const & get__@@=variant_name=@@ (@@=variant_type=@@ const & defaultTo) const
+    {
+      if (vt == @@=union_name=@@_type::vt__@@=variant_name=@@)
+      {
+        return v__@@=variant_name=@@;
+      }
+      else
+      {
+        return defaultTo;
+      }
+    }
+
+    @@=variant_type=@@ & get__@@=variant_name=@@ (@@=variant_type=@@ & defaultTo)
+    {
+      if (vt == @@=union_name=@@_type::vt__@@=variant_name=@@)
+      {
+        return v__@@=variant_name=@@;
+      }
+      else
+      {
+        return defaultTo;
+      }
+    }
+
+    @@=variant_type=@@ get__@@=variant_name=@@ (@@=variant_type=@@ && defaultTo) const
+    {
+      if (vt == @@=union_name=@@_type::vt__@@=variant_name=@@)
+      {
+        return v__@@=variant_name=@@;
+      }
+      else
+      {
+        return std::move (defaultTo);
       }
     }
 
@@ -225,6 +285,10 @@ namespace @@=ns=@@
     }
 
 @@>     end
+@@>   end
+
+@@>   for member in members
+    @@=member=@@;
 @@>   end
   private:
     template<typename T>

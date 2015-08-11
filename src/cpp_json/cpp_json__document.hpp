@@ -26,7 +26,7 @@
 #include <tuple>
 
 #include "cpp_json__parser.hpp"
-#include "cpp_json__unions.hpp"
+#include "cpp_json__value.hpp"
 
 namespace cpp_json { namespace document
 {
@@ -1187,7 +1187,7 @@ namespace cpp_json { namespace document
         CPP_JSON__ASSERT (!element_context.empty ());
         auto && back = element_context.back ();
         CPP_JSON__ASSERT (back);
-        back->add_value (json_value::null_value ());
+        back->add_value (json_value::empty_value ());
 
         return true;
       }

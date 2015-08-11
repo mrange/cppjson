@@ -504,9 +504,6 @@ namespace
         , path        const & /*result_file_path*/
         )
       {
-        std::size_t       pos   ;
-        json_element::ptr result;
-
         auto json_wdocument  = read_file<wchar_t> (json_file_path);
         if (json_wdocument.size () < 10000U)
         {

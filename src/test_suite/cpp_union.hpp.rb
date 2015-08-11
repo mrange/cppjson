@@ -51,6 +51,7 @@ def generate_document (document)
      for union in $unions
        union_name  = union.get :name
        variants    = union.get(:variants, [])
+       members     = union.get(:members, [])
     
     document.new_line
     document.write '  enum class '
@@ -96,41 +97,7 @@ def generate_document (document)
     document.new_line
     document.write '    {'
     document.new_line
-    document.write '      switch (vt)'
-    document.new_line
-    document.write '      {'
-    document.new_line
-    document.write '      default:'
-    document.new_line
-    document.write '      case '
-    document.write (union_name)
-    document.write '_type::vt__empty_value:'
-    document.new_line
-    document.write '        break;'
-    document.new_line
-       for variant in variants
-         variant_type = variant.get :type
-         variant_name = variant.get :name
-    document.write '      case '
-    document.write (union_name)
-    document.write '_type::vt__'
-    document.write (variant_name)
-    document.write ':'
-    document.new_line
-         if variant_type != "unit" then
-    document.write '        destroy (v__'
-    document.write (variant_name)
-    document.write ');'
-    document.new_line
-         end
-    document.write '        break;'
-    document.new_line
-       end
-    document.write '      }'
-    document.new_line
-    document.write '      vt = '
-    document.write (union_name)
-    document.write '_type::vt__empty_value;'
+    document.write '      clear ();'
     document.new_line
     document.write '    }'
     document.new_line
@@ -141,7 +108,9 @@ def generate_document (document)
     document.write (union_name)
     document.write ' && v) noexcept'
     document.new_line
-    document.write '      : vt (v.vt)'
+    document.write '      : vt ('
+    document.write (union_name)
+    document.write '_type::vt__empty_value)'
     document.new_line
     document.write '    {'
     document.new_line
@@ -254,7 +223,7 @@ def generate_document (document)
     document.write '      }'
     document.new_line
     document.new_line
-    document.write '      destroy (*this);'
+    document.write '      clear ();'
     document.new_line
     document.new_line
     document.write '      switch (v.vt)'
@@ -329,6 +298,49 @@ def generate_document (document)
     document.new_line
     document.new_line
     document.write '      return *this = std::move (copy);'
+    document.new_line
+    document.write '    }'
+    document.new_line
+    document.new_line
+    document.write '    void clear () noexcept'
+    document.new_line
+    document.write '    {'
+    document.new_line
+    document.write '      switch (vt)'
+    document.new_line
+    document.write '      {'
+    document.new_line
+    document.write '      default:'
+    document.new_line
+    document.write '      case '
+    document.write (union_name)
+    document.write '_type::vt__empty_value:'
+    document.new_line
+    document.write '        break;'
+    document.new_line
+       for variant in variants
+         variant_type = variant.get :type
+         variant_name = variant.get :name
+    document.write '      case '
+    document.write (union_name)
+    document.write '_type::vt__'
+    document.write (variant_name)
+    document.write ':'
+    document.new_line
+         if variant_type != "unit" then
+    document.write '        destroy (v__'
+    document.write (variant_name)
+    document.write ');'
+    document.new_line
+         end
+    document.write '        break;'
+    document.new_line
+       end
+    document.write '      }'
+    document.new_line
+    document.write '      vt = '
+    document.write (union_name)
+    document.write '_type::vt__empty_value;'
     document.new_line
     document.write '    }'
     document.new_line
@@ -412,17 +424,17 @@ def generate_document (document)
     document.write (union_name)
     document.write ' u;'
     document.new_line
-    document.write '      u.vt = '
-    document.write (union_name)
-    document.write '_type::vt__'
-    document.write (variant_name)
-    document.write ';'
-    document.new_line
     document.write '      new (&u.v__'
     document.write (variant_name)
     document.write ') '
     document.write (variant_type)
     document.write ' (std::move (v));'
+    document.new_line
+    document.write '      u.vt = '
+    document.write (union_name)
+    document.write '_type::vt__'
+    document.write (variant_name)
+    document.write ';'
     document.new_line
     document.write '      return u;'
     document.new_line
@@ -443,19 +455,69 @@ def generate_document (document)
     document.write (union_name)
     document.write ' u;'
     document.new_line
-    document.write '      u.vt = '
-    document.write (union_name)
-    document.write '_type::vt__'
-    document.write (variant_name)
-    document.write ';'
-    document.new_line
     document.write '      new (&u.v__'
     document.write (variant_name)
     document.write ') '
     document.write (variant_type)
     document.write ' (v);'
     document.new_line
+    document.write '      u.vt = '
+    document.write (union_name)
+    document.write '_type::vt__'
+    document.write (variant_name)
+    document.write ';'
+    document.new_line
     document.write '      return u;'
+    document.new_line
+    document.write '    }'
+    document.new_line
+    document.new_line
+    document.write '    template<typename TVisitor>'
+    document.new_line
+    document.write '    void visit__'
+    document.write (variant_name)
+    document.write ' (TVisitor && v) const'
+    document.new_line
+    document.write '    {'
+    document.new_line
+    document.write '      if (vt == '
+    document.write (union_name)
+    document.write '_type::vt__'
+    document.write (variant_name)
+    document.write ')'
+    document.new_line
+    document.write '      {'
+    document.new_line
+    document.write '        std::forward<TVisitor> (v) (v__'
+    document.write (variant_name)
+    document.write ');'
+    document.new_line
+    document.write '      }'
+    document.new_line
+    document.write '    }'
+    document.new_line
+    document.new_line
+    document.write '    template<typename TVisitor>'
+    document.new_line
+    document.write '    void visit__'
+    document.write (variant_name)
+    document.write ' (TVisitor && v)'
+    document.new_line
+    document.write '    {'
+    document.new_line
+    document.write '      if (vt == '
+    document.write (union_name)
+    document.write '_type::vt__'
+    document.write (variant_name)
+    document.write ')'
+    document.new_line
+    document.write '      {'
+    document.new_line
+    document.write '        std::forward<TVisitor> (v) (v__'
+    document.write (variant_name)
+    document.write ');'
+    document.new_line
+    document.write '      }'
     document.new_line
     document.write '    }'
     document.new_line
@@ -490,6 +552,111 @@ def generate_document (document)
     document.write '      {'
     document.new_line
     document.write '        return false;'
+    document.new_line
+    document.write '      }'
+    document.new_line
+    document.write '    }'
+    document.new_line
+    document.new_line
+    document.write '    '
+    document.write (variant_type)
+    document.write ' const & get__'
+    document.write (variant_name)
+    document.write ' ('
+    document.write (variant_type)
+    document.write ' const & defaultTo) const'
+    document.new_line
+    document.write '    {'
+    document.new_line
+    document.write '      if (vt == '
+    document.write (union_name)
+    document.write '_type::vt__'
+    document.write (variant_name)
+    document.write ')'
+    document.new_line
+    document.write '      {'
+    document.new_line
+    document.write '        return v__'
+    document.write (variant_name)
+    document.write ';'
+    document.new_line
+    document.write '      }'
+    document.new_line
+    document.write '      else'
+    document.new_line
+    document.write '      {'
+    document.new_line
+    document.write '        return defaultTo;'
+    document.new_line
+    document.write '      }'
+    document.new_line
+    document.write '    }'
+    document.new_line
+    document.new_line
+    document.write '    '
+    document.write (variant_type)
+    document.write ' & get__'
+    document.write (variant_name)
+    document.write ' ('
+    document.write (variant_type)
+    document.write ' & defaultTo)'
+    document.new_line
+    document.write '    {'
+    document.new_line
+    document.write '      if (vt == '
+    document.write (union_name)
+    document.write '_type::vt__'
+    document.write (variant_name)
+    document.write ')'
+    document.new_line
+    document.write '      {'
+    document.new_line
+    document.write '        return v__'
+    document.write (variant_name)
+    document.write ';'
+    document.new_line
+    document.write '      }'
+    document.new_line
+    document.write '      else'
+    document.new_line
+    document.write '      {'
+    document.new_line
+    document.write '        return defaultTo;'
+    document.new_line
+    document.write '      }'
+    document.new_line
+    document.write '    }'
+    document.new_line
+    document.new_line
+    document.write '    '
+    document.write (variant_type)
+    document.write ' get__'
+    document.write (variant_name)
+    document.write ' ('
+    document.write (variant_type)
+    document.write ' && defaultTo) const'
+    document.new_line
+    document.write '    {'
+    document.new_line
+    document.write '      if (vt == '
+    document.write (union_name)
+    document.write '_type::vt__'
+    document.write (variant_name)
+    document.write ')'
+    document.new_line
+    document.write '      {'
+    document.new_line
+    document.write '        return v__'
+    document.write (variant_name)
+    document.write ';'
+    document.new_line
+    document.write '      }'
+    document.new_line
+    document.write '      else'
+    document.new_line
+    document.write '      {'
+    document.new_line
+    document.write '        return std::move (defaultTo);'
     document.new_line
     document.write '      }'
     document.new_line
@@ -554,6 +721,13 @@ def generate_document (document)
     document.new_line
     document.new_line
          end
+       end
+    document.new_line
+       for member in members
+    document.write '    '
+    document.write (member)
+    document.write ';'
+    document.new_line
        end
     document.write '  private:'
     document.new_line
