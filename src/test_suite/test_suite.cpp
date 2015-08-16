@@ -66,6 +66,25 @@ namespace
       struct json_document__impl  ;
     }
 
+    // Implement json_element_visitor to traverse the JSON DOM using 'apply' method
+    struct json_element_visitor
+    {
+      using ptr = std::shared_ptr<json_element_visitor> ;
+
+      json_element_visitor ()           = default;
+      virtual ~json_element_visitor ()  = default;
+
+      CPP_JSON__NO_COPY_MOVE (json_element_visitor);
+
+      virtual bool visit (details::json_element__null    & v) = 0;
+      virtual bool visit (details::json_element__bool    & v) = 0;
+      virtual bool visit (details::json_element__number  & v) = 0;
+      virtual bool visit (details::json_element__string  & v) = 0;
+      virtual bool visit (details::json_element__object  & v) = 0;
+      virtual bool visit (details::json_element__array   & v) = 0;
+      virtual bool visit (details::json_element__error   & v) = 0;
+    };
+
     struct json_element
     {
       using ptr = json_element const *;
@@ -103,7 +122,7 @@ namespace
       virtual doc_string_type   as_string () const                              = 0;
 
       // Applies the JSON element visitor to the element
-      // virtual bool              apply     (json_element_visitor & v)        = 0;
+      virtual bool              apply     (json_element_visitor & v)        = 0;
     };
 
     struct json_document
@@ -219,6 +238,11 @@ namespace
         {
           return L"null";
         }
+
+        bool apply (json_element_visitor & v)
+        {
+          return v.visit (*this);
+        }
       };
 
       struct json_element__bool : json_element__scalar
@@ -249,6 +273,11 @@ namespace
             ? L"true"
             : L"false"
             ;
+        }
+
+        bool apply (json_element_visitor & v)
+        {
+          return v.visit (*this);
         }
       };
 
@@ -281,6 +310,11 @@ namespace
           to_string (result, value);
           return result;
         }
+
+        bool apply (json_element_visitor & v)
+        {
+          return v.visit (*this);
+        }
       };
 
       struct json_element__string : json_element__scalar
@@ -309,6 +343,11 @@ namespace
         doc_string_type as_string () const override
         {
           return value;
+        }
+
+        bool apply (json_element_visitor & v)
+        {
+          return v.visit (*this);
         }
       };
 
@@ -374,6 +413,11 @@ namespace
         {
           return doc_strings_type ();
         }
+
+        bool apply (json_element_visitor & v)
+        {
+          return v.visit (*this);
+        }
       };
 
       struct json_element__object : json_element__container
@@ -397,6 +441,11 @@ namespace
 
         ptr get (doc_string_type const & name) const override;
         doc_strings_type names () const override;
+
+        bool apply (json_element_visitor & v)
+        {
+          return v.visit (*this);
+        }
       };
 
       struct json_element__error : json_element__base
@@ -450,6 +499,11 @@ namespace
         doc_string_type as_string () const override
         {
           return L"\"error\"";
+        }
+
+        bool apply (json_element_visitor & v)
+        {
+          return v.visit (*this);
         }
       };
 
@@ -1321,21 +1375,23 @@ namespace
       {
         std::cout << "Processing: " << file_name << std::endl;
 
-        std::size_t       pos   ;
-        json_element::ptr result;
+        std::size_t         pos     ;
+        json_document::ptr  document;
 
         auto json_document  = read_file<doc_string_type::value_type> (json_file_path);
 
-        if (json_document::parse (json_document, pos, result))
+        if (json_document::parse (json_document, pos, document))
         {
-          auto serialized = json_document::to_string (result);
+          auto result     = document->root ();
+          auto serialized = json_document::to_string (document);
 
-          std::size_t       ipos    ;
-          json_element::ptr iresult ;
+          std::size_t         ipos      ;
+          json_document::ptr  idocument ;
 
-          if (json_document::parse (serialized, ipos, iresult))
+          if (json_document::parse (serialized, ipos, idocument))
           {
-            auto iserialized = json_document::to_string (iresult);
+            auto iresult      = idocument->root ();
+            auto iserialized  = json_document::to_string (idocument);
 
             if (iserialized != serialized)
             {
@@ -1386,15 +1442,16 @@ namespace
 
     for (auto && test_case : test_cases)
     {
-      std::size_t       pos   ;
-      json_element::ptr result;
-      doc_string_type   error ;
+      std::size_t         pos     ;
+      json_document::ptr  document;
+      doc_string_type     error   ;
 
       std::wcout << "TEST_CASE: "<< test_case << std::endl;
 
-      if (json_document::parse (test_case, pos, result, error))
+      if (json_document::parse (test_case, pos, document, error))
       {
-        auto json2 = json_document::to_string (result);
+        auto result = document->root ();
+        auto json2  = json_document::to_string (document);
         std::wcout
           << L"SUCCESS: Pos: " << pos << L" Json: " << json2 << std::endl;
       }
