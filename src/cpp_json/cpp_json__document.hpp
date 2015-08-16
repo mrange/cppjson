@@ -645,6 +645,134 @@ namespace cpp_json { namespace document
       return result;
     }
 
+    struct json_element_visitor__to_string : json_element_visitor
+    {
+      doc_string_type value;
+
+      inline void ch (doc_char_type c)
+      {
+        switch (c)
+        {
+        case '\"':
+          value += L"\\\"";
+          break;
+        case '\\':
+          value += L"\\\\";
+          break;
+        case '/':
+          value += L"\\/";
+          break;
+        default:
+          json_non_printable_chars::get ().append (value, c);
+          break;
+        }
+      }
+
+      inline void str (doc_string_type const & s)
+      {
+        value += L'"';
+        for (auto && c : s)
+        {
+          ch (c);
+        }
+        value += L'"';
+      }
+
+      bool visit (json_element__null    & /*v*/) override
+      {
+        value += L"null";
+
+        return true;
+      }
+
+      bool visit (json_element__bool    & v) override
+      {
+        value += (v.value ? L"true" : L"false");
+
+        return true;
+      }
+
+      bool visit (json_element__number  & v) override
+      {
+        utils::to_string (value, v.value);
+
+        return true;
+      }
+
+      bool visit (json_element__string  & v) override
+      {
+        str (v.value);
+
+        return true;
+      }
+
+      bool visit (json_element__array   & v) override
+      {
+        value += L'[';
+        auto sz = v.value.size ();
+        for (auto iter = 0U; iter < sz; ++iter)
+        {
+          if (iter > 0U)
+          {
+            value += L", ";
+          }
+
+          auto && c = v.value[iter];
+          if (c)
+          {
+            c->apply (*this);
+          }
+          else
+          {
+            value += L"null";
+          }
+        }
+        value += L']';
+
+        return true;
+      }
+
+      bool visit (json_element__object  & v) override
+      {
+        value += L'{';
+        auto sz = v.value.size ();
+        for (auto iter = 0U; iter < sz; ++iter)
+        {
+          if (iter > 0U)
+          {
+            value += L", ";
+          }
+
+          auto && kv  = v.value[iter];
+
+          auto && k   = std::get<0> (kv);
+          auto && c   = std::get<1> (kv);
+
+          str (k);
+
+          value += L':';
+
+          if (c)
+          {
+            c->apply (*this);
+          }
+          else
+          {
+            value += L"null";
+          }
+        }
+        value += L'}';
+
+        return true;
+      }
+
+      bool visit (json_element__error  & v) override
+      {
+        str (v.as_string ());
+
+        return true;
+      }
+    };
 
     struct json_element_context : std::enable_shared_from_this<json_element_context>
     {
@@ -1219,15 +1347,11 @@ namespace cpp_json { namespace document
   {
     if (json)
     {
-/*
       details::json_element_visitor__to_string visitor;
 
-      json->apply (visitor);
+      json->root ()->apply (visitor);
 
       return std::move (visitor.value);
-*/
-      // TODO:
-      return L"[]";
     }
     else
     {
