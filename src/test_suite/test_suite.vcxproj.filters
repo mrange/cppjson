@@ -37,5 +37,8 @@
       <Filter>jsoncpp</Filter>
     </ClCompile>
     <ClCompile Include="perf__jsoncpp_callback.cpp" />
+    <ClCompile Include="..\cpp_json\cpp_json__document.cpp">
+      <Filter>cpp_json</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -1820,7 +1820,9 @@ int main (int /*argc*/, char const * * argvs)
     auto exe = argvs[0];
     CPP_JSON__ASSERT (exe);
 
-#ifdef CPP_JSON__PERFTEST
+#define CPP_JSON__PERFTEST
+
+#ifndef CPP_JSON__PERFTEST
 #ifdef CPP_JSON__FILESYSTEM
     generate_test_results (exe);
     process_test_cases (exe);
