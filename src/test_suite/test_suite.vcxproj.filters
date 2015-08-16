@@ -8,6 +8,9 @@
     <Filter Include="cpp_json">
       <UniqueIdentifier>{3e1405e5-b635-40b4-b6d9-2c677f6e5734}</UniqueIdentifier>
     </Filter>
+    <Filter Include="jsoncpp">
+      <UniqueIdentifier>{aa809666-413f-4c80-b34a-b425cd868fc1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -22,5 +25,17 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="test_suite.cpp" />
     <ClCompile Include="linker_test_case.cpp" />
+    <ClCompile Include="perf__cpp_json_callback.cpp" />
+    <ClCompile Include="perf__cpp_json_document.cpp" />
+    <ClCompile Include="..\..\external\jsoncpp\lib_json\json_reader.cpp">
+      <Filter>jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\external\jsoncpp\lib_json\json_value.cpp">
+      <Filter>jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\external\jsoncpp\lib_json\json_writer.cpp">
+      <Filter>jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="perf__jsoncpp_callback.cpp" />
   </ItemGroup>
 </Project>

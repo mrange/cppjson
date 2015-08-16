@@ -73,21 +73,25 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)\Output\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\Intermediate\$(Configuration)\</IntDir>
+    <IncludePath>C:\temp\GitHub\cppjson\external\jsoncpp\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IntDir>$(SolutionDir)\Intermediate\$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IncludePath>C:\temp\GitHub\cppjson\external\jsoncpp\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)\Output\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\Intermediate\$(Configuration)\</IntDir>
+    <IncludePath>C:\temp\GitHub\cppjson\external\jsoncpp\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <IntDir>$(SolutionDir)\Intermediate\$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IncludePath>C:\temp\GitHub\cppjson\external\jsoncpp\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -155,9 +159,28 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="linker_test_case.cpp">
-      <FileType>CppCode</FileType>
+    <ClCompile Include="..\..\external\jsoncpp\lib_json\json_reader.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\..\external\jsoncpp\lib_json\json_value.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\external\jsoncpp\lib_json\json_writer.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="linker_test_case.cpp" />
+    <ClCompile Include="perf__cpp_json_callback.cpp" />
+    <ClCompile Include="perf__cpp_json_document.cpp" />
+    <ClCompile Include="perf__jsoncpp_callback.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

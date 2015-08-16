@@ -18,6 +18,7 @@
 
 #include "../cpp_json/cpp_json__document.hpp"
 
+#include <chrono>
 #include <cstdint>
 #include <cstdio>
 #include <fstream>
@@ -41,6 +42,10 @@ using namespace std::tr2::sys;
 #endif
 
 #define TEST_EQ(expected, actual) test_eq (__FILE__, __LINE__, expected, #expected, actual, #actual)
+
+void perf__parse_json_callback  (std::wstring const & json_document);
+void perf__parse_json_document  (std::wstring const & json_document);
+void perf__jsoncpp_document     (std::string const & json_document);
 
 namespace
 {
@@ -1004,6 +1009,26 @@ namespace
     return result;
   }
 
+  template<typename TPredicate>
+  long long time_it (std::size_t count, TPredicate predicate)
+  {
+    predicate ();
+
+    auto then = std::chrono::high_resolution_clock::now ();
+
+    for (auto iter = 0U; iter < count; ++iter)
+    {
+      predicate ();
+    }
+
+    auto now = std::chrono::high_resolution_clock::now ();
+
+    auto diff = now - then;
+
+    auto ms = std::chrono::duration_cast<std::chrono::milliseconds> (diff);
+    return ms.count ();
+  }
+
   template<typename TExpected, typename TActual>
   bool test_eq (
       char const *  file_name
@@ -1333,7 +1358,7 @@ namespace
         using stringstream_type = result_json_context::stringstream_type;
         using string_type       = result_json_context::string_type;
 
-        auto json_document  = read_file<string_type::value_type> (json_file_path);
+        auto json_document  = read_file<char> (json_file_path);
 
         auto json_begin     = json_document.c_str ();
         auto json_end       = json_begin + json_document.size ();
@@ -1378,7 +1403,7 @@ namespace
         std::size_t         pos     ;
         json_document::ptr  document;
 
-        auto json_document  = read_file<doc_string_type::value_type> (json_file_path);
+        auto json_document  = read_file<wchar_t> (json_file_path);
 
         if (json_document::parse (json_document, pos, document))
         {
@@ -1409,6 +1434,48 @@ namespace
         {
           // Failure cases are ignored
         }
+      });
+  }
+
+  void performance_test_cases (char const * exe)
+  {
+    std::cout << "Running 'performance_test_cases'..." << std::endl;
+
+    using namespace cpp_json::document;
+
+    visit_all_test_cases (
+        exe
+      , [] (
+          std::string const & file_name
+        , path        const & json_file_path
+        , path        const & /*result_file_path*/
+        )
+      {
+        std::size_t       pos   ;
+        json_element::ptr result;
+
+        auto json_wdocument  = read_file<wchar_t> (json_file_path);
+        if (json_wdocument.size () < 10000U)
+        {
+          return;
+        }
+
+        auto json_adocument  = read_file<char> (json_file_path);
+
+
+        std::cout << "Processing: " << file_name << std::endl;
+
+        auto count = 1000;
+
+        auto time__cpp_json_callback = time_it (count, [&json_wdocument] () { perf__parse_json_callback (json_wdocument); });
+        std::cout << "cpp_json_callback: Milliseconds: " << time__cpp_json_callback << std::endl;
+
+        auto time__cpp_json_document = time_it (count, [&json_wdocument] () { perf__parse_json_document (json_wdocument); });
+        std::cout << "cpp_json_document: Milliseconds: " << time__cpp_json_document << std::endl;
+
+        auto time__jsoncpp_document = time_it (count, [&json_adocument] () { perf__jsoncpp_document (json_adocument); });
+        std::cout << "jsoncpp_document: Milliseconds: " << time__jsoncpp_document << std::endl;
+
       });
   }
 #endif
@@ -1753,12 +1820,16 @@ int main (int /*argc*/, char const * * argvs)
     auto exe = argvs[0];
     CPP_JSON__ASSERT (exe);
 
+#ifdef CPP_JSON__PERFTEST
 #ifdef CPP_JSON__FILESYSTEM
     generate_test_results (exe);
     process_test_cases (exe);
 #endif
     manual_test_cases ();
     document_test_cases ();
+#else
+    performance_test_cases (exe);
+#endif
 
     if (errors > 0)
     {
