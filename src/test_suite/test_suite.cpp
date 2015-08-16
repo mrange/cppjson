@@ -1,4 +1,4 @@
-// ----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
 // Copyright 2015 Mårten Rånge
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -52,7 +52,7 @@ namespace
     using doc_iter_type     = doc_char_type const *       ;
 
     constexpr auto default_size = 16U;
-    
+
     namespace details
     {
       struct json_element__null   ;
@@ -1382,7 +1382,6 @@ namespace
 
         if (json_document::parse (json_document, pos, document))
         {
-          auto result     = document->root ();
           auto serialized = json_document::to_string (document);
 
           std::size_t         ipos      ;
@@ -1390,7 +1389,6 @@ namespace
 
           if (json_document::parse (serialized, ipos, idocument))
           {
-            auto iresult      = idocument->root ();
             auto iserialized  = json_document::to_string (idocument);
 
             if (iserialized != serialized)
@@ -1450,7 +1448,6 @@ namespace
 
       if (json_document::parse (test_case, pos, document, error))
       {
-        auto result = document->root ();
         auto json2  = json_document::to_string (document);
         std::wcout
           << L"SUCCESS: Pos: " << pos << L" Json: " << json2 << std::endl;
@@ -1755,13 +1752,12 @@ int main (int /*argc*/, char const * * argvs)
 
     auto exe = argvs[0];
     CPP_JSON__ASSERT (exe);
-/*
+
 #ifdef CPP_JSON__FILESYSTEM
     generate_test_results (exe);
     process_test_cases (exe);
 #endif
     manual_test_cases ();
-*/
     document_test_cases ();
 
     if (errors > 0)

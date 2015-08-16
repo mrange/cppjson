@@ -36,7 +36,7 @@ namespace cpp_json { namespace document
   using doc_iter_type     = doc_char_type const *       ;
 
   constexpr auto default_size = 16U;
-    
+
   namespace details
   {
     struct json_element__null   ;
@@ -60,13 +60,13 @@ namespace cpp_json { namespace document
 
     CPP_JSON__NO_COPY_MOVE (json_element_visitor);
 
-    virtual bool visit (details::json_element__null    & v) = 0;
-    virtual bool visit (details::json_element__bool    & v) = 0;
-    virtual bool visit (details::json_element__number  & v) = 0;
-    virtual bool visit (details::json_element__string  & v) = 0;
-    virtual bool visit (details::json_element__object  & v) = 0;
-    virtual bool visit (details::json_element__array   & v) = 0;
-    virtual bool visit (details::json_element__error   & v) = 0;
+    virtual bool visit (details::json_element__null   const & v) = 0;
+    virtual bool visit (details::json_element__bool   const & v) = 0;
+    virtual bool visit (details::json_element__number const & v) = 0;
+    virtual bool visit (details::json_element__string const & v) = 0;
+    virtual bool visit (details::json_element__object const & v) = 0;
+    virtual bool visit (details::json_element__array  const & v) = 0;
+    virtual bool visit (details::json_element__error  const & v) = 0;
   };
 
   struct json_element
@@ -106,7 +106,7 @@ namespace cpp_json { namespace document
     virtual doc_string_type   as_string () const                              = 0;
 
     // Applies the JSON element visitor to the element
-    virtual bool              apply     (json_element_visitor & v)        = 0;
+    virtual bool              apply     (json_element_visitor & v) const      = 0;
   };
 
   struct json_document
@@ -141,28 +141,96 @@ namespace cpp_json { namespace document
     using array_members   = std::vector<json_element::ptr>                              ;
     using object_members  = std::vector<std::tuple<doc_string_type, json_element::ptr>> ;
 
-    void to_string (doc_string_type & value, double d)
+    struct utils
     {
-      if (std::isnan (d))
+      static void to_string (doc_string_type & value, double d)
       {
-        value += L"\"NaN\"";
+        if (std::isnan (d))
+        {
+          value += L"\"NaN\"";
+        }
+        else if (std::isinf (d) && d < 0)
+        {
+          value += L"\"-Inf\"";
+        }
+        else if (std::isinf (d))
+        {
+          value += L"\"+Inf\"";
+        }
+        else
+        {
+          constexpr auto bsz = 64U;
+          wchar_t buffer[bsz];
+          std::swprintf (buffer, bsz, L"%G", d);
+          value += buffer;
+        }
       }
-      else if (std::isinf (d) && d < 0)
+    };
+
+    struct json_non_printable_chars
+    {
+      using non_printable_char  = std::array<doc_char_type      , 8 >;
+      using non_printable_chars = std::array<non_printable_char , 32>;
+
+      json_non_printable_chars ()
       {
-        value += L"\"-Inf\"";
+        for (auto iter = 0U; iter < table.size (); ++iter)
+        {
+          auto && v = table[iter];
+          std::fill (v.begin (), v.end (), 0);
+
+          auto fmt = L"\\u%04x";
+
+          switch (iter)
+          {
+          case '\b':
+            fmt = L"\\b";
+            break;
+          case '\f':
+            fmt = L"\\f";
+            break;
+          case '\n':
+            fmt = L"\\n";
+            break;
+          case '\r':
+            fmt = L"\\r";
+            break;
+          case '\t':
+            fmt = L"\\t";
+            break;
+          }
+
+          std::swprintf (v.data (), v.size (), fmt, iter);
+        }
       }
-      else if (std::isinf (d))
+
+      static json_non_printable_chars const & get ()
       {
-        value += L"\"+Inf\"";
+        // TODO: Race condition issue (until compilers widely support magic statics)
+        static json_non_printable_chars non_printable_chars;
+        return non_printable_chars;
       }
-      else
+
+      inline void append (doc_string_type & s, doc_char_type ch) const noexcept
       {
-        constexpr auto bsz = 64U;
-        wchar_t buffer[bsz];
-        std::swprintf (buffer, bsz, L"%G", d);
-        value += buffer;
+
+        if (ch < table.size ())
+        {
+          auto p = table[ch].data ();
+          while (*p)
+          {
+            s += *p++;
+          }
+        }
+        else
+        {
+          s += ch;
+        }
       }
-    }
+
+    private:
+      non_printable_chars table;
+    };
 
     struct json_element__base : json_element
     {
@@ -237,7 +305,7 @@ namespace cpp_json { namespace document
         return L"null";
       }
 
-      bool apply (json_element_visitor & v)
+      bool apply (json_element_visitor & v) const
       {
         return v.visit (*this);
       }
@@ -273,7 +341,7 @@ namespace cpp_json { namespace document
           ;
       }
 
-      bool apply (json_element_visitor & v)
+      bool apply (json_element_visitor & v) const
       {
         return v.visit (*this);
       }
@@ -305,11 +373,11 @@ namespace cpp_json { namespace document
       {
         doc_string_type result;
         result.reserve (default_size);
-        to_string (result, value);
+        utils::to_string (result, value);
         return result;
       }
 
-      bool apply (json_element_visitor & v)
+      bool apply (json_element_visitor & v) const
       {
         return v.visit (*this);
       }
@@ -343,7 +411,7 @@ namespace cpp_json { namespace document
         return value;
       }
 
-      bool apply (json_element_visitor & v)
+      bool apply (json_element_visitor & v) const
       {
         return v.visit (*this);
       }
@@ -412,7 +480,7 @@ namespace cpp_json { namespace document
         return doc_strings_type ();
       }
 
-      bool apply (json_element_visitor & v)
+      bool apply (json_element_visitor & v) const
       {
         return v.visit (*this);
       }
@@ -440,7 +508,7 @@ namespace cpp_json { namespace document
       ptr get (doc_string_type const & name) const override;
       doc_strings_type names () const override;
 
-      bool apply (json_element_visitor & v)
+      bool apply (json_element_visitor & v) const
       {
         return v.visit (*this);
       }
@@ -499,7 +567,7 @@ namespace cpp_json { namespace document
         return L"\"error\"";
       }
 
-      bool apply (json_element_visitor & v)
+      bool apply (json_element_visitor & v) const
       {
         return v.visit (*this);
       }
@@ -678,46 +746,47 @@ namespace cpp_json { namespace document
         value += L'"';
       }
 
-      bool visit (json_element__null    & /*v*/) override
+      bool visit (json_element__null    const & /*v*/) override
       {
         value += L"null";
 
         return true;
       }
 
-      bool visit (json_element__bool    & v) override
+      bool visit (json_element__bool    const & v) override
       {
         value += (v.value ? L"true" : L"false");
 
         return true;
       }
 
-      bool visit (json_element__number  & v) override
+      bool visit (json_element__number  const & v) override
       {
         utils::to_string (value, v.value);
 
         return true;
       }
 
-      bool visit (json_element__string  & v) override
+      bool visit (json_element__string  const & v) override
       {
         str (v.value);
 
         return true;
       }
 
-      bool visit (json_element__array   & v) override
+      bool visit (json_element__array   const & v) override
       {
         value += L'[';
-        auto sz = v.value.size ();
-        for (auto iter = 0U; iter < sz; ++iter)
+        auto b = v.begin;
+        auto e = b + v.size ();
+        for (auto iter = b; iter < e; ++iter)
         {
-          if (iter > 0U)
+          if (iter > b)
           {
             value += L", ";
           }
 
-          auto && c = v.value[iter];
+          auto && c = v.doc->all_array_members[iter];
           if (c)
           {
             c->apply (*this);
@@ -732,18 +801,19 @@ namespace cpp_json { namespace document
         return true;
       }
 
-      bool visit (json_element__object  & v) override
+      bool visit (json_element__object  const & v) override
       {
         value += L'{';
-        auto sz = v.value.size ();
-        for (auto iter = 0U; iter < sz; ++iter)
+        auto b = v.begin;
+        auto e = b + v.size ();
+        for (auto iter = b; iter < e; ++iter)
         {
-          if (iter > 0U)
+          if (iter > b)
           {
             value += L", ";
           }
 
-          auto && kv  = v.value[iter];
+          auto && kv  = v.doc->all_object_members[iter];
 
           auto && k   = std::get<0> (kv);
           auto && c   = std::get<1> (kv);
@@ -766,7 +836,7 @@ namespace cpp_json { namespace document
         return true;
       }
 
-      bool visit (json_element__error  & v) override
+      bool visit (json_element__error const & v) override
       {
         str (v.as_string ());
 
