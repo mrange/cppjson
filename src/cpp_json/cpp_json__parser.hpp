@@ -198,8 +198,8 @@ namespace cpp_json { namespace parser
     }
 
   private:
-    static details::json_tokens<string_type> tokens             ;
-    static details::json_pow10table          pow10table         ;
+    static details::json_tokens<string_type>  tokens            ;
+    static details::json_pow10table           pow10table        ;
 
     iter_type const begin                                       ;
     iter_type const end                                         ;
@@ -541,7 +541,7 @@ namespace cpp_json { namespace parser
         }
 
         auto c = ch ();
-        if (c > '"')
+        if (c > '\\')
         {
           context_type::push_char (c);
           adv ();

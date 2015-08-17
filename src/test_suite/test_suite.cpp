@@ -1437,15 +1437,17 @@ namespace
       });
   }
 
-  void performance_test_cases (char const * exe)
+  void performance_test_cases (char const * exe, int c)
   {
     std::cout << "Running 'performance_test_cases'..." << std::endl;
 
     using namespace cpp_json::document;
 
+    auto count = c > 0 ? c : 1000;
+
     visit_all_test_cases (
         exe
-      , [] (
+      , [count] (
           std::string const & file_name
         , path        const & json_file_path
         , path        const & /*result_file_path*/
@@ -1465,16 +1467,14 @@ namespace
 
         std::cout << "Processing: " << file_name << std::endl;
 
-        auto count = 1000;
-
         //auto time__cpp_json_callback = time_it (count, [&json_wdocument] () { perf__parse_json_callback (json_wdocument); });
         //std::cout << "cpp_json_callback: Milliseconds: " << time__cpp_json_callback << std::endl;
 
         auto time__cpp_json_document = time_it (count, [&json_wdocument] () { perf__parse_json_document (json_wdocument); });
         std::cout << "cpp_json_document: Milliseconds: " << time__cpp_json_document << std::endl;
 
-        auto time__jsoncpp_document = time_it (count, [&json_adocument] () { perf__jsoncpp_document (json_adocument); });
-        std::cout << "jsoncpp_document: Milliseconds: " << time__jsoncpp_document << std::endl;
+        //auto time__jsoncpp_document = time_it (count, [&json_adocument] () { perf__jsoncpp_document (json_adocument); });
+        //std::cout << "jsoncpp_document: Milliseconds: " << time__jsoncpp_document << std::endl;
 
       });
   }
@@ -1811,7 +1811,7 @@ namespace
 
 }
 
-int main (int /*argc*/, char const * * argvs)
+int main (int argc, char const * * argvs)
 {
   try
   {
@@ -1819,6 +1819,11 @@ int main (int /*argc*/, char const * * argvs)
 
     auto exe = argvs[0];
     CPP_JSON__ASSERT (exe);
+
+    auto count = argc > 1
+      ? atoi (argvs[1])
+      : 0
+      ;
 
 #define CPP_JSON__PERFTEST
 
@@ -1830,7 +1835,7 @@ int main (int /*argc*/, char const * * argvs)
     manual_test_cases ();
     document_test_cases ();
 #else
-    performance_test_cases (exe);
+    performance_test_cases (exe, count);
 #endif
 
     if (errors > 0)
