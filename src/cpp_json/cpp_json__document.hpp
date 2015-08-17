@@ -614,7 +614,7 @@ namespace cpp_json { namespace document
         return & number_values.back ();
       }
 
-      details::json_element__string * create_string (doc_string_type v)
+      details::json_element__string * create_string (doc_string_type && v)
       {
         string_values.emplace_back (this, std::move (v));
         return & string_values.back ();
@@ -804,8 +804,8 @@ namespace cpp_json { namespace document
 
       CPP_JSON__NO_COPY_MOVE (json_element_context);
 
-      virtual bool              add_value       (json_element::ptr const & json )  = 0;
-      virtual bool              set_key         (doc_string_type const & key     ) = 0;
+      virtual bool              add_value       (json_element::ptr const & json ) = 0;
+      virtual bool              set_key         (doc_string_type && key         ) = 0;
       virtual json_element::ptr create_element  (
           ptrs & array_contexts
         , ptrs & object_contexts
@@ -829,7 +829,7 @@ namespace cpp_json { namespace document
         return true;
       }
 
-      virtual bool set_key (doc_string_type const & /*key*/) override
+      virtual bool set_key (doc_string_type && /*key*/) override
       {
         CPP_JSON__ASSERT (false);
 
@@ -863,7 +863,7 @@ namespace cpp_json { namespace document
         return true;
       }
 
-      virtual bool set_key (doc_string_type const & /*key*/) override
+      virtual bool set_key (doc_string_type && /*key*/) override
       {
         CPP_JSON__ASSERT (false);
 
@@ -900,9 +900,9 @@ namespace cpp_json { namespace document
         return true;
       }
 
-      virtual bool set_key (doc_string_type const & k) override
+      virtual bool set_key (doc_string_type && k) override
       {
-        key = k;
+        key = std::move (k);
 
         return true;
       }
@@ -927,11 +927,11 @@ namespace cpp_json { namespace document
 
       json_document__impl::tptr document      ;
 
-      string_type           current_string    ;
+      std::vector<char_type>  current_string  ;
 
-      json_element_contexts element_context   ;
-      json_element_contexts array_contexts    ;
-      json_element_contexts object_contexts   ;
+      json_element_contexts   element_context ;
+      json_element_contexts   array_contexts  ;
+      json_element_contexts   object_contexts ;
 
       builder_json_context ()
         : document (std::make_shared<json_document__impl> ())
@@ -976,9 +976,9 @@ namespace cpp_json { namespace document
         current_string.push_back (ch);
       }
 
-      inline string_type const & get_string () noexcept
+      inline string_type get_string () noexcept
       {
-        return current_string;
+        return string_type (current_string.begin (), current_string.end ());
       }
 
       inline bool pop ()
@@ -1034,12 +1034,12 @@ namespace cpp_json { namespace document
         return true;
       }
 
-      bool member_key (string_type const & s)
+      bool member_key (string_type && s)
       {
         CPP_JSON__ASSERT (!element_context.empty ());
         auto && back = element_context.back ();
         CPP_JSON__ASSERT (back);
-        back->set_key (s);
+        back->set_key (std::move (s));
 
         return true;
       }
@@ -1076,9 +1076,9 @@ namespace cpp_json { namespace document
         return true;
       }
 
-      bool string_value (string_type const & s)
+      bool string_value (string_type && s)
       {
-        auto v = document->create_string (s);
+        auto v = document->create_string (std::move (s));
 
         CPP_JSON__ASSERT (!element_context.empty ());
         auto && back = element_context.back ();

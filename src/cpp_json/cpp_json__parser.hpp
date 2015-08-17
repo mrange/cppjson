@@ -541,8 +541,18 @@ namespace cpp_json { namespace parser
         }
 
         auto c = ch ();
+        if (c > '"')
+        {
+          context_type::push_char (c);
+          adv ();
+          continue;
+        }
+
         switch (c)
         {
+        default:
+          context_type::push_char (c);
+          break;
         case '"':
           return true;
         case '\n':
@@ -631,9 +641,6 @@ namespace cpp_json { namespace parser
               return raise__escapes ();
             }
           }
-          break;
-        default:
-          context_type::push_char (c);
           break;
         }
         adv ();
