@@ -699,9 +699,9 @@ namespace cpp_json { namespace document
 
       CPP_JSON__NO_COPY_MOVE (json_element_context);
 
-      virtual bool              add_value    (json_element::ptr const & json )  = 0;
-      virtual bool              set_key      (doc_string_type const & key     ) = 0;
-      virtual json_element::ptr get_element  ()                                 = 0;
+      virtual bool              add_value    (json_element::ptr const & json) = 0;
+      virtual bool              set_key      (doc_string_type && key        ) = 0;
+      virtual json_element::ptr get_element  ()                               = 0;
     };
 
     struct json_element_context__root : json_element_context
@@ -721,7 +721,7 @@ namespace cpp_json { namespace document
         return true;
       }
 
-      virtual bool set_key (doc_string_type const & /*key*/) override
+      virtual bool set_key (doc_string_type && /*key*/) override
       {
         CPP_JSON__ASSERT (false);
 
@@ -754,7 +754,7 @@ namespace cpp_json { namespace document
         return true;
       }
 
-      virtual bool set_key (doc_string_type const & /*key*/) override
+      virtual bool set_key (doc_string_type && /*key*/) override
       {
         CPP_JSON__ASSERT (false);
 
@@ -787,9 +787,9 @@ namespace cpp_json { namespace document
         return true;
       }
 
-      virtual bool set_key (doc_string_type const & k) override
+      virtual bool set_key (doc_string_type && k) override
       {
-        key = k;
+        key = std::move (k);
 
         return true;
       }
@@ -807,7 +807,7 @@ namespace cpp_json { namespace document
       using char_type   = doc_char_type   ;
       using iter_type   = doc_iter_type   ;
 
-      string_type                             current_string  ;
+      std::vector<char_type>                  current_string  ;
 
       std::vector<json_element_context::ptr>  element_context ;
 
@@ -850,9 +850,9 @@ namespace cpp_json { namespace document
         current_string.push_back (ch);
       }
 
-      inline string_type const & get_string () noexcept
+      inline string_type get_string () noexcept
       {
-        return current_string;
+        return string_type (current_string.begin (), current_string.end ());
       }
 
       template<typename T>
@@ -897,12 +897,12 @@ namespace cpp_json { namespace document
         return push<json_element_context__object> ();
       }
 
-      bool member_key (string_type const & s)
+      bool member_key (string_type && s)
       {
         CPP_JSON__ASSERT (!element_context.empty ());
         auto && back = element_context.back ();
         CPP_JSON__ASSERT (back);
-        back->set_key (s);
+        back->set_key (std::move (s));
 
         return true;
       }
@@ -937,10 +937,10 @@ namespace cpp_json { namespace document
         return true;
       }
 
-      bool string_value (string_type const & s)
+      bool string_value (string_type && s)
       {
         auto v = std::make_shared<json_element__string> ();
-        v->value = s;
+        v->value = std::move (s);
 
         CPP_JSON__ASSERT (!element_context.empty ());
         auto && back = element_context.back ();
