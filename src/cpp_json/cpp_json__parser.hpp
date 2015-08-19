@@ -14,6 +14,8 @@
 // limitations under the License.
 // ----------------------------------------------------------------------------------------------
 
+#pragma once
+
 #include <cassert>
 #include <cmath>
 
@@ -117,6 +119,15 @@ namespace cpp_json { namespace parser
       string_type const token__root_value_preludes;
       string_type const token__value_preludes     ;
     };
+
+    template<typename TIter>
+    struct find_special_char
+    {
+      static constexpr TIter find (TIter begin, TIter end) 
+      {
+        return begin;
+      }
+    };
   }
   // TContext must fulfill the following contract
   //  struct some_json_context
@@ -141,9 +152,11 @@ namespace cpp_json { namespace parser
   //    void clear_string ();
   //    // Appends an 8-bit or 16-bit char to string (depending on char_type)
   //    void push_char (char_type ch);
+  //    // Appends 8-bit or 16-bit chars to string (depending on char_type)
+  //    void push_chars (iter_type begin, iter_type end);
   //    // Appends an 16-bit char to string (allows encoding when char_type is char)
   //    void push_wchar_t (wchar_t ch);
-  //    // Gets cached string
+  //    // Gets cached string (return type is allowed to be 'string_type' and 'string_type const &')
   //    string_type const & get_string ();
   //
   //    // The following methods are invoked when JSON values are discovered
@@ -535,6 +548,14 @@ namespace cpp_json { namespace parser
 
       for (;;)
       {
+        auto find = details::find_special_char<iter_type>::find (current, end);
+
+        if (current != find)
+        {
+          context_type::push_chars (find, end);
+          current = find;
+        }
+
         if (eos ())
         {
           return raise__char () || raise__eos ();

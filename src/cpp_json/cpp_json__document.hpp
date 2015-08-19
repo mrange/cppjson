@@ -14,6 +14,8 @@
 // limitations under the License.
 // ----------------------------------------------------------------------------------------------
 
+#pragma once
+
 #include <algorithm>
 #include <array>
 #include <cmath>
@@ -971,6 +973,11 @@ namespace cpp_json { namespace document
         current_string.push_back (ch);
       }
 
+      inline void push_chars (iter_type begin, iter_type end)
+      {
+        current_string.insert (current_string.end (), begin, end);
+      }
+
       inline void push_wchar_t (wchar_t ch)
       {
         current_string.push_back (ch);
@@ -1165,6 +1172,10 @@ namespace cpp_json { namespace document
       }
 
       inline void push_char (char_type /*ch*/)
+      {
+      }
+
+      inline void push_chars (iter_type /*begin*/, iter_type /*end*/)
       {
       }
 

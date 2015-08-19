@@ -14,19 +14,27 @@
 // limitations under the License.
 // ----------------------------------------------------------------------------------------------
 
-#include "stdafx.h"
+#pragma once
 
-#include "../cpp_json/cpp_json__document.hpp"
-#include "../cpp_json/cpp_json__parser__sse2.hpp"
+#include <emmintrin.h>
 
-void perf__parse_json_document (std::wstring const & json_document)
+#include "cpp_json__parser.hpp"
+
+namespace cpp_json { namespace parser
 {
-  using namespace cpp_json::document;
+  namespace details
+  {
+    template<>
+    struct find_special_char<wchar_t const *>
+    {
+      using iter_type = wchar_t const *;
 
-  std::size_t         pos     ;
-  json_document::ptr  document;
+      static iter_type find (iter_type begin, iter_type end) 
+      {
+        return begin;
+      }
+    };
 
-  auto presult = json_document::parse (json_document, pos, document);
+  }
 
-  CPP_JSON__ASSERT (presult);
-}
+} }

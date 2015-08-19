@@ -835,6 +835,11 @@ namespace
           current_string.push_back (ch);
         }
 
+        inline void push_chars (iter_type begin, iter_type end)
+        {
+          current_string.insert (current_string.end (), begin, end);
+        }
+
         inline void push_wchar_t (wchar_t ch)
         {
           current_string.push_back (ch);
@@ -1174,6 +1179,11 @@ namespace
       current_string.push_back (ch);
     }
 
+    void push_chars (iter_type begin, iter_type end)
+    {
+      current_string.insert (current_string.end (), begin, end);
+    }
+
     void push_wchar_t (wchar_t ch)
     {
       if (ch > 127)
@@ -1467,8 +1477,8 @@ namespace
 
         std::cout << "Processing: " << file_name << std::endl;
 
-        //auto time__cpp_json_callback = time_it (count, [&json_wdocument] () { perf__parse_json_callback (json_wdocument); });
-        //std::cout << "cpp_json_callback: Milliseconds: " << time__cpp_json_callback << std::endl;
+        auto time__cpp_json_callback = time_it (count, [&json_wdocument] () { perf__parse_json_callback (json_wdocument); });
+        std::cout << "cpp_json_callback: Milliseconds: " << time__cpp_json_callback << std::endl;
 
         auto time__cpp_json_document = time_it (count, [&json_wdocument] () { perf__parse_json_document (json_wdocument); });
         std::cout << "cpp_json_document: Milliseconds: " << time__cpp_json_document << std::endl;

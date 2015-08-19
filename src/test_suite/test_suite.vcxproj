@@ -158,6 +158,7 @@
   <ItemGroup>
     <ClInclude Include="..\cpp_json\cpp_json__parser.hpp" />
     <ClInclude Include="..\cpp_json\cpp_json__document.hpp" />
+    <ClInclude Include="..\cpp_json\cpp_json__parser__sse2.hpp" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
