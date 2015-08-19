@@ -120,10 +120,10 @@ namespace cpp_json { namespace parser
       string_type const token__value_preludes     ;
     };
 
-    template<typename TIter>
+    template<typename iter_type>
     struct find_special_char
     {
-      static constexpr TIter find (TIter begin, TIter end) 
+      static constexpr iter_type find (iter_type begin, iter_type /*end*/) noexcept
       {
         return begin;
       }

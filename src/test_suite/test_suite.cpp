@@ -1477,8 +1477,8 @@ namespace
 
         std::cout << "Processing: " << file_name << std::endl;
 
-        auto time__cpp_json_callback = time_it (count, [&json_wdocument] () { perf__parse_json_callback (json_wdocument); });
-        std::cout << "cpp_json_callback: Milliseconds: " << time__cpp_json_callback << std::endl;
+        //auto time__cpp_json_callback = time_it (count, [&json_wdocument] () { perf__parse_json_callback (json_wdocument); });
+        //std::cout << "cpp_json_callback: Milliseconds: " << time__cpp_json_callback << std::endl;
 
         auto time__cpp_json_document = time_it (count, [&json_wdocument] () { perf__parse_json_document (json_wdocument); });
         std::cout << "cpp_json_document: Milliseconds: " << time__cpp_json_document << std::endl;

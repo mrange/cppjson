@@ -30,4 +30,7 @@
 #include <utility>
 #include <tuple>
 
+#include <intrin.h>
+#include <emmintrin.h>
+
 // ----------------------------------------------------------------------------------------------

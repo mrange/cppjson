@@ -17,7 +17,7 @@
 #include "stdafx.h"
 
 #include "../cpp_json/cpp_json__parser.hpp"
-#include "../cpp_json/cpp_json__parser__sse2.hpp"
+// #include "../cpp_json/cpp_json__parser__sse2.hpp"
 
 namespace
 {
@@ -53,7 +53,7 @@ namespace
 
     // unexpected* methods are invoked when parser encountered an unexpected token
     //  Note: certain elements are considered optional so a call to an unexpected* method might not stop parsing
-    inline void unexpected_token (std::size_t pos, string_type const & /*token*/)
+    inline void unexpected_token (std::size_t /*pos*/, string_type const & /*token*/)
     {
       ++count;
     }
@@ -71,7 +71,7 @@ namespace
       ++count;
     }
     // Appends 8-bit or 16-bit chars to string (depending on char_type)
-    inline void push_chars (iter_type begin, iter_type end)
+    inline void push_chars (iter_type /*begin*/, iter_type /*end*/)
     {
       ++count;
     }
