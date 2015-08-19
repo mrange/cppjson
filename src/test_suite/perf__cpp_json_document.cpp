@@ -16,8 +16,6 @@
 
 #include "stdafx.h"
 
-#include "../cpp_json/cpp_json__parser.hpp"
-#include "../cpp_json/cpp_json__parser__sse2.hpp"
 #include "../cpp_json/cpp_json__document.hpp"
 
 void perf__parse_json_document (std::wstring const & json_document)
