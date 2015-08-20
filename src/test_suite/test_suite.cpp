@@ -1825,15 +1825,15 @@ int main (int argc, char const * * argvs)
       : 0
       ;
 
-#ifdef CPP_JSON__FILESYSTEM
-    generate_test_results (exe);
-    process_test_cases (exe);
-#endif
     manual_test_cases ();
     document_test_cases ();
 
-#ifndef DEBUG
+#ifdef CPP_JSON__FILESYSTEM
+    generate_test_results (exe);
+    process_test_cases (exe);
+# ifndef DEBUG
     performance_test_cases (exe, count);
+# endif
 #endif
 
     if (errors > 0)
