@@ -14,24 +14,16 @@
 // limitations under the License.
 // ----------------------------------------------------------------------------------------------
 
-#ifndef CPP_JSON__STDAFX_H
-#define CPP_JSON__STDAFX_H
+#include "stdafx.h"
 
-#include <algorithm>
-#include <cassert>
-#include <cstdint>
-#include <iostream>
-#include <iomanip>
-#include <limits>
-#include <locale>
-#include <memory>
-#include <string>
-#include <sstream>
-#include <vector>
-#include <utility>
-#include <tuple>
+#include "json/reader.h"
 
-#include <intrin.h>
-#include <emmintrin.h>
+void perf__jsoncpp_document (std::string const & json_document)
+{
+  Json::Value result;
 
-#endif  // CPP_JSON__STDAFX_H
+  Json::Reader reader;
+  auto presult = reader.parse (json_document, result, false);
+  assert (presult);
+
+}

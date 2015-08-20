@@ -14,6 +14,9 @@
 // limitations under the License.
 // ----------------------------------------------------------------------------------------------
 
+#ifndef CPP_JSON__PARSER_H
+#define CPP_JSON__PARSER_H
+
 #include <cassert>
 #include <cmath>
 
@@ -118,6 +121,7 @@ namespace cpp_json { namespace parser
       string_type const token__value_preludes     ;
     };
   }
+
   // TContext must fulfill the following contract
   //  struct some_json_context
   //  {
@@ -143,7 +147,7 @@ namespace cpp_json { namespace parser
   //    void push_char (char_type ch);
   //    // Appends an 16-bit char to string (allows encoding when char_type is char)
   //    void push_wchar_t (wchar_t ch);
-  //    // Gets cached string
+  //    // Gets cached string (return type is allowed to be 'string_type' and 'string_type const &')
   //    string_type const & get_string ();
   //
   //    // The following methods are invoked when JSON values are discovered
@@ -198,8 +202,8 @@ namespace cpp_json { namespace parser
     }
 
   private:
-    static details::json_tokens<string_type> tokens             ;
-    static details::json_pow10table          pow10table         ;
+    static details::json_tokens<string_type>  tokens            ;
+    static details::json_pow10table           pow10table        ;
 
     iter_type const begin                                       ;
     iter_type const end                                         ;
@@ -541,8 +545,18 @@ namespace cpp_json { namespace parser
         }
 
         auto c = ch ();
+        if (c > '\\')
+        {
+          context_type::push_char (c);
+          adv ();
+          continue;
+        }
+
         switch (c)
         {
+        default:
+          context_type::push_char (c);
+          break;
         case '"':
           return true;
         case '\n':
@@ -632,9 +646,6 @@ namespace cpp_json { namespace parser
             }
           }
           break;
-        default:
-          context_type::push_char (c);
-          break;
         }
         adv ();
       }
@@ -657,7 +668,7 @@ namespace cpp_json { namespace parser
         ;
     }
 
-    bool try_consume__delimiter (bool first)
+    inline bool try_consume__delimiter (bool first)
     {
       return first || (try_consume__char (',') && consume__white_space  ());
     }
@@ -812,7 +823,7 @@ namespace cpp_json { namespace parser
       }
     }
 
-    bool try_parse__eos ()
+    inline bool try_parse__eos ()
     {
       if (eos ())
       {
@@ -833,3 +844,5 @@ namespace cpp_json { namespace parser
   details::json_tokens<typename TContext::string_type> json_parser<TContext>::tokens;
 
 } }
+
+#endif  // CPP_JSON__PARSER_H
