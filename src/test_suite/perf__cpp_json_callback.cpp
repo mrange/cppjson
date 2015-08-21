@@ -139,7 +139,7 @@ namespace
 
 void perf__parse_json_callback (std::wstring const & json_document)
 {
-  auto json_begin     = json_document.c_str ();
+  auto json_begin     = json_document.data ();
   auto json_end       = json_begin + json_document.size ();
 
   cpp_json::parser::json_parser<nop_json_context> jp (json_begin, json_end);

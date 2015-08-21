@@ -973,7 +973,7 @@ namespace
       //  'pos' indicates the first non-consumed character (which may lay beyond the last character in the input string)
       static bool parse (doc_string_type const & json, std::size_t & pos, json_document::ptr & result)
       {
-        auto begin  = json.c_str ()       ;
+        auto begin  = json.data ()        ;
         auto end    = begin + json.size ();
         cpp_json::parser::json_parser<details::builder_json_context> jp (begin, end);
 
@@ -1360,7 +1360,7 @@ namespace
 
         auto json_document  = read_file<char> (json_file_path);
 
-        auto json_begin     = json_document.c_str ();
+        auto json_begin     = json_document.data ();
         auto json_end       = json_begin + json_document.size ();
 
         cpp_json::parser::json_parser<result_json_context> jp (json_begin, json_end);
