@@ -31,7 +31,4 @@
 #include <utility>
 #include <tuple>
 
-#include <intrin.h>
-#include <emmintrin.h>
-
 #endif  // CPP_JSON__STDAFX_H

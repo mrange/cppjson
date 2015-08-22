@@ -9,7 +9,7 @@ developers parse JSON documents without the overhead of DOM.
 For developers that don't mind DOM like parsing of JSON document a simple DOM is provided.
 
 cppjson is based on my work on [MiniJson](https://github.com/mrange/minijson) for F#
-(not to be confused with minijson for C++, I discovered minisjon for C++ after creating MiniJson for F#)
+(not to be confused with minijson_reader, I discovered minijson_reader after creating MiniJson for F#)
 cppjson uses MiniJson as a reference parser (MiniJson has a rather extensive test suite).
 
 Like MiniJson for F# cppjson wants to provide decent error messages, example:
@@ -28,23 +28,24 @@ void parse_json (std::wstring const & json)
 {
   using namespace cpp_json::document;
 
-  std::size_t       pos   ;
-  json_element::ptr result;
-  std::wstring      error ;
+  std::size_t         pos     ;
+  json_document::ptr  document;
+  std::wstring        error   ;
 
-  if (!parse (json_document, pos, result, error))
+  if (!json_parser::parse (json, pos, document))
   {
-    stdw::cout
+    std::wcout
       << L"FAILURE: Pos: " << pos << std::endl
       << error << std::endl
       ;
   }
   else
   {
-    auto sz = result->size ();
+    auto root = document->root ();
+    auto sz = root->size ();
     for (auto iter = 0U; iter < sz; ++iter)
     {
-      std::wcout << result->at (iter)->as_string () << std::endl;
+      std::wcout << root->at (iter)->as_string () << std::endl;
     }
   }
 }
@@ -124,5 +125,5 @@ void parse_json (std::wstring const & json)
 
 1. Improve error message test coverage
 1. Add test cases for memory allocation
-1. Add test cases for performance
+1. Add mutability to json_document
 1. Remove C++11 dependency

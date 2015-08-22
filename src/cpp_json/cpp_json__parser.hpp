@@ -21,11 +21,6 @@
 #include <cmath>
 
 #define CPP_JSON__ASSERT    assert
-#define CPP_JSON__NO_COPY_MOVE(name)          \
-  name              (name const &)  = delete; \
-  name              (name &&     )  = delete; \
-  name & operator=  (name const &)  = delete; \
-  name & operator=  (name &&     )  = delete;
 #define CPP_JSON__PICK(s)    json_string_literal<char_type>::pick (s, L##s)
 
 namespace cpp_json { namespace parser
@@ -131,9 +126,9 @@ namespace cpp_json { namespace parser
   //
   //    // expected* methods are invoked when parser expected a token but didn't find it
   //    //  Note: certain elements are considered optional so a call to an expected* method might not stop parsing
-  //    void expected_char    (std::size_t pos, char_type ch) noexcept
-  //    void expected_chars   (std::size_t pos, string_type const & chs) noexcept
-  //    void expected_token   (std::size_t pos, string_type const & token) noexcept
+  //    void expected_char    (std::size_t pos, char_type ch)
+  //    void expected_chars   (std::size_t pos, string_type const & chs)
+  //    void expected_token   (std::size_t pos, string_type const & token)
   //
   //    // unexpected* methods are invoked when parser encountered an unexpected token
   //    //  Note: certain elements are considered optional so a call to an unexpected* method might not stop parsing

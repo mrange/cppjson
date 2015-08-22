@@ -25,11 +25,18 @@
 #include <deque>
 #include <memory>
 #include <string>
+#include <type_traits>
 #include <vector>
 #include <utility>
 #include <tuple>
 
 #include "cpp_json__parser.hpp"
+
+#define CPP_JSON__NO_COPY_MOVE(name)          \
+  name              (name const &)  = delete; \
+  name              (name &&     )  = delete; \
+  name & operator=  (name const &)  = delete; \
+  name & operator=  (name &&     )  = delete;
 
 namespace cpp_json { namespace document
 {
@@ -41,6 +48,8 @@ namespace cpp_json { namespace document
   namespace details
   {
     constexpr auto default_size = 16U;
+    constexpr auto window_size  = 70U;
+    constexpr auto hwindow_size = window_size / 2;
 
     struct json_element__null   ;
     struct json_element__bool   ;
@@ -90,6 +99,7 @@ namespace cpp_json { namespace document
     // Returns the child with name (object)
     //  if not found returns an error DOM element
     virtual ptr               get       (doc_string_type const & name) const  = 0;
+
     // Returns all member names (object)
     //  May contain duplicates, is in order
     virtual doc_strings_type  names     () const                              = 0;
@@ -123,6 +133,7 @@ namespace cpp_json { namespace document
 
     // Gets the root element of the JSON document
     virtual json_element::ptr root () const     = 0;
+
     // Creates a string from a JSON document
     virtual doc_string_type to_string () const  = 0;
 
@@ -224,17 +235,19 @@ namespace cpp_json { namespace document
     {
       json_document__impl const * doc;
 
-      constexpr explicit json_element__base (json_document__impl const * doc)
+      inline explicit json_element__base (json_document__impl const * doc)
         : doc (doc)
       {
       }
 
       ptr error_element () const;
+
+      ptr null_element () const;
     };
 
     struct json_element__scalar : json_element__base
     {
-      constexpr explicit json_element__scalar (json_document__impl const * doc)
+      inline explicit json_element__scalar (json_document__impl const * doc)
         : json_element__base (doc)
       {
       }
@@ -271,7 +284,7 @@ namespace cpp_json { namespace document
 
     struct json_element__null : json_element__scalar
     {
-      constexpr explicit json_element__null (json_document__impl const * doc)
+      inline explicit json_element__null (json_document__impl const * doc)
         : json_element__scalar (doc)
       {
       }
@@ -303,7 +316,7 @@ namespace cpp_json { namespace document
     {
       bool const value;
 
-      constexpr explicit json_element__bool (json_document__impl const * doc, bool v)
+      inline explicit json_element__bool (json_document__impl const * doc, bool v)
         : json_element__scalar (doc)
         , value (v)
       {
@@ -339,7 +352,7 @@ namespace cpp_json { namespace document
     {
       double const value;
 
-      constexpr explicit json_element__number (json_document__impl const * doc, double v)
+      inline explicit json_element__number (json_document__impl const * doc, double v)
         : json_element__scalar (doc)
         , value (v)
       {
@@ -407,7 +420,7 @@ namespace cpp_json { namespace document
 
     struct json_element__container : json_element__base
     {
-      constexpr explicit json_element__container (json_document__impl const * doc)
+      inline explicit json_element__container (json_document__impl const * doc)
         : json_element__base (doc)
       {
       }
@@ -442,7 +455,7 @@ namespace cpp_json { namespace document
     {
       array_members members;
 
-      constexpr explicit json_element__array  (
+      inline explicit json_element__array  (
           json_document__impl const * doc
         , array_members &&            members
         )
@@ -488,7 +501,7 @@ namespace cpp_json { namespace document
     {
       object_members  members;
 
-      constexpr explicit json_element__object (
+      inline explicit json_element__object (
           json_document__impl const * doc
         , object_members &&           members
         )
@@ -545,7 +558,7 @@ namespace cpp_json { namespace document
 
     struct json_element__error : json_element__base
     {
-      constexpr explicit json_element__error (json_document__impl const * doc)
+      inline explicit json_element__error (json_document__impl const * doc)
         : json_element__base (doc)
       {
       }
@@ -749,7 +762,7 @@ namespace cpp_json { namespace document
 
       json_element::ptr                 root_value        ;
 
-      constexpr json_document__impl ()
+      json_document__impl ()
         : null_value  (this)
         , true_value  (this, true)
         , false_value (this, false)
@@ -808,7 +821,7 @@ namespace cpp_json { namespace document
 
       json_document__impl & document;
 
-      constexpr json_element_context (json_document__impl & doc)
+      inline json_element_context (json_document__impl & doc)
         : document (doc)
       {
       }
@@ -828,7 +841,7 @@ namespace cpp_json { namespace document
 
     struct json_element_context__root : json_element_context
     {
-      json_element_context__root (json_document__impl & doc)
+      inline json_element_context__root (json_document__impl & doc)
         : json_element_context (doc)
       {
       }
@@ -862,7 +875,7 @@ namespace cpp_json { namespace document
     {
       array_members values;
 
-      json_element_context__array (json_document__impl & doc)
+      inline json_element_context__array (json_document__impl & doc)
         : json_element_context (doc)
       {
       }
@@ -905,7 +918,7 @@ namespace cpp_json { namespace document
       doc_string_type key   ;
       object_members  values;
 
-      constexpr json_element_context__object (json_document__impl & doc)
+      inline json_element_context__object (json_document__impl & doc)
         : json_element_context (doc)
       {
       }
@@ -943,24 +956,76 @@ namespace cpp_json { namespace document
 
     };
 
+    // string_builder is used to build json strings as it has a slightly lower overhead than std::vector
+    //  (on VS2015 RTM). It gives a measureable benefit as JSON documents often has lot of string values
+    template<typename TChar>
+    struct string_builder
+    {
+      using char_type = TChar;
+
+      static_assert (std::is_pod<char_type>::value, "char_type must be POD type");
+
+      inline string_builder () noexcept
+        : cap (default_size)
+        , sz  (0)
+        , str (static_cast<char_type *> (std::malloc (cap * sizeof (char_type))))
+      {
+        CPP_JSON__ASSERT (str);
+      }
+
+      CPP_JSON__NO_COPY_MOVE (string_builder);
+
+      inline ~string_builder () noexcept
+      {
+        free (str);
+      }
+
+      inline void clear () noexcept
+      {
+        sz = 0;
+      }
+
+      inline void push_back (char_type ch) noexcept
+      {
+        if (sz >= cap)
+        {
+          cap <<= 1;
+          str = static_cast<char_type *> (std::realloc (str, cap * sizeof (char_type)));
+          CPP_JSON__ASSERT (str);
+          CPP_JSON__ASSERT (sz < cap);
+        }
+        str[sz] = ch;
+        ++sz;
+      }
+
+      inline std::basic_string<char_type> create_string () const
+      {
+        return std::basic_string<char_type> (str, sz);
+      }
+
+    private:
+      std::size_t cap ;
+      std::size_t sz  ;
+      char_type * str ;
+    };
+
     struct builder_json_context
     {
-      using string_type     = doc_string_type ;
-      using char_type       = doc_char_type   ;
-      using iter_type       = doc_iter_type   ;
+      using string_type       = doc_string_type ;
+      using char_type         = doc_char_type   ;
+      using iter_type         = doc_iter_type   ;
 
-      json_document__impl::tptr document      ;
+      json_document__impl::tptr document        ;
 
-      std::vector<char_type>  current_string  ;
+      string_builder<char_type> current_string  ;
 
-      json_element_contexts   element_context ;
-      json_element_contexts   array_contexts  ;
-      json_element_contexts   object_contexts ;
+      json_element_contexts     element_context ;
+      json_element_contexts     array_contexts  ;
+      json_element_contexts     object_contexts ;
 
       inline builder_json_context ()
         : document (std::make_shared<json_document__impl> ())
       {
-        current_string.reserve  (default_size);
         element_context.reserve (default_size);
         element_context.reserve (default_size);
         element_context.reserve (default_size);
@@ -1000,9 +1065,9 @@ namespace cpp_json { namespace document
         current_string.push_back (ch);
       }
 
-      inline string_type get_string () noexcept
+      inline string_type get_string ()
       {
-        return string_type (current_string.begin (), current_string.end ());
+        return current_string.create_string ();
       }
 
       inline bool pop ()
@@ -1251,6 +1316,11 @@ namespace cpp_json { namespace document
     {
       return & doc->error_value;
     }
+
+    inline json_element::ptr json_element__base::null_element () const
+    {
+      return & doc->null_value;
+    }
   }
 
   struct json_parser
@@ -1331,8 +1401,14 @@ namespace cpp_json { namespace document
         msg += L"Failed to parse input as JSON";
 
         newline ();
-        for (auto && c : json)  // TODO: Add json window
+
+        auto left   = pos < details::hwindow_size ? 0U : pos - details::hwindow_size;
+        auto right  = std::min (json.size (), left + details::window_size);
+        auto apos   = pos - left;
+
+        for (auto iter = left; iter < right; ++iter)
         {
+          auto c = json[iter];
           if (c < ' ')
           {
             msg += ' ';
@@ -1344,7 +1420,7 @@ namespace cpp_json { namespace document
         }
 
         newline ();
-        for (auto iter = 0U; iter < pos; ++iter)
+        for (auto iter = 0U; iter < apos; ++iter)
         {
           msg += L'-';
         }
